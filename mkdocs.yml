@@ -1,0 +1,127 @@
+# Project information
+site_name: ICS294 - Econometría
+site_url: https://github.com/fralfaro/ICS294
+site_author: Francisco Alfaro
+
+# Repository
+repo_name: fralfaro/ICS294
+repo_url: https://github.com/fralfaro/ICS294
+edit_uri: ''
+
+# Markdown extensions
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - neoteroi.cards
+  - neoteroi.timeline
+  - neoteroi.projects
+  - admonition
+  - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_css:
+  - css/neoteroi-mkdocs.css
+
+# Theme
+theme:
+  name: material
+  language: es
+  logo: images/usm.png
+  favicon: images/usm.png
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: black
+    accent: amber
+    toggle:
+      icon: material/lightbulb
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    primary: black
+    accent: amber
+    toggle:
+      icon: material/lightbulb-outline
+      name: Switch to light mode
+  features:
+  - search.suggest
+  - search.highlight
+  - content.tabs.link
+  - navigation.indexes
+  - content.tooltips
+  - navigation.path
+  - content.code.annotate
+  - content.code.copy
+  - content.code.select
+  - navigation.tabs
+  - navigation.footer
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/fralfaro
+    - icon: fontawesome/brands/gitlab
+      link: https://gitlab.com/fralfaro
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/faam/
+    - icon: fontawesome/brands/kaggle
+      link: https://www.kaggle.com/faamds
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@fralfaro
+    - icon: fontawesome/solid/globe
+      link: https://fralfaro.github.io/portfolio/
+
+# Plugins
+plugins:
+  - mkdocs-jupyter:
+      kernel_name: python3
+  - search
+
+# Extra javascript
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+
+#TOC
+nav:
+    - 🏠 Home:
+        - index.md
+    - 📊 Fundamentos:
+        - lectures/season_01/week1.md
+        - lectures/season_01/week2.md
+        - lectures/season_01/week3.md
+        - lectures/season_01/week4.md
+        - lectures/season_01/week5.md
+        - lectures/season_01/week6.md
+        - lectures/season_01/week7.md
+    - 📈 Regresión:
+        - lectures/season_02/week8.md
+        - lectures/season_02/week9.md
+        - lectures/season_02/week10.md
+        - lectures/season_02/week11.md
+        - lectures/season_02/week12.md
+        - lectures/season_02/week13.md
+        - lectures/season_02/week14.md
+    - 📅 Regresión:
+        - lectures/season_03/week15.md
+        - lectures/season_03/week16.md
+        - lectures/season_03/week17.md
+        - lectures/season_03/week18.md
+        - lectures/season_03/week19.md
+        - lectures/season_03/week20.md
+        - lectures/season_03/week21.md
+    - ✅ Evaluations:
+        - evaluation.md
+        - Control:
+            - Control 01: evaluations/quizzes/q1.md
+            - Control 02: evaluations/quizzes/q2.md
+            - Control 03: evaluations/quizzes/q3.md
+        - Talleres:
+            - Taller 01: evaluations/workshops/w1.md
+            - Taller 02: evaluations/workshops/w2.md
+        - Proyecto:
+            - evaluations/projects/p1.md
