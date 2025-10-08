@@ -60,8 +60,10 @@ Al finalizar el curso, el estudiante será capaz de:
 | Talleres de ayudantía (TA)      | 10 % |
 
 **Nota final (NF):**  
-`NF = 0.15*(C1 + C2 + C3) + 0.10*CA + 0.10*TP + 0.25*TC + 0.10*TA`  
-Se aprueba con **NF ≥ 55**.
+
+$$NF = 0.15*(C1 + C2 + C3) + 0.10*CA + 0.10*TP + 0.25*TC + 0.10*TA$$
+
+> Se aprueba con **NF ≥ 55**.
 
 
 ## 📖 Bibliografía
