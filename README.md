@@ -1,37 +1,38 @@
-# MAT-031 — Estadística
+# ICS-294 — Econometría
 
-![example workflow](https://github.com/fralfaro/MAT031/actions/workflows/documentation.yml/badge.svg)
-[![documentation](https://img.shields.io/badge/📖-docs-brightgreen)](https://seth-nut.github.io/MAT031/)
-[![link](https://img.shields.io/badge/🌐-link-brightgreen)](https://sites.google.com/view/veranomatematico2025usm-uchile/informaci%C3%B3n-general?authuser=0)
-
+![example workflow](https://github.com/fralfaro/ICS294/actions/workflows/documentation.yml/badge.svg)
+[![documentation](https://img.shields.io/badge/📖-docs-brightgreen)](https://fralfaro.github.io/ICS294/)
 
 
-Este repositorio contiene material de apoyo para la asignatura **Estadística (MAT-031)** de la Universidad Técnica Federico Santa María, correspondiente al eje de **Ciencias Básicas de la Ingeniería**.
+Este repositorio contiene material de apoyo para la asignatura **Econometría (ICS-294)** de la Universidad Técnica Federico Santa María, correspondiente al eje de **Ingeniería Aplicada**.
 
 ## Descripción
-Asignatura teórico-práctica de carácter fundamental orientada al análisis de datos, teoría de probabilidad e inferencia estadística, con énfasis en aplicaciones de ingeniería y uso de herramientas computacionales.
+Asignatura teórico-práctica orientada a la aplicación de métodos estadísticos y econométricos para el análisis, modelamiento y evaluación de fenómenos económicos y sociales. El curso enfatiza el uso de modelos de regresión, análisis de datos reales y la correcta interpretación de resultados obtenidos mediante software especializado, incorporando criterios de inferencia, diagnóstico y validación de modelos.
 
 ## Prerrequisitos
-- MAT-023 o MAT-013
+- MAT-041 o MAT-031
 
 ## Contenidos
-- Estadística descriptiva  
-- Teoría de probabilidades  
-- Variables aleatorias  
-- Distribuciones de probabilidad  
-- Estimación de parámetros  
-- Intervalos de confianza  
-- Test de hipótesis  
+- Muestreo y análisis exploratorio de datos  
+- Naturaleza de la econometría y tipos de datos económicos  
+- Modelo de regresión lineal simple  
+- Modelo de regresión lineal múltiple  
+- Variables dummy y variables cualitativas  
+- Heterocedasticidad  
+- Regresión con datos de series de tiempo  
+- Introducción a econometría espacial  
+- Introducción al análisis multivariado  
 
 ## Metodología
-- Clases expositivas  
-- Aprendizaje colaborativo  
-- Aprendizaje basado en problemas  
+- Clases expositivas con apoyo computacional  
+- Talleres prácticos y análisis de casos reales  
+- Trabajo aplicado en equipo  
+- Uso de software estadístico para modelamiento econométrico  
 
 ## Evaluación
-- Certámenes: 80%  
-- Controles: 10%  
-- Tareas: 10%  
+- Certámenes: 45%  
+- Talleres en clases y ayudantía: 35%  
+- Controles y trabajo práctico: 20%  
 
 ## Bibliografía principal
-- Devore, J. *Probabilidad y Estadística para Ingeniería y Ciencias*. Cengage Learning
+- Wooldridge, J. M. *Introductory Econometrics: A Modern Approach*. Cengage Learning

@@ -14,7 +14,7 @@ format:
 ```{=html}
 <div class="nt-cards nt-grid cols-3">
 
-  <a class="nt-card" href="material/modulo_01/regresion.qmd">
+  <a class="nt-card" href="material/modulo_01/s2.qmd">
     <div class="nt-card-image">
       <img src="images/regression.png" alt="Modelos de regresión">
     </div>
@@ -26,7 +26,7 @@ format:
     </div>
   </a>
 
-  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
+  <a class="nt-card" href="material/modulo_02/s9.qmd">
     <div class="nt-card-image">
       <img src="images/statistics.png" alt="Inferencia en regresión">
     </div>
@@ -38,7 +38,7 @@ format:
     </div>
   </a>
 
-  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
+  <a class="nt-card" href="material/modulo_03/s15.qmd">
     <div class="nt-card-image">
       <img src="images/advanced.png" alt="Inferencia estadística">
     </div>
