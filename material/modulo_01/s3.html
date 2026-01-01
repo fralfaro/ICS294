@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Francisco Alfaro &amp; Jocelyn Tapia">
 
-<title>ICS294 - Econometría</title>
+<title>Causalidad – ICS294 - Econometría</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,30 +23,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./material/modulo_01/s1.html" rel="next">
-<link href="./images/icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../material/modulo_01/s4.html" rel="next">
+<link href="../../material/modulo_01/s2.html" rel="prev">
+<link href="../../images/icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,8 +76,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="css/neoteroi.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -251,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_01/s2.html">Fundamentos Estadísticos</a></li><li class="breadcrumb-item"><a href="../../material/modulo_01/s3.html"><span class="chapter-title">Causalidad</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -265,12 +293,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ICS294 - Econometría</a> 
+      <a href="../../">ICS294 - Econometría</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/fralfaro/ICS294" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
@@ -286,12 +314,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Home</span></a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  <a href="../../material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -305,37 +333,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
+  <a href="../../material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
+  <a href="../../material/modulo_01/s3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Causalidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
+  <a href="../../material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
+  <a href="../../material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
+  <a href="../../material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
       </ul>
@@ -351,32 +379,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
+  <a href="../../material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
+  <a href="../../material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
+  <a href="../../material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
+  <a href="../../material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
   </div>
 </li>
       </ul>
@@ -392,37 +420,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
+  <a href="../../material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
+  <a href="../../material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
+  <a href="../../material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
+  <a href="../../material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
+  <a href="../../material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
+  <a href="../../material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
+  <a href="../../material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
   </div>
 </li>
       </ul>
@@ -432,33 +460,41 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#esperanza-condicional-versus-causalidad" id="toc-esperanza-condicional-versus-causalidad" class="nav-link active" data-scroll-target="#esperanza-condicional-versus-causalidad">Esperanza condicional versus causalidad</a></li>
+  <li><a href="#contrafactual" id="toc-contrafactual" class="nav-link" data-scroll-target="#contrafactual">Contrafactual</a></li>
+  <li><a href="#el-marco-teórico-de-rubin" id="toc-el-marco-teórico-de-rubin" class="nav-link" data-scroll-target="#el-marco-teórico-de-rubin">El marco teórico de Rubin</a></li>
+  <li><a href="#modelo-de-outcomes-potenciales-rubin" id="toc-modelo-de-outcomes-potenciales-rubin" class="nav-link" data-scroll-target="#modelo-de-outcomes-potenciales-rubin">Modelo de outcomes potenciales (Rubin)</a></li>
+  <li><a href="#ate-y-att" id="toc-ate-y-att" class="nav-link" data-scroll-target="#ate-y-att">ATE y ATT</a></li>
+  <li><a href="#observado-y-no-observado-un-ejemplo" id="toc-observado-y-no-observado-un-ejemplo" class="nav-link" data-scroll-target="#observado-y-no-observado-un-ejemplo">Observado y no observado: un ejemplo</a></li>
+  <li><a href="#usar-datos-observacionales-para-inferir-el-ate" id="toc-usar-datos-observacionales-para-inferir-el-ate" class="nav-link" data-scroll-target="#usar-datos-observacionales-para-inferir-el-ate">Usar datos observacionales para inferir el ATE</a></li>
+  <li><a href="#att-y-sesgo-de-selección" id="toc-att-y-sesgo-de-selección" class="nav-link" data-scroll-target="#att-y-sesgo-de-selección">ATT y sesgo de selección</a></li>
+  <li><a href="#ejemplo-de-sesgo-de-selección" id="toc-ejemplo-de-sesgo-de-selección" class="nav-link" data-scroll-target="#ejemplo-de-sesgo-de-selección">Ejemplo de sesgo de selección</a></li>
+  <li><a href="#descomposición-de-beta_1" id="toc-descomposición-de-beta_1" class="nav-link" data-scroll-target="#descomposición-de-beta_1">Descomposición de <span class="math inline">\(\beta_1\)</span></a></li>
+  <li><a href="#sesgo-de-selección" id="toc-sesgo-de-selección" class="nav-link" data-scroll-target="#sesgo-de-selección">Sesgo de selección</a></li>
+  <li><a href="#ejemplo-alarmas-para-casas" id="toc-ejemplo-alarmas-para-casas" class="nav-link" data-scroll-target="#ejemplo-alarmas-para-casas">Ejemplo: alarmas para casas</a></li>
+  <li><a href="#aleatorización" id="toc-aleatorización" class="nav-link" data-scroll-target="#aleatorización">Aleatorización</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_01/s2.html">Fundamentos Estadísticos</a></li><li class="breadcrumb-item"><a href="../../material/modulo_01/s3.html"><span class="chapter-title">Causalidad</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ICS294 - Econometría</h1>
+<h1 class="title"><span class="chapter-title">Causalidad</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Francisco Alfaro &amp; Jocelyn Tapia </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 de marzo de 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -468,54 +504,243 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenidos-a-ics294" class="level1">
-<h1>Bienvenidos a ICS294!</h1>
-<section id="contenidos-del-curso" class="level2">
-<h2 class="anchored" data-anchor-id="contenidos-del-curso">Contenidos del Curso</h2>
-<div class="nt-cards nt-grid cols-3">
-
-  <a class="nt-card" href="material/modulo_01/regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/regression.png" alt="Modelos de regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Modelos de Regresión</h3>
-      <p>
-        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/statistics.png" alt="Inferencia en regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Inferencia Estadística</h3>
-      <p>
-        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
-    <div class="nt-card-image">
-      <img src="images/advanced.png" alt="Inferencia estadística">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Aplicaciones Avanzadas</h3>
-      <p>
-       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
-      </p>
-    </div>
-  </a>
-
-</div>
-
-
-
-
+<section id="esperanza-condicional-versus-causalidad" class="level2">
+<h2 class="anchored" data-anchor-id="esperanza-condicional-versus-causalidad">Esperanza condicional versus causalidad</h2>
+<p>Hasta ahora, hemos visto cómo funciona el modelo de regresión lineal, el cual nos entrega la <strong>esperanza condicional</strong> de una variable dada otra.</p>
+<p>Esto nos permite describir muchas realidades empíricas. Por ejemplo:</p>
+<ul>
+<li>¿Las personas con más educación reciben sueldos mayores?</li>
+<li>¿Estudiar Economía está asociado con un mayor sueldo?</li>
+</ul>
+<p>Sin embargo, surge una pregunta central: ¿las relaciones que estimamos son <strong>causales</strong>?</p>
+<ul>
+<li>¿Es la educación la que aumenta el salario, o simplemente observamos que las personas que se educan más tienen mayores salarios por otros motivos?</li>
+<li>Para responder este tipo de preguntas, construiremos un <strong>marco analítico para pensar la causalidad</strong>.</li>
+</ul>
 </section>
+<section id="contrafactual" class="level2">
+<h2 class="anchored" data-anchor-id="contrafactual">Contrafactual</h2>
+<p>Para pensar en causalidad, necesitamos imaginar un <strong>mundo contrafactual</strong>.</p>
+<p>Por ejemplo:<br>
+¿qué pasaría si pudiéramos observar a las personas que fueron a la universidad en un mundo alternativo en el que no hubieran ido?</p>
+<p>Aquí aparece el problema fundamental de la inferencia causal:</p>
+<ul>
+<li>No podemos calcular directamente el impacto causal de un tratamiento para un individuo <span class="math inline">\(i\)</span>, porque <strong>no podemos observar al mismo individuo en los dos estados</strong> (con y sin tratamiento).</li>
+</ul>
+<p><strong>Definición de contrafactual:</strong><br>
+El resultado que los mismos participantes de un programa hubieran obtenido en el caso hipotético de no haber participado.</p>
+</section>
+<section id="el-marco-teórico-de-rubin" class="level2">
+<h2 class="anchored" data-anchor-id="el-marco-teórico-de-rubin">El marco teórico de Rubin</h2>
+<p>Estamos interesados en medir el impacto de un <strong>tratamiento</strong>, que es una variable binaria (recibirlo o no), sobre una variable de resultado <span class="math inline">\(y\)</span>.</p>
+<p>Algunos ejemplos de tratamiento son:</p>
+<ul>
+<li>Un subsidio del gobierno<br>
+</li>
+<li>Participar en un programa específico<br>
+</li>
+<li>Recibir una beca universitaria<br>
+</li>
+<li>Recibir una vacuna</li>
+</ul>
+<p>Definimos dos grupos:</p>
+<ul>
+<li><strong>Tratados (T)</strong><br>
+</li>
+<li><strong>No tratados o grupo de control (NT)</strong></li>
+</ul>
+</section>
+<section id="modelo-de-outcomes-potenciales-rubin" class="level2">
+<h2 class="anchored" data-anchor-id="modelo-de-outcomes-potenciales-rubin">Modelo de outcomes potenciales (Rubin)</h2>
+<p>Queremos conocer el impacto causal del tratamiento <span class="math inline">\(T\)</span> sobre una variable <span class="math inline">\(Y\)</span>.</p>
+<p>Definimos:</p>
+<ul>
+<li><span class="math inline">\(Y_i\)</span>: outcome observado del individuo <span class="math inline">\(i\)</span><br>
+</li>
+<li><span class="math inline">\(T_i\)</span>: variable binaria que vale 1 si el individuo fue tratado y 0 si no<br>
+</li>
+<li><span class="math inline">\(Y_i^T\)</span>: outcome potencial del individuo si recibe el tratamiento<br>
+</li>
+<li><span class="math inline">\(Y_i^{NT}\)</span>: outcome potencial del individuo si <strong>no</strong> recibe el tratamiento</li>
+</ul>
+<p>El impacto causal individual del tratamiento sería:</p>
+<p><span class="math display">\[
+Y_i^T - Y_i^{NT}
+\]</span></p>
+<p>¿Podemos observar este efecto?<br>
+<strong>No</strong>, porque nunca observamos ambos outcomes al mismo tiempo para un mismo individuo.</p>
+</section>
+<section id="ate-y-att" class="level2">
+<h2 class="anchored" data-anchor-id="ate-y-att">ATE y ATT</h2>
+<p>El <strong>impacto promedio causal</strong> (Average Treatment Effect, ATE) se define como:</p>
+<p><span class="math display">\[
+ATE = E\left[Y_i^T - Y_i^{NT}\right]
+\]</span></p>
+<p>Este efecto no es observable, ya que cada individuo solo se observa en uno de los dos estados.</p>
+<p>El <strong>impacto promedio causal sobre los tratados</strong> (Average Treatment Effect on the Treated, ATT) es:</p>
+<p><span class="math display">\[
+ATT = E\left[Y_i^T - Y_i^{NT} \mid T_i = 1\right]
+\]</span></p>
+<p>Tampoco es observable, porque <span class="math inline">\(E\left[Y_i^{NT} \mid T_i = 1\right]\)</span> no se puede observar directamente.</p>
+</section>
+<section id="observado-y-no-observado-un-ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="observado-y-no-observado-un-ejemplo">Observado y no observado: un ejemplo</h2>
+<p>En los datos observamos lo siguiente:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Persona</th>
+<th style="text-align: right;"><span class="math inline">\(T_i\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Y_i\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Y_i^{NT}\)</span></th>
+<th style="text-align: right;"><span class="math inline">\(Y_i^{T}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sofía</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">??</td>
+<td style="text-align: right;">100</td>
+</tr>
+<tr class="even">
+<td>Paula</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">??</td>
+</tr>
+<tr class="odd">
+<td>Ezequiel</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">??</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td>Juan</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">??</td>
+</tr>
+<tr class="odd">
+<td>Caro</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">??</td>
+<td style="text-align: right;">60</td>
+</tr>
+</tbody>
+</table>
+<p>El efecto causal promedio sería:</p>
+<p><span class="math display">\[
+ATE = E\left[Y_i^T - Y_i^{NT}\right]
+\]</span></p>
+<p>Este efecto es <strong>no observable</strong>.<br>
+Por ejemplo, no podemos saber cuál habría sido <span class="math inline">\(Y_i^{NT}\)</span> para Caro si no hubiese recibido el tratamiento.</p>
+<p>Al menos nos gustaría identificar el efecto causal para los tratados:</p>
+<p><span class="math display">\[
+ATT = E\left[Y_i^T - Y_i^{NT} \mid T_i = 1\right]
+\]</span></p>
+<p>Pero este también es inobservable.</p>
+</section>
+<section id="usar-datos-observacionales-para-inferir-el-ate" class="level2">
+<h2 class="anchored" data-anchor-id="usar-datos-observacionales-para-inferir-el-ate">Usar datos observacionales para inferir el ATE</h2>
+<p>No podemos estimar directamente el ATE ni el ATT.</p>
+<p>En su lugar, usamos los datos que sí observamos para aproximar el efecto del tratamiento, bajo ciertos <strong>supuestos</strong>.</p>
+<p>Como no podemos comparar a las mismas personas en mundos alternativos, la clave está en encontrar un <strong>grupo de comparación</strong> (contrafactual) que sea similar al grupo tratado en ausencia del tratamiento.</p>
+</section>
+<section id="att-y-sesgo-de-selección" class="level2">
+<h2 class="anchored" data-anchor-id="att-y-sesgo-de-selección">ATT y sesgo de selección</h2>
+<p>Supongamos que queremos calcular el efecto de ir a la universidad (<span class="math inline">\(T\)</span>) sobre el salario (<span class="math inline">\(y\)</span>).</p>
+<p>Una idea natural es comparar el salario promedio entre quienes fueron a la universidad y quienes no:</p>
+<p><span class="math display">\[
+\beta_1 = E\left[Y_i \mid T_i = 1\right] - E\left[Y_i \mid T_i = 0\right]
+\]</span></p>
+<p>¿Esto corresponde al ATE o al ATT?</p>
+<p>En general, <strong>no</strong>.<br>
+En contextos no experimentales, las personas eligen participar en el tratamiento y, por tanto, difieren sistemáticamente del grupo de control.</p>
+</section>
+<section id="ejemplo-de-sesgo-de-selección" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-de-sesgo-de-selección">Ejemplo de sesgo de selección</h2>
+<p>La decisión de asistir a la universidad es voluntaria y puede estar influenciada por:</p>
+<ul>
+<li>Intereses personales<br>
+</li>
+<li>Recursos económicos<br>
+</li>
+<li>Oportunidades previas</li>
+</ul>
+<p>Por esta razón, quienes no cursaron estudios universitarios pueden diferir en muchas dimensiones de quienes sí lo hicieron. Compararlos directamente puede no ser adecuado, ya que no constituyen un buen contrafactual.</p>
+</section>
+<section id="descomposición-de-beta_1" class="level2">
+<h2 class="anchored" data-anchor-id="descomposición-de-beta_1">Descomposición de <span class="math inline">\(\beta_1\)</span></h2>
+<p>Partimos de:</p>
+<p><span class="math display">\[
+\beta_1 = E\left(Y_i \mid T_i = 1\right) - E\left(Y_i \mid T_i = 0\right)
+\]</span></p>
+<p>Que es equivalente a:</p>
+<p><span class="math display">\[
+\beta_1 = E\left(Y_i^T \mid T_i = 1\right) - E\left(Y_i^{NT} \mid T_i = 0\right)
+\]</span></p>
+<p>Sumando y restando <span class="math inline">\(E\left[Y_i^{NT} \mid T_i = 1\right]\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\beta_1 =\;&amp; E\left(Y_i^T - Y_i^{NT} \mid T_i = 1\right) \\
+&amp;+ E\left(Y_i^{NT} \mid T_i = 1\right) - E\left(Y_i^{NT} \mid T_i = 0\right)
+\end{aligned}
+\]</span></p>
+<ul>
+<li>El <strong>primer término</strong> es el <strong>ATT</strong>, el efecto causal que nos interesa.</li>
+<li>El <strong>segundo término</strong> corresponde al <strong>sesgo de selección</strong>.</li>
+</ul>
+</section>
+<section id="sesgo-de-selección" class="level2">
+<h2 class="anchored" data-anchor-id="sesgo-de-selección">Sesgo de selección</h2>
+<p>El sesgo de selección surge porque el grupo tratado ya era distinto del grupo de control antes del tratamiento.</p>
+<p>Intuitivamente:</p>
+<ul>
+<li>Incluso en un mundo sin tratamiento, el grupo tratado habría tenido un outcome distinto porque tenía características diferentes.</li>
+</ul>
+<p>Hay sesgo de selección cuando, aun sin intervención, los resultados promedio de tratados y no tratados son distintos.</p>
+</section>
+<section id="ejemplo-alarmas-para-casas" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-alarmas-para-casas">Ejemplo: alarmas para casas</h2>
+<p>Queremos saber si instalar una alarma reduce los robos.</p>
+<p>Problemas:</p>
+<ul>
+<li>Cada familia decide voluntariamente si instalar una alarma.</li>
+<li>Quienes instalan alarmas pueden vivir en zonas más peligrosas o tener mayor preocupación por la seguridad.</li>
+</ul>
+<p>Si comparamos robos entre casas con y sin alarmas:</p>
+<ul>
+<li>¿Obtendremos el efecto causal?</li>
+<li>¿O estaremos capturando sesgo de selección?</li>
+</ul>
+</section>
+<section id="aleatorización" class="level2">
+<h2 class="anchored" data-anchor-id="aleatorización">Aleatorización</h2>
+<p>¿Qué supuesto elimina el sesgo de selección?</p>
+<p>El supuesto clave es que los <strong>outcomes potenciales sean independientes del tratamiento</strong>.</p>
+<p>La <strong>aleatorización</strong> (experimentos controlados aleatorios, RCT) resuelve este problema:</p>
+<ul>
+<li>Se asigna aleatoriamente quién recibe el tratamiento y quién no.</li>
+<li>En promedio, ambos grupos son iguales en ausencia del tratamiento.</li>
+</ul>
+<p>Formalmente:</p>
+<p><span class="math display">\[
+E\left(Y_i^{NT} \mid T\right) = E\left(Y_i^{NT} \mid NT\right)
+\]</span></p>
+<p>En este caso:</p>
+<p><span class="math display">\[
+\beta = ATE = ATT
+\]</span></p>
+<p>Y obtenemos el efecto causal verdadero.</p>
+<p>Este enfoque es ampliamente usado en medicina (drogas y vacunas) y cada vez más en ciencias sociales, políticas públicas y el ámbito empresarial.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -932,12 +1157,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../material/modulo_01/s2.html" class="pagination-link" aria-label="Regresión lineal simple">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Regresión lineal simple</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./material/modulo_01/s1.html" class="pagination-link" aria-label="Introducción">
-        <span class="nav-page-text"><span class="chapter-title">Introducción</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../material/modulo_01/s4.html" class="pagination-link" aria-label="Variables omitidas">
+        <span class="nav-page-text"><span class="chapter-title">Variables omitidas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Francisco Alfaro &amp; Jocelyn Tapia">
 
-<title>ICS294 - Econometría</title>
+<title>Raíces Unitarias y Tendencias – ICS294 - Econometría</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,30 +23,30 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./material/modulo_01/s1.html" rel="next">
-<link href="./images/icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../material/modulo_03/s20.html" rel="prev">
+<link href="../../images/icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,8 +75,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="css/neoteroi.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -251,7 +278,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_03/s15.html">Aplicaciones Avanzadas</a></li><li class="breadcrumb-item"><a href="../../material/modulo_03/s21.html"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -265,12 +292,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ICS294 - Econometría</a> 
+      <a href="../../">ICS294 - Econometría</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/fralfaro/ICS294" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
@@ -286,12 +313,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Home</span></a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  <a href="../../material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -305,37 +332,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
+  <a href="../../material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
+  <a href="../../material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
+  <a href="../../material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
+  <a href="../../material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
+  <a href="../../material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
       </ul>
@@ -351,32 +378,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
+  <a href="../../material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
+  <a href="../../material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
+  <a href="../../material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
+  <a href="../../material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
   </div>
 </li>
       </ul>
@@ -392,37 +419,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
+  <a href="../../material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
+  <a href="../../material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
+  <a href="../../material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
+  <a href="../../material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
+  <a href="../../material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
+  <a href="../../material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
+  <a href="../../material/modulo_03/s21.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
   </div>
 </li>
       </ul>
@@ -432,33 +459,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#caminata-aleatoria-random-walk" id="toc-caminata-aleatoria-random-walk" class="nav-link active" data-scroll-target="#caminata-aleatoria-random-walk">Caminata Aleatoria (Random Walk)</a></li>
+  <li><a href="#el-riesgo-de-la-regresión-espuria" id="toc-el-riesgo-de-la-regresión-espuria" class="nav-link" data-scroll-target="#el-riesgo-de-la-regresión-espuria">El Riesgo de la Regresión Espuria</a></li>
+  <li><a href="#solución-diferenciación" id="toc-solución-diferenciación" class="nav-link" data-scroll-target="#solución-diferenciación">Solución: Diferenciación</a></li>
+  <li><a href="#tendencias-determinísticas" id="toc-tendencias-determinísticas" class="nav-link" data-scroll-target="#tendencias-determinísticas">Tendencias Determinísticas</a></li>
+  <li><a href="#cómo-saber-si-hay-raíz-unitaria-test-de-dickey-fuller" id="toc-cómo-saber-si-hay-raíz-unitaria-test-de-dickey-fuller" class="nav-link" data-scroll-target="#cómo-saber-si-hay-raíz-unitaria-test-de-dickey-fuller">¿Cómo saber si hay Raíz Unitaria? Test de Dickey-Fuller</a></li>
+  <li><a href="#caso-de-estudio-pib-chileno" id="toc-caso-de-estudio-pib-chileno" class="nav-link" data-scroll-target="#caso-de-estudio-pib-chileno">Caso de Estudio: PIB Chileno</a></li>
+  <li><a href="#resumen-de-pasos-a-seguir" id="toc-resumen-de-pasos-a-seguir" class="nav-link" data-scroll-target="#resumen-de-pasos-a-seguir">Resumen de Pasos a Seguir</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_03/s15.html">Aplicaciones Avanzadas</a></li><li class="breadcrumb-item"><a href="../../material/modulo_03/s21.html"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ICS294 - Econometría</h1>
+<h1 class="title"><span class="chapter-title">Raíces Unitarias y Tendencias</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Francisco Alfaro &amp; Jocelyn Tapia </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 de marzo de 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -468,54 +497,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenidos-a-ics294" class="level1">
-<h1>Bienvenidos a ICS294!</h1>
-<section id="contenidos-del-curso" class="level2">
-<h2 class="anchored" data-anchor-id="contenidos-del-curso">Contenidos del Curso</h2>
-<div class="nt-cards nt-grid cols-3">
-
-  <a class="nt-card" href="material/modulo_01/regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/regression.png" alt="Modelos de regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Modelos de Regresión</h3>
-      <p>
-        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/statistics.png" alt="Inferencia en regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Inferencia Estadística</h3>
-      <p>
-        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
-    <div class="nt-card-image">
-      <img src="images/advanced.png" alt="Inferencia estadística">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Aplicaciones Avanzadas</h3>
-      <p>
-       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
-      </p>
-    </div>
-  </a>
-
-</div>
-
-
-
-
+<section id="caminata-aleatoria-random-walk" class="level2">
+<h2 class="anchored" data-anchor-id="caminata-aleatoria-random-walk">Caminata Aleatoria (Random Walk)</h2>
+<p>Muchas variables económicas presentan <strong>persistencia</strong>: su valor hoy depende fuertemente de su valor ayer.</p>
+<p><span class="math display">\[y_t = \rho y_{t-1} + \epsilon_t\]</span></p>
+<ul>
+<li><strong>Si <span class="math inline">\(|\rho| &lt; 1\)</span>:</strong> El proceso es <strong>estacionario</strong>. MCO funciona correctamente.</li>
+<li><strong>Si <span class="math inline">\(\rho = 1\)</span>:</strong> Es una <strong>Caminata Aleatoria</strong> (proceso con raíz unitaria).
+<ul>
+<li>Es un proceso <strong>no estacionario</strong>.</li>
+<li>Se dice que la serie es <strong>integrada de orden 1</strong>, denotado como <span class="math inline">\(I(1)\)</span>.</li>
+</ul></li>
+</ul>
 </section>
+<section id="el-riesgo-de-la-regresión-espuria" class="level2">
+<h2 class="anchored" data-anchor-id="el-riesgo-de-la-regresión-espuria">El Riesgo de la Regresión Espuria</h2>
+<p>Si intentamos relacionar dos variables que son <span class="math inline">\(I(1)\)</span> (tienen raíces unitarias) usando MCO en niveles:</p>
+<p><span class="math display">\[Y_t = \beta_0 + \beta_1 X_t + u_t\]</span></p>
+<ul>
+<li><strong>Problema:</strong> Encontraremos que <span class="math inline">\(\beta_1\)</span> es estadísticamente significativo incluso si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> no tienen ninguna relación real.</li>
+<li><strong>Razón:</strong> Ambas series comparten una “tendencia estocástica” (crecen o vagan por azar), lo que confunde al modelo.</li>
+<li><strong>Resultado:</strong> Conclusiones falsas y modelos sin validez científica.</li>
+</ul>
+</section>
+<section id="solución-diferenciación" class="level2">
+<h2 class="anchored" data-anchor-id="solución-diferenciación">Solución: Diferenciación</h2>
+<p>Para corregir la no estacionariedad de un proceso <span class="math inline">\(I(1)\)</span>, debemos trabajar con su <strong>primera diferencia</strong>:</p>
+<p><span class="math display">\[\Delta Y_t = Y_t - Y_{t-1}\]</span></p>
+<p><strong>Intuición:</strong> * Si <span class="math inline">\(Y_t\)</span> es una caminata aleatoria (<span class="math inline">\(Y_t = Y_{t-1} + \epsilon_t\)</span>), entonces <span class="math inline">\(\Delta Y_t = \epsilon_t\)</span>. * Como <span class="math inline">\(\epsilon_t\)</span> es ruido blanco, la serie diferenciada es <strong>estacionaria</strong>. * <strong>Modelo corregido:</strong> <span class="math inline">\(\Delta Y_t = \beta_0 + \beta_1 \Delta X_t + u_t\)</span>.</p>
+</section>
+<section id="tendencias-determinísticas" class="level2">
+<h2 class="anchored" data-anchor-id="tendencias-determinísticas">Tendencias Determinísticas</h2>
+<p>A veces la serie crece de forma constante en el tiempo (variable omitida). Podemos incluir una <strong>tendencia lineal (<span class="math inline">\(t\)</span>):</strong></p>
+<p><span class="math display">\[y_t = \alpha_0 + \alpha_1 x_t + \alpha_2 t + \epsilon_t\]</span></p>
+<ul>
+<li><span class="math inline">\(\alpha_2\)</span> captura el crecimiento anual promedio.</li>
+<li><span class="math inline">\(\alpha_1\)</span> ahora mide la relación entre <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> una vez que hemos “extraído” el efecto del tiempo (detrending).</li>
+</ul>
+</section>
+<section id="cómo-saber-si-hay-raíz-unitaria-test-de-dickey-fuller" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-saber-si-hay-raíz-unitaria-test-de-dickey-fuller">¿Cómo saber si hay Raíz Unitaria? Test de Dickey-Fuller</h2>
+<p>No podemos usar un test <span class="math inline">\(t\)</span> normal para <span class="math inline">\(\rho=1\)</span> porque su distribución no es estándar. Usamos el <strong>Test de Dickey-Fuller (D-F)</strong> basado en la ecuación:</p>
+<p><span class="math display">\[\Delta y_t = \alpha + \phi y_{t-1} + \epsilon_t\]</span></p>
+<ul>
+<li><strong>Hipótesis Nula (<span class="math inline">\(H_0\)</span>):</strong> <span class="math inline">\(\phi = 0\)</span> (Existe raíz unitaria, la serie es <span class="math inline">\(I(1)\)</span>).</li>
+<li><strong>Hipótesis Alt (<span class="math inline">\(H_1\)</span>):</strong> <span class="math inline">\(\phi &lt; 0\)</span> (La serie es estacionaria).</li>
+</ul>
+<p><strong>Importante:</strong> Debemos comparar el estadístico <span class="math inline">\(t\)</span> con las <strong>tablas críticas de Dickey-Fuller</strong>, no con la tabla <span class="math inline">\(t\)</span> de Student.</p>
+</section>
+<section id="caso-de-estudio-pib-chileno" class="level2">
+<h2 class="anchored" data-anchor-id="caso-de-estudio-pib-chileno">Caso de Estudio: PIB Chileno</h2>
+<p>¿Es el PIB de Chile estacionario?</p>
+<ol type="1">
+<li><strong>Gráfico en niveles:</strong> Muestra una clara tendencia creciente (No estacionario).</li>
+<li><strong>Gráfico en diferencias:</strong> Muestra oscilaciones alrededor de una media (Parece estacionario).</li>
+<li><strong>Resultado Test D-F:</strong> Al realizar el test, el estadístico <span class="math inline">\(t\)</span> suele ser mayor al valor crítico de la tabla D-F (en valor absoluto <span class="math inline">\(|-1.63| &lt; |-3.50|\)</span>).</li>
+</ol>
+<ul>
+<li><strong>Conclusión:</strong> No se rechaza <span class="math inline">\(H_0\)</span>. El PIB chileno tiene raíz unitaria y debe trabajarse en diferencias.</li>
+</ul>
+</section>
+<section id="resumen-de-pasos-a-seguir" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-de-pasos-a-seguir">Resumen de Pasos a Seguir</h2>
+<p>Al trabajar con series de tiempo, sigue este protocolo:</p>
+<ol type="1">
+<li><strong>Exploración Gráfica:</strong> ¿Se ve tendencia? ¿La varianza cambia?</li>
+<li><strong>Test Dickey-Fuller:</strong> Formalizar si existe raíz unitaria.</li>
+<li><strong>Si hay raíz unitaria (<span class="math inline">\(I(1)\)</span>):</strong> Diferenciar las variables antes de correr la regresión.</li>
+<li><strong>Si hay tendencia determinística:</strong> Incluir la variable temporal <span class="math inline">\(t\)</span> en el modelo.</li>
+<li><strong>Interpretación:</strong> Asegurarse de que los resultados no sean espurios verificando la estacionariedad de los residuos.</li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -932,13 +985,13 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../material/modulo_03/s20.html" class="pagination-link" aria-label="Series de Tiempo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Series de Tiempo</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./material/modulo_01/s1.html" class="pagination-link" aria-label="Introducción">
-        <span class="nav-page-text"><span class="chapter-title">Introducción</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Francisco Alfaro &amp; Jocelyn Tapia">
 
-<title>ICS294 - Econometría</title>
+<title>Multicolinealidad en el MCRL – ICS294 - Econometría</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,30 +23,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./material/modulo_01/s1.html" rel="next">
-<link href="./images/icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../material/modulo_03/s19.html" rel="next">
+<link href="../../material/modulo_03/s17.html" rel="prev">
+<link href="../../images/icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,8 +76,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="css/neoteroi.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -251,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_03/s15.html">Aplicaciones Avanzadas</a></li><li class="breadcrumb-item"><a href="../../material/modulo_03/s18.html"><span class="chapter-title">Multicolinealidad en el MCRL</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -265,12 +293,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ICS294 - Econometría</a> 
+      <a href="../../">ICS294 - Econometría</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/fralfaro/ICS294" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
@@ -286,12 +314,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Home</span></a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  <a href="../../material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -305,37 +333,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
+  <a href="../../material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
+  <a href="../../material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
+  <a href="../../material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
+  <a href="../../material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
+  <a href="../../material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
       </ul>
@@ -351,32 +379,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
+  <a href="../../material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
+  <a href="../../material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
+  <a href="../../material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
+  <a href="../../material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
   </div>
 </li>
       </ul>
@@ -392,37 +420,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
+  <a href="../../material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
+  <a href="../../material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
+  <a href="../../material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
+  <a href="../../material/modulo_03/s18.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
+  <a href="../../material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
+  <a href="../../material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
+  <a href="../../material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
   </div>
 </li>
       </ul>
@@ -432,33 +460,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-es-la-multicolinealidad" id="toc-qué-es-la-multicolinealidad" class="nav-link active" data-scroll-target="#qué-es-la-multicolinealidad">¿Qué es la Multicolinealidad?</a></li>
+  <li><a href="#el-supuesto-de-no-multicolinealidad" id="toc-el-supuesto-de-no-multicolinealidad" class="nav-link" data-scroll-target="#el-supuesto-de-no-multicolinealidad">El Supuesto de No Multicolinealidad</a></li>
+  <li><a href="#efectos-de-la-multicolinealidad" id="toc-efectos-de-la-multicolinealidad" class="nav-link" data-scroll-target="#efectos-de-la-multicolinealidad">Efectos de la Multicolinealidad</a></li>
+  <li><a href="#detección-matriz-de-correlación" id="toc-detección-matriz-de-correlación" class="nav-link" data-scroll-target="#detección-matriz-de-correlación">Detección: Matriz de Correlación</a></li>
+  <li><a href="#detección-factor-de-inflación-de-la-varianza-vif" id="toc-detección-factor-de-inflación-de-la-varianza-vif" class="nav-link" data-scroll-target="#detección-factor-de-inflación-de-la-varianza-vif">Detección: Factor de Inflación de la Varianza (VIF)</a></li>
+  <li><a href="#cómo-mitigar-la-multicolinealidad" id="toc-cómo-mitigar-la-multicolinealidad" class="nav-link" data-scroll-target="#cómo-mitigar-la-multicolinealidad">¿Cómo mitigar la Multicolinealidad?</a></li>
+  <li><a href="#conclusiones" id="toc-conclusiones" class="nav-link" data-scroll-target="#conclusiones">Conclusiones</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_03/s15.html">Aplicaciones Avanzadas</a></li><li class="breadcrumb-item"><a href="../../material/modulo_03/s18.html"><span class="chapter-title">Multicolinealidad en el MCRL</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ICS294 - Econometría</h1>
+<h1 class="title"><span class="chapter-title">Multicolinealidad en el MCRL</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Francisco Alfaro &amp; Jocelyn Tapia </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 de marzo de 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -468,54 +498,72 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenidos-a-ics294" class="level1">
-<h1>Bienvenidos a ICS294!</h1>
-<section id="contenidos-del-curso" class="level2">
-<h2 class="anchored" data-anchor-id="contenidos-del-curso">Contenidos del Curso</h2>
-<div class="nt-cards nt-grid cols-3">
-
-  <a class="nt-card" href="material/modulo_01/regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/regression.png" alt="Modelos de regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Modelos de Regresión</h3>
-      <p>
-        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/statistics.png" alt="Inferencia en regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Inferencia Estadística</h3>
-      <p>
-        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
-    <div class="nt-card-image">
-      <img src="images/advanced.png" alt="Inferencia estadística">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Aplicaciones Avanzadas</h3>
-      <p>
-       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
-      </p>
-    </div>
-  </a>
-
-</div>
-
-
-
-
+<section id="qué-es-la-multicolinealidad" class="level2">
+<h2 class="anchored" data-anchor-id="qué-es-la-multicolinealidad">¿Qué es la Multicolinealidad?</h2>
+<p>La multicolinealidad ocurre cuando dos o más variables explicativas (<span class="math inline">\(X\)</span>) en un modelo de regresión están altamente correlacionadas entre sí.</p>
+<ul>
+<li><strong>Multicolinealidad Perfecta:</strong> Una variable es una combinación lineal exacta de otras. El modelo <strong>no se puede estimar</strong> (matriz <span class="math inline">\(X'X\)</span> no invertible).</li>
+<li><strong>Multicolinealidad Imperfecta:</strong> Existe una correlación fuerte pero no exacta. Es el caso más común en la práctica.</li>
+</ul>
 </section>
+<section id="el-supuesto-de-no-multicolinealidad" class="level2">
+<h2 class="anchored" data-anchor-id="el-supuesto-de-no-multicolinealidad">El Supuesto de No Multicolinealidad</h2>
+<p>En el Modelo Clásico de Regresión Lineal (MCRL), el supuesto de <strong>No Multicolinealidad Perfecta</strong> es fundamental.</p>
+<ul>
+<li>Si las variables están demasiado relacionadas, el modelo es incapaz de “aislar” el efecto individual de cada una.</li>
+<li><strong>Intuición:</strong> Es como intentar atribuir el éxito de un equipo a un solo jugador cuando dos de ellos siempre juegan juntos y hacen exactamente los mismos movimientos.</li>
+</ul>
+</section>
+<section id="efectos-de-la-multicolinealidad" class="level2">
+<h2 class="anchored" data-anchor-id="efectos-de-la-multicolinealidad">Efectos de la Multicolinealidad</h2>
+<p>Aunque los estimadores MCO siguen siendo insesgados, la multicolinealidad genera:</p>
+<ol type="1">
+<li><strong>Inflación de Errores Estándar:</strong> Las varianzas de los coeficientes (<span class="math inline">\(\hat{\beta}\)</span>) se vuelven muy grandes.</li>
+<li><strong>Insignificancia Individual:</strong> Los estadísticos <span class="math inline">\(t\)</span> suelen ser pequeños (no significativos), incluso si las variables son importantes.</li>
+<li><strong>Inestabilidad:</strong> Pequeños cambios en los datos o la eliminación de una observación pueden cambiar drásticamente los signos y valores de los coeficientes.</li>
+<li><strong><span class="math inline">\(R^2\)</span> Alto vs.&nbsp;<span class="math inline">\(t\)</span> Bajos:</strong> Una señal clásica es tener un modelo que explica mucho en conjunto (<span class="math inline">\(R^2\)</span> alto y prueba <span class="math inline">\(F\)</span> significativa), pero donde ninguna variable parece ser significativa por sí sola.</li>
+</ol>
+</section>
+<section id="detección-matriz-de-correlación" class="level2">
+<h2 class="anchored" data-anchor-id="detección-matriz-de-correlación">Detección: Matriz de Correlación</h2>
+<p>El primer paso para detectar problemas es observar la <strong>Matriz de Correlación</strong> de las variables independientes.</p>
+<ul>
+<li>Valores cercanos a <span class="math inline">\(+1\)</span> o <span class="math inline">\(-1\)</span> entre dos variables indican una relación lineal fuerte.</li>
+<li><strong>Limitación:</strong> Solo detecta colinealidad entre <strong>pares</strong> de variables. No detecta si una variable es una combinación lineal de otras tres (colinealidad múltiple).</li>
+</ul>
+</section>
+<section id="detección-factor-de-inflación-de-la-varianza-vif" class="level2">
+<h2 class="anchored" data-anchor-id="detección-factor-de-inflación-de-la-varianza-vif">Detección: Factor de Inflación de la Varianza (VIF)</h2>
+<p>El <strong>VIF</strong> es la herramienta más precisa. Mide cuánto se “infla” la varianza de un coeficiente debido a la relación con las demás variables.</p>
+<p>Para una variable <span class="math inline">\(X_j\)</span>: <span class="math display">\[\text{VIF}(X_j) = \frac{1}{1 - R_j^2}\]</span></p>
+<ul>
+<li><span class="math inline">\(R_j^2\)</span> es el coeficiente de determinación al regresar <span class="math inline">\(X_j\)</span> sobre el resto de las <span class="math inline">\(X\)</span>.</li>
+<li><strong>Regla de oro:</strong> * <span class="math inline">\(\text{VIF} = 1\)</span>: Ausencia total de colinealidad.
+<ul>
+<li><span class="math inline">\(\text{VIF} &gt; 5\)</span> o <span class="math inline">\(10\)</span>: Indica un problema de multicolinealidad serio que debe ser atendido.</li>
+</ul></li>
+</ul>
+</section>
+<section id="cómo-mitigar-la-multicolinealidad" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-mitigar-la-multicolinealidad">¿Cómo mitigar la Multicolinealidad?</h2>
+<p>Si el VIF es muy alto, se sugieren las siguientes acciones:</p>
+<ol type="1">
+<li><strong>Eliminar variables:</strong> Si dos variables miden casi lo mismo (ej. ingreso mensual e ingreso anual), elimina una.</li>
+<li><strong>Transformar variables:</strong> Utilizar razones o tasas (ej. en lugar de “Población” y “PIB”, usar “PIB per cápita”).</li>
+<li><strong>Aumentar la muestra:</strong> A veces, más datos ayudan a separar los efectos correlacionados.</li>
+<li><strong>Regularización:</strong> Métodos avanzados como <em>Ridge</em> o <em>Lasso</em> añaden una penalización para estabilizar los coeficientes.</li>
+</ol>
+</section>
+<section id="conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="conclusiones">Conclusiones</h2>
+<ul>
+<li>La multicolinealidad <strong>no sesga</strong> los resultados, pero los hace <strong>imprecisos</strong>.</li>
+<li>Si el objetivo es solo <strong>predecir</strong> <span class="math inline">\(Y\)</span>, la multicolinealidad no suele ser un problema grave.</li>
+<li>Si el objetivo es la <strong>explicación o inferencia</strong> (entender el impacto de cada <span class="math inline">\(X\)</span>), la multicolinealidad es crítica y debe corregirse.</li>
+<li>Siempre revisa los VIF antes de concluir sobre la importancia de una variable.</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -932,12 +980,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../material/modulo_03/s17.html" class="pagination-link" aria-label="Endogeneidad y Variables Instrumentales">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./material/modulo_01/s1.html" class="pagination-link" aria-label="Introducción">
-        <span class="nav-page-text"><span class="chapter-title">Introducción</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../material/modulo_03/s19.html" class="pagination-link" aria-label="Dependencia de los errores en series de tiempo">
+        <span class="nav-page-text"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

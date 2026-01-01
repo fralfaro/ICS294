@@ -1,0 +1,2415 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ICS294 - Econometría",
+    "section": "",
+    "text": "Bienvenidos a ICS294!",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#contenidos-del-curso",
+    "href": "index.html#contenidos-del-curso",
+    "title": "ICS294 - Econometría",
+    "section": "Contenidos del Curso",
+    "text": "Contenidos del Curso\n\n\n  \n    \n      \n    \n    \n      Modelos de Regresión\n      \n        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).\n      \n    \n  \n\n  \n    \n      \n    \n    \n      Inferencia Estadística\n      \n        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.\n      \n    \n  \n\n  \n    \n      \n    \n    \n      Aplicaciones Avanzadas\n      \n       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html",
+    "href": "material/modulo_01/s1.html",
+    "title": "Introducción",
+    "section": "",
+    "text": "¿Qué es econometría?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#qué-es-econometría",
+    "href": "material/modulo_01/s1.html#qué-es-econometría",
+    "title": "Introducción",
+    "section": "",
+    "text": "Es una disciplina que emplea la teoría económica y métodos estadísticos para contrastar distintas teorías, pronosticar variables y evaluar políticas públicas utilizando bases de datos.\nEs una aplicación del método científico en economía. Nos permite refutar hipótesis económicas.\nNos permite contestar preguntas como, por ejemplo:\n\n\n¿Cuál es la brecha salarial por género?\n¿Cuál es el efecto de haber completado la universidad en el salario?",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#econometría-moderna",
+    "href": "material/modulo_01/s1.html#econometría-moderna",
+    "title": "Introducción",
+    "section": "Econometría moderna",
+    "text": "Econometría moderna\nLa econometría moderna se enfoca en contestar tres tipos de preguntas:\n\nEstimar cómo la esperanza condicional de una variable depende de otra.\nEstimar el impacto causal de una variable sobre otra.\nPredecir el comportamiento de una variable hacia el futuro.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#método-econométrico",
+    "href": "material/modulo_01/s1.html#método-econométrico",
+    "title": "Introducción",
+    "section": "Método econométrico",
+    "text": "Método econométrico\n\nDefinir el objetivo: ¿qué quiero estudiar?\n\n\nEstructura\n\n1. Modelo económico\nModelos que explican el comportamiento de una variable económica en función de otras:\n\\[\nY = f(x_1, x_2, \\dots, x_k)\n\\]\nEjemplo 1: Función de producción\n\\[\nY = AK^{\\alpha} L^{\\beta}\n\\]\nEjemplo 2: Retornos a la educación\n\\[\n\\text{salario} = f(\\text{educación}, \\text{experiencia}, \\text{ingreso familiar}, \\text{habilidad})\n\\]\n\n\n2. Modelo econométrico\nPermite cuantificar, contrastar y evaluar el modelo económico.\n\nEspecificar la función \\(f(\\cdot)\\).\nLas variables económicas son aleatorias, por lo que se incorpora un término de error:\n\n\\[\ny = f(x_1, x_2, \\dots, x_k) + u\n\\]\n\nUso de datos.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#causalidad-y-correlación",
+    "href": "material/modulo_01/s1.html#causalidad-y-correlación",
+    "title": "Introducción",
+    "section": "Causalidad y correlación",
+    "text": "Causalidad y correlación\nCorrelación no es causalidad\n\nMuchas veces nos interesa conocer el efecto causal de una variable sobre otra.\nEl concepto ceteris paribus es clave para la causalidad: efecto de (X) sobre (Y) manteniendo todos los demás factores relevantes constantes.\nEsto es muy difícil de lograr en la práctica en ciencias sociales.\nEn el curso se estudiarán los supuestos necesarios y las técnicas para abordarlo.\n\nCorrelación espuria: existe una relación matemática, pero los factores no presentan una relación lógica.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#ejemplo",
+    "href": "material/modulo_01/s1.html#ejemplo",
+    "title": "Introducción",
+    "section": "Ejemplo",
+    "text": "Ejemplo\n\nInformación: en una base de datos de individuos de 35 años en Chile, se observa que las personas que terminaron la universidad ganan un 30% más que aquellas que no la terminaron.\nPregunta: ¿puedo concluir que ir a la universidad causa un aumento del ingreso?\n\n\nDiscusión\nNo se puede concluir eso directamente.\n\nIr a la universidad está asociado a muchas otras características que también afectan el ingreso.\nPor ejemplo: la habilidad, el ingreso de los padres, entre otras.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#econometría-como-herramienta-aplicada",
+    "href": "material/modulo_01/s1.html#econometría-como-herramienta-aplicada",
+    "title": "Introducción",
+    "section": "Econometría como herramienta aplicada",
+    "text": "Econometría como herramienta aplicada\n\nProblema: ¿cómo solucionar el problema de los parásitos intestinales en África?\nMiguel y Kremer (2004), Worms: Identifying Impacts on Education and Health in the Presence of Treatment Externalities, muestran que repartir pastillas en colegios mejora la salud y reduce el ausentismo escolar, no solo en los tratados sino también en sus vecinos.\nGracias a estos estudios, la iniciativa Deworming the World ha recaudado billones de dólares para esta política pública.\nProblema: ¿las consultoras de management pueden mejorar la productividad de las firmas?\nBloom et al. (2017), Increasing Firm Productivity through Management Consulting Services in India, muestran que sí y cuantifican este efecto.\n\nJPAL – Estudio",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#tipos-de-datos",
+    "href": "material/modulo_01/s1.html#tipos-de-datos",
+    "title": "Introducción",
+    "section": "Tipos de datos",
+    "text": "Tipos de datos\n\nExperimentales: el investigador asigna de forma aleatoria la exposición.\nPseudo-experimentales: el investigador controla la exposición, pero no la asigna aleatoriamente.\nObservacionales (no experimentales): el investigador no controla la exposición.\n\nEl uso de datos experimentales es poco frecuente debido a su alto costo y a problemas éticos.\n\nDatos de corte transversal\nMuestra de individuos, hogares, empresas, regiones o países recolectados en un momento determinado.\nAunque la recolección no siempre ocurre exactamente en el mismo período, se asume que las diferencias temporales menores son irrelevantes.\nSe asume muestreo aleatorio desde la población subyacente.\n\n\nSeries de tiempo\nObservaciones de una o más variables a lo largo del tiempo.\nEjemplos: precios de acciones, tipo de cambio, IPC, ventas de automóviles.\n\nLos eventos pasados influyen en los futuros.\nLos rezagos son frecuentes en ciencias sociales.\nLa frecuencia temporal puede ser diaria, mensual, anual, trimestral, etc.\nA diferencia del corte transversal, las observaciones no son independientes.\n\n\n\nDatos de panel\nDatos longitudinales o de panel consisten en series de tiempo para cada unidad del conjunto de datos.\nEjemplo: 10 años de datos de salario, educación y empleo para un grupo de individuos.\nVentajas:\n\nControl de características no observadas.\nFacilita la inferencia causal.\nPermite estudiar efectos dinámicos y rezagos.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#muestreo",
+    "href": "material/modulo_01/s1.html#muestreo",
+    "title": "Introducción",
+    "section": "Muestreo",
+    "text": "Muestreo\nLos datos se obtienen sobre conjuntos de individuos u objetos llamados unidades de observación.\nEl conjunto total de unidades se denomina población.\nEl muestreo estudia los métodos y procedimientos para obtener una muestra y realizar inferencias sobre la población.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#muestra-representativa",
+    "href": "material/modulo_01/s1.html#muestra-representativa",
+    "title": "Introducción",
+    "section": "Muestra representativa",
+    "text": "Muestra representativa\nUna muestra es representativa si toda unidad de observación puede aparecer en la muestra con una probabilidad conocida.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#por-qué-muestrear-la-población",
+    "href": "material/modulo_01/s1.html#por-qué-muestrear-la-población",
+    "title": "Introducción",
+    "section": "¿Por qué muestrear la población?",
+    "text": "¿Por qué muestrear la población?\n\nImposibilidad física de observar a toda la población.\nAlto costo de estudiar todos los elementos.\nLos resultados muestrales suelen ser adecuados.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#objetivos-del-muestreo",
+    "href": "material/modulo_01/s1.html#objetivos-del-muestreo",
+    "title": "Introducción",
+    "section": "Objetivos del muestreo",
+    "text": "Objetivos del muestreo\nEstimar los parámetros de la población\n\nVariable: característica medida (educación, ingresos, etc.).\nParámetro: valor que describe a la población (media, desviación estándar, betas).\nEstadístico: valor calculado sobre la muestra.\nLos parámetros suelen ser desconocidos y se estiman mediante estadísticos.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#muestreo-aleatorio",
+    "href": "material/modulo_01/s1.html#muestreo-aleatorio",
+    "title": "Introducción",
+    "section": "Muestreo aleatorio",
+    "text": "Muestreo aleatorio\n\nMuestreo aleatorio simple: todos los individuos tienen la misma probabilidad de ser seleccionados.\nMuestreo aleatorio sistemático: se selecciona un punto inicial aleatorio y luego cada (k)-ésimo elemento.\nNo es completamente aleatorio, ya que algunos elementos pueden tener probabilidad cero de selección.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#otros-esquemas-de-muestreo",
+    "href": "material/modulo_01/s1.html#otros-esquemas-de-muestreo",
+    "title": "Introducción",
+    "section": "Otros esquemas de muestreo",
+    "text": "Otros esquemas de muestreo\n\nMuestreo aleatorio estratificado: la población se divide en estratos homogéneos y se muestrea dentro de cada uno.\nMuestreo por conglomerados (cluster): la población se divide en conglomerados heterogéneos y se seleccionan grupos completos.\n\n\nEstratificado vs. conglomerados\n\n  \n  \n  \n\nMuestreo estratificado\n\nEstratos internamente homogéneos.\nSe seleccionan observaciones dentro de cada estrato.\n\nMuestreo por conglomerados\n\nConglomerados internamente heterogéneos.\nSe seleccionan grupos completos.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#muestreo-no-probabilístico",
+    "href": "material/modulo_01/s1.html#muestreo-no-probabilístico",
+    "title": "Introducción",
+    "section": "Muestreo no probabilístico",
+    "text": "Muestreo no probabilístico\nEn el muestreo no probabilístico, la inclusión en la muestra se basa en el juicio del investigador y no en probabilidades conocidas.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s1.html#estadística-descriptiva-e-inferencial",
+    "href": "material/modulo_01/s1.html#estadística-descriptiva-e-inferencial",
+    "title": "Introducción",
+    "section": "Estadística descriptiva e inferencial",
+    "text": "Estadística descriptiva e inferencial\n\nEstadística descriptiva: las conclusiones son válidas solo para la muestra analizada.\nEstadística inferencial: permite extraer conclusiones estadísticamente válidas para toda la población a partir de una muestra.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html",
+    "href": "material/modulo_01/s2.html",
+    "title": "Regresión lineal simple",
+    "section": "",
+    "text": "Terminología\nQueremos estudiar la relación entre dos variables \\(x\\) e \\(y\\) en la población.\nDado el modelo:\n\\[\ny = \\beta_0 + \\beta_1 x + u\n\\]\nEjemplo: Salario y Educación",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#terminología",
+    "href": "material/modulo_01/s2.html#terminología",
+    "title": "Regresión lineal simple",
+    "section": "",
+    "text": "\\(y\\): variable dependiente, explicada, de respuesta, predicha o regresando.\n\\(x\\): variable independiente, explicativa, de control, predictora o regresor.\n\\(\\beta_1\\): parámetro de la pendiente; mide el efecto de \\(x\\) sobre \\(y\\) manteniendo constantes los demás factores contenidos en \\(u\\).\n\\(\\beta_0\\): intercepto o término constante.\n\n\n\nPor ejemplo: \\[\\text{salario} = \\beta_0 + \\beta_1 \\text{educación} + u\\]\nSi todos los demás factores son constantes (\\(\\Delta u = 0\\)), entonces: \\[\\Delta \\text{salario} = \\beta_1 \\Delta \\text{educación}\\]\n\\(\\beta_1\\) es el parámetro de la pendiente cuando los factores no observables son constantes.\n\n\nPregunta: En general, ¿son constantes los factores no observables?",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#supuestos-del-modelo-rls",
+    "href": "material/modulo_01/s2.html#supuestos-del-modelo-rls",
+    "title": "Regresión lineal simple",
+    "section": "Supuestos del modelo RLS",
+    "text": "Supuestos del modelo RLS\n\nLinealidad en los parámetros: la función que relaciona \\(y\\) con \\(x\\) es lineal.\nMedia condicional cero:\n\n\\[\nE[u \\mid x] = E[u] = 0\n\\]\nEl valor esperado de los factores inobservables no depende de \\(x\\).\nEjemplo:\n\\[\n\\text{Salario} = \\beta_0 + \\beta_1 \\, educ + u\n\\]\n¿Qué contiene \\(u\\)?\n¿Cómo se relaciona con \\(educ\\)?",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#regresión-poblacional",
+    "href": "material/modulo_01/s2.html#regresión-poblacional",
+    "title": "Regresión lineal simple",
+    "section": "Regresión poblacional",
+    "text": "Regresión poblacional\nSi se cumplen los supuestos de linealidad y media condicional cero:\n\\[\ny = \\beta_0 + \\beta_1 x + u\n\\]\nEntonces:\n\\[\nE[y \\mid x] = \\beta_0 + \\beta_1 x\n\\]\nLa expresión \\(E[y \\mid x]\\) se denomina Función de Regresión Poblacional (FRP).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#esperanza-condicional",
+    "href": "material/modulo_01/s2.html#esperanza-condicional",
+    "title": "Regresión lineal simple",
+    "section": "Esperanza condicional",
+    "text": "Esperanza condicional\nLa esperanza condicional es la media poblacional de \\(Y_i\\) cuando \\(X_i\\) está fijo.\n\n\n\nIndividuo\nAños educación\nIngreso\n\n\n\n\nMaría\n5\n120\n\n\nJuan\n5\n100\n\n\nPedro\n4\n80\n\n\nCatalina\n2\n50\n\n\n\n\n\\(E[Y_i \\mid X_i = 5] = 110\\)\n\n\\(E[Y_i \\mid X_i = 4] = 80\\)\n\n\\(E[Y_i \\mid X_i = 2] = 50\\)\n\n\\(E[Y_i] = 87.5\\)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#función-de-regresión-poblacional",
+    "href": "material/modulo_01/s2.html#función-de-regresión-poblacional",
+    "title": "Regresión lineal simple",
+    "section": "Función de Regresión Poblacional",
+    "text": "Función de Regresión Poblacional",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#interpretación-de-los-coeficientes",
+    "href": "material/modulo_01/s2.html#interpretación-de-los-coeficientes",
+    "title": "Regresión lineal simple",
+    "section": "Interpretación de los coeficientes",
+    "text": "Interpretación de los coeficientes\n\\[\ny = \\beta_0 + \\beta_1 x + u\n\\]\n\\[\nE[y \\mid x] = \\beta_0 + \\beta_1 x\n\\]\n\nPendiente:\n\n\\[\n\\beta_1 = \\frac{\\Delta E[y \\mid x]}{\\Delta x}\n\\]\nCuando \\(x\\) aumenta en una unidad, el valor esperado de \\(y\\) cambia en \\(\\beta_1\\) unidades.\n\nIntercepto:\n\n\\[\n\\beta_0 = E[y \\mid x = 0]\n\\]\nEs el valor esperado de \\(y\\) cuando \\(x = 0\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#estimación",
+    "href": "material/modulo_01/s2.html#estimación",
+    "title": "Regresión lineal simple",
+    "section": "Estimación",
+    "text": "Estimación\n\nObjetivo: estimar los parámetros poblacionales a partir de una muestra.\nModelo poblacional:\n\n\\[\ny = \\beta_0 + \\beta_1 x + u\n\\]\n\nPara cada observación \\(i = 1, \\dots, n\\):\n\n\\[\ny_i = \\beta_0 + \\beta_1 x_i + u_i\n\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#mínimos-cuadrados-ordinarios-mco",
+    "href": "material/modulo_01/s2.html#mínimos-cuadrados-ordinarios-mco",
+    "title": "Regresión lineal simple",
+    "section": "Mínimos Cuadrados Ordinarios (MCO)",
+    "text": "Mínimos Cuadrados Ordinarios (MCO)\nModelo estimado:\n\\[\n\\hat{y}_i = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_i + \\hat{u}_i\n\\]\nObjetivo: encontrar los estimadores que minimizan la suma de los residuos al cuadrado:\n\\[\n\\min_{\\hat{\\beta}_0, \\hat{\\beta}_1} \\sum_{i=1}^{n} (y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1 x_i)^2\n\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#estimadores-mco",
+    "href": "material/modulo_01/s2.html#estimadores-mco",
+    "title": "Regresión lineal simple",
+    "section": "Estimadores MCO",
+    "text": "Estimadores MCO\n\nIntercepto:\n\n\\[\n\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}\n\\]\n\nPendiente:\n\n\\[\n\\hat{\\beta}_1 =\n\\frac{\\sum_{i=1}^{n} (x_i - \\bar{x}) y_i}\n{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\n=\n\\frac{\\text{Cov}(x,y)}{\\text{Var}(x)}\n\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#regresión-muestral-frm",
+    "href": "material/modulo_01/s2.html#regresión-muestral-frm",
+    "title": "Regresión lineal simple",
+    "section": "Regresión Muestral (FRM)",
+    "text": "Regresión Muestral (FRM)\n\nFunción estimada:\n\n\\[\n\\hat{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x\n\\]\n\nLa FRM es la versión muestral de la FRP.\nLa FRP es desconocida y se aproxima con una muestra.\n\\(\\hat{y}\\) es el valor ajustado o predicho.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#ejemplo-educación-y-salarios",
+    "href": "material/modulo_01/s2.html#ejemplo-educación-y-salarios",
+    "title": "Regresión lineal simple",
+    "section": "Ejemplo: educación y salarios",
+    "text": "Ejemplo: educación y salarios\n\\[\n\\text{salario}_i = \\beta_0 + \\beta_1 \\, educación_i + \\varepsilon_i\n\\]\nDatos de 562 individuos:\n\n  \n  \n  \n\nResultado MCO:\n\\[\n\\hat{\\text{salario}} = 0.095 + 0.54 \\, \\text{educación}\n\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#propiedades-aritméticas-de-mco",
+    "href": "material/modulo_01/s2.html#propiedades-aritméticas-de-mco",
+    "title": "Regresión lineal simple",
+    "section": "Propiedades aritméticas de MCO",
+    "text": "Propiedades aritméticas de MCO\n\n\\(\\sum_i \\hat{u}_i = 0\\)\n\\(\\sum_i x_i \\hat{u}_i = 0\\)\n\\(\\bar{y} = \\bar{\\hat{y}}\\)\nLa recta pasa por \\((\\bar{x}, \\bar{y})\\)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#descomposición-de-la-varianza",
+    "href": "material/modulo_01/s2.html#descomposición-de-la-varianza",
+    "title": "Regresión lineal simple",
+    "section": "Descomposición de la varianza",
+    "text": "Descomposición de la varianza\n\nSuma de cuadrados total:\n\n\\[\nSST = \\sum_{i=1}^{n} (y_i - \\bar{y})^2\n\\]\n\nSuma de cuadrados explicada:\n\n\\[\nSSE = \\sum_{i=1}^{n} (\\hat{y}_i - \\bar{y})^2\n\\]\n\nSuma de cuadrados residual:\n\n\\[\nSSR = \\sum_{i=1}^{n} \\hat{u}_i^2\n\\]\nSe cumple:\n\\[\nSST = SSE + SSR\n\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#bondad-de-ajuste-r2",
+    "href": "material/modulo_01/s2.html#bondad-de-ajuste-r2",
+    "title": "Regresión lineal simple",
+    "section": "Bondad de ajuste: \\(R^2\\)",
+    "text": "Bondad de ajuste: \\(R^2\\)\n\\[\nR^2 = \\frac{SSE}{SST} = 1 - \\frac{SSR}{SST}\n\\]\nMide la proporción de la variabilidad de \\(y\\) explicada por el modelo.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#supuestos-rls-adicionales",
+    "href": "material/modulo_01/s2.html#supuestos-rls-adicionales",
+    "title": "Regresión lineal simple",
+    "section": "Supuestos RLS adicionales",
+    "text": "Supuestos RLS adicionales\n\nMuestra aleatoria.\nVariación en \\(x\\).\nHomocedasticidad:\n\n\\[\nVar(u \\mid x) = \\sigma^2\n\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s2.html#varianza-de-los-estimadores-mco",
+    "href": "material/modulo_01/s2.html#varianza-de-los-estimadores-mco",
+    "title": "Regresión lineal simple",
+    "section": "Varianza de los estimadores MCO",
+    "text": "Varianza de los estimadores MCO\n\\[\nVar(\\hat{\\beta}_1) = \\frac{\\sigma^2}{\\sum_{i=1}^n (x_i - \\bar{x})^2}\n\\]\n\\[\nVar(\\hat{\\beta}_0) =\n\\frac{\\sigma^2 \\sum_{i=1}^n x_i^2}\n{n \\sum_{i=1}^n (x_i - \\bar{x})^2}\n\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Regresión lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html",
+    "href": "material/modulo_01/s3.html",
+    "title": "Causalidad",
+    "section": "",
+    "text": "Esperanza condicional versus causalidad\nHasta ahora, hemos visto cómo funciona el modelo de regresión lineal, el cual nos entrega la esperanza condicional de una variable dada otra.\nEsto nos permite describir muchas realidades empíricas. Por ejemplo:\nSin embargo, surge una pregunta central: ¿las relaciones que estimamos son causales?",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#esperanza-condicional-versus-causalidad",
+    "href": "material/modulo_01/s3.html#esperanza-condicional-versus-causalidad",
+    "title": "Causalidad",
+    "section": "",
+    "text": "¿Las personas con más educación reciben sueldos mayores?\n¿Estudiar Economía está asociado con un mayor sueldo?\n\n\n\n¿Es la educación la que aumenta el salario, o simplemente observamos que las personas que se educan más tienen mayores salarios por otros motivos?\nPara responder este tipo de preguntas, construiremos un marco analítico para pensar la causalidad.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#contrafactual",
+    "href": "material/modulo_01/s3.html#contrafactual",
+    "title": "Causalidad",
+    "section": "Contrafactual",
+    "text": "Contrafactual\nPara pensar en causalidad, necesitamos imaginar un mundo contrafactual.\nPor ejemplo:\n¿qué pasaría si pudiéramos observar a las personas que fueron a la universidad en un mundo alternativo en el que no hubieran ido?\nAquí aparece el problema fundamental de la inferencia causal:\n\nNo podemos calcular directamente el impacto causal de un tratamiento para un individuo \\(i\\), porque no podemos observar al mismo individuo en los dos estados (con y sin tratamiento).\n\nDefinición de contrafactual:\nEl resultado que los mismos participantes de un programa hubieran obtenido en el caso hipotético de no haber participado.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#el-marco-teórico-de-rubin",
+    "href": "material/modulo_01/s3.html#el-marco-teórico-de-rubin",
+    "title": "Causalidad",
+    "section": "El marco teórico de Rubin",
+    "text": "El marco teórico de Rubin\nEstamos interesados en medir el impacto de un tratamiento, que es una variable binaria (recibirlo o no), sobre una variable de resultado \\(y\\).\nAlgunos ejemplos de tratamiento son:\n\nUn subsidio del gobierno\n\nParticipar en un programa específico\n\nRecibir una beca universitaria\n\nRecibir una vacuna\n\nDefinimos dos grupos:\n\nTratados (T)\n\nNo tratados o grupo de control (NT)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#modelo-de-outcomes-potenciales-rubin",
+    "href": "material/modulo_01/s3.html#modelo-de-outcomes-potenciales-rubin",
+    "title": "Causalidad",
+    "section": "Modelo de outcomes potenciales (Rubin)",
+    "text": "Modelo de outcomes potenciales (Rubin)\nQueremos conocer el impacto causal del tratamiento \\(T\\) sobre una variable \\(Y\\).\nDefinimos:\n\n\\(Y_i\\): outcome observado del individuo \\(i\\)\n\n\\(T_i\\): variable binaria que vale 1 si el individuo fue tratado y 0 si no\n\n\\(Y_i^T\\): outcome potencial del individuo si recibe el tratamiento\n\n\\(Y_i^{NT}\\): outcome potencial del individuo si no recibe el tratamiento\n\nEl impacto causal individual del tratamiento sería:\n\\[\nY_i^T - Y_i^{NT}\n\\]\n¿Podemos observar este efecto?\nNo, porque nunca observamos ambos outcomes al mismo tiempo para un mismo individuo.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#ate-y-att",
+    "href": "material/modulo_01/s3.html#ate-y-att",
+    "title": "Causalidad",
+    "section": "ATE y ATT",
+    "text": "ATE y ATT\nEl impacto promedio causal (Average Treatment Effect, ATE) se define como:\n\\[\nATE = E\\left[Y_i^T - Y_i^{NT}\\right]\n\\]\nEste efecto no es observable, ya que cada individuo solo se observa en uno de los dos estados.\nEl impacto promedio causal sobre los tratados (Average Treatment Effect on the Treated, ATT) es:\n\\[\nATT = E\\left[Y_i^T - Y_i^{NT} \\mid T_i = 1\\right]\n\\]\nTampoco es observable, porque \\(E\\left[Y_i^{NT} \\mid T_i = 1\\right]\\) no se puede observar directamente.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#observado-y-no-observado-un-ejemplo",
+    "href": "material/modulo_01/s3.html#observado-y-no-observado-un-ejemplo",
+    "title": "Causalidad",
+    "section": "Observado y no observado: un ejemplo",
+    "text": "Observado y no observado: un ejemplo\nEn los datos observamos lo siguiente:\n\n\n\nPersona\n\\(T_i\\)\n\\(Y_i\\)\n\\(Y_i^{NT}\\)\n\\(Y_i^{T}\\)\n\n\n\n\nSofía\n1\n100\n??\n100\n\n\nPaula\n0\n40\n40\n??\n\n\nEzequiel\n1\n80\n??\n80\n\n\nJuan\n0\n20\n20\n??\n\n\nCaro\n1\n60\n??\n60\n\n\n\nEl efecto causal promedio sería:\n\\[\nATE = E\\left[Y_i^T - Y_i^{NT}\\right]\n\\]\nEste efecto es no observable.\nPor ejemplo, no podemos saber cuál habría sido \\(Y_i^{NT}\\) para Caro si no hubiese recibido el tratamiento.\nAl menos nos gustaría identificar el efecto causal para los tratados:\n\\[\nATT = E\\left[Y_i^T - Y_i^{NT} \\mid T_i = 1\\right]\n\\]\nPero este también es inobservable.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#usar-datos-observacionales-para-inferir-el-ate",
+    "href": "material/modulo_01/s3.html#usar-datos-observacionales-para-inferir-el-ate",
+    "title": "Causalidad",
+    "section": "Usar datos observacionales para inferir el ATE",
+    "text": "Usar datos observacionales para inferir el ATE\nNo podemos estimar directamente el ATE ni el ATT.\nEn su lugar, usamos los datos que sí observamos para aproximar el efecto del tratamiento, bajo ciertos supuestos.\nComo no podemos comparar a las mismas personas en mundos alternativos, la clave está en encontrar un grupo de comparación (contrafactual) que sea similar al grupo tratado en ausencia del tratamiento.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#att-y-sesgo-de-selección",
+    "href": "material/modulo_01/s3.html#att-y-sesgo-de-selección",
+    "title": "Causalidad",
+    "section": "ATT y sesgo de selección",
+    "text": "ATT y sesgo de selección\nSupongamos que queremos calcular el efecto de ir a la universidad (\\(T\\)) sobre el salario (\\(y\\)).\nUna idea natural es comparar el salario promedio entre quienes fueron a la universidad y quienes no:\n\\[\n\\beta_1 = E\\left[Y_i \\mid T_i = 1\\right] - E\\left[Y_i \\mid T_i = 0\\right]\n\\]\n¿Esto corresponde al ATE o al ATT?\nEn general, no.\nEn contextos no experimentales, las personas eligen participar en el tratamiento y, por tanto, difieren sistemáticamente del grupo de control.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#ejemplo-de-sesgo-de-selección",
+    "href": "material/modulo_01/s3.html#ejemplo-de-sesgo-de-selección",
+    "title": "Causalidad",
+    "section": "Ejemplo de sesgo de selección",
+    "text": "Ejemplo de sesgo de selección\nLa decisión de asistir a la universidad es voluntaria y puede estar influenciada por:\n\nIntereses personales\n\nRecursos económicos\n\nOportunidades previas\n\nPor esta razón, quienes no cursaron estudios universitarios pueden diferir en muchas dimensiones de quienes sí lo hicieron. Compararlos directamente puede no ser adecuado, ya que no constituyen un buen contrafactual.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#descomposición-de-beta_1",
+    "href": "material/modulo_01/s3.html#descomposición-de-beta_1",
+    "title": "Causalidad",
+    "section": "Descomposición de \\(\\beta_1\\)",
+    "text": "Descomposición de \\(\\beta_1\\)\nPartimos de:\n\\[\n\\beta_1 = E\\left(Y_i \\mid T_i = 1\\right) - E\\left(Y_i \\mid T_i = 0\\right)\n\\]\nQue es equivalente a:\n\\[\n\\beta_1 = E\\left(Y_i^T \\mid T_i = 1\\right) - E\\left(Y_i^{NT} \\mid T_i = 0\\right)\n\\]\nSumando y restando \\(E\\left[Y_i^{NT} \\mid T_i = 1\\right]\\):\n\\[\n\\begin{aligned}\n\\beta_1 =\\;& E\\left(Y_i^T - Y_i^{NT} \\mid T_i = 1\\right) \\\\\n&+ E\\left(Y_i^{NT} \\mid T_i = 1\\right) - E\\left(Y_i^{NT} \\mid T_i = 0\\right)\n\\end{aligned}\n\\]\n\nEl primer término es el ATT, el efecto causal que nos interesa.\nEl segundo término corresponde al sesgo de selección.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#sesgo-de-selección",
+    "href": "material/modulo_01/s3.html#sesgo-de-selección",
+    "title": "Causalidad",
+    "section": "Sesgo de selección",
+    "text": "Sesgo de selección\nEl sesgo de selección surge porque el grupo tratado ya era distinto del grupo de control antes del tratamiento.\nIntuitivamente:\n\nIncluso en un mundo sin tratamiento, el grupo tratado habría tenido un outcome distinto porque tenía características diferentes.\n\nHay sesgo de selección cuando, aun sin intervención, los resultados promedio de tratados y no tratados son distintos.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#ejemplo-alarmas-para-casas",
+    "href": "material/modulo_01/s3.html#ejemplo-alarmas-para-casas",
+    "title": "Causalidad",
+    "section": "Ejemplo: alarmas para casas",
+    "text": "Ejemplo: alarmas para casas\nQueremos saber si instalar una alarma reduce los robos.\nProblemas:\n\nCada familia decide voluntariamente si instalar una alarma.\nQuienes instalan alarmas pueden vivir en zonas más peligrosas o tener mayor preocupación por la seguridad.\n\nSi comparamos robos entre casas con y sin alarmas:\n\n¿Obtendremos el efecto causal?\n¿O estaremos capturando sesgo de selección?",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s3.html#aleatorización",
+    "href": "material/modulo_01/s3.html#aleatorización",
+    "title": "Causalidad",
+    "section": "Aleatorización",
+    "text": "Aleatorización\n¿Qué supuesto elimina el sesgo de selección?\nEl supuesto clave es que los outcomes potenciales sean independientes del tratamiento.\nLa aleatorización (experimentos controlados aleatorios, RCT) resuelve este problema:\n\nSe asigna aleatoriamente quién recibe el tratamiento y quién no.\nEn promedio, ambos grupos son iguales en ausencia del tratamiento.\n\nFormalmente:\n\\[\nE\\left(Y_i^{NT} \\mid T\\right) = E\\left(Y_i^{NT} \\mid NT\\right)\n\\]\nEn este caso:\n\\[\n\\beta = ATE = ATT\n\\]\nY obtenemos el efecto causal verdadero.\nEste enfoque es ampliamente usado en medicina (drogas y vacunas) y cada vez más en ciencias sociales, políticas públicas y el ámbito empresarial.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Causalidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html",
+    "href": "material/modulo_01/s4.html",
+    "title": "Variables omitidas",
+    "section": "",
+    "text": "Sesgo de selección y MCO",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#sesgo-de-selección-y-mco",
+    "href": "material/modulo_01/s4.html#sesgo-de-selección-y-mco",
+    "title": "Variables omitidas",
+    "section": "",
+    "text": "Supongamos que tenemos el siguiente modelo lineal donde nos interesa el efecto de \\(x_{i}\\) en \\(y_{i}\\): \\[y_{i}=\\alpha+\\beta x_{i}+\\varepsilon_{i}\\]\nEl supuesto clásico crucial de MCO para que \\(\\beta\\) sea el efecto causal (no haya sesgo de selección) es que: \\[E\\left[\\epsilon \\mid x\\right]=0\\]\nEs decir, que todo lo que está en el error no correlaciona con \\(x\\).\nSi esto no se cumple, nuestro coeficiente estará sesgado.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#sesgo-por-variables-omitidas",
+    "href": "material/modulo_01/s4.html#sesgo-por-variables-omitidas",
+    "title": "Variables omitidas",
+    "section": "Sesgo por Variables omitidas",
+    "text": "Sesgo por Variables omitidas\n\n¿Qué pasa si omitimos una variable que afecta a \\(x\\)?\n¿En términos de grupo tratamiento y control, qué pasa si omitimos una variable que determina si el individuo es tratado o no?\nEn este caso, no se cumple que \\(E\\left[\\epsilon \\mid x\\right]=0\\) y vamos a tener sesgo de selección.\nEjemplo: quiero estudiar el efecto de la consultoría en la productividad de la empresa. Sea \\(x_{i}\\) una variable binaria que toma valor 1 si la empresa recibió asesoramiento. \\[\\text{productividad}_{i}=\\alpha+\\beta \\cdot x_{i}+\\epsilon_{i}\\]\n¿Es el \\(\\hat{\\beta}\\) estimado por OLS el efecto causal? ¿Qué variables estoy omitiendo?\nPodemos pensar que en el error está el tamaño de la empresa. Solo empresas más grandes pueden pagar por consultoría. El tamaño correlaciona positivamente con \\(x\\). Al estar en el error, nuestro \\(\\hat{\\beta}\\) MCO estará sesgado.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#omitiendo-variables",
+    "href": "material/modulo_01/s4.html#omitiendo-variables",
+    "title": "Variables omitidas",
+    "section": "Omitiendo variables",
+    "text": "Omitiendo variables\n\nSuponga que la población sigue la siguiente ecuación (verdadera): \\[y=\\alpha+ \\beta_{1}x_{1}+\\beta_{2} x_{2}+u \\tag{A}\\] donde \\(E[u \\mid x]=0\\).\n(Auxiliar) Además, supongan que sabemos que \\(x_{2}\\) está relacionada con \\(x_{1}\\) de la siguiente manera: \\[x_{2}=\\delta_{0}+\\delta_{1} x_{1}+v \\tag{B}\\]\nSupongamos que como no observamos \\(x_{2}\\), estimamos el modelo MCO omitiéndola (mandándola al error): \\[y=\\tilde{\\alpha}+x_{1} \\tilde{\\beta}_{1}+\\epsilon \\tag{C}\\]\nNoten que comparando con (A), sabemos que \\(\\epsilon=\\beta_{2} x_{2}+u\\). Por (B), sabemos que \\(x_{1}\\) correlaciona con \\(x_{2}\\), entonces no se cumple \\(E\\left[\\epsilon \\mid x_{1}\\right]=0\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#omitiendo-variables-continuación",
+    "href": "material/modulo_01/s4.html#omitiendo-variables-continuación",
+    "title": "Variables omitidas",
+    "section": "Omitiendo variables (continuación)",
+    "text": "Omitiendo variables (continuación)\n\nReemplazando (B) en (A): \\[y=\\alpha+x_{1} \\beta_{1}+\\beta_{2}\\left(\\delta_{0}+\\delta_{1} x_{1}+v\\right)+u\\]\nReordenando: \\[y=\\left(\\alpha+\\beta_2\\delta_{0}\\right)+x_{1}\\left(\\beta_{1}+\\beta_{2} \\delta_{1}\\right)+\\left(u+\\beta_{2} v\\right)\\]\nEs decir, que cuando omitimos una variable y estimamos un modelo como (C). El coeficiente que estimamos es: \\[\\tilde{\\beta}_{1}=\\beta_{1}+\\beta_{2} \\delta_{1}\\]\nEntonces, capturamos el efecto causal \\((\\beta_{1})\\) y un sesgo dado por \\(\\beta_{2} \\delta_{1}\\).\n¿De qué depende el sesgo? ¿Cuándo es 0?",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#sesgo-por-omisión-de-variable",
+    "href": "material/modulo_01/s4.html#sesgo-por-omisión-de-variable",
+    "title": "Variables omitidas",
+    "section": "Sesgo por omisión de variable",
+    "text": "Sesgo por omisión de variable\n\n\nEscenarios:\n\n[Aquí va una imagen: Diagrama causal X1 -&gt; Y &lt;- X2]\n[Aquí va una imagen: Diagrama causal X2 -&gt; X1 -&gt; Y]\n[Aquí va una imagen: Diagrama causal X2 afectando a X1 y a Y simultáneamente]\n\n\n\n¿Cuándo una variable omitida provocará un sesgo? \\[\\tilde{\\beta}_{1}=\\beta_{1}+\\beta_{2} \\delta_{1}\\]\nSolo en el caso (3) tenemos sesgo. Cuando omitimos una variable que afecta a \\(X\\) y a \\(Y\\) al mismo tiempo.\nEjemplo: \\(X_{1}\\) : educación, \\(Y\\) : salario, \\(X_{2}\\) : Inteligencia.\nEn ese caso, \\(\\beta_{2}&gt;0\\), \\(\\delta_{1}&gt;0\\). Por lo que \\(\\tilde{\\beta}_{1}\\) sobreestimará el verdadero valor del parámetro.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#sesgo-por-omisión-de-variable-signos",
+    "href": "material/modulo_01/s4.html#sesgo-por-omisión-de-variable-signos",
+    "title": "Variables omitidas",
+    "section": "Sesgo por omisión de variable: Signos",
+    "text": "Sesgo por omisión de variable: Signos\n\\[\\tilde{\\beta}_{1}=\\beta_{1}+\\beta_{2} \\delta_{1}\\]\n\nPensando en los signos de \\(\\beta_{2}\\) (efecto de la omitida en \\(y\\)) y \\(\\delta_{1}\\) (efecto de la omitida en \\(x_{1}\\)):\n\nSi \\(\\delta_{1}&gt;0, \\beta_{2}&gt;0\\) : Sesgo positivo. (Ej: Inteligencia)\nSi \\(\\delta_{1}&lt;0, \\beta_{2}&lt;0\\) : Sesgo positivo.\nSi \\(\\delta_{1}&lt;0, \\beta_{2}&gt;0\\) : Sesgo negativo.\nSi \\(\\delta_{1}&gt;0, \\beta_{2}&lt;0\\) : Sesgo negativo.\n\nIntuición: En el caso (1), la gente más inteligente va más a la universidad (\\(\\delta_{1}&gt;0\\)) y gana más (\\(\\beta_{2}&gt;0\\)). Al omitir inteligencia, el coeficiente de educación captura también que esa gente ganaría más de todas formas.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#soluciones-a-variables-omitidas-controles",
+    "href": "material/modulo_01/s4.html#soluciones-a-variables-omitidas-controles",
+    "title": "Variables omitidas",
+    "section": "Soluciones a variables omitidas: Controles",
+    "text": "Soluciones a variables omitidas: Controles\n\n¿Cuál es la manera más obvia de solucionar el problema?\nSi tengo la variable \\(x_{2}\\), la puedo incluir como control en la regresión.\nVuelvo al caso en que \\(E[u \\mid \\mathbf{x}]=0\\) porque ahora estoy dejando ceteris paribus \\(x_{2}\\).\nEsto resuelve el problema si conocemos el modelo verdadero, pero muchas veces no alcanza porque hay otras variables omitidas difíciles de medir.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#ejemplo-1-tabaquismo-y-muerte",
+    "href": "material/modulo_01/s4.html#ejemplo-1-tabaquismo-y-muerte",
+    "title": "Variables omitidas",
+    "section": "Ejemplo 1: Tabaquismo y Muerte",
+    "text": "Ejemplo 1: Tabaquismo y Muerte\n\nAppleton, French and Vanderpump (1996): relación entre consumo de cigarrillos y muerte.\n\n[Aquí va una imagen: RegySmoke.jpeg - Tabla de regresión de cigarrillos sobre mortalidad]\n\n\\(\\hat{\\tilde{\\beta}}_{1}=-1.81\\) (Aparentemente fumar reduce la muerte)\n¿Qué variables estamos omitiendo acá?",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#ejemplo-2-agregando-edad",
+    "href": "material/modulo_01/s4.html#ejemplo-2-agregando-edad",
+    "title": "Variables omitidas",
+    "section": "Ejemplo 2: Agregando Edad",
+    "text": "Ejemplo 2: Agregando Edad\n\n¿Y si agregamos edad?\n\n[Aquí va una imagen: RegySmokeAge.jpeg - Tabla de regresión controlando por edad]\n\nSi este fuera el modelo verdadero, \\(\\hat{\\beta}_{1}=0.94 &gt; \\hat{\\tilde{\\beta}}_{1}=-1.81\\).\nSi \\(\\hat{\\beta}_{2}&gt;0\\) (la edad aumenta el riesgo de muerte), ¿qué me dice esto sobre el signo de relación entre edad y fumar cigarrillos (\\(\\delta_{2}\\))?\nRecuerden: \\(\\tilde{\\beta}_{1}=\\beta_{1}+\\beta_{2} \\delta_{2}\\).\nEs negativa: cuanto mayor es la persona en esta muestra, menos fuma.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#más-es-mejor",
+    "href": "material/modulo_01/s4.html#más-es-mejor",
+    "title": "Variables omitidas",
+    "section": "¿Más es mejor?",
+    "text": "¿Más es mejor?\n\nSe dice que un modelo está sobreespecificado cuando se incluyen variables que no forman parte del modelo poblacional.\nIncluir variables irrelevantes en el modelo:\n\nNo influye en el insesgamiento de los estimadores.\nPero incrementa la varianza de los estimadores (perdemos precisión).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#sin-sesgo-de-selección",
+    "href": "material/modulo_01/s4.html#sin-sesgo-de-selección",
+    "title": "Variables omitidas",
+    "section": "Sin sesgo de selección",
+    "text": "Sin sesgo de selección\n\nSi tenemos una aleatorización que garantiza que no haya sesgo de selección:\nSi \\(X_{1}\\) se determina de forma aleatoria, se garantiza que \\(E\\left[\\epsilon_{i} \\mid X_{i}\\right]=0\\).\n¡La correlación entre cualquier variable no incluida en el modelo y el tratamiento será 0!\nEntonces, no necesitamos incluir otras variables en el modelo para evitar sesgos (aunque pueden ayudar a la precisión).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s4.html#conclusiones",
+    "href": "material/modulo_01/s4.html#conclusiones",
+    "title": "Variables omitidas",
+    "section": "Conclusiones",
+    "text": "Conclusiones\n\nIncluir variables a un modelo cambia la interpretación de nuestra variable de interés.\nEl impacto de la exclusión de una variable relevante depende de la correlación con la variable de interés y su relación con el outcome.\nEl supuesto clave de MCO para que no haya sesgo es \\(E[\\epsilon \\mid X]=0\\).\nEs poco frecuente tener todas las variables que determinan la asignación, por lo que la interpretación causal pura es difícil en modelos lineales simples sin diseño experimental.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Variables omitidas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html",
+    "href": "material/modulo_01/s5.html",
+    "title": "Error de Medición",
+    "section": "",
+    "text": "El mundo real",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#el-mundo-real",
+    "href": "material/modulo_01/s5.html#el-mundo-real",
+    "title": "Error de Medición",
+    "section": "",
+    "text": "Hasta ahora, hemos hablado de las variables \\(y\\) e \\(x\\) como dadas en nuestro modelo.\nPero una vez que tratamos de estimar la relación entre estas variables, hay que usar lo que está disponible en los datos reales.\nA menudo, no se cuenta con datos sobre la variable económica que realmente nos interesa.\nEjemplos:\n\nIngreso verdadero vs. ingreso declarado\nCalorías consumidas vs. calorías compradas",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#error-de-medición-definición",
+    "href": "material/modulo_01/s5.html#error-de-medición-definición",
+    "title": "Error de Medición",
+    "section": "Error de Medición: Definición",
+    "text": "Error de Medición: Definición\n\nLa variable que nos interesa es \\(W^*\\), pero solo tenemos una versión imprecisa \\(W\\): \\[W = W^* + u\\]\nSe define como error de medida \\(u = W - W^*\\). Es la diferencia entre lo observado y lo verdadero.\nError Clásico: Definimos el escenario menos grave cuando \\(E(u)=0\\) y \\(Cov(u, W^*) = 0\\).\nAnalizaremos el impacto de este error si ocurre en la variable dependiente o en la independiente.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#formulación-del-modelo",
+    "href": "material/modulo_01/s5.html#formulación-del-modelo",
+    "title": "Error de Medición",
+    "section": "Formulación del Modelo",
+    "text": "Formulación del Modelo\nConsidere el modelo verdadero (sin sesgo por variable omitida): \\[Y^* = \\beta_0 + \\beta_1 X + \\varepsilon\\] \\[E[\\varepsilon \\mid X] = 0\\]\nPero solo observamos \\(Y = Y^* + u\\). Asumiendo error clásico: \\(Cov(Y^*, u) = 0\\) y \\(V(u) = \\sigma_u^2\\). Sustituyendo \\(Y^* = Y - u\\) en el modelo: \\[Y = \\beta_0 + \\beta_1 X + v\\] donde \\(v = (\\varepsilon + u)\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#será-hatbeta_1-insesgado",
+    "href": "material/modulo_01/s5.html#será-hatbeta_1-insesgado",
+    "title": "Error de Medición",
+    "section": "¿Será \\(\\hat{\\beta}_1\\) insesgado?",
+    "text": "¿Será \\(\\hat{\\beta}_1\\) insesgado?\n\nComo suponemos que el error de medición de la variable \\(Y\\) no está correlacionado con \\(X\\), no causará sesgo.\nDemostración: \\[E(\\hat{\\beta}_1) = \\frac{Cov(X, Y)}{Var(X)} = \\frac{Cov(X, Y^* + u)}{Var(X)}\\] \\[E(\\hat{\\beta}_1) = \\frac{Cov(X, Y^*)}{Var(X)} + \\frac{Cov(X, u)}{Var(X)}\\] \\[E(\\hat{\\beta}_1) = \\beta_1 + 0 = \\beta_1\\]\nIntuición: Si el error de medida en \\(Y\\) no está sistemáticamente relacionado con las \\(X\\), el estimador MCO sigue siendo insesgado.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#impacto-sobre-la-precisión",
+    "href": "material/modulo_01/s5.html#impacto-sobre-la-precisión",
+    "title": "Error de Medición",
+    "section": "Impacto sobre la precisión",
+    "text": "Impacto sobre la precisión\n\nAunque el estimador es insesgado, los estimadores MCO tendrán mayor varianza.\nCon errores de medición en la variable dependiente, el término del error es \\((\\varepsilon + u)\\).\nPor lo tanto, la varianza del error total es: \\[Var(\\varepsilon) + Var(u) &gt; Var(\\varepsilon)\\]\nEsto significa que será más difícil obtener resultados estadísticamente significativos.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#ejemplo-relación-entre-salario-e-iq",
+    "href": "material/modulo_01/s5.html#ejemplo-relación-entre-salario-e-iq",
+    "title": "Error de Medición",
+    "section": "Ejemplo: Relación entre salario e IQ",
+    "text": "Ejemplo: Relación entre salario e IQ\n[Aquí va una imagen: RelacionSalarioIQ.jpeg]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#impacto-sobre-mco",
+    "href": "material/modulo_01/s5.html#impacto-sobre-mco",
+    "title": "Error de Medición",
+    "section": "Impacto sobre MCO",
+    "text": "Impacto sobre MCO\n\nCuando la variable mal medida es la independiente, el problema es más grave.\nTenemos \\(X = X^* + u\\), con error clásico (\\(Cov(X^*, u) = 0\\)).\nModelo verdadero: \\(Y = \\beta_0 + \\beta_1 X^* + \\epsilon\\)\nModelo estimado: \\(Y = b_0 + b_1 X + v\\)\nDonde el nuevo error es \\(v = \\epsilon - \\beta_1 u\\).\nVeremos que ahora el estimador \\(\\hat{b}_1\\) será sesgado.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#sesgo-de-atenuación",
+    "href": "material/modulo_01/s5.html#sesgo-de-atenuación",
+    "title": "Error de Medición",
+    "section": "Sesgo de atenuación",
+    "text": "Sesgo de atenuación\nDerivando el valor esperado: \\[E[\\hat{b}_1] = \\frac{Cov(X^* + u, Y)}{Var(X^* + u)} = \\frac{Cov(X^*, Y)}{Var(X^*) + Var(u)}\\]\nSustituyendo \\(Y\\): \\[E[\\hat{b}_1] = \\frac{Cov(X^*, \\beta_0 + \\beta_1 X^* + \\epsilon)}{Var(X^*) + Var(u)}\\] \\[E[\\hat{b}_1] = \\beta_1 \\frac{Var(X^*)}{Var(X^*) + Var(u)} = a \\cdot \\beta_1\\]\nDonde \\(a = \\frac{Var(X^*)}{Var(X^*) + Var(u)} &lt; 1\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#análisis-del-sesgo-de-atenuación",
+    "href": "material/modulo_01/s5.html#análisis-del-sesgo-de-atenuación",
+    "title": "Error de Medición",
+    "section": "Análisis del Sesgo de Atenuación",
+    "text": "Análisis del Sesgo de Atenuación\n\\[E(\\hat{b}_1) = a \\cdot \\beta_1\\]\n\nEl coeficiente de MCO será más pequeño en valor absoluto; subestimaremos el efecto real.\nSi \\(\\beta_1 &gt; 0\\), el estimador será menor al parámetro.\nSi \\(\\beta_1 &lt; 0\\), el estimador será mayor al parámetro (menos negativo).\nLa magnitud del sesgo depende del “signal-to-noise ratio”: qué tan grande es la varianza del error (\\(Var(u)\\)) comparada con la varianza de la variable real (\\(Var(X^*)\\)).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s5.html#conclusiones",
+    "href": "material/modulo_01/s5.html#conclusiones",
+    "title": "Error de Medición",
+    "section": "Conclusiones",
+    "text": "Conclusiones\n\nVariable Dependiente: Errores de medición no generan sesgo, pero aumentan la varianza (menos precisión).\nVariable Independiente: Genera sesgo de atenuación. Siempre vamos a subestimar la magnitud de la relación entre las variables.\nEn el mundo real, los datos imprecisos dificultan el reconocimiento de las verdaderas relaciones económicas.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Error de Medición</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html",
+    "href": "material/modulo_01/s6.html",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "",
+    "text": "Modelo de Regresión Múltiple: Introducción",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#modelo-de-regresión-múltiple-introducción",
+    "href": "material/modulo_01/s6.html#modelo-de-regresión-múltiple-introducción",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "",
+    "text": "En las clases anteriores, vimos el modelo de regresión lineal simple: \\[y = \\beta_0 + \\beta_1x + u\\]\nSin embargo, el supuesto de que \\(E[u|x] = 0\\) en dicho modelo es muy fuerte, ya que todas las variables no incluidas van al error.\nAdemás, si nos interesa la predicción, es muy difícil predecir la variable \\(y\\) en base a una sola variable.\nEl modelo de regresión lineal múltiple (RLM) permite esto.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#modelo-de-regresión-lineal-múltiple",
+    "href": "material/modulo_01/s6.html#modelo-de-regresión-lineal-múltiple",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Modelo de Regresión Lineal Múltiple",
+    "text": "Modelo de Regresión Lineal Múltiple\n\nA nivel poblacional, el modelo RLM se define como: \\[y = \\beta_0 + \\beta_1x_1 + \\beta_2x_2 + \\dots + \\beta_kx_k + u\\]\nAsumamos que \\(E[u|x_1, x_2, \\dots, x_k] = 0\\).\nInterpretación de los parámetros \\(\\beta\\):\n\nSi todas las variables excepto \\(x_1\\) permanecen constantes: \\[\\Delta E[y|x_1, \\dots, x_k] = \\beta_1 \\Delta x_1\\] \\[\\Rightarrow \\beta_1 = \\frac{\\Delta E[y|x_1, \\dots, x_k]}{\\Delta x_1}\\]\nInterpretación: Cuando \\(x_1\\) cambia en una unidad, el valor esperado de \\(y\\) cambia en \\(\\beta_1\\) unidades, manteniendo todas las demás variables incluidas constantes. ¡Es como una derivada parcial!",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#modelo-de-regresión-múltiple-estimación-mco",
+    "href": "material/modulo_01/s6.html#modelo-de-regresión-múltiple-estimación-mco",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Modelo de Regresión Múltiple: Estimación MCO",
+    "text": "Modelo de Regresión Múltiple: Estimación MCO\n\nAl agregar más variables al modelo para poder estudiar el efecto de \\(x\\), ceteris paribus estas otras variables.\nPor ejemplo, al estudiar el efecto de educación en salario, queremos dejar la inteligencia constante (IQ).\nAl incluir esta variable en la regresión, podemos ver cuánto afecta un año más de educación en salario, dejando constante IQ.\nDe hecho, si agregamos la variable IQ, el coeficiente de educación que obtenemos se hace más pequeño.\n\nMCO Simple: \\(\\widehat{salario} = 0.09 + 0.54 \\cdot educacion\\)\nMCO Múltiple: \\(\\widehat{salario} = 0.065 + 0.37 \\cdot educacion + 0.20 \\cdot IQ\\)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#modelo-de-regresión-lineal-múltiple-estimación",
+    "href": "material/modulo_01/s6.html#modelo-de-regresión-lineal-múltiple-estimación",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Modelo de Regresión Lineal Múltiple: Estimación",
+    "text": "Modelo de Regresión Lineal Múltiple: Estimación\nDada una muestra de \\(n\\) individuos, tenemos la siguiente ecuación: \\[y_i = \\hat{\\beta_0} + \\hat{\\beta_1}x_{i1} + \\hat{\\beta_2}x_{i2} + \\dots + \\hat{\\beta_k}x_{ik} + \\hat{u_i}, \\quad \\forall i = 1, \\dots, n\\]\nIgual que en el modelo RLS, los residuos vienen dados por: \\[\\hat{u}_i = y_i - \\hat{y}_i\\] \\[\\hat{u_i}= y_i - (\\hat{\\beta}_0 + \\hat{\\beta}_1x_{i1} + \\hat{\\beta}_2x_{i2} + \\dots + \\hat{\\beta}_kx_{ik})\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#mco-para-el-modelo-lineal-múltiple",
+    "href": "material/modulo_01/s6.html#mco-para-el-modelo-lineal-múltiple",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "MCO para el Modelo Lineal Múltiple",
+    "text": "MCO para el Modelo Lineal Múltiple\n\\[\\min_{\\hat{\\beta}_0, \\hat{\\beta}_1, \\dots, \\hat{\\beta}_k} \\sum_i \\hat{u}_i^2\\] Es decir, \\[\\min_{\\hat{\\beta}_0, \\dots, \\hat{\\beta}_k} \\sum_i \\left( y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1x_{i1} - \\dots - \\hat{\\beta}_kx_{ik} \\right)^2\\]\nCPO: 1. \\(\\hat{\\beta}_0: \\sum_i \\left( y_i - \\hat{\\beta}_0 - \\hat{\\beta}_1x_{i1} - \\dots - \\hat{\\beta}_kx_{ik} \\right) = 0\\) 2. \\(\\hat{\\beta}_1: \\sum_i x_{i1} \\left( y_i - \\hat{\\beta}_0 - \\dots - \\hat{\\beta}_kx_{ik} \\right) = 0\\) 3. … 4. \\(\\hat{\\beta}_k: \\sum_i x_{ik} \\left( y_i - \\hat{\\beta}_0 - \\dots - \\hat{\\beta}_kx_{ik} \\right) = 0\\)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#notación-matricial-modelo-poblacional",
+    "href": "material/modulo_01/s6.html#notación-matricial-modelo-poblacional",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Notación matricial modelo poblacional",
+    "text": "Notación matricial modelo poblacional\n\nEl modelo para cada individuo \\(i\\) es: \\[y_i = \\beta_0 + \\beta_1 x_{i1} + \\dots + \\beta_k x_{ik} + u_i\\]\nMatricialmente: \\(y_i = \\mathbf{x}_i^\\top \\mathbf{\\beta} + u_i\\) con \\[\\mathbf{x}_i = \\begin{pmatrix} 1 \\\\ x_{i1} \\\\ \\vdots \\\\ x_{ik} \\end{pmatrix}, \\quad \\mathbf{\\beta} = \\begin{pmatrix} \\beta_0 \\\\ \\beta_1 \\\\ \\vdots \\\\ \\beta_k \\end{pmatrix}\\]\nNoten que son \\(n\\) ecuaciones (una para cada individuo).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#notación-general",
+    "href": "material/modulo_01/s6.html#notación-general",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Notación General",
+    "text": "Notación General\nPara una muestra de \\(n\\) observaciones: \\[y = X\\beta + u\\] con \\[y = \\begin{pmatrix} y_1 \\\\ \\vdots \\\\ y_n \\end{pmatrix}, \\quad X = \\begin{pmatrix} 1 & x_{11} & \\dots & x_{1k} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 1 & x_{n1} & \\dots & x_{nk} \\end{pmatrix}, \\quad u = \\begin{pmatrix} u_1 \\\\ \\vdots \\\\ u_n \\end{pmatrix}\\] donde \\(u\\) y \\(y\\) son vectores de \\(n \\times 1\\) y \\(X\\) es una matriz de \\(n \\times (k + 1)\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#ejemplo-n5-dos-variables-x_1-x_2",
+    "href": "material/modulo_01/s6.html#ejemplo-n5-dos-variables-x_1-x_2",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Ejemplo: \\(n=5\\), dos variables \\(x_1, x_2\\)",
+    "text": "Ejemplo: \\(n=5\\), dos variables \\(x_1, x_2\\)\n\\[\n\\begin{bmatrix} y_1 \\\\ y_2 \\\\ \\vdots \\\\ y_5 \\end{bmatrix} =\n\\beta_0 \\begin{bmatrix} 1 \\\\ 1 \\\\ \\vdots \\\\ 1 \\end{bmatrix} +\n\\beta_1 \\begin{bmatrix} x_{11} \\\\ x_{12} \\\\ \\vdots \\\\ x_{15} \\end{bmatrix} +\n\\beta_2 \\begin{bmatrix} x_{21} \\\\ x_{22} \\\\ \\vdots \\\\ x_{25} \\end{bmatrix} +\n\\begin{bmatrix} u_1 \\\\ u_2 \\\\ \\vdots \\\\ u_5 \\end{bmatrix}\n\\]\nRe-escribiendo: \\[\n\\begin{bmatrix} y_1 \\\\ \\vdots \\\\ y_5 \\end{bmatrix} =\n\\begin{bmatrix} 1 & x_{11} & x_{12} \\\\ 1 & x_{12} & x_{22} \\\\ \\vdots & \\vdots & \\vdots \\\\ 1 & x_{15} & x_{25} \\end{bmatrix}\n\\begin{bmatrix} \\beta_0 \\\\ \\beta_1 \\\\ \\beta_2 \\end{bmatrix} +\n\\begin{bmatrix} u_1 \\\\ \\vdots \\\\ u_5 \\end{bmatrix}\n\\] \\[y = X\\beta + u\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#mínimos-cuadrados-ordinarios-matricial",
+    "href": "material/modulo_01/s6.html#mínimos-cuadrados-ordinarios-matricial",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Mínimos Cuadrados Ordinarios (Matricial)",
+    "text": "Mínimos Cuadrados Ordinarios (Matricial)\n\nDefinimos:\n\n\\(\\hat{\\beta}\\): estimadores, dimensión \\((k+1) \\times 1\\)\n\\(\\hat{y} = X \\hat{\\beta}\\): Valores predichos, dimensión \\(n \\times 1\\)\nResiduos: \\(\\hat{u} = y - \\hat{y} = y - X \\hat{\\beta}\\)\n\n\nRecordatorio matemático: 1. Derivadas: \\(\\frac{d(a^\\top \\beta)}{d\\beta} = a\\), \\(\\frac{d(\\beta^\\top A \\beta)}{d\\beta} = 2A\\beta\\) 2. Traspuesta: \\((DE)^\\top = E^\\top D^\\top\\) 3. Potencias: \\(\\sum s_i^2 = s^\\top s\\)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#derivación-de-hatbeta",
+    "href": "material/modulo_01/s6.html#derivación-de-hatbeta",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Derivación de \\(\\hat{\\beta}\\)",
+    "text": "Derivación de \\(\\hat{\\beta}\\)\n\\[\\min \\sum \\hat{u}_i^2 \\quad \\Rightarrow \\quad \\min_{\\hat{\\beta}} \\hat{u}^\\top \\hat{u}\\] \\[\\hat{u}^\\top \\hat{u} = (y - X \\hat{\\beta})^\\top (y - X \\hat{\\beta}) = y^\\top y - 2 y^\\top X \\hat{\\beta} + \\hat{\\beta}^\\top X^\\top X \\hat{\\beta}\\]\nCPO: \\[\\frac{\\partial \\hat{u}^\\top \\hat{u}}{\\partial \\hat{\\beta}} = -2X^\\top y + 2X^\\top X \\hat{\\beta} = 0\\] \\[\\Rightarrow \\hat{\\beta} = (X^\\top X)^{-1} X^\\top y\\]\n\nNota: Suponemos que \\(X\\) tiene rango completo para que \\(X^\\top X\\) sea invertible.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#propiedades-algebraicas-de-mco",
+    "href": "material/modulo_01/s6.html#propiedades-algebraicas-de-mco",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Propiedades algebraicas de MCO",
+    "text": "Propiedades algebraicas de MCO\nDerivadas de las CPO (\\(X^\\top \\hat{u} = 0\\)):\n\nSuma de residuos: \\(\\sum_{i} \\hat{u}_i = 0\\).\nOrtogonalidad: \\(\\sum_{i} x_{ij} \\hat{u}_i = 0\\) para cada variable \\(j\\).\nMedias: \\(\\bar{y} = \\bar{\\hat{y}}\\). La media de lo observado es igual a la media de lo predicho.\nPunto medio: La línea de regresión siempre pasa por el centro de gravedad de los datos \\((\\bar{x}_1, \\dots, \\bar{x}_k, \\bar{y})\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#bondad-de-ajuste-r2",
+    "href": "material/modulo_01/s6.html#bondad-de-ajuste-r2",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Bondad de Ajuste: \\(R^2\\)",
+    "text": "Bondad de Ajuste: \\(R^2\\)\nEl \\(R^2\\) mide la proporción de la varianza muestral de \\(y\\) explicada por la regresión:\n\nSSE (Explicada): \\(\\sum (\\hat{y}_i - \\bar{y})^2\\)\nSSR (Residual): \\(\\sum \\hat{u}_i^2\\)\nSST (Total): \\(\\sum (y_i - \\bar{y})^2\\)\n\n\\[R^2 = \\frac{SSE}{SST} = 1 - \\frac{SSR}{SST}\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s6.html#bondad-de-ajuste-r2-ajustado",
+    "href": "material/modulo_01/s6.html#bondad-de-ajuste-r2-ajustado",
+    "title": "Estimación del Modelo de Regresión Lineal Múltiple",
+    "section": "Bondad de Ajuste: \\(R^2\\) ajustado",
+    "text": "Bondad de Ajuste: \\(R^2\\) ajustado\n\nEl \\(R^2\\) crece mecánicamente al agregar variables, aunque sean irrelevantes.\nNecesitamos penalizar la inclusión de variables que no aportan al modelo poblacional.\n\\(R^2\\) ajustado: \\[\\overline{R^2} = 1 - \\frac{n - 1}{n - k - 1} \\frac{SSR}{SST}\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Estimación del Modelo de Regresión Lineal Múltiple</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html",
+    "href": "material/modulo_01/s7.html",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "",
+    "text": "Resumen clase anterior\nInterpretación \\(\\hat{\\beta}_1\\): Cuando cambia \\(x_1\\) en una unidad, en promedio \\(y\\) cambia \\(\\hat{\\beta}_1\\) unidades, manteniendo todas las demás \\(x\\) constantes (ceteris paribus).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#resumen-clase-anterior",
+    "href": "material/modulo_01/s7.html#resumen-clase-anterior",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "",
+    "text": "Vimos la forma matricial del modelo de regresión lineal múltiple: \\(y = X\\beta + u\\)\nDemostramos que por MCO se puede obtener: \\[\\hat{\\beta} = \\begin{bmatrix} \\hat{\\beta}_0 \\\\ \\hat{\\beta}_1 \\\\ \\vdots \\\\ \\hat{\\beta}_k \\end{bmatrix} = (X^\\top X)^{-1}X^\\top y\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#ejemplo-obtener-hatbeta-xtop-x-1xtop-y",
+    "href": "material/modulo_01/s7.html#ejemplo-obtener-hatbeta-xtop-x-1xtop-y",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Ejemplo: Obtener \\(\\hat{\\beta} = (X^\\top X)^{-1}X^\\top y\\)",
+    "text": "Ejemplo: Obtener \\(\\hat{\\beta} = (X^\\top X)^{-1}X^\\top y\\)\nModelo: \\(y_i = \\beta_0 + \\beta_1 x_{i1} + \\beta_2 x_{i2} + u_i\\), con \\(n=5\\).\nIndividuos | unos | \\(x_1\\) (Exp.) | \\(x_2\\) (Edu.) | \\(y\\) (Salario) |\n|:|::|::|::|::| | Juan | 1 | 12 | 93 | 769 | | Pedro | 1 | 18 | 119 | 808 | | Sofia | 1 | 14 | 108 | 825 | | Caro | 1 | 12 | 96 | 650 | | Alex | 1 | 11 | 74 | 562 |",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#ejemplo-construcción-de-matrices",
+    "href": "material/modulo_01/s7.html#ejemplo-construcción-de-matrices",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Ejemplo: Construcción de Matrices",
+    "text": "Ejemplo: Construcción de Matrices\n\\[X = \\begin{bmatrix} 1 & 12 & 93 \\\\ 1 & 18 & 119 \\\\ 1 & 14 & 108 \\\\ 1 & 12 & 96 \\\\ 1 & 11 & 74 \\end{bmatrix}, \\quad X^\\top = \\begin{bmatrix} 1 & 1 & 1 & 1 & 1 \\\\ 12 & 18 & 14 & 12 & 11 \\\\ 93 & 119 & 108 & 96 & 74 \\end{bmatrix}\\]\nCálculo de \\(X^\\top X\\): \\[X^\\top X = \\begin{bmatrix} 5 & 67 & 490 \\\\ 67 & 929 & 6736 \\\\ 490 & 6736 & 49166 \\end{bmatrix}\\] \\[(X^\\top X)^{-1} = \\begin{bmatrix} 8.80 & 0.19 & -0.11 \\\\ 0.19 & 0.17 & -0.02 \\\\ -0.11 & -0.02 & 0.00 \\end{bmatrix}\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#ejemplo-producto-xtop-y-y-estimadores",
+    "href": "material/modulo_01/s7.html#ejemplo-producto-xtop-y-y-estimadores",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Ejemplo: Producto \\(X^\\top y\\) y Estimadores",
+    "text": "Ejemplo: Producto \\(X^\\top y\\) y Estimadores\n\\[X^\\top y = \\begin{bmatrix} 1 & 1 & 1 & 1 & 1 \\\\ 12 & 18 & 14 & 12 & 11 \\\\ 93 & 119 & 108 & 96 & 74 \\end{bmatrix} \\times \\begin{bmatrix} 769 \\\\ 808 \\\\ 825 \\\\ 650 \\\\ 562 \\end{bmatrix} = \\begin{bmatrix} 3614 \\\\ 49304 \\\\ 360757 \\end{bmatrix}\\]\nEstimadores Finales: \\[\\hat{\\beta} = (X^{\\top}X)^{-1}X^{\\top}y = \\begin{bmatrix} 140.59 \\\\ -16.79 \\\\ 8.24 \\end{bmatrix}\\] Donde \\(\\hat{\\beta}_0 = 140.59\\), \\(\\hat{\\beta}_1 = -16.79\\), y \\(\\hat{\\beta}_2 = 8.24\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#en-r-implementación-matricial",
+    "href": "material/modulo_01/s7.html#en-r-implementación-matricial",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "En R: Implementación Matricial",
+    "text": "En R: Implementación Matricial\nPara calcular los estimadores en R de forma manual:\nX &lt;- cbind(1, experiencia, educacion)\nbeta_hat &lt;- solve(t(X) %*% X) %*% t(X) %*% y_salario",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#supuestos-clásicos-de-gauss-markov",
+    "href": "material/modulo_01/s7.html#supuestos-clásicos-de-gauss-markov",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Supuestos Clásicos de Gauss-Markov",
+    "text": "Supuestos Clásicos de Gauss-Markov\nPara que sea un “buen” estimador, debemos cumplir 5 supuestos:\n\nLinealidad en parámetros: .\nMuestra aleatoria: Observaciones independientes; .\nNo multicolinealidad perfecta: tiene rango completo (). Existe .\nOrtogonalidad (Exogeneidad): . La covarianza entre y el error es nula.\nHomocedasticidad: . La varianza del error es constante.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#supuesto-4-el-supuesto-crítico",
+    "href": "material/modulo_01/s7.html#supuesto-4-el-supuesto-crítico",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Supuesto 4: El supuesto crítico",
+    "text": "Supuesto 4: El supuesto crítico\n\nEste supuesto permite la interpretación causal.\nPuede fallar por:\nOmisión de variables relevantes correlacionadas con .\nErrores de medición en los regresores.\nSi no se cumple, el estimador es sesgado.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#supuesto-5-homocedasticidad",
+    "href": "material/modulo_01/s7.html#supuesto-5-homocedasticidad",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Supuesto 5: Homocedasticidad",
+    "text": "Supuesto 5: Homocedasticidad\nLa varianza del error no depende de los valores de :\n\nHomocedasticidad: La dispersión de los residuos es constante a lo largo de .\nHeterocedasticidad: La dispersión cambia (ej. el error en el salario varía más para personas con mucha educación que para personas con poca).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#propiedades-estadísticas-de-mco",
+    "href": "material/modulo_01/s7.html#propiedades-estadísticas-de-mco",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Propiedades Estadísticas de MCO",
+    "text": "Propiedades Estadísticas de MCO\nBajo los supuestos clásicos, los estimadores cumplen:\n\nInsesgadez: .\nVarianza: .\nTeorema de Gauss-Markov: MCO es el MELI (Mejor Estimador Lineal Insesgado) o BLUE en inglés. Es decir, es el que tiene la varianza mínima entre todos los lineales insesgados.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#demostración-insesgadez",
+    "href": "material/modulo_01/s7.html#demostración-insesgadez",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Demostración: Insesgadez",
+    "text": "Demostración: Insesgadez\nPartiendo de y sustituyendo :\nAplicando esperanza condicional:\nComo (Supuesto 4):",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s7.html#demostración-varianza-del-estimador",
+    "href": "material/modulo_01/s7.html#demostración-varianza-del-estimador",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Demostración: Varianza del Estimador",
+    "text": "Demostración: Varianza del Estimador\nSustituyendo :\nBajo homocedasticidad ():\n\n¿Te gustaría que incluya un ejemplo práctico en R sobre cómo detectar la heterocedasticidad o pasamos a la siguiente lección?",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html",
+    "href": "material/modulo_01/s8.html",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "",
+    "text": "Estimador MCO de \\(\\sigma^2\\)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#estimador-mco-de-sigma2",
+    "href": "material/modulo_01/s8.html#estimador-mco-de-sigma2",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "",
+    "text": "La matriz de varianzas-covarianzas viene dada por: \\[\\text{Var}(\\hat{\\beta}|X) = \\sigma^2(X^{\\top}X)^{-1}\\]\nNotar que \\((X^{\\top}X)^{-1}\\) es una matriz que se observa en los datos.\nPero, \\(\\sigma^2\\) es la varianza del error poblacional. NO es observable.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#estimador-mco-de-sigma2-continuación",
+    "href": "material/modulo_01/s8.html#estimador-mco-de-sigma2-continuación",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Estimador MCO de \\(\\sigma^2\\) (Continuación)",
+    "text": "Estimador MCO de \\(\\sigma^2\\) (Continuación)\nEl estimador \\(\\hat{\\sigma}^2\\) de \\(\\sigma^2\\) se define como:\n\\[\\hat{\\sigma}^2 = \\frac{\\sum_{i=1}^{n} \\hat{u}_i^2 }{n-k-1}= \\frac{SSR}{n - k - 1}\\]\n\nEl término \\(n - k - 1\\) son los grados de libertad (gl) para el problema general de MCO con \\(n\\) observaciones y \\(k\\) variables independientes.\nComo en un modelo de regresión con \\(k\\) variables independientes y un intercepto hay \\(k + 1\\) parámetros.\n\\(gl = (\\text{observaciones}) - (\\text{cantidad de parámetros estimados})\\).\nBajo los supuestos del teorema de Gauss-Markov se cumple que \\(E[\\hat{\\sigma}^2|X] = \\sigma^2\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#grados-de-libertad-en-los-residuales",
+    "href": "material/modulo_01/s8.html#grados-de-libertad-en-los-residuales",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Grados de Libertad en los Residuales",
+    "text": "Grados de Libertad en los Residuales\n\nEn la obtención de las estimaciones de MCO, a los residuales de MCO se les impone \\(k + 1\\) restricciones.\nEsto significa que, dados \\(n - (k + 1)\\) residuales, los restantes \\(k + 1\\) residuales se conocen: sólo hay \\(n - (k + 1)\\) grados de libertad en los residuales.\nEsto se puede comparar con los errores \\(u_i\\), que tienen \\(n\\) grados de libertad en la muestra.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#varianza-estimada-de-cada-estimador-hatbeta_j",
+    "href": "material/modulo_01/s8.html#varianza-estimada-de-cada-estimador-hatbeta_j",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Varianza Estimada de Cada Estimador \\(\\hat{\\beta}_j\\)",
+    "text": "Varianza Estimada de Cada Estimador \\(\\hat{\\beta}_j\\)\n\\[\\hat{\\text{Var}}(\\hat{\\beta}|X) = \\hat{\\sigma}^2(X^{\\top}X)^{-1}\\]\nMatriz de \\((k + 1) \\times (k + 1)\\) de varianzas-covarianzas, tal que:\n\nEl elemento de la diagonal \\(a_{1,1}\\) es \\(\\hat{\\text{Var}}(\\hat{\\beta}_0)\\).\nEl elemento de la diagonal \\(a_{2,2}\\) es \\(\\hat{\\text{Var}}(\\hat{\\beta}_1)\\).\nGeneralizando: el elemento de la diagonal \\(a_{j+1,j+1}\\) es \\(\\hat{\\text{Var}}(\\hat{\\beta}_j)\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#varianza-del-estimador-mco-ejemplo",
+    "href": "material/modulo_01/s8.html#varianza-del-estimador-mco-ejemplo",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Varianza del Estimador MCO: Ejemplo",
+    "text": "Varianza del Estimador MCO: Ejemplo\n\nSupuestos clásicos \\(\\Rightarrow \\hat{V}(\\hat{\\beta}) = \\hat{\\sigma}^2(X^{\\top}X)^{-1}\\).\nDe los datos obtenemos: \\[(X^{\\top}X)^{-1} = \\begin{bmatrix} 0.05987 & -0.00177 & -0.00035 \\\\ -0.00177 & 0.00030 & -0.00002 \\\\ -0.00035 & -0.00002 & 0.00001 \\end{bmatrix}\\]\n\\(\\hat{\\sigma}^2 = \\frac{SSR}{n-k-1} = 141925\\)",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#varianza-del-estimador-mco-ejemplo-cálculo",
+    "href": "material/modulo_01/s8.html#varianza-del-estimador-mco-ejemplo-cálculo",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Varianza del Estimador MCO: Ejemplo (Cálculo)",
+    "text": "Varianza del Estimador MCO: Ejemplo (Cálculo)\nEntonces, podemos calcular: \\[\\hat{V}(\\hat{\\beta}) = \\hat{\\sigma}^2(X^{\\top}X)^{-1} = \\begin{bmatrix} 8497.57 & -250.80 & -49.04 \\\\ -250.80 & 42.90 & -3.22 \\\\ -49.04 & -3.22 & 0.91 \\end{bmatrix}\\]\n\nEn la diagonal principal, tienen la varianza de cada uno de los estimadores.\nEjemplo: \\(\\hat{V}(\\hat{\\beta}_1) = 42.6\\). Es decir, el error estándar es: \\[\\hat{se}(\\hat{\\beta}_1) = \\sqrt{\\hat{V}(\\hat{\\beta}_1)} = 6.53\\]",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#el-caso-particular-de-regresión-simple",
+    "href": "material/modulo_01/s8.html#el-caso-particular-de-regresión-simple",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "El Caso Particular de Regresión Simple",
+    "text": "El Caso Particular de Regresión Simple\nEn el modelo de regresión simple \\(y = \\beta_0 + \\beta_1 x + u\\), sigue cumpliéndose lo anterior.\n\\[\\hat{Var}(\\hat{\\beta}_1) = \\frac{\\hat{\\sigma}^2}{\\sum_{i=1}^{n}(x_i - \\bar{x})^2}\\]\n\nSi \\(x\\) tiene más variabilidad, hace que \\(\\hat{\\beta}\\) sea más preciso (tengo más información).\nSi la varianza del residuo es más grande, mi estimador es menos preciso. Mi modelo no explica mucho de \\(y\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#intuición-de-la-varianza-en-el-modelo-múltiple",
+    "href": "material/modulo_01/s8.html#intuición-de-la-varianza-en-el-modelo-múltiple",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Intuición de la Varianza en el Modelo Múltiple",
+    "text": "Intuición de la Varianza en el Modelo Múltiple\nIntuición de la varianza del \\(\\hat{\\beta}_1\\): \\[\\hat{Var}(\\hat{\\beta}_1|X) = \\frac{\\hat{\\sigma}^2}{SST_1(1 - R^2_1)}\\]\n\n\\(SST_1\\): Suma total de los cuadrados de \\(x_1\\). Es decreciente en la varianza: se prefiere mayor variación muestral o aumentar \\(n\\).\n\\(R^2_1\\): Coeficiente de determinación de la regresión de \\(x_1\\) en todas las otras variables independientes. Indica cuánto de \\(x_1\\) se explica por las demás.\n\\(\\sigma^2\\): Mientras más ruido no explicado haya, más difícil es estimar el efecto parcial de \\(x_1\\).",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/s8.html#problema-de-multicolinealidad",
+    "href": "material/modulo_01/s8.html#problema-de-multicolinealidad",
+    "title": "Propiedades estadísticas del estimador MCO",
+    "section": "Problema de Multicolinealidad",
+    "text": "Problema de Multicolinealidad\n\\[\\text{Var}(\\hat{\\beta}_1|X) = \\frac{\\sigma^2}{SST_1(1 - R^2_1)}\\]\n\nSi las variables están muy correlacionadas, la varianza del estimador será muy alta. Si \\(R^2_1 = 1\\), la varianza es infinita (viola el supuesto 3).\nTrade-offs:\n\nIncluir más variables reduce la \\(SSR\\) (\\(\\sigma^2\\)), pero aumenta \\(R^2_1\\). El efecto es ambiguo.\nA menudo sacrificamos varianza para evitar el sesgo por variable omitida.",
+    "crumbs": [
+      "Fundamentos Estadísticos",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Propiedades estadísticas del estimador MCO</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html",
+    "href": "material/modulo_02/s9.html",
+    "title": "Interpretación",
+    "section": "",
+    "text": "Incorporación de no-linealidades\nDependiendo de cómo se midan las variables (\\(y\\) y \\(x\\)), la interpretación de \\(\\beta_1\\) cambia:",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#incorporación-de-no-linealidades",
+    "href": "material/modulo_02/s9.html#incorporación-de-no-linealidades",
+    "title": "Interpretación",
+    "section": "",
+    "text": "Nivel-Nivel: \\(y_i = \\beta_0 + \\beta_1 x_{1,i} + u_i\\)\n\n\\(\\beta_1 = \\Delta y / \\Delta x_1\\).\nEjemplo: Por cada año más de educación, el salario aumenta en \\(\\beta_1\\) dólares.\n\nLog-Nivel: \\(\\log(y_i) = \\beta_0 + \\beta_1 x_{1,i} + u_i\\)\n\n\\(\\beta_1 \\approx (\\Delta \\% y / 100) / \\Delta x_1\\).\nEjemplo: Un año más de educación aumenta el salario en un \\(100 \\cdot \\beta_1 \\%\\).\n\nLog-Log (Elasticidad): \\(\\log(y_i) = \\beta_0 + \\beta_1 \\log(x_{1,i}) + u_i\\)\n\n\\(\\beta_1 \\approx \\Delta \\% y / \\Delta \\% x_1\\).\nEjemplo: Un aumento del 1% en educación aumenta el salario en \\(\\beta_1 \\%\\).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#variables-en-logaritmo",
+    "href": "material/modulo_02/s9.html#variables-en-logaritmo",
+    "title": "Interpretación",
+    "section": "Variables en logaritmo",
+    "text": "Variables en logaritmo\n\nDiferencias logarítmicas: \\[\\Delta \\log(X) = \\log(X_1) - \\log(X_0) = \\log\\left(1 + \\frac{\\Delta X}{X_0}\\right)\\]\nEn este curso, \\(\\log(X)\\) siempre se refiere al logaritmo natural (\\(\\ln\\)).\nAproximación: Para valores pequeños de \\(x\\), \\(\\log(1+x) \\approx x\\).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#caso-1-log-nivel-semi-elasticidad",
+    "href": "material/modulo_02/s9.html#caso-1-log-nivel-semi-elasticidad",
+    "title": "Interpretación",
+    "section": "Caso 1: Log-Nivel (Semi-elasticidad)",
+    "text": "Caso 1: Log-Nivel (Semi-elasticidad)\n\\[\\log(salario) = 0.584 + 0.083 \\cdot educ\\]\n\nCada año adicional de educación se asocia con un incremento del 8.3% del salario.\nEl cambio porcentual es constante, pero el cambio en dólares aumenta a medida que el nivel de educación es mayor.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#caso-2-log-log-elasticidad",
+    "href": "material/modulo_02/s9.html#caso-2-log-log-elasticidad",
+    "title": "Interpretación",
+    "section": "Caso 2: Log-Log (Elasticidad)",
+    "text": "Caso 2: Log-Log (Elasticidad)\n\\[\\log(\\text{cantidad vino}) = 6 - 0.2 \\log(\\text{precio vino})\\]\n\nUn aumento del 1% en el precio del vino corresponde a una caída del 0.2% en la cantidad consumida.\nSe interpreta directamente como una elasticidad precio de la demanda. En este caso, la elasticidad es 0.2 (en valor absoluto).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#formas-cuadráticas",
+    "href": "material/modulo_02/s9.html#formas-cuadráticas",
+    "title": "Interpretación",
+    "section": "Formas cuadráticas",
+    "text": "Formas cuadráticas\nSi el modelo es \\(y = \\beta_0 + \\beta_1 x + \\beta_2 x^2 + u\\), el efecto marginal ya no es constante:\n\\[\\frac{\\Delta \\hat{y}}{\\Delta x} \\approx \\hat{\\beta}_1 + 2 \\hat{\\beta}_2 x\\]\n\nEl efecto de \\(x\\) sobre \\(y\\) depende del nivel inicial de \\(x\\).\n\\(\\hat{\\beta}_1\\) representa la pendiente cuando \\(x=0\\).\nSi \\(\\beta_1 &gt; 0\\) y \\(\\beta_2 &lt; 0\\), la relación tiene forma de “U” invertida (rendimientos decrecientes).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#ejemplo-experiencia-y-salario",
+    "href": "material/modulo_02/s9.html#ejemplo-experiencia-y-salario",
+    "title": "Interpretación",
+    "section": "Ejemplo: Experiencia y Salario",
+    "text": "Ejemplo: Experiencia y Salario\n\\[\\hat{salario} = 3.73 + 0.298 \\cdot exper - 0.0061 \\cdot exper^2\\]\n\nEl efecto marginal es: \\(0.298 - 0.0122 \\cdot exper\\).\nEl salario aumenta con la experiencia, pero cada vez menos.\nPunto de inflexión: El efecto cambia de dirección en \\(exper = |0.298 / (2 \\cdot -0.0061)| \\approx 24.4\\) años.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#términos-de-interacción",
+    "href": "material/modulo_02/s9.html#términos-de-interacción",
+    "title": "Interpretación",
+    "section": "Términos de interacción",
+    "text": "Términos de interacción\nSe usan cuando el efecto de una variable \\(x\\) depende del valor de otra variable \\(z\\):\n\\[\\text{precio} = \\beta_0 + \\beta_1 \\text{msq} + \\beta_2 \\text{dorm} + \\beta_3 (\\text{msq} \\cdot \\text{dorm}) + u\\]\nEfecto marginal de los dormitorios: \\[\\frac{\\Delta \\text{precio}}{\\Delta \\text{dorm}} = \\beta_2 + \\beta_3 \\text{msq}\\]\n\nSi \\(\\beta_3 &gt; 0\\), un dormitorio adicional añade más valor a la casa mientras más metros cuadrados (\\(\\text{msq}\\)) tenga esta.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#reescalando-variables",
+    "href": "material/modulo_02/s9.html#reescalando-variables",
+    "title": "Interpretación",
+    "section": "Reescalando variables",
+    "text": "Reescalando variables\n¿Qué ocurre si cambiamos las unidades (ej. de dólares a pesos)?\n\nReescalar \\(Y\\): Si multiplicamos \\(y\\) por \\(C\\), todos los coeficientes \\(\\beta_j\\) y sus errores estándar se multiplican por \\(C\\). El \\(R^2\\) y los estadísticos \\(t\\) no cambian.\nReescalar \\(X\\): Si multiplicamos \\(x_1\\) por \\(C\\), su coeficiente \\(\\hat{\\beta}_1\\) se divide por \\(C\\).\n\nConclusión: El reescalamiento no cambia la significancia estadística ni la interpretación económica de fondo, solo ajusta la magnitud de los números por motivos estéticos o prácticos.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s9.html#en-resumen-tabla-de-interpretación",
+    "href": "material/modulo_02/s9.html#en-resumen-tabla-de-interpretación",
+    "title": "Interpretación",
+    "section": "En resumen: Tabla de Interpretación",
+    "text": "En resumen: Tabla de Interpretación\nModelo | Variable Dep. | Variable Indep. | Interpretación de \\(\\beta\\) |\n: | :: | :: | : |\nNivel-Nivel | \\(y\\) | \\(x\\) | \\(\\Delta y = \\beta \\Delta x\\) |\nNivel-Log | \\(y\\) | \\(\\log(x)\\) | \\(\\Delta y = (\\beta / 100) \\Delta \\% x\\) |\nLog-Nivel | \\(\\log(y)\\) | \\(x\\) | \\(\\Delta \\% y = (100 \\beta) \\Delta x\\) |\nLog-Log | \\(\\log(y)\\) | \\(\\log(x)\\) | \\(\\Delta \\% y = \\beta \\Delta \\% x\\) |",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Interpretación</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html",
+    "href": "material/modulo_02/s10.html",
+    "title": "Inferencia sobre un parámetro",
+    "section": "",
+    "text": "Teorema de Gauss-Markov",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#teorema-de-gauss-markov",
+    "href": "material/modulo_02/s10.html#teorema-de-gauss-markov",
+    "title": "Inferencia sobre un parámetro",
+    "section": "",
+    "text": "Teorema: Bajo los supuestos 1 a 5, el estimador de Mínimos Cuadrados Ordinarios (MCO) de \\(\\beta\\) es de mínima varianza entre los estimadores lineales insesgados de \\(\\beta\\).\nEl estimador MCO es el estimador lineal insesgado de menor varianza (MELI / BLUE).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#supuesto-6-normalidad-de-u",
+    "href": "material/modulo_02/s10.html#supuesto-6-normalidad-de-u",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Supuesto 6: Normalidad de \\(u\\)",
+    "text": "Supuesto 6: Normalidad de \\(u\\)\n\nLas perturbaciones \\(u\\) se distribuyen como \\(u \\sim N(0, \\sigma^2)\\).\nEste supuesto es fundamental para realizar inferencia: para construir intervalos de confianza y realizar tests de hipótesis necesitamos conocer la distribución de los estimadores \\(\\hat{\\beta}\\).\nJustificación: Se apela al Teorema del Límite Central (TLC), considerando que \\(u\\) es la suma de muchos factores no observados independientes.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#supuestos-del-modelo-lineal-clásico-mlc",
+    "href": "material/modulo_02/s10.html#supuestos-del-modelo-lineal-clásico-mlc",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Supuestos del Modelo Lineal Clásico (MLC)",
+    "text": "Supuestos del Modelo Lineal Clásico (MLC)\nSi se satisfacen los supuestos de Gauss-Markov más el supuesto de normalidad: * Los estimadores MCO son insesgados de varianza mínima (ya no solo dentro de los lineales). * La distribución condicional es: \\[y|X \\sim N(\\beta_0 + \\beta_1x_1 + \\ldots + \\beta_kx_k, \\sigma^2)\\]",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#distribución-del-estimador-de-mco",
+    "href": "material/modulo_02/s10.html#distribución-del-estimador-de-mco",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Distribución del estimador de MCO",
+    "text": "Distribución del estimador de MCO\nBajo los supuestos 1 a 6 se cumple: \\[\\hat{\\beta}_j|X \\sim N(\\beta_j, \\text{Var}(\\hat{\\beta}_j|X))\\]\nComo \\(\\sigma^2\\) es desconocido, usamos su estimación \\(\\hat{\\sigma}^2\\) para obtener el error estándar (\\(s.e.\\)). Esto transforma la distribución normal en una t-Student:\n\\[\\frac{\\hat{\\beta}_j - \\beta_j}{s.e.(\\hat{\\beta}_j)} \\sim t_{n-k-1}\\]\nDonde \\(s.e.(\\hat{\\beta}_j) = \\sqrt{\\hat{\\text{Var}}(\\hat{\\beta}_j|X)}\\). Este estadístico es la base de la inferencia.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#test-de-hipótesis-individual",
+    "href": "material/modulo_02/s10.html#test-de-hipótesis-individual",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Test de hipótesis individual",
+    "text": "Test de hipótesis individual\nPara testear si un coeficiente es igual a un valor constante \\(a_j\\): * \\(H_0 : \\beta_j = a_j\\) * \\(H_1 : \\beta_j \\neq a_j\\)\nCaso particular (\\(a_j = 0\\)): Test de significancia. Si rechazamos \\(H_0\\), la variable \\(x_j\\) es estadísticamente significativa para explicar \\(y\\).\nEstadístico t: \\[t_{\\hat{\\beta}_j} = \\frac{\\hat{\\beta}_j - a_j}{s.e.(\\hat{\\beta}_j)}\\]",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#errores-tipo-i-y-tipo-ii",
+    "href": "material/modulo_02/s10.html#errores-tipo-i-y-tipo-ii",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Errores Tipo I y Tipo II",
+    "text": "Errores Tipo I y Tipo II\nRealidad | Decisión: No rechazar \\(H_0\\) | Decisión: Rechazar \\(H_0\\) |\n: | : | : |\n\\(H_0\\) es Verdadera | Decisión Correcta | Error Tipo I (\\(\\alpha\\)) |\n\\(H_0\\) es Falsa | Error Tipo II (\\(\\beta\\)) | Decisión Correcta |\n\nError Tipo I: Rechazar lo que es cierto (falso positivo).\nError Tipo II: No detectar un efecto real (falso negativo).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#regla-de-decisión-test-de-dos-colas",
+    "href": "material/modulo_02/s10.html#regla-de-decisión-test-de-dos-colas",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Regla de Decisión (Test de dos colas)",
+    "text": "Regla de Decisión (Test de dos colas)\nFijamos un nivel de significancia \\(\\alpha\\) (usualmente 5%): * Se rechaza \\(H_0\\) si: \\(|t_{\\hat{\\beta}_j}| \\geq t_{\\alpha/2, n-k-1}\\)\n\nSi el valor absoluto de nuestro estadístico calculado es mayor al valor crítico de la tabla, la variable es significativa.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#valor-p-p-value",
+    "href": "material/modulo_02/s10.html#valor-p-p-value",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Valor-p (p-value)",
+    "text": "Valor-p (p-value)\n\nEs el menor nivel de significancia al que se habría rechazado la hipótesis nula.\nInterpretación: Probabilidad de observar un estadístico tan extremo como el obtenido si \\(H_0\\) fuera cierta.\nRegla de oro: Si \\(p\\text{-valor} &lt; \\alpha\\) (ej. 0.05), entonces rechazamos la hipótesis nula.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#intervalos-de-confianza",
+    "href": "material/modulo_02/s10.html#intervalos-de-confianza",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Intervalos de Confianza",
+    "text": "Intervalos de Confianza\nEl intervalo al \\((1-\\alpha)100\\%\\) para \\(\\beta_j\\) es: \\[\\hat{\\beta}_j \\pm t_{\\alpha/2} \\cdot s.e.(\\hat{\\beta}_j)\\]\n\nSi el valor bajo la hipótesis nula (ej. 0) no está contenido en el intervalo, entonces el coeficiente es estadísticamente significativo al nivel \\(\\alpha\\).\nEjemplo: Con 95% de confianza, el verdadero valor de \\(\\beta_j\\) se encuentra entre los límites calculados.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#ejemplo-educación-e-ingresos",
+    "href": "material/modulo_02/s10.html#ejemplo-educación-e-ingresos",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Ejemplo: Educación e Ingresos",
+    "text": "Ejemplo: Educación e Ingresos\nModelo: \\(y_i = \\beta_0 + \\beta_1 \\text{educ}_i + \\beta_2 \\text{IQ}_i + u_i\\) * \\(\\hat{\\beta}_1 = 42.0576\\) * \\(s.e.(\\hat{\\beta}_1) = 6.5498\\) * \\(n = 935 \\Rightarrow gl = 932\\)\nTest \\(H_0: \\beta_1 = 0\\): \\[t = \\frac{42.0576}{6.5498} = 6.42\\]\nComo \\(|6.42| &gt; 1.96\\) (valor crítico normal para 5%), rechazamos \\(H_0\\). La educación es significativa.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#tests-de-una-cola",
+    "href": "material/modulo_02/s10.html#tests-de-una-cola",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Tests de una cola",
+    "text": "Tests de una cola\nSe usan cuando la teoría económica sugiere una dirección específica: * \\(H_0 : \\beta_j = 0\\) * \\(H_1 : \\beta_j &gt; 0\\) (o \\(\\beta_j &lt; 0\\))\nEn este caso, toda la probabilidad \\(\\alpha\\) se concentra en una sola cola. El valor crítico es menor (ej. 1.645 para 5% en una normal).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s10.html#conclusiones",
+    "href": "material/modulo_02/s10.html#conclusiones",
+    "title": "Inferencia sobre un parámetro",
+    "section": "Conclusiones",
+    "text": "Conclusiones\n\nLa inferencia permite pasar de los datos muestrales a conclusiones poblacionales.\nEl error estándar mide la precisión de nuestra estimación.\nEl estadístico t y el p-valor son las herramientas estándar para decidir si una variable debe permanecer en nuestro modelo econométrico.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Inferencia sobre un parámetro</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html",
+    "href": "material/modulo_02/s11.html",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "",
+    "text": "Introducción",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#introducción",
+    "href": "material/modulo_02/s11.html#introducción",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "",
+    "text": "Hasta ahora, hemos visto tests de hipótesis sobre un parámetro específico.\nSin embargo, a menudo las preguntas económicas son más complejas:\n\n¿Es el efecto de la variable A igual al de la variable B? (\\(\\beta_1 = \\beta_2\\)).\n¿Es el impacto de la educación el doble que el de la experiencia? (\\(\\beta_1 = 2\\beta_2\\)).\n¿Influyen varios factores en conjunto sobre mi variable de interés?\n¿Podemos excluir variables discriminatorias (género, edad) del modelo?",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#hipótesis-de-igualdad-de-parámetros",
+    "href": "material/modulo_02/s11.html#hipótesis-de-igualdad-de-parámetros",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Hipótesis de igualdad de parámetros",
+    "text": "Hipótesis de igualdad de parámetros\nQueremos testear la hipótesis nula de que dos coeficientes son iguales: * \\(H_0: \\beta_1 = \\beta_2\\) (o lo que es lo mismo: \\(\\beta_1 - \\beta_2 = 0\\)) * \\(H_1: \\beta_1 \\neq \\beta_2\\)\nDado que los estimadores \\(\\hat{\\beta}_j\\) tienen una distribución normal, su diferencia también es normal. El estadístico \\(t\\) se construye como:\n\\[t = \\frac{\\hat{\\beta}_1 - \\hat{\\beta}_2}{\\sqrt{\\hat{Var}(\\hat{\\beta}_1 - \\hat{\\beta}_2)}}\\]",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#cálculo-de-la-varianza-de-la-diferencia",
+    "href": "material/modulo_02/s11.html#cálculo-de-la-varianza-de-la-diferencia",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Cálculo de la varianza de la diferencia",
+    "text": "Cálculo de la varianza de la diferencia\nPara obtener el error estándar del denominador, usamos propiedades de la varianza: \\[\\text{Var}(A - B) = \\text{Var}(A) + \\text{Var}(B) - 2\\text{Cov}(A, B)\\]\nAplicado a nuestros estimadores: \\[\\hat{Var}(\\hat{\\beta}_1 - \\hat{\\beta}_2) = \\hat{Var}(\\hat{\\beta}_1) + \\hat{Var}(\\hat{\\beta}_2) - 2\\hat{Cov}(\\hat{\\beta}_1, \\hat{\\beta}_2)\\]\n\nLos términos de varianza están en la diagonal principal de la matriz de varianza-covarianza.\nEl término de covarianza es el elemento fuera de la diagonal correspondiente a ambos parámetros.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#ejemplo-test-beta_1-beta_2",
+    "href": "material/modulo_02/s11.html#ejemplo-test-beta_1-beta_2",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Ejemplo: Test \\(\\beta_1 = \\beta_2\\)",
+    "text": "Ejemplo: Test \\(\\beta_1 = \\beta_2\\)\nContamos con la siguiente matriz de varianza-covarianza estimada \\(\\hat{V}(\\hat{\\beta})\\): \\[\\begin{bmatrix} 8497.05 & -251.21 & -49.67 \\\\ -251.21 & \\color{red}{42.58} & \\color{blue}{-2.84} \\\\ -49.67 & \\color{blue}{-2.84} & \\color{red}{1.42} \\end{bmatrix}\\]\nDatos adicionales: \\(\\hat{\\beta}_1 = 42\\), \\(\\hat{\\beta}_2 = 5\\), \\(n = 140\\).\n\nVarianza de la diferencia: \\(42.58 + 1.42 - 2(-2.84) = 49.68\\)\nError estándar: \\(\\sqrt{49.68} = 7.05\\)\nEstadístico t: \\(t = \\frac{42 - 5}{7.05} = 5.3\\)",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#conclusión-del-ejemplo",
+    "href": "material/modulo_02/s11.html#conclusión-del-ejemplo",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Conclusión del Ejemplo",
+    "text": "Conclusión del Ejemplo\n\nEstadístico calculado: \\(t_e = 5.3\\)\nValor crítico: Para un 5% de significancia con 137 grados de libertad, \\(t_{crit} \\approx 1.98\\).\nDecisión: Como \\(|5.3| &gt; 1.98\\), rechazamos \\(H_0\\).\nInterpretación: Existe evidencia estadística suficiente para concluir que el efecto de la variable \\(x_1\\) es significativamente distinto al efecto de \\(x_2\\).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#ejercicio-proporcionalidad-de-parámetros",
+    "href": "material/modulo_02/s11.html#ejercicio-proporcionalidad-de-parámetros",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Ejercicio: Proporcionalidad de parámetros",
+    "text": "Ejercicio: Proporcionalidad de parámetros\nTestear si el efecto de \\(x_1\\) es el doble que el de \\(x_2\\): * \\(H_0: \\beta_1 = 2\\beta_2\\) \\(\\Rightarrow \\beta_1 - 2\\beta_2 = 0\\) * \\(H_1: \\beta_1 \\neq 2\\beta_2\\)\nCálculo de la varianza necesaria: \\[\\hat{Var}(\\hat{\\beta}_1 - 2\\hat{\\beta}_2) = \\hat{Var}(\\hat{\\beta}_1) + 4\\hat{Var}(\\hat{\\beta}_2) - 4\\hat{Cov}(\\hat{\\beta}_1, \\hat{\\beta}_2)\\]",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#resolución-del-ejercicio",
+    "href": "material/modulo_02/s11.html#resolución-del-ejercicio",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Resolución del Ejercicio",
+    "text": "Resolución del Ejercicio\nUsando los mismos datos anteriores: 1. Varianza: \\(42.5 + 4(1.42) - 4(-2.84) = 59.54\\) 2. Error estándar: \\(\\sqrt{59.54} = 7.72\\) 3. Estadístico t: \\[t_e = \\frac{42 - 2(5)}{7.72} = \\frac{32}{7.72} = 4.15\\]\nResultado: Dado que \\(4.15 &gt; 1.98\\), se rechaza \\(H_0\\). No se cumple la relación de que un efecto sea el doble del otro.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s11.html#resumen-de-la-inferencia-multivariada",
+    "href": "material/modulo_02/s11.html#resumen-de-la-inferencia-multivariada",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Resumen de la Inferencia Multivariada",
+    "text": "Resumen de la Inferencia Multivariada\n\nLa matriz de varianza-covarianza es esencial para testear relaciones entre variables.\nNo basta con mirar los errores estándar individuales; la covarianza entre estimadores afecta la precisión de nuestras conclusiones sobre sus diferencias.\nEstos tests permiten validar teorías económicas sobre la magnitud relativa de distintos factores.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html",
+    "href": "material/modulo_02/s12.html",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "",
+    "text": "Introducción al Test Conjunto\nA menudo queremos testear si varios parámetros son cero al mismo tiempo: * \\(H_0: \\beta_1 = \\beta_2 = 0\\) * \\(H_1\\): Al menos uno es \\(\\neq 0\\)\nSi rechazamos \\(H_0\\), decimos que \\(x_1\\) y \\(x_2\\) son conjuntamente significativas.\nNota: El test no indica cuál es la variable relevante, solo que el grupo aporta información al modelo. Para esto utilizamos el Estadístico F.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html#repaso-variabilidad-y-bondad-de-ajuste",
+    "href": "material/modulo_02/s12.html#repaso-variabilidad-y-bondad-de-ajuste",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Repaso: Variabilidad y Bondad de Ajuste",
+    "text": "Repaso: Variabilidad y Bondad de Ajuste\nRecordemos las definiciones fundamentales basadas en \\(y = \\hat{y} + \\hat{u}\\):\n\nSST (Total): Variabilidad total de \\(y\\).\nSSE (Explicada): Lo que el modelo logra explicar.\nSSR (Residuos): Lo que el modelo no explica (error).\n\\(R^2\\): Fracción de la variabilidad explicada (\\(1 - SSR/SST\\)).\n\nRegla clave: Si agrego variables relevantes, el SSR disminuye y el \\(R^2\\) aumenta.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html#modelo-restringido-vs.-no-restringido",
+    "href": "material/modulo_02/s12.html#modelo-restringido-vs.-no-restringido",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Modelo Restringido vs. No Restringido",
+    "text": "Modelo Restringido vs. No Restringido\nPara testear si un grupo de variables es irrelevante, comparamos dos modelos:\n\nModelo No Restringido (UR): Incluye todas las variables (\\(k\\) variables). Obtenemos \\(SSR_{ur}\\).\nModelo Restringido (R): Asume que \\(H_0\\) es cierta y excluye las variables en duda. Obtenemos \\(SSR_{r}\\).\n\nComo el modelo restringido tiene menos variables, siempre se cumple que: \\[SSR_{r} \\geq SSR_{ur}\\]\nSi la diferencia es muy grande, las variables excluidas eran realmente importantes.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html#el-estadístico-f",
+    "href": "material/modulo_02/s12.html#el-estadístico-f",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "El Estadístico F",
+    "text": "El Estadístico F\nEl estadístico F mide la disminución relativa del SSR al pasar del modelo restringido al no restringido:\n\\[F = \\frac{(SSR_{r} - SSR_{ur}) / j}{SSR_{ur} / (n - k - 1)}\\]\nDonde: * \\(j\\): número de restricciones (cuántos coeficientes igualamos a 0). * \\(n - k - 1\\): grados de libertad del modelo no restringido.\nVersión con \\(R^2\\): \\[F = \\frac{(R^2_{ur} - R^2_{r}) / j}{(1 - R^2_{ur}) / (n - k - 1)}\\]",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html#zona-de-rechazo",
+    "href": "material/modulo_02/s12.html#zona-de-rechazo",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Zona de Rechazo",
+    "text": "Zona de Rechazo\nRechazamos \\(H_0\\) si el \\(F\\) calculado es mayor al valor crítico de la tabla F: \\[F_{calc} &gt; F_{\\alpha; j; n-k-1}\\]\nCuanto más grande es el valor de F, más evidencia hay de que las variables omitidas en el modelo restringido son conjuntamente significativas.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html#ejemplo-salarios-en-el-baseball",
+    "href": "material/modulo_02/s12.html#ejemplo-salarios-en-el-baseball",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Ejemplo: Salarios en el Baseball",
+    "text": "Ejemplo: Salarios en el Baseball\nQueremos saber si el rendimiento (hrunsyr, rbisyr) influye en el salario, controlando por años en la liga y juegos por año.\n\nUR: \\(\\log(sal) = \\beta_0 + \\beta_1 years + \\beta_2 gamesyr + \\beta_3 hrunsyr + \\beta_4 rbisyr + u\\)\nR: \\(\\log(sal) = \\gamma_0 + \\gamma_1 years + \\gamma_2 gamesyr + e\\)\n\nCálculo: \\[F = \\frac{(198.31 - 183.60) / 2}{183.60 / (353 - 4 - 1)} = 13.94\\]\nComo \\(13.94 &gt; 3.02\\) (valor crítico al 5%), rechazamos \\(H_0\\). El rendimiento sí importa.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html#f-test-y-multicolinealidad",
+    "href": "material/modulo_02/s12.html#f-test-y-multicolinealidad",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "F-test y Multicolinealidad",
+    "text": "F-test y Multicolinealidad\n¿Por qué usar el Test F si ya tenemos el Test t?\n\nEn el ejemplo anterior, puede que los tests t individuales no sean significativos.\nEsto ocurre por la multicolinealidad: variables muy correlacionadas entre sí (como home runs y carreras impulsadas).\nLa multicolinealidad infla las varianzas de los \\(\\hat{\\beta}\\) individuales, “escondiendo” su importancia en el test t.\nEl Test F supera este problema al evaluar el aporte del grupo completo de variables.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s12.html#caso-especial-significancia-global",
+    "href": "material/modulo_02/s12.html#caso-especial-significancia-global",
+    "title": "Inferencia sobre un conjunto de parámetros",
+    "section": "Caso Especial: Significancia Global",
+    "text": "Caso Especial: Significancia Global\nEs el test más común reportado en softwares estadísticos. Evalúa si el modelo completo sirve para algo: * \\(H_0: \\beta_1 = \\beta_2 = \\dots = \\beta_k = 0\\) * Modelo R: \\(y = \\beta_0 + u\\) (\\(R^2_r = 0\\))\nEl estadístico se simplifica a: \\[F = \\frac{R^2 / k}{(1 - R^2) / (n - k - 1)}\\]\nSi este test no se rechaza, ninguna de las variables explicativas tiene relación con \\(y\\).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html",
+    "href": "material/modulo_02/s13.html",
+    "title": "Propiedades asintóticas",
+    "section": "",
+    "text": "Introducción\nPregunta clave: ¿Cómo se comporta el estimador de MCO cuando el tamaño de la muestra crece indefinidamente (\\(n \\to \\infty\\))?",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html#introducción",
+    "href": "material/modulo_02/s13.html#introducción",
+    "title": "Propiedades asintóticas",
+    "section": "",
+    "text": "El análisis asintótico estudia el comportamiento del estimador en muestras grandes.\nPermite justificar inferencias (tests t y F) incluso cuando los errores no son normales.\nPropiedades de muestras finitas (ej. insesgadez) valen para cualquier \\(n\\); las asintóticas solo cuando el \\(n\\) es grande.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html#qué-es-la-consistencia",
+    "href": "material/modulo_02/s13.html#qué-es-la-consistencia",
+    "title": "Propiedades asintóticas",
+    "section": "¿Qué es la Consistencia?",
+    "text": "¿Qué es la Consistencia?\nUn estimador es consistente si, al aumentar el tamaño de la muestra, el valor estimado se aproxima al valor verdadero del parámetro:\n\\[\\hat{\\beta}_j^n \\xrightarrow{p} \\beta_j\\]\n\nEn términos de probabilidad: \\(\\text{Prob}(|\\hat{\\beta}_j^n - \\beta_j| &gt; \\epsilon) \\to 0\\) cuando \\(n \\to \\infty\\).\nUsamos la notación plim (límite en probabilidad): \\(\\text{plim } \\hat{\\beta}_j^n = \\beta_j\\).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html#supuestos-para-la-consistencia",
+    "href": "material/modulo_02/s13.html#supuestos-para-la-consistencia",
+    "title": "Propiedades asintóticas",
+    "section": "Supuestos para la Consistencia",
+    "text": "Supuestos para la Consistencia\nPara que MCO sea consistente, necesitamos los mismos supuestos que para la insesgadez:\n\nLinealidad en los parámetros.\nMuestreo aleatorio.\nNo multicolinealidad perfecta.\nExogeneidad (Supuesto 4’): \\(\\text{Cov}(x_j, u) = 0\\).\n\nNota importante: Para la consistencia no es necesario asumir que los errores \\(u\\) siguen una distribución normal.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html#normalidad-asintótica",
+    "href": "material/modulo_02/s13.html#normalidad-asintótica",
+    "title": "Propiedades asintóticas",
+    "section": "Normalidad Asintótica",
+    "text": "Normalidad Asintótica\nGracias al Teorema Central del Límite, aunque los errores no sean normales, la distribución de los estimadores se aproxima a una normal cuando la muestra es grande:\n\\[\\hat{\\beta} \\xrightarrow{d} N(\\beta, \\sigma^2 (X'X)^{-1})\\]\nImplicaciones: * Justifica el uso de intervalos de confianza en muestras grandes. * Permite realizar tests de hipótesis (\\(t\\) y \\(F\\)) sin el supuesto de normalidad exacta de \\(u\\).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html#eficiencia-asintótica",
+    "href": "material/modulo_02/s13.html#eficiencia-asintótica",
+    "title": "Propiedades asintóticas",
+    "section": "Eficiencia Asintótica",
+    "text": "Eficiencia Asintótica\n\nDefinición: Un estimador es asintóticamente eficiente si tiene la varianza mínima dentro de la clase de estimadores consistentes y normales.\nBajo homocedasticidad, MCO es asintóticamente eficiente (extensión de Gauss-Markov).\nBajo heterocedasticidad, MCO sigue siendo consistente (se acerca al valor real), pero deja de ser eficiente (no tiene la varianza mínima). Esto no se soluciona aumentando la muestra.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html#importancia-práctica",
+    "href": "material/modulo_02/s13.html#importancia-práctica",
+    "title": "Propiedades asintóticas",
+    "section": "Importancia Práctica",
+    "text": "Importancia Práctica\nEn palabras del Nobel Clive Granger: &gt; “Si usted no puede obtener un resultado correcto a medida que \\(n\\) tiende a infinito, es mejor que se dedique a otra cosa.”\n\nLa consistencia es el requisito mínimo para cualquier estimador.\nSi un estimador es inconsistente, tener más datos no ayuda: seguiremos estimando el valor erróneo (sesgo asintótico).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s13.html#aplicación-en-r-verificación",
+    "href": "material/modulo_02/s13.html#aplicación-en-r-verificación",
+    "title": "Propiedades asintóticas",
+    "section": "Aplicación en R: Verificación",
+    "text": "Aplicación en R: Verificación\nA medida que aumentamos el tamaño de la muestra en una simulación, vemos cómo el histograma de los \\(\\hat{\\beta}\\) se vuelve más estrecho y se centra exactamente en el valor real.\n\nEn el código de R, un bucle que repita la estimación para \\(n=10, 100, 1000\\) mostrará cómo la varianza disminuye y la precisión aumenta drásticamente.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Propiedades asintóticas</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html",
+    "href": "material/modulo_02/s14.html",
+    "title": "Variables independientes binarias",
+    "section": "",
+    "text": "Introducción\nLas variables binarias (o “dummies”) permiten incorporar información cualitativa en nuestros modelos:\nEstas variables toman solo dos valores: 1 si posee la cualidad y 0 si no la posee.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#introducción",
+    "href": "material/modulo_02/s14.html#introducción",
+    "title": "Variables independientes binarias",
+    "section": "",
+    "text": "Región (Norte, Centro, Sur)\nGénero (Hombre, Mujer)\nEstado civil (Casado, Soltero)\nSituación laboral (Empleado, Desempleado)\nEducación (Universitaria, Técnica, Escolar)",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#efecto-aditivo-diferencia-de-interceptos",
+    "href": "material/modulo_02/s14.html#efecto-aditivo-diferencia-de-interceptos",
+    "title": "Variables independientes binarias",
+    "section": "Efecto Aditivo (Diferencia de Interceptos)",
+    "text": "Efecto Aditivo (Diferencia de Interceptos)\nConsideremos el modelo de salarios según género: \\[\\text{salario} = \\beta_0 + \\delta_0 \\text{mujer} + \\beta_1 \\text{educ} + u\\]\nDonde mujer = 1 si es mujer y 0 si es hombre.\n\nPara hombres (mujer=0): \\(E[sal|educ] = \\beta_0 + \\beta_1 educ\\)\nPara mujeres (mujer=1): \\(E[sal|educ] = (\\beta_0 + \\delta_0) + \\beta_1 educ\\)\n\n\\(\\delta_0\\) representa la diferencia salarial constante entre mujeres y hombres para cualquier nivel de educación.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#regla-de-oro-y-categoría-base",
+    "href": "material/modulo_02/s14.html#regla-de-oro-y-categoría-base",
+    "title": "Variables independientes binarias",
+    "section": "Regla de Oro y Categoría Base",
+    "text": "Regla de Oro y Categoría Base\nSi una variable cualitativa tiene \\(q\\) categorías, se deben incluir \\(q - 1\\) variables dummy en el modelo.\n¿Por qué? * Si incluimos las \\(q\\) dummies más la constante, caemos en la “trampa de la variable dummy” (multicolinealidad perfecta). * La categoría omitida se llama Categoría Base. * La constante (\\(\\beta_0\\)) representa el promedio de la categoría base. * Los coeficientes de las otras dummies representan la diferencia respecto a esa base.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#ejemplo-salario-por-carrera",
+    "href": "material/modulo_02/s14.html#ejemplo-salario-por-carrera",
+    "title": "Variables independientes binarias",
+    "section": "Ejemplo: Salario por Carrera",
+    "text": "Ejemplo: Salario por Carrera\nSupongamos 4 categorías: Economía, Medicina, Ingeniería y “Sin Universidad” (Base). \\[\\widehat{sal} = 100 + 500 \\text{Econ} + 300 \\text{Med} + 600 \\text{Ing}\\]\n\nSin Universidad: Ganan 100 en promedio.\nEconomía: Ganan \\(100 + 500 = 600\\) en promedio.\nDiferencia: Un economista gana 500 más que alguien sin universidad.\nComparación: Un ingeniero gana 300 más que un médico (\\(600 - 300\\)).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#interacción-entre-variables-dummy",
+    "href": "material/modulo_02/s14.html#interacción-entre-variables-dummy",
+    "title": "Variables independientes binarias",
+    "section": "Interacción entre Variables Dummy",
+    "text": "Interacción entre Variables Dummy\n¿Depende el “premio por matrimonio” del género? \\[\\text{wage} = \\beta_0 + \\beta_1 \\text{mujer} + \\beta_2 \\text{casado} + \\beta_3 (\\text{mujer} \\times \\text{casado}) + u\\]\nInterpretación de los grupos: 1. Hombre soltero: \\(\\beta_0\\) 2. Mujer soltera: \\(\\beta_0 + \\beta_1\\) 3. Hombre casado: \\(\\beta_0 + \\beta_2\\) 4. Mujer casada: \\(\\beta_0 + \\beta_1 + \\beta_2 + \\beta_3\\)\n\\(\\beta_3\\) mide la diferencia extra en el salario que reciben las mujeres por estar casadas en comparación con el efecto que el matrimonio tiene en los hombres.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#interacción-con-variables-cuantitativas",
+    "href": "material/modulo_02/s14.html#interacción-con-variables-cuantitativas",
+    "title": "Variables independientes binarias",
+    "section": "Interacción con Variables Cuantitativas",
+    "text": "Interacción con Variables Cuantitativas\nPermite que la pendiente cambie según el grupo (diferentes retornos): \\[\\text{salario} = \\beta_0 + \\delta_0 \\text{mujer} + \\beta_1 \\text{educ} + \\delta_1 (\\text{mujer} \\times \\text{educ}) + u\\]\n\nPendiente hombres: \\(\\beta_1\\) (Retorno por año de educación para hombres).\nPendiente mujeres: \\(\\beta_1 + \\delta_1\\) (Retorno por año de educación para mujeres).\n\nSi \\(\\delta_1 \\neq 0\\), la educación tiene un impacto diferente en el salario según el género.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#test-de-chow-cambio-estructural",
+    "href": "material/modulo_02/s14.html#test-de-chow-cambio-estructural",
+    "title": "Variables independientes binarias",
+    "section": "Test de Chow (Cambio Estructural)",
+    "text": "Test de Chow (Cambio Estructural)\nSe usa para testear si los coeficientes de un modelo son iguales para dos o más grupos.\nPasos: 1. Estimar el modelo para cada grupo por separado y sumar sus SSR (\\(SSR_{ur} = \\sum SSR_g\\)). 2. Estimar el modelo para toda la muestra conjunta (\\(SSR_{r}\\)). 3. Calcular el estadístico F: \\[F = \\frac{(SSR_r - SSR_{ur}) / (k + 1)}{SSR_{ur} / (n - 2(k + 1))}\\]\nSi rechazamos \\(H_0\\), significa que el comportamiento económico de los grupos es estructuralmente distinto y no deben modelarse con los mismos parámetros.",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/s14.html#ejercicio-salarios-de-ceos",
+    "href": "material/modulo_02/s14.html#ejercicio-salarios-de-ceos",
+    "title": "Variables independientes binarias",
+    "section": "Ejercicio: Salarios de CEOs",
+    "text": "Ejercicio: Salarios de CEOs\nModelo estimado: \\[\\log(\\widehat{salary}) = 4.59 + 0.257 \\log(sales) + 0.011 roe + 0.158 fin + 0.181 cons - 0.283 util\\]\n\nCategoría Base: Transporte.\nPregunta: ¿Cuál es la diferencia entre servicios básicos (utility) y transporte?\n\nEl coeficiente de utility es \\(-0.283\\). Esto indica que, a iguales ventas y ROE, los CEOs de servicios ganan aproximadamente un 28.3% menos que los de transporte.\n\nPregunta: ¿Diferencia entre productos de consumo y finanzas?\n\nDiferencia \\(= 0.181 - 0.158 = 0.023\\) (2.3% aprox).",
+    "crumbs": [
+      "Modelos de Regresión",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s15.html",
+    "href": "material/modulo_03/s15.html",
+    "title": "Variables dependientes binarias",
+    "section": "",
+    "text": "Variables dependientes binarias\nEn muchos problemas del mundo real, la variable que queremos explicar es de naturaleza cualitativa y se representa como una variable dummy (\\(y \\in \\{0, 1\\}\\)).\nEjemplos: * ¿Qué explica que un alumno asista a un colegio público (0) o privado (1)? * ¿Qué factores determinan si una persona se jubila anticipadamente (1) o no (0)? * ¿Qué perfil de conductor tiene mayor probabilidad de sufrir un accidente (1)? * ¿Aceptará un cliente un crédito bancario (1) o lo rechazará (0)?",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Variables dependientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s15.html#modelo-de-probabilidad-lineal-mpl",
+    "href": "material/modulo_03/s15.html#modelo-de-probabilidad-lineal-mpl",
+    "title": "Variables dependientes binarias",
+    "section": "Modelo de Probabilidad Lineal (MPL)",
+    "text": "Modelo de Probabilidad Lineal (MPL)\nCuando usamos MCO con una variable dependiente binaria, el modelo se denomina Modelo de Probabilidad Lineal.\n\\[y = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_k x_k + u\\]\nEn este modelo, el valor predicho \\(\\hat{y}\\) se interpreta directamente como la probabilidad de éxito: \\[P(y=1 | X) = E[y | X] = \\beta_0 + \\beta_1 x_1 + \\dots + \\beta_k x_k\\]",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Variables dependientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s15.html#problemas-del-mpl",
+    "href": "material/modulo_03/s15.html#problemas-del-mpl",
+    "title": "Variables dependientes binarias",
+    "section": "Problemas del MPL",
+    "text": "Problemas del MPL\nAunque es fácil de estimar, el MPL presenta dos debilidades importantes:\n\nPredicciones fuera de rango: El modelo puede predecir probabilidades menores a 0 o mayores a 1 para ciertos valores de \\(X\\).\n\nNota: Si nos interesa el efecto promedio, no es tan grave. Si nos interesa la predicción precisa en individuos extremos, se prefieren modelos no lineales (Logit o Probit).\n\nHeterocedasticidad inherente: Por definición, la varianza del error en un MPL depende de \\(X\\) (\\(\\text{Var}(y|X) = p(1-p)\\)), lo que invalida los errores estándar usuales de MCO si no se corrigen.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Variables dependientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s15.html#ejemplo-probabilidad-de-accidentes",
+    "href": "material/modulo_03/s15.html#ejemplo-probabilidad-de-accidentes",
+    "title": "Variables dependientes binarias",
+    "section": "Ejemplo: Probabilidad de Accidentes",
+    "text": "Ejemplo: Probabilidad de Accidentes\nSupongamos que estimamos el modelo para accidentes de tránsito (\\(y=1\\) si tuvo accidente): \\[\\widehat{Accidente} = 0.30 - 0.05 \\text{educ} - 0.0001 \\text{ingreso}\\]\nInterpretación de coeficientes: * \\(\\hat{\\beta}_0 = 0.30\\): Un individuo con 0 años de educación y 0 ingresos tiene una probabilidad del 30% de sufrir un accidente. * Coeficiente de educ (-0.05): Un año adicional de educación reduce la probabilidad de accidente en 5 puntos porcentuales (ceteris paribus).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Variables dependientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s15.html#aplicación-del-ejemplo",
+    "href": "material/modulo_03/s15.html#aplicación-del-ejemplo",
+    "title": "Variables dependientes binarias",
+    "section": "Aplicación del Ejemplo",
+    "text": "Aplicación del Ejemplo\nCálculo de probabilidad: Para una persona con ingreso de 2.000 USD y 20 años de educación: \\[\\hat{P} = 0.30 - 0.05(20) - 0.0001(2000)\\] \\[\\hat{P} = 0.30 - 1.00 - 0.20 = -0.90\\]\n¡Atención! Obtenemos una probabilidad del -90%. Esto ilustra el problema de las predicciones fuera de rango del MPL cuando se usan valores altos en las variables independientes.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Variables dependientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s15.html#resumen-del-mpl",
+    "href": "material/modulo_03/s15.html#resumen-del-mpl",
+    "title": "Variables dependientes binarias",
+    "section": "Resumen del MPL",
+    "text": "Resumen del MPL\n\nVentaja: La interpretación de los coeficientes es directa (cambio en la probabilidad).\nDesventaja: Las predicciones pueden no tener sentido físico (probabilidades negativas o \\(&gt;1\\)).\nUso práctico: Es un excelente punto de partida para análisis preliminares de variables binarias antes de pasar a modelos más complejos como Logit o Probit.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Variables dependientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html",
+    "href": "material/modulo_03/s16.html",
+    "title": "Heterocedasticidad",
+    "section": "",
+    "text": "Homocedasticidad vs Heterocedasticidad\nLos errores \\(u_i\\) son heterocedásticos si su varianza condicional no es constante para todas las observaciones: \\[\\text{Var}(u_i | X_i) \\neq \\sigma^2\\]",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html#homocedasticidad-vs-heterocedasticidad",
+    "href": "material/modulo_03/s16.html#homocedasticidad-vs-heterocedasticidad",
+    "title": "Heterocedasticidad",
+    "section": "",
+    "text": "Homocedasticidad: La dispersión de los errores es igual en todos los niveles de \\(X\\).\nHeterocedasticidad: La dispersión cambia (típicamente aumenta) a medida que \\(X\\) aumenta.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html#consecuencias-de-la-heterocedasticidad",
+    "href": "material/modulo_03/s16.html#consecuencias-de-la-heterocedasticidad",
+    "title": "Heterocedasticidad",
+    "section": "Consecuencias de la Heterocedasticidad",
+    "text": "Consecuencias de la Heterocedasticidad\n¿Qué pasa si ignoramos la heterocedasticidad y usamos MCO normal?\n\nInsesgadez y Consistencia: Se mantienen (\\(E[\\hat{\\beta}] = \\beta\\)). El estimador sigue apuntando al valor correcto.\nEficiencia: MCO ya no es MELI (no es el más eficiente). Existen otros estimadores con menor varianza.\nInferencia Inválida: Las varianzas estimadas son sesgadas. Los estadísticos \\(t\\) y \\(F\\) no son fiables, lo que lleva a conclusiones erróneas en los tests de hipótesis.\nMuestras Grandes: Estos problemas no desaparecen al aumentar el tamaño de la muestra (\\(n\\)).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html#test-de-breusch-pagan-bp",
+    "href": "material/modulo_03/s16.html#test-de-breusch-pagan-bp",
+    "title": "Heterocedasticidad",
+    "section": "Test de Breusch-Pagan (BP)",
+    "text": "Test de Breusch-Pagan (BP)\nSirve para detectar si la varianza de los errores depende de las variables explicativas.\nPasos: 1. Estimar el modelo original y obtener los residuos cuadrados \\(\\hat{u}^2\\). 2. Correr una regresión auxiliar: \\(\\hat{u}^2 = \\delta_0 + \\delta_1 x_1 + \\dots + \\delta_k x_k + v\\). 3. Testear \\(H_0: \\delta_1 = \\delta_2 = \\dots = \\delta_k = 0\\).\n\nSi el \\(R^2\\) de esta regresión es alto, el \\(F\\) será significativo y rechazaremos la homocedasticidad.\nEn R: lmtest::bptest(modelo).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html#test-de-white",
+    "href": "material/modulo_03/s16.html#test-de-white",
+    "title": "Heterocedasticidad",
+    "section": "Test de White",
+    "text": "Test de White\nEs más general que el de BP porque detecta formas no lineales de heterocedasticidad (formas cuadráticas o interacciones).\n\nRegresión auxiliar de White: Incluye los \\(x_j\\), sus cuadrados \\(x_j^2\\) y productos cruzados \\(x_j x_l\\).\nProblema: El número de variables en la regresión auxiliar crece muy rápido.\nVersión simplificada: Se regresan los residuos cuadrados contra los valores ajustados y su cuadrado: \\[\\hat{u}^2 = \\delta_0 + \\delta_1 \\hat{y} + \\delta_2 \\hat{y}^2 + v\\] Esta versión solo tiene 2 restricciones (\\(q=2\\)).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html#inferencia-robusta-errores-de-white",
+    "href": "material/modulo_03/s16.html#inferencia-robusta-errores-de-white",
+    "title": "Heterocedasticidad",
+    "section": "Inferencia Robusta (Errores de White)",
+    "text": "Inferencia Robusta (Errores de White)\nSi detectamos heterocedasticidad, no necesitamos tirar el modelo de MCO. Podemos corregir los errores estándar para que la inferencia sea válida.\nLa matriz de varianza-covarianza robusta se estima como: \\[\\widehat{\\text{Var}}(\\hat{\\beta}) = (X'X)^{-1} \\left( \\sum_{i=1}^n \\hat{u}_i^2 x_i x_i' \\right) (X'X)^{-1}\\]\n\nSe conocen como Errores Estándar Robustos o de tipo “Sandwich”.\nCon estos errores, los estadísticos \\(t\\) vuelven a ser fiables aunque exista heterocedasticidad.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html#resumen-de-propiedades",
+    "href": "material/modulo_03/s16.html#resumen-de-propiedades",
+    "title": "Heterocedasticidad",
+    "section": "Resumen de Propiedades",
+    "text": "Resumen de Propiedades\nPropiedad | Homocedasticidad | Heterocedasticidad |\n: | : | : |\nInsesgadez | Sí | Sí |\nEficiencia (MELI) | Sí | No |\nEstadísticos \\(t\\) / \\(F\\) | Válidos | Inválidos (sesgados) |\nInferencia asintótica | Correcta | Incorrecta (salvo corrección) |",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s16.html#recomendaciones-prácticas",
+    "href": "material/modulo_03/s16.html#recomendaciones-prácticas",
+    "title": "Heterocedasticidad",
+    "section": "Recomendaciones Prácticas",
+    "text": "Recomendaciones Prácticas\n\nTransformación Logarítmica: Usar \\(\\log(y)\\) en lugar de \\(y\\) a menudo reduce la heterocedasticidad al comprimir la escala de la variable dependiente.\nGráficos de Residuos: Antes de los tests, siempre grafica los residuos contra los valores ajustados para detectar patrones visuales de “embudo”.\nSiempre usar errores robustos: En la econometría moderna, es una práctica común reportar siempre errores estándar robustos para evitar dudas sobre la validez de la inferencia.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Heterocedasticidad</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html",
+    "href": "material/modulo_03/s17.html",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "",
+    "text": "Introducción a la Endogeneidad\nDecimos que una variable \\(x_1\\) es endógena cuando está correlacionada con el término de error (\\(Cov(x_1, u) \\neq 0\\)). Esto viola el supuesto de Gauss-Markov y hace que MCO sea:\n¿Cómo lo solucionamos? 1. Variables Instrumentales (IV). 2. Mínimos Cuadrados en Dos Etapas (MC2E).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#introducción-a-la-endogeneidad",
+    "href": "material/modulo_03/s17.html#introducción-a-la-endogeneidad",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "",
+    "text": "Sesgado: El estimador no apunta al valor real.\nInconsistente: El error no desaparece ni con muestras grandes.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#causas-de-la-endogeneidad",
+    "href": "material/modulo_03/s17.html#causas-de-la-endogeneidad",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "Causas de la Endogeneidad",
+    "text": "Causas de la Endogeneidad\nExisten tres fuentes principales por las que una \\(x\\) se vuelve endógena:\n\nVariables Omitidas: Factores inobservables (como la habilidad o inteligencia) que afectan tanto a \\(x\\) como a \\(y\\).\nSimultaneidad: Cuando \\(x\\) causa a \\(y\\), pero \\(y\\) también afecta a \\(x\\) (ej. precio y cantidad en equilibrio).\nError de Medición: Cuando la variable explicativa se mide con imprecisión.\n\n[Image showing the correlation between X and U]",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#el-instrumento-válido-z",
+    "href": "material/modulo_03/s17.html#el-instrumento-válido-z",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "El Instrumento Válido (\\(Z\\))",
+    "text": "El Instrumento Válido (\\(Z\\))\nUn instrumento es una variable externa que ayuda a limpiar la endogeneidad. Para ser válido, debe cumplir dos condiciones:\n\nRelevancia: El instrumento debe afectar a \\(x\\) (\\(Cov(Z, X) \\neq 0\\)). Esto es testeable estadísticamente.\nExogeneidad (Exclusión): El instrumento no debe afectar a \\(y\\) directamente ni estar correlacionado con el error (\\(Cov(Z, u) = 0\\)). Solo afecta a \\(y\\) a través de \\(x\\).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#intuición-de-la-variable-instrumental",
+    "href": "material/modulo_03/s17.html#intuición-de-la-variable-instrumental",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "Intuición de la Variable Instrumental",
+    "text": "Intuición de la Variable Instrumental\nImagine que \\(X\\) tiene dos componentes: * Una parte sucia (correlacionada con \\(u\\)). * Una parte limpia o exógena.\nEl instrumento \\(Z\\), al ser exógeno, “filtra” la variable \\(X\\) y nos permite usar solo la variación “limpia” para identificar el efecto real sobre \\(Y\\).\n[Image: Graph A (Valid IV), Graph B (Invalid: Z relates to U), Graph C (Invalid: Z doesn’t relate to X)]",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#estimación-por-variables-instrumentales-iv",
+    "href": "material/modulo_03/s17.html#estimación-por-variables-instrumentales-iv",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "Estimación por Variables Instrumentales (IV)",
+    "text": "Estimación por Variables Instrumentales (IV)\nEn un modelo simple \\(y = \\beta_0 + \\beta_1 x + u\\), si tenemos un instrumento \\(z\\), el estimador IV se calcula como:\n\\[\\hat{\\beta}_{IV} = \\frac{\\text{Cov}(y, z)}{\\text{Cov}(x, z)} = \\frac{\\sum (y_i - \\bar{y})(z_i - \\bar{z})}{\\sum (x_i - \\bar{x})(z_i - \\bar{z})}\\]\n\nSi los supuestos se cumplen, \\(\\hat{\\beta}_{IV}\\) es consistente (\\(\\hat{\\beta}_{IV} \\xrightarrow{p} \\beta\\)).\nPrecio a pagar: La varianza de IV siempre es mayor que la de MCO. Las estimaciones son menos precisas.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#mínimos-cuadrados-en-dos-etapas-mc2e",
+    "href": "material/modulo_03/s17.html#mínimos-cuadrados-en-dos-etapas-mc2e",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "Mínimos Cuadrados en Dos Etapas (MC2E)",
+    "text": "Mínimos Cuadrados en Dos Etapas (MC2E)\nEs el método estándar cuando tenemos múltiples controles o instrumentos.\nEtapa 1: Limpieza de \\(X\\) Regresamos \\(X\\) sobre \\(Z\\) y el resto de variables exógenas: \\[x_1 = \\alpha_0 + \\alpha_1 z + \\alpha_2 x_2 + v\\] Obtenemos los valores predichos \\(\\hat{x}_1\\). Esta \\(\\hat{x}_1\\) es “pura” porque depende de variables exógenas.\nEtapa 2: Estimación Final Reemplazamos \\(x_1\\) por \\(\\hat{x}_1\\) en la ecuación original: \\[y = \\beta_0 + \\beta_1 \\hat{x}_1 + \\beta_2 x_2 + u\\] Ahora estimamos por MCO. El \\(\\hat{\\beta}_1\\) resultante es el estimador MC2E.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#comparación-mco-vs-iv",
+    "href": "material/modulo_03/s17.html#comparación-mco-vs-iv",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "Comparación: MCO vs IV",
+    "text": "Comparación: MCO vs IV\nConsideremos los retornos de la educación, donde omitimos la “habilidad”: \\[\\log(\\text{salario}) = \\beta_0 + \\beta_1 \\text{educ} + u\\]\n\nMCO: Suele estar sesgado hacia arriba (\\(\\hat{\\beta}_{MCO} &gt; \\beta\\)) porque la educación captura también el efecto de la habilidad omitida.\nIV: Al usar un instrumento (como la distancia a la universidad), corregimos el sesgo.\nSi observamos que \\(\\hat{\\beta}_{MCO} &gt; \\hat{\\beta}_{IV}\\), confirmamos que MCO estaba sobreestimando el efecto.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s17.html#resumen-y-conclusiones",
+    "href": "material/modulo_03/s17.html#resumen-y-conclusiones",
+    "title": "Endogeneidad y Variables Instrumentales",
+    "section": "Resumen y Conclusiones",
+    "text": "Resumen y Conclusiones\n\nLa endogeneidad hace que MCO sea poco fiable para análisis causal.\nLas Variables Instrumentales permiten obtener estimaciones consistentes (limpias de sesgo).\nMC2E es el procedimiento operativo más común para aplicar IV.\nAdvertencia: Un instrumento “débil” (poca correlación con \\(x\\)) puede ser peor que MCO, ya que dispara el error estándar y la imprecisión del modelo.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Endogeneidad y Variables Instrumentales</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html",
+    "href": "material/modulo_03/s18.html",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "",
+    "text": "¿Qué es la Multicolinealidad?\nLa multicolinealidad ocurre cuando dos o más variables explicativas (\\(X\\)) en un modelo de regresión están altamente correlacionadas entre sí.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html#qué-es-la-multicolinealidad",
+    "href": "material/modulo_03/s18.html#qué-es-la-multicolinealidad",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "",
+    "text": "Multicolinealidad Perfecta: Una variable es una combinación lineal exacta de otras. El modelo no se puede estimar (matriz \\(X'X\\) no invertible).\nMulticolinealidad Imperfecta: Existe una correlación fuerte pero no exacta. Es el caso más común en la práctica.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html#el-supuesto-de-no-multicolinealidad",
+    "href": "material/modulo_03/s18.html#el-supuesto-de-no-multicolinealidad",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "El Supuesto de No Multicolinealidad",
+    "text": "El Supuesto de No Multicolinealidad\nEn el Modelo Clásico de Regresión Lineal (MCRL), el supuesto de No Multicolinealidad Perfecta es fundamental.\n\nSi las variables están demasiado relacionadas, el modelo es incapaz de “aislar” el efecto individual de cada una.\nIntuición: Es como intentar atribuir el éxito de un equipo a un solo jugador cuando dos de ellos siempre juegan juntos y hacen exactamente los mismos movimientos.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html#efectos-de-la-multicolinealidad",
+    "href": "material/modulo_03/s18.html#efectos-de-la-multicolinealidad",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "Efectos de la Multicolinealidad",
+    "text": "Efectos de la Multicolinealidad\nAunque los estimadores MCO siguen siendo insesgados, la multicolinealidad genera:\n\nInflación de Errores Estándar: Las varianzas de los coeficientes (\\(\\hat{\\beta}\\)) se vuelven muy grandes.\nInsignificancia Individual: Los estadísticos \\(t\\) suelen ser pequeños (no significativos), incluso si las variables son importantes.\nInestabilidad: Pequeños cambios en los datos o la eliminación de una observación pueden cambiar drásticamente los signos y valores de los coeficientes.\n\\(R^2\\) Alto vs. \\(t\\) Bajos: Una señal clásica es tener un modelo que explica mucho en conjunto (\\(R^2\\) alto y prueba \\(F\\) significativa), pero donde ninguna variable parece ser significativa por sí sola.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html#detección-matriz-de-correlación",
+    "href": "material/modulo_03/s18.html#detección-matriz-de-correlación",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "Detección: Matriz de Correlación",
+    "text": "Detección: Matriz de Correlación\nEl primer paso para detectar problemas es observar la Matriz de Correlación de las variables independientes.\n\nValores cercanos a \\(+1\\) o \\(-1\\) entre dos variables indican una relación lineal fuerte.\nLimitación: Solo detecta colinealidad entre pares de variables. No detecta si una variable es una combinación lineal de otras tres (colinealidad múltiple).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html#detección-factor-de-inflación-de-la-varianza-vif",
+    "href": "material/modulo_03/s18.html#detección-factor-de-inflación-de-la-varianza-vif",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "Detección: Factor de Inflación de la Varianza (VIF)",
+    "text": "Detección: Factor de Inflación de la Varianza (VIF)\nEl VIF es la herramienta más precisa. Mide cuánto se “infla” la varianza de un coeficiente debido a la relación con las demás variables.\nPara una variable \\(X_j\\): \\[\\text{VIF}(X_j) = \\frac{1}{1 - R_j^2}\\]\n\n\\(R_j^2\\) es el coeficiente de determinación al regresar \\(X_j\\) sobre el resto de las \\(X\\).\nRegla de oro: * \\(\\text{VIF} = 1\\): Ausencia total de colinealidad.\n\n\\(\\text{VIF} &gt; 5\\) o \\(10\\): Indica un problema de multicolinealidad serio que debe ser atendido.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html#cómo-mitigar-la-multicolinealidad",
+    "href": "material/modulo_03/s18.html#cómo-mitigar-la-multicolinealidad",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "¿Cómo mitigar la Multicolinealidad?",
+    "text": "¿Cómo mitigar la Multicolinealidad?\nSi el VIF es muy alto, se sugieren las siguientes acciones:\n\nEliminar variables: Si dos variables miden casi lo mismo (ej. ingreso mensual e ingreso anual), elimina una.\nTransformar variables: Utilizar razones o tasas (ej. en lugar de “Población” y “PIB”, usar “PIB per cápita”).\nAumentar la muestra: A veces, más datos ayudan a separar los efectos correlacionados.\nRegularización: Métodos avanzados como Ridge o Lasso añaden una penalización para estabilizar los coeficientes.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s18.html#conclusiones",
+    "href": "material/modulo_03/s18.html#conclusiones",
+    "title": "Multicolinealidad en el MCRL",
+    "section": "Conclusiones",
+    "text": "Conclusiones\n\nLa multicolinealidad no sesga los resultados, pero los hace imprecisos.\nSi el objetivo es solo predecir \\(Y\\), la multicolinealidad no suele ser un problema grave.\nSi el objetivo es la explicación o inferencia (entender el impacto de cada \\(X\\)), la multicolinealidad es crítica y debe corregirse.\nSiempre revisa los VIF antes de concluir sobre la importancia de una variable.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Multicolinealidad en el MCRL</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html",
+    "href": "material/modulo_03/s19.html",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "",
+    "text": "Series de Tiempo vs. Corte Transversal\nA diferencia de los datos de corte transversal, las series de tiempo presentan datos ordenados cronológicamente. Esto introduce particularidades críticas:",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html#series-de-tiempo-vs.-corte-transversal",
+    "href": "material/modulo_03/s19.html#series-de-tiempo-vs.-corte-transversal",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "",
+    "text": "Las observaciones no son independientes entre sí.\nEl pasado suele influir en el presente.\nDebemos tener CUIDADO al aplicar MCO e interpretar causalidad, ya que se suelen violar supuestos básicos de Gauss-Markov.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html#el-supuesto-de-independencia",
+    "href": "material/modulo_03/s19.html#el-supuesto-de-independencia",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "El Supuesto de Independencia",
+    "text": "El Supuesto de Independencia\nEl teorema de Gauss-Markov requiere Muestreo Aleatorio (observaciones i.i.d.). En series de tiempo, este supuesto suele fallar:\n\n¿Qué ocurre si el error de hoy (\\(u_t\\)) está relacionado con el error de ayer (\\(u_{t-1}\\))?\nEsta violación implica que las observaciones son dependientes.\nConsecuencia: Los errores están correlacionados serialmente.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html#tipos-de-dependencia-de-los-errores",
+    "href": "material/modulo_03/s19.html#tipos-de-dependencia-de-los-errores",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "Tipos de Dependencia de los Errores",
+    "text": "Tipos de Dependencia de los Errores\nLa dependencia de los errores recibe distintos nombres según la estructura de los datos:\n\nSeries de Tiempo (Autocorrelación Serial): El error en \\(t\\) se correlaciona con \\(t-1\\). Ejemplo: Un choque económico en 2023 afecta los residuos de 2024.\nSección Cruzada (Correlación Espacial): El error de una unidad afecta a su vecina (ej. alumnos en una misma sala bajo un mismo profesor).\nDatos de Panel: Ocurren ambas; típicamente los errores de un mismo individuo están correlacionados a través de los años.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html#la-matriz-de-varianzas-covarianzas-sigma",
+    "href": "material/modulo_03/s19.html#la-matriz-de-varianzas-covarianzas-sigma",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "La Matriz de Varianzas-Covarianzas (\\(\\Sigma\\))",
+    "text": "La Matriz de Varianzas-Covarianzas (\\(\\Sigma\\))\nVisualmente, la dependencia “llena” los elementos fuera de la diagonal principal:\n\nMCO Clásico: Diagonal constante (\\(\\sigma^2\\)), ceros fuera (independencia).\nHeterocedasticidad: Diagonal varía (\\(\\sigma^2_t\\)), ceros fuera.\nAutocorrelación: Los ceros fuera de la diagonal desaparecen y se convierten en covarianzas (\\(\\sigma^2 \\rho_{t,s}\\)).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html#qué-problemas-trae-la-autocorrelación",
+    "href": "material/modulo_03/s19.html#qué-problemas-trae-la-autocorrelación",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "¿Qué problemas trae la Autocorrelación?",
+    "text": "¿Qué problemas trae la Autocorrelación?\nSi ignoramos la dependencia y usamos MCO estándar:\n\nInsesgadez: El estimador \\(\\hat{\\beta}\\) sigue siendo insesgado. En promedio, le damos al valor real.\nEficiencia: MCO pierde eficiencia. Ya no es el mejor estimador (MELI).\nInferencia Inválida: Los errores estándar calculados por MCO son incorrectos (generalmente subestimados). Esto hace que los tests \\(t\\) y \\(F\\) no sean válidos, llevando a encontrar significancia donde no la hay.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html#solución-errores-robustos-hac",
+    "href": "material/modulo_03/s19.html#solución-errores-robustos-hac",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "Solución: Errores Robustos HAC",
+    "text": "Solución: Errores Robustos HAC\nPara corregir la inferencia sin abandonar MCO, utilizamos errores HAC (Heteroskedasticity and Autocorrelation Consistent).\nErrores de Newey-West: * Son una extensión del estimador “Sandwich”. * Permiten obtener errores estándar válidos incluso si hay heterocedasticidad y autocorrelación de orden \\(q\\). * Funcionamiento: Aplican pesos que disminuyen linealmente con el tiempo (los rezagos más lejanos pesan menos) para estabilizar la varianza.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s19.html#implementación-práctica",
+    "href": "material/modulo_03/s19.html#implementación-práctica",
+    "title": "Dependencia de los errores en series de tiempo",
+    "section": "Implementación Práctica",
+    "text": "Implementación Práctica\nPara realizar inferencia correcta en series de tiempo:\n\nEstimar el modelo por MCO.\nTestear la presencia de autocorrelación (ej. Test de Durbin-Watson o Breusch-Godfrey).\nSi existe dependencia, reportar los resultados utilizando la matriz de Newey-West.\nEn R, esto se realiza comúnmente con el paquete sandwich y la función NeweyWest().",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Dependencia de los errores en series de tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html",
+    "href": "material/modulo_03/s20.html",
+    "title": "Series de Tiempo",
+    "section": "",
+    "text": "¿Qué es una Serie de Tiempo?\nUna serie de tiempo es un conjunto de observaciones cuantitativas ordenadas cronológicamente: \\[Y_1, Y_2, \\dots, Y_T\\] donde \\(Y_t\\) es el valor observado en el instante \\(t\\).\nA diferencia del corte transversal, el orden de los datos es fundamental porque existe una dependencia temporal.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html#componentes-clásicos-de-una-serie",
+    "href": "material/modulo_03/s20.html#componentes-clásicos-de-una-serie",
+    "title": "Series de Tiempo",
+    "section": "Componentes Clásicos de una Serie",
+    "text": "Componentes Clásicos de una Serie\nToda serie de tiempo puede descomponerse en cuatro elementos:\n\nTendencia (\\(T\\)): Movimiento suave de largo plazo (crecimiento o decrecimiento).\nCiclo (\\(C\\)): Oscilaciones de largo plazo alrededor de la tendencia (ciclos económicos).\nEstacionalidad (\\(E\\)): Patrones que se repiten en periodos fijos (ej. ventas de helados en verano).\nAleatoriedad (\\(A\\)): Movimientos erráticos o “ruido” impredecible.\n\nFormas de combinación: * Aditivo: \\(Y_t = T_t + C_t + E_t + A_t\\) * Multiplicativo: \\(Y_t = T_t \\cdot C_t \\cdot E_t \\cdot A_t\\)",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html#procesos-estocásticos",
+    "href": "material/modulo_03/s20.html#procesos-estocásticos",
+    "title": "Series de Tiempo",
+    "section": "Procesos Estocásticos",
+    "text": "Procesos Estocásticos\nUna serie de tiempo observada es solo una realización particular de un proceso estocástico \\(\\{Y_t\\}\\).\n\nProceso Estocástico: Una colección de variables aleatorias indexadas por el tiempo.\nEspacio Muestral (\\(\\Omega\\)): El conjunto de todas las trayectorias posibles que la variable podría haber seguido.\nRealización: El camino que efectivamente ocurrió y que nosotros medimos en los datos.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html#concepto-de-estacionariedad",
+    "href": "material/modulo_03/s20.html#concepto-de-estacionariedad",
+    "title": "Series de Tiempo",
+    "section": "Concepto de Estacionariedad",
+    "text": "Concepto de Estacionariedad\nPara poder realizar inferencia estadística en el tiempo, necesitamos que el proceso sea estacionario (débilmente):\n\nMedia Constante: \\(E[Y_t] = \\mu\\) (No hay tendencia).\nVarianza Constante: \\(Var(Y_t) = \\sigma^2\\) (No hay cambios en la volatilidad).\nCovarianza Estacionaria: \\(Cov(Y_t, Y_{t+h})\\) depende solo del rezago \\(h\\), no del momento \\(t\\).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html#ruido-blanco-varepsilon_t",
+    "href": "material/modulo_03/s20.html#ruido-blanco-varepsilon_t",
+    "title": "Series de Tiempo",
+    "section": "Ruido Blanco (\\(\\varepsilon_t\\))",
+    "text": "Ruido Blanco (\\(\\varepsilon_t\\))\nEs el bloque de construcción básico de los modelos de series de tiempo. Un proceso es Ruido Blanco si: * \\(E[\\varepsilon_t] = 0\\) * \\(Var(\\varepsilon_t) = \\sigma^2\\) * \\(Cov(\\varepsilon_t, \\varepsilon_{t+h}) = 0\\) para \\(h \\neq 0\\) (Incorrelacionado).\nRepresenta la parte de la serie que es puramente azar y no contiene información útil para predecir el futuro.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html#modelos-autorregresivos-arp",
+    "href": "material/modulo_03/s20.html#modelos-autorregresivos-arp",
+    "title": "Series de Tiempo",
+    "section": "Modelos Autorregresivos: AR(p)",
+    "text": "Modelos Autorregresivos: AR(p)\nEn un modelo AR(p), el valor actual de la serie depende linealmente de sus propios valores pasados más un término de error.\nModelo AR(1): \\[Y_t = \\phi Y_{t-1} + \\varepsilon_t\\]\n\nSi \\(|\\phi| &lt; 1\\), el proceso es estacionario.\nSi \\(\\phi = 1\\), estamos ante un Paseo Aleatorio (no estacionario).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html#modelos-de-media-móvil-maq",
+    "href": "material/modulo_03/s20.html#modelos-de-media-móvil-maq",
+    "title": "Series de Tiempo",
+    "section": "Modelos de Media Móvil: MA(q)",
+    "text": "Modelos de Media Móvil: MA(q)\nEn un modelo MA(q), el valor actual depende de los errores (choques) pasados.\nModelo MA(1): \\[Y_t = \\varepsilon_t + \\theta \\varepsilon_{t-1}\\]\nA diferencia del AR, un modelo MA siempre es estacionario, ya que es una combinación lineal de términos de ruido blanco con varianza finita.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s20.html#herramienta-de-diagnóstico-el-correlograma",
+    "href": "material/modulo_03/s20.html#herramienta-de-diagnóstico-el-correlograma",
+    "title": "Series de Tiempo",
+    "section": "Herramienta de Diagnóstico: El Correlograma",
+    "text": "Herramienta de Diagnóstico: El Correlograma\nEl correlograma o Función de Autocorrelación (ACF) mide la correlación entre \\(Y_t\\) y sus rezagos \\(Y_{t-h}\\).\n\nPermite identificar el tipo de modelo (AR o MA).\nEn un proceso estacionario, las correlaciones deben caer rápidamente hacia cero a medida que aumenta el rezago.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Series de Tiempo</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html",
+    "href": "material/modulo_03/s21.html",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "",
+    "text": "Caminata Aleatoria (Random Walk)\nMuchas variables económicas presentan persistencia: su valor hoy depende fuertemente de su valor ayer.\n\\[y_t = \\rho y_{t-1} + \\epsilon_t\\]",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html#caminata-aleatoria-random-walk",
+    "href": "material/modulo_03/s21.html#caminata-aleatoria-random-walk",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "",
+    "text": "Si \\(|\\rho| &lt; 1\\): El proceso es estacionario. MCO funciona correctamente.\nSi \\(\\rho = 1\\): Es una Caminata Aleatoria (proceso con raíz unitaria).\n\nEs un proceso no estacionario.\nSe dice que la serie es integrada de orden 1, denotado como \\(I(1)\\).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html#el-riesgo-de-la-regresión-espuria",
+    "href": "material/modulo_03/s21.html#el-riesgo-de-la-regresión-espuria",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "El Riesgo de la Regresión Espuria",
+    "text": "El Riesgo de la Regresión Espuria\nSi intentamos relacionar dos variables que son \\(I(1)\\) (tienen raíces unitarias) usando MCO en niveles:\n\\[Y_t = \\beta_0 + \\beta_1 X_t + u_t\\]\n\nProblema: Encontraremos que \\(\\beta_1\\) es estadísticamente significativo incluso si \\(X\\) e \\(Y\\) no tienen ninguna relación real.\nRazón: Ambas series comparten una “tendencia estocástica” (crecen o vagan por azar), lo que confunde al modelo.\nResultado: Conclusiones falsas y modelos sin validez científica.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html#solución-diferenciación",
+    "href": "material/modulo_03/s21.html#solución-diferenciación",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "Solución: Diferenciación",
+    "text": "Solución: Diferenciación\nPara corregir la no estacionariedad de un proceso \\(I(1)\\), debemos trabajar con su primera diferencia:\n\\[\\Delta Y_t = Y_t - Y_{t-1}\\]\nIntuición: * Si \\(Y_t\\) es una caminata aleatoria (\\(Y_t = Y_{t-1} + \\epsilon_t\\)), entonces \\(\\Delta Y_t = \\epsilon_t\\). * Como \\(\\epsilon_t\\) es ruido blanco, la serie diferenciada es estacionaria. * Modelo corregido: \\(\\Delta Y_t = \\beta_0 + \\beta_1 \\Delta X_t + u_t\\).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html#tendencias-determinísticas",
+    "href": "material/modulo_03/s21.html#tendencias-determinísticas",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "Tendencias Determinísticas",
+    "text": "Tendencias Determinísticas\nA veces la serie crece de forma constante en el tiempo (variable omitida). Podemos incluir una tendencia lineal (\\(t\\)):\n\\[y_t = \\alpha_0 + \\alpha_1 x_t + \\alpha_2 t + \\epsilon_t\\]\n\n\\(\\alpha_2\\) captura el crecimiento anual promedio.\n\\(\\alpha_1\\) ahora mide la relación entre \\(x\\) e \\(y\\) una vez que hemos “extraído” el efecto del tiempo (detrending).",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html#cómo-saber-si-hay-raíz-unitaria-test-de-dickey-fuller",
+    "href": "material/modulo_03/s21.html#cómo-saber-si-hay-raíz-unitaria-test-de-dickey-fuller",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "¿Cómo saber si hay Raíz Unitaria? Test de Dickey-Fuller",
+    "text": "¿Cómo saber si hay Raíz Unitaria? Test de Dickey-Fuller\nNo podemos usar un test \\(t\\) normal para \\(\\rho=1\\) porque su distribución no es estándar. Usamos el Test de Dickey-Fuller (D-F) basado en la ecuación:\n\\[\\Delta y_t = \\alpha + \\phi y_{t-1} + \\epsilon_t\\]\n\nHipótesis Nula (\\(H_0\\)): \\(\\phi = 0\\) (Existe raíz unitaria, la serie es \\(I(1)\\)).\nHipótesis Alt (\\(H_1\\)): \\(\\phi &lt; 0\\) (La serie es estacionaria).\n\nImportante: Debemos comparar el estadístico \\(t\\) con las tablas críticas de Dickey-Fuller, no con la tabla \\(t\\) de Student.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html#caso-de-estudio-pib-chileno",
+    "href": "material/modulo_03/s21.html#caso-de-estudio-pib-chileno",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "Caso de Estudio: PIB Chileno",
+    "text": "Caso de Estudio: PIB Chileno\n¿Es el PIB de Chile estacionario?\n\nGráfico en niveles: Muestra una clara tendencia creciente (No estacionario).\nGráfico en diferencias: Muestra oscilaciones alrededor de una media (Parece estacionario).\nResultado Test D-F: Al realizar el test, el estadístico \\(t\\) suele ser mayor al valor crítico de la tabla D-F (en valor absoluto \\(|-1.63| &lt; |-3.50|\\)).\n\n\nConclusión: No se rechaza \\(H_0\\). El PIB chileno tiene raíz unitaria y debe trabajarse en diferencias.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/s21.html#resumen-de-pasos-a-seguir",
+    "href": "material/modulo_03/s21.html#resumen-de-pasos-a-seguir",
+    "title": "Raíces Unitarias y Tendencias",
+    "section": "Resumen de Pasos a Seguir",
+    "text": "Resumen de Pasos a Seguir\nAl trabajar con series de tiempo, sigue este protocolo:\n\nExploración Gráfica: ¿Se ve tendencia? ¿La varianza cambia?\nTest Dickey-Fuller: Formalizar si existe raíz unitaria.\nSi hay raíz unitaria (\\(I(1)\\)): Diferenciar las variables antes de correr la regresión.\nSi hay tendencia determinística: Incluir la variable temporal \\(t\\) en el modelo.\nInterpretación: Asegurarse de que los resultados no sean espurios verificando la estacionariedad de los residuos.",
+    "crumbs": [
+      "Aplicaciones Avanzadas",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  }
+]

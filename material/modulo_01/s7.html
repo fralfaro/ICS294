@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Francisco Alfaro &amp; Jocelyn Tapia">
 
-<title>ICS294 - Econometría</title>
+<title>Propiedades estadísticas del estimador MCO – ICS294 - Econometría</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,33 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./material/modulo_01/s1.html" rel="next">
-<link href="./images/icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../material/modulo_01/s8.html" rel="next">
+<link href="../../material/modulo_01/s6.html" rel="prev">
+<link href="../../images/icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,8 +111,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="css/neoteroi.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -251,7 +314,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_01/s2.html">Fundamentos Estadísticos</a></li><li class="breadcrumb-item"><a href="../../material/modulo_01/s7.html"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -265,12 +328,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ICS294 - Econometría</a> 
+      <a href="../../">ICS294 - Econometría</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/fralfaro/ICS294" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
@@ -286,12 +349,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Home</span></a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  <a href="../../material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -305,37 +368,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
+  <a href="../../material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
+  <a href="../../material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
+  <a href="../../material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
+  <a href="../../material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
+  <a href="../../material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s7.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
       </ul>
@@ -351,32 +414,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
+  <a href="../../material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
+  <a href="../../material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
+  <a href="../../material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
+  <a href="../../material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
   </div>
 </li>
       </ul>
@@ -392,37 +455,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
+  <a href="../../material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
+  <a href="../../material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
+  <a href="../../material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
+  <a href="../../material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
+  <a href="../../material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
+  <a href="../../material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
+  <a href="../../material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
   </div>
 </li>
       </ul>
@@ -432,33 +495,39 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#resumen-clase-anterior" id="toc-resumen-clase-anterior" class="nav-link active" data-scroll-target="#resumen-clase-anterior">Resumen clase anterior</a></li>
+  <li><a href="#ejemplo-obtener-hatbeta-xtop-x-1xtop-y" id="toc-ejemplo-obtener-hatbeta-xtop-x-1xtop-y" class="nav-link" data-scroll-target="#ejemplo-obtener-hatbeta-xtop-x-1xtop-y">Ejemplo: Obtener <span class="math inline">\(\hat{\beta} = (X^\top X)^{-1}X^\top y\)</span></a></li>
+  <li><a href="#ejemplo-construcción-de-matrices" id="toc-ejemplo-construcción-de-matrices" class="nav-link" data-scroll-target="#ejemplo-construcción-de-matrices">Ejemplo: Construcción de Matrices</a></li>
+  <li><a href="#ejemplo-producto-xtop-y-y-estimadores" id="toc-ejemplo-producto-xtop-y-y-estimadores" class="nav-link" data-scroll-target="#ejemplo-producto-xtop-y-y-estimadores">Ejemplo: Producto <span class="math inline">\(X^\top y\)</span> y Estimadores</a></li>
+  <li><a href="#en-r-implementación-matricial" id="toc-en-r-implementación-matricial" class="nav-link" data-scroll-target="#en-r-implementación-matricial">En R: Implementación Matricial</a></li>
+  <li><a href="#supuestos-clásicos-de-gauss-markov" id="toc-supuestos-clásicos-de-gauss-markov" class="nav-link" data-scroll-target="#supuestos-clásicos-de-gauss-markov">Supuestos Clásicos de Gauss-Markov</a></li>
+  <li><a href="#supuesto-4-el-supuesto-crítico" id="toc-supuesto-4-el-supuesto-crítico" class="nav-link" data-scroll-target="#supuesto-4-el-supuesto-crítico">Supuesto 4: El supuesto crítico</a></li>
+  <li><a href="#supuesto-5-homocedasticidad" id="toc-supuesto-5-homocedasticidad" class="nav-link" data-scroll-target="#supuesto-5-homocedasticidad">Supuesto 5: Homocedasticidad</a></li>
+  <li><a href="#propiedades-estadísticas-de-mco" id="toc-propiedades-estadísticas-de-mco" class="nav-link" data-scroll-target="#propiedades-estadísticas-de-mco">Propiedades Estadísticas de MCO</a></li>
+  <li><a href="#demostración-insesgadez" id="toc-demostración-insesgadez" class="nav-link" data-scroll-target="#demostración-insesgadez">Demostración: Insesgadez</a></li>
+  <li><a href="#demostración-varianza-del-estimador" id="toc-demostración-varianza-del-estimador" class="nav-link" data-scroll-target="#demostración-varianza-del-estimador">Demostración: Varianza del Estimador</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_01/s2.html">Fundamentos Estadísticos</a></li><li class="breadcrumb-item"><a href="../../material/modulo_01/s7.html"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ICS294 - Econometría</h1>
+<h1 class="title"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Francisco Alfaro &amp; Jocelyn Tapia </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 de marzo de 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -468,54 +537,89 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenidos-a-ics294" class="level1">
-<h1>Bienvenidos a ICS294!</h1>
-<section id="contenidos-del-curso" class="level2">
-<h2 class="anchored" data-anchor-id="contenidos-del-curso">Contenidos del Curso</h2>
-<div class="nt-cards nt-grid cols-3">
-
-  <a class="nt-card" href="material/modulo_01/regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/regression.png" alt="Modelos de regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Modelos de Regresión</h3>
-      <p>
-        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/statistics.png" alt="Inferencia en regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Inferencia Estadística</h3>
-      <p>
-        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
-    <div class="nt-card-image">
-      <img src="images/advanced.png" alt="Inferencia estadística">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Aplicaciones Avanzadas</h3>
-      <p>
-       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
-      </p>
-    </div>
-  </a>
-
-</div>
-
-
-
-
+<section id="resumen-clase-anterior" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-clase-anterior">Resumen clase anterior</h2>
+<ul>
+<li>Vimos la forma matricial del modelo de regresión lineal múltiple: <span class="math inline">\(y = X\beta + u\)</span></li>
+<li>Demostramos que por MCO se puede obtener: <span class="math display">\[\hat{\beta} = \begin{bmatrix} \hat{\beta}_0 \\ \hat{\beta}_1 \\ \vdots \\ \hat{\beta}_k \end{bmatrix} = (X^\top X)^{-1}X^\top y\]</span></li>
+</ul>
+<p><strong>Interpretación <span class="math inline">\(\hat{\beta}_1\)</span>:</strong> Cuando cambia <span class="math inline">\(x_1\)</span> en una unidad, en promedio <span class="math inline">\(y\)</span> cambia <span class="math inline">\(\hat{\beta}_1\)</span> unidades, manteniendo todas las demás <span class="math inline">\(x\)</span> constantes (<em>ceteris paribus</em>).</p>
 </section>
+<section id="ejemplo-obtener-hatbeta-xtop-x-1xtop-y" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-obtener-hatbeta-xtop-x-1xtop-y">Ejemplo: Obtener <span class="math inline">\(\hat{\beta} = (X^\top X)^{-1}X^\top y\)</span></h2>
+<p>Modelo: <span class="math inline">\(y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + u_i\)</span>, con <span class="math inline">\(n=5\)</span>.</p>
+<div class="line-block">Individuos | unos | <span class="math inline">\(x_1\)</span> (Exp.) | <span class="math inline">\(x_2\)</span> (Edu.) | <span class="math inline">\(y\)</span> (Salario) |</div>
+<p>|:|::|::|::|::| | Juan | 1 | 12 | 93 | 769 | | Pedro | 1 | 18 | 119 | 808 | | Sofia | 1 | 14 | 108 | 825 | | Caro | 1 | 12 | 96 | 650 | | Alex | 1 | 11 | 74 | 562 |</p>
+</section>
+<section id="ejemplo-construcción-de-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-construcción-de-matrices">Ejemplo: Construcción de Matrices</h2>
+<p><span class="math display">\[X = \begin{bmatrix} 1 &amp; 12 &amp; 93 \\ 1 &amp; 18 &amp; 119 \\ 1 &amp; 14 &amp; 108 \\ 1 &amp; 12 &amp; 96 \\ 1 &amp; 11 &amp; 74 \end{bmatrix}, \quad X^\top = \begin{bmatrix} 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 12 &amp; 18 &amp; 14 &amp; 12 &amp; 11 \\ 93 &amp; 119 &amp; 108 &amp; 96 &amp; 74 \end{bmatrix}\]</span></p>
+<p><strong>Cálculo de <span class="math inline">\(X^\top X\)</span>:</strong> <span class="math display">\[X^\top X = \begin{bmatrix} 5 &amp; 67 &amp; 490 \\ 67 &amp; 929 &amp; 6736 \\ 490 &amp; 6736 &amp; 49166 \end{bmatrix}\]</span> <span class="math display">\[(X^\top X)^{-1} = \begin{bmatrix} 8.80 &amp; 0.19 &amp; -0.11 \\ 0.19 &amp; 0.17 &amp; -0.02 \\ -0.11 &amp; -0.02 &amp; 0.00 \end{bmatrix}\]</span></p>
+</section>
+<section id="ejemplo-producto-xtop-y-y-estimadores" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-producto-xtop-y-y-estimadores">Ejemplo: Producto <span class="math inline">\(X^\top y\)</span> y Estimadores</h2>
+<p><span class="math display">\[X^\top y = \begin{bmatrix} 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\ 12 &amp; 18 &amp; 14 &amp; 12 &amp; 11 \\ 93 &amp; 119 &amp; 108 &amp; 96 &amp; 74 \end{bmatrix} \times \begin{bmatrix} 769 \\ 808 \\ 825 \\ 650 \\ 562 \end{bmatrix} = \begin{bmatrix} 3614 \\ 49304 \\ 360757 \end{bmatrix}\]</span></p>
+<p><strong>Estimadores Finales:</strong> <span class="math display">\[\hat{\beta} = (X^{\top}X)^{-1}X^{\top}y = \begin{bmatrix} 140.59 \\ -16.79 \\ 8.24 \end{bmatrix}\]</span> Donde <span class="math inline">\(\hat{\beta}_0 = 140.59\)</span>, <span class="math inline">\(\hat{\beta}_1 = -16.79\)</span>, y <span class="math inline">\(\hat{\beta}_2 = 8.24\)</span>.</p>
+</section>
+<section id="en-r-implementación-matricial" class="level2">
+<h2 class="anchored" data-anchor-id="en-r-implementación-matricial">En R: Implementación Matricial</h2>
+<p>Para calcular los estimadores en R de forma manual:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span>, experiencia, educacion)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>beta_hat <span class="ot">&lt;-</span> <span class="fu">solve</span>(<span class="fu">t</span>(X) <span class="sc">%*%</span> X) <span class="sc">%*%</span> <span class="fu">t</span>(X) <span class="sc">%*%</span> y_salario</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="supuestos-clásicos-de-gauss-markov" class="level2">
+<h2 class="anchored" data-anchor-id="supuestos-clásicos-de-gauss-markov">Supuestos Clásicos de Gauss-Markov</h2>
+<p>Para que sea un “buen” estimador, debemos cumplir 5 supuestos:</p>
+<ol type="1">
+<li><strong>Linealidad en parámetros:</strong> .</li>
+<li><strong>Muestra aleatoria:</strong> Observaciones independientes; .</li>
+<li><strong>No multicolinealidad perfecta:</strong> tiene rango completo (). Existe .</li>
+<li><strong>Ortogonalidad (Exogeneidad):</strong> . La covarianza entre y el error es nula.</li>
+<li><strong>Homocedasticidad:</strong> . La varianza del error es constante.</li>
+</ol>
+</section>
+<section id="supuesto-4-el-supuesto-crítico" class="level2">
+<h2 class="anchored" data-anchor-id="supuesto-4-el-supuesto-crítico">Supuesto 4: El supuesto crítico</h2>
+<ul>
+<li><p>Este supuesto permite la <strong>interpretación causal</strong>.</p></li>
+<li><p>Puede fallar por:</p></li>
+<li><p>Omisión de variables relevantes correlacionadas con .</p></li>
+<li><p>Errores de medición en los regresores.</p></li>
+<li><p>Si no se cumple, el estimador es <strong>sesgado</strong>.</p></li>
+</ul>
+</section>
+<section id="supuesto-5-homocedasticidad" class="level2">
+<h2 class="anchored" data-anchor-id="supuesto-5-homocedasticidad">Supuesto 5: Homocedasticidad</h2>
+<p>La varianza del error no depende de los valores de :</p>
+<ul>
+<li><strong>Homocedasticidad:</strong> La dispersión de los residuos es constante a lo largo de .</li>
+<li><strong>Heterocedasticidad:</strong> La dispersión cambia (ej. el error en el salario varía más para personas con mucha educación que para personas con poca).</li>
+</ul>
+</section>
+<section id="propiedades-estadísticas-de-mco" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-estadísticas-de-mco">Propiedades Estadísticas de MCO</h2>
+<p>Bajo los supuestos clásicos, los estimadores cumplen:</p>
+<ol type="1">
+<li><strong>Insesgadez:</strong> .</li>
+<li><strong>Varianza:</strong> .</li>
+<li><strong>Teorema de Gauss-Markov:</strong> MCO es el <strong>MELI</strong> (Mejor Estimador Lineal Insesgado) o BLUE en inglés. Es decir, es el que tiene la varianza mínima entre todos los lineales insesgados.</li>
+</ol>
+</section>
+<section id="demostración-insesgadez" class="level2">
+<h2 class="anchored" data-anchor-id="demostración-insesgadez">Demostración: Insesgadez</h2>
+<p>Partiendo de y sustituyendo :</p>
+<p>Aplicando esperanza condicional:</p>
+<p>Como (Supuesto 4):</p>
+</section>
+<section id="demostración-varianza-del-estimador" class="level2">
+<h2 class="anchored" data-anchor-id="demostración-varianza-del-estimador">Demostración: Varianza del Estimador</h2>
+<p>Sustituyendo :</p>
+<p>Bajo homocedasticidad ():</p>
+<pre><code>
+¿Te gustaría que incluya un ejemplo práctico en R sobre cómo detectar la heterocedasticidad o pasamos a la siguiente lección?
+</code></pre>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -932,12 +1036,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../material/modulo_01/s6.html" class="pagination-link" aria-label="Estimación del Modelo de Regresión Lineal Múltiple">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./material/modulo_01/s1.html" class="pagination-link" aria-label="Introducción">
-        <span class="nav-page-text"><span class="chapter-title">Introducción</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../material/modulo_01/s8.html" class="pagination-link" aria-label="Propiedades estadísticas del estimador MCO">
+        <span class="nav-page-text"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

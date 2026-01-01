@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Francisco Alfaro &amp; Jocelyn Tapia">
 
-<title>ICS294 - Econometría</title>
+<title>Endogeneidad y Variables Instrumentales – ICS294 - Econometría</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,30 +23,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./material/modulo_01/s1.html" rel="next">
-<link href="./images/icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../material/modulo_03/s18.html" rel="next">
+<link href="../../material/modulo_03/s16.html" rel="prev">
+<link href="../../images/icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,8 +76,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="css/neoteroi.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -251,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_03/s15.html">Aplicaciones Avanzadas</a></li><li class="breadcrumb-item"><a href="../../material/modulo_03/s17.html"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -265,12 +293,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ICS294 - Econometría</a> 
+      <a href="../../">ICS294 - Econometría</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/fralfaro/ICS294" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
@@ -286,12 +314,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Home</span></a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  <a href="../../material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -305,37 +333,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
+  <a href="../../material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
+  <a href="../../material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
+  <a href="../../material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
+  <a href="../../material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
+  <a href="../../material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
       </ul>
@@ -351,32 +379,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
+  <a href="../../material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
+  <a href="../../material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
+  <a href="../../material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
+  <a href="../../material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
   </div>
 </li>
       </ul>
@@ -392,37 +420,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
+  <a href="../../material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
+  <a href="../../material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
+  <a href="../../material/modulo_03/s17.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
+  <a href="../../material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
+  <a href="../../material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
+  <a href="../../material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
+  <a href="../../material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
   </div>
 </li>
       </ul>
@@ -432,33 +460,36 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción-a-la-endogeneidad" id="toc-introducción-a-la-endogeneidad" class="nav-link active" data-scroll-target="#introducción-a-la-endogeneidad">Introducción a la Endogeneidad</a></li>
+  <li><a href="#causas-de-la-endogeneidad" id="toc-causas-de-la-endogeneidad" class="nav-link" data-scroll-target="#causas-de-la-endogeneidad">Causas de la Endogeneidad</a></li>
+  <li><a href="#el-instrumento-válido-z" id="toc-el-instrumento-válido-z" class="nav-link" data-scroll-target="#el-instrumento-válido-z">El Instrumento Válido (<span class="math inline">\(Z\)</span>)</a></li>
+  <li><a href="#intuición-de-la-variable-instrumental" id="toc-intuición-de-la-variable-instrumental" class="nav-link" data-scroll-target="#intuición-de-la-variable-instrumental">Intuición de la Variable Instrumental</a></li>
+  <li><a href="#estimación-por-variables-instrumentales-iv" id="toc-estimación-por-variables-instrumentales-iv" class="nav-link" data-scroll-target="#estimación-por-variables-instrumentales-iv">Estimación por Variables Instrumentales (IV)</a></li>
+  <li><a href="#mínimos-cuadrados-en-dos-etapas-mc2e" id="toc-mínimos-cuadrados-en-dos-etapas-mc2e" class="nav-link" data-scroll-target="#mínimos-cuadrados-en-dos-etapas-mc2e">Mínimos Cuadrados en Dos Etapas (MC2E)</a></li>
+  <li><a href="#comparación-mco-vs-iv" id="toc-comparación-mco-vs-iv" class="nav-link" data-scroll-target="#comparación-mco-vs-iv">Comparación: MCO vs IV</a></li>
+  <li><a href="#resumen-y-conclusiones" id="toc-resumen-y-conclusiones" class="nav-link" data-scroll-target="#resumen-y-conclusiones">Resumen y Conclusiones</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_03/s15.html">Aplicaciones Avanzadas</a></li><li class="breadcrumb-item"><a href="../../material/modulo_03/s17.html"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ICS294 - Econometría</h1>
+<h1 class="title"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Francisco Alfaro &amp; Jocelyn Tapia </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 de marzo de 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -468,54 +499,73 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenidos-a-ics294" class="level1">
-<h1>Bienvenidos a ICS294!</h1>
-<section id="contenidos-del-curso" class="level2">
-<h2 class="anchored" data-anchor-id="contenidos-del-curso">Contenidos del Curso</h2>
-<div class="nt-cards nt-grid cols-3">
-
-  <a class="nt-card" href="material/modulo_01/regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/regression.png" alt="Modelos de regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Modelos de Regresión</h3>
-      <p>
-        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/statistics.png" alt="Inferencia en regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Inferencia Estadística</h3>
-      <p>
-        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
-    <div class="nt-card-image">
-      <img src="images/advanced.png" alt="Inferencia estadística">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Aplicaciones Avanzadas</h3>
-      <p>
-       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
-      </p>
-    </div>
-  </a>
-
-</div>
-
-
-
-
+<section id="introducción-a-la-endogeneidad" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-a-la-endogeneidad">Introducción a la Endogeneidad</h2>
+<p>Decimos que una variable <span class="math inline">\(x_1\)</span> es <strong>endógena</strong> cuando está correlacionada con el término de error (<span class="math inline">\(Cov(x_1, u) \neq 0\)</span>). Esto viola el supuesto de Gauss-Markov y hace que MCO sea:</p>
+<ul>
+<li><strong>Sesgado:</strong> El estimador no apunta al valor real.</li>
+<li><strong>Inconsistente:</strong> El error no desaparece ni con muestras grandes.</li>
+</ul>
+<p><strong>¿Cómo lo solucionamos?</strong> 1. Variables Instrumentales (<strong>IV</strong>). 2. Mínimos Cuadrados en Dos Etapas (<strong>MC2E</strong>).</p>
 </section>
+<section id="causas-de-la-endogeneidad" class="level2">
+<h2 class="anchored" data-anchor-id="causas-de-la-endogeneidad">Causas de la Endogeneidad</h2>
+<p>Existen tres fuentes principales por las que una <span class="math inline">\(x\)</span> se vuelve endógena:</p>
+<ol type="1">
+<li><strong>Variables Omitidas:</strong> Factores inobservables (como la habilidad o inteligencia) que afectan tanto a <span class="math inline">\(x\)</span> como a <span class="math inline">\(y\)</span>.</li>
+<li><strong>Simultaneidad:</strong> Cuando <span class="math inline">\(x\)</span> causa a <span class="math inline">\(y\)</span>, pero <span class="math inline">\(y\)</span> también afecta a <span class="math inline">\(x\)</span> (ej. precio y cantidad en equilibrio).</li>
+<li><strong>Error de Medición:</strong> Cuando la variable explicativa se mide con imprecisión.</li>
+</ol>
+<p>[Image showing the correlation between X and U]</p>
+</section>
+<section id="el-instrumento-válido-z" class="level2">
+<h2 class="anchored" data-anchor-id="el-instrumento-válido-z">El Instrumento Válido (<span class="math inline">\(Z\)</span>)</h2>
+<p>Un instrumento es una variable externa que ayuda a limpiar la endogeneidad. Para ser válido, debe cumplir dos condiciones:</p>
+<ol type="1">
+<li><strong>Relevancia:</strong> El instrumento debe afectar a <span class="math inline">\(x\)</span> (<span class="math inline">\(Cov(Z, X) \neq 0\)</span>). Esto es testeable estadísticamente.</li>
+<li><strong>Exogeneidad (Exclusión):</strong> El instrumento no debe afectar a <span class="math inline">\(y\)</span> directamente ni estar correlacionado con el error (<span class="math inline">\(Cov(Z, u) = 0\)</span>). Solo afecta a <span class="math inline">\(y\)</span> <em>a través</em> de <span class="math inline">\(x\)</span>.</li>
+</ol>
+</section>
+<section id="intuición-de-la-variable-instrumental" class="level2">
+<h2 class="anchored" data-anchor-id="intuición-de-la-variable-instrumental">Intuición de la Variable Instrumental</h2>
+<p>Imagine que <span class="math inline">\(X\)</span> tiene dos componentes: * Una parte <strong>sucia</strong> (correlacionada con <span class="math inline">\(u\)</span>). * Una parte <strong>limpia</strong> o exógena.</p>
+<p>El instrumento <span class="math inline">\(Z\)</span>, al ser exógeno, “filtra” la variable <span class="math inline">\(X\)</span> y nos permite usar solo la variación “limpia” para identificar el efecto real sobre <span class="math inline">\(Y\)</span>.</p>
+<p>[Image: Graph A (Valid IV), Graph B (Invalid: Z relates to U), Graph C (Invalid: Z doesn’t relate to X)]</p>
+</section>
+<section id="estimación-por-variables-instrumentales-iv" class="level2">
+<h2 class="anchored" data-anchor-id="estimación-por-variables-instrumentales-iv">Estimación por Variables Instrumentales (IV)</h2>
+<p>En un modelo simple <span class="math inline">\(y = \beta_0 + \beta_1 x + u\)</span>, si tenemos un instrumento <span class="math inline">\(z\)</span>, el estimador IV se calcula como:</p>
+<p><span class="math display">\[\hat{\beta}_{IV} = \frac{\text{Cov}(y, z)}{\text{Cov}(x, z)} = \frac{\sum (y_i - \bar{y})(z_i - \bar{z})}{\sum (x_i - \bar{x})(z_i - \bar{z})}\]</span></p>
+<ul>
+<li>Si los supuestos se cumplen, <span class="math inline">\(\hat{\beta}_{IV}\)</span> es <strong>consistente</strong> (<span class="math inline">\(\hat{\beta}_{IV} \xrightarrow{p} \beta\)</span>).</li>
+<li><strong>Precio a pagar:</strong> La varianza de IV siempre es mayor que la de MCO. Las estimaciones son menos precisas.</li>
+</ul>
+</section>
+<section id="mínimos-cuadrados-en-dos-etapas-mc2e" class="level2">
+<h2 class="anchored" data-anchor-id="mínimos-cuadrados-en-dos-etapas-mc2e">Mínimos Cuadrados en Dos Etapas (MC2E)</h2>
+<p>Es el método estándar cuando tenemos múltiples controles o instrumentos.</p>
+<p><strong>Etapa 1: Limpieza de <span class="math inline">\(X\)</span></strong> Regresamos <span class="math inline">\(X\)</span> sobre <span class="math inline">\(Z\)</span> y el resto de variables exógenas: <span class="math display">\[x_1 = \alpha_0 + \alpha_1 z + \alpha_2 x_2 + v\]</span> Obtenemos los valores predichos <span class="math inline">\(\hat{x}_1\)</span>. Esta <span class="math inline">\(\hat{x}_1\)</span> es “pura” porque depende de variables exógenas.</p>
+<p><strong>Etapa 2: Estimación Final</strong> Reemplazamos <span class="math inline">\(x_1\)</span> por <span class="math inline">\(\hat{x}_1\)</span> en la ecuación original: <span class="math display">\[y = \beta_0 + \beta_1 \hat{x}_1 + \beta_2 x_2 + u\]</span> Ahora estimamos por MCO. El <span class="math inline">\(\hat{\beta}_1\)</span> resultante es el estimador MC2E.</p>
+</section>
+<section id="comparación-mco-vs-iv" class="level2">
+<h2 class="anchored" data-anchor-id="comparación-mco-vs-iv">Comparación: MCO vs IV</h2>
+<p>Consideremos los retornos de la educación, donde omitimos la “habilidad”: <span class="math display">\[\log(\text{salario}) = \beta_0 + \beta_1 \text{educ} + u\]</span></p>
+<ul>
+<li><strong>MCO:</strong> Suele estar <strong>sesgado hacia arriba</strong> (<span class="math inline">\(\hat{\beta}_{MCO} &gt; \beta\)</span>) porque la educación captura también el efecto de la habilidad omitida.</li>
+<li><strong>IV:</strong> Al usar un instrumento (como la distancia a la universidad), corregimos el sesgo.</li>
+<li>Si observamos que <span class="math inline">\(\hat{\beta}_{MCO} &gt; \hat{\beta}_{IV}\)</span>, confirmamos que MCO estaba sobreestimando el efecto.</li>
+</ul>
+</section>
+<section id="resumen-y-conclusiones" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-y-conclusiones">Resumen y Conclusiones</h2>
+<ul>
+<li>La endogeneidad hace que MCO sea poco fiable para análisis causal.</li>
+<li>Las <strong>Variables Instrumentales</strong> permiten obtener estimaciones consistentes (limpias de sesgo).</li>
+<li><strong>MC2E</strong> es el procedimiento operativo más común para aplicar IV.</li>
+<li><strong>Advertencia:</strong> Un instrumento “débil” (poca correlación con <span class="math inline">\(x\)</span>) puede ser peor que MCO, ya que dispara el error estándar y la imprecisión del modelo.</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -932,12 +982,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../material/modulo_03/s16.html" class="pagination-link" aria-label="Heterocedasticidad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Heterocedasticidad</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./material/modulo_01/s1.html" class="pagination-link" aria-label="Introducción">
-        <span class="nav-page-text"><span class="chapter-title">Introducción</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../material/modulo_03/s18.html" class="pagination-link" aria-label="Multicolinealidad en el MCRL">
+        <span class="nav-page-text"><span class="chapter-title">Multicolinealidad en el MCRL</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

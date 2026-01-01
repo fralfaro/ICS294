@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Francisco Alfaro &amp; Jocelyn Tapia">
 
-<title>ICS294 - Econometría</title>
+<title>Propiedades estadísticas del estimador MCO – ICS294 - Econometría</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,30 +23,31 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./material/modulo_01/s1.html" rel="next">
-<link href="./images/icon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../material/modulo_02/s9.html" rel="next">
+<link href="../../material/modulo_01/s7.html" rel="prev">
+<link href="../../images/icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-f96363ab6b10346a67d0c23014414513.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-cb21456cd7529392f9e7e999ca9c1e08.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,8 +76,36 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="css/neoteroi.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
 </head>
 
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -251,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Home</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_01/s2.html">Fundamentos Estadísticos</a></li><li class="breadcrumb-item"><a href="../../material/modulo_01/s8.html"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -265,12 +293,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ICS294 - Econometría</a> 
+      <a href="../../">ICS294 - Econometría</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/fralfaro/ICS294" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
@@ -286,12 +314,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Home</span></a>
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  <a href="../../material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -305,37 +333,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
+  <a href="../../material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
+  <a href="../../material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
+  <a href="../../material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
+  <a href="../../material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
+  <a href="../../material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  <a href="../../material/modulo_01/s8.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
   </div>
 </li>
       </ul>
@@ -351,32 +379,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
+  <a href="../../material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
+  <a href="../../material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  <a href="../../material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
+  <a href="../../material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
+  <a href="../../material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
   </div>
 </li>
       </ul>
@@ -392,37 +420,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
+  <a href="../../material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
+  <a href="../../material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
+  <a href="../../material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
+  <a href="../../material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
+  <a href="../../material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
+  <a href="../../material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
+  <a href="../../material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
   </div>
 </li>
       </ul>
@@ -432,33 +460,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#estimador-mco-de-sigma2" id="toc-estimador-mco-de-sigma2" class="nav-link active" data-scroll-target="#estimador-mco-de-sigma2">Estimador MCO de <span class="math inline">\(\sigma^2\)</span></a></li>
+  <li><a href="#estimador-mco-de-sigma2-continuación" id="toc-estimador-mco-de-sigma2-continuación" class="nav-link" data-scroll-target="#estimador-mco-de-sigma2-continuación">Estimador MCO de <span class="math inline">\(\sigma^2\)</span> (Continuación)</a></li>
+  <li><a href="#grados-de-libertad-en-los-residuales" id="toc-grados-de-libertad-en-los-residuales" class="nav-link" data-scroll-target="#grados-de-libertad-en-los-residuales">Grados de Libertad en los Residuales</a></li>
+  <li><a href="#varianza-estimada-de-cada-estimador-hatbeta_j" id="toc-varianza-estimada-de-cada-estimador-hatbeta_j" class="nav-link" data-scroll-target="#varianza-estimada-de-cada-estimador-hatbeta_j">Varianza Estimada de Cada Estimador <span class="math inline">\(\hat{\beta}_j\)</span></a></li>
+  <li><a href="#varianza-del-estimador-mco-ejemplo" id="toc-varianza-del-estimador-mco-ejemplo" class="nav-link" data-scroll-target="#varianza-del-estimador-mco-ejemplo">Varianza del Estimador MCO: Ejemplo</a></li>
+  <li><a href="#varianza-del-estimador-mco-ejemplo-cálculo" id="toc-varianza-del-estimador-mco-ejemplo-cálculo" class="nav-link" data-scroll-target="#varianza-del-estimador-mco-ejemplo-cálculo">Varianza del Estimador MCO: Ejemplo (Cálculo)</a></li>
+  <li><a href="#el-caso-particular-de-regresión-simple" id="toc-el-caso-particular-de-regresión-simple" class="nav-link" data-scroll-target="#el-caso-particular-de-regresión-simple">El Caso Particular de Regresión Simple</a></li>
+  <li><a href="#intuición-de-la-varianza-en-el-modelo-múltiple" id="toc-intuición-de-la-varianza-en-el-modelo-múltiple" class="nav-link" data-scroll-target="#intuición-de-la-varianza-en-el-modelo-múltiple">Intuición de la Varianza en el Modelo Múltiple</a></li>
+  <li><a href="#problema-de-multicolinealidad" id="toc-problema-de-multicolinealidad" class="nav-link" data-scroll-target="#problema-de-multicolinealidad">Problema de Multicolinealidad</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/modulo_01/s2.html">Fundamentos Estadísticos</a></li><li class="breadcrumb-item"><a href="../../material/modulo_01/s8.html"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">ICS294 - Econometría</h1>
+<h1 class="title"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-right">
+<div class="quarto-title-meta column-body">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor/a</div>
-    <div class="quarto-title-meta-contents">
-             <p>Francisco Alfaro &amp; Jocelyn Tapia </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Fecha de publicación</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">3 de marzo de 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -468,54 +500,90 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="bienvenidos-a-ics294" class="level1">
-<h1>Bienvenidos a ICS294!</h1>
-<section id="contenidos-del-curso" class="level2">
-<h2 class="anchored" data-anchor-id="contenidos-del-curso">Contenidos del Curso</h2>
-<div class="nt-cards nt-grid cols-3">
-
-  <a class="nt-card" href="material/modulo_01/regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/regression.png" alt="Modelos de regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Modelos de Regresión</h3>
-      <p>
-        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
-    <div class="nt-card-image">
-      <img src="images/statistics.png" alt="Inferencia en regresión">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Inferencia Estadística</h3>
-      <p>
-        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
-      </p>
-    </div>
-  </a>
-
-  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
-    <div class="nt-card-image">
-      <img src="images/advanced.png" alt="Inferencia estadística">
-    </div>
-    <div class="nt-card-body">
-      <h3 class="anchored">Aplicaciones Avanzadas</h3>
-      <p>
-       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
-      </p>
-    </div>
-  </a>
-
-</div>
-
-
-
-
+<section id="estimador-mco-de-sigma2" class="level2">
+<h2 class="anchored" data-anchor-id="estimador-mco-de-sigma2">Estimador MCO de <span class="math inline">\(\sigma^2\)</span></h2>
+<ul>
+<li>La matriz de varianzas-covarianzas viene dada por: <span class="math display">\[\text{Var}(\hat{\beta}|X) = \sigma^2(X^{\top}X)^{-1}\]</span></li>
+<li>Notar que <span class="math inline">\((X^{\top}X)^{-1}\)</span> es una matriz que se observa en los datos.</li>
+<li>Pero, <span class="math inline">\(\sigma^2\)</span> es la varianza del error poblacional. NO es observable.</li>
+</ul>
 </section>
+<section id="estimador-mco-de-sigma2-continuación" class="level2">
+<h2 class="anchored" data-anchor-id="estimador-mco-de-sigma2-continuación">Estimador MCO de <span class="math inline">\(\sigma^2\)</span> (Continuación)</h2>
+<p>El estimador <span class="math inline">\(\hat{\sigma}^2\)</span> de <span class="math inline">\(\sigma^2\)</span> se define como:</p>
+<p><span class="math display">\[\hat{\sigma}^2 = \frac{\sum_{i=1}^{n} \hat{u}_i^2 }{n-k-1}= \frac{SSR}{n - k - 1}\]</span></p>
+<ul>
+<li>El término <span class="math inline">\(n - k - 1\)</span> son los grados de libertad (gl) para el problema general de MCO con <span class="math inline">\(n\)</span> observaciones y <span class="math inline">\(k\)</span> variables independientes.</li>
+<li>Como en un modelo de regresión con <span class="math inline">\(k\)</span> variables independientes y un intercepto hay <span class="math inline">\(k + 1\)</span> parámetros.</li>
+<li><span class="math inline">\(gl = (\text{observaciones}) - (\text{cantidad de parámetros estimados})\)</span>.</li>
+<li>Bajo los supuestos del teorema de Gauss-Markov se cumple que <span class="math inline">\(E[\hat{\sigma}^2|X] = \sigma^2\)</span>.</li>
+</ul>
+</section>
+<section id="grados-de-libertad-en-los-residuales" class="level2">
+<h2 class="anchored" data-anchor-id="grados-de-libertad-en-los-residuales">Grados de Libertad en los Residuales</h2>
+<ul>
+<li>En la obtención de las estimaciones de MCO, a los residuales de MCO se les impone <span class="math inline">\(k + 1\)</span> restricciones.</li>
+<li>Esto significa que, dados <span class="math inline">\(n - (k + 1)\)</span> residuales, los restantes <span class="math inline">\(k + 1\)</span> residuales se conocen: sólo hay <span class="math inline">\(n - (k + 1)\)</span> grados de libertad en los residuales.</li>
+<li>Esto se puede comparar con los errores <span class="math inline">\(u_i\)</span>, que tienen <span class="math inline">\(n\)</span> grados de libertad en la muestra.</li>
+</ul>
+</section>
+<section id="varianza-estimada-de-cada-estimador-hatbeta_j" class="level2">
+<h2 class="anchored" data-anchor-id="varianza-estimada-de-cada-estimador-hatbeta_j">Varianza Estimada de Cada Estimador <span class="math inline">\(\hat{\beta}_j\)</span></h2>
+<p><span class="math display">\[\hat{\text{Var}}(\hat{\beta}|X) = \hat{\sigma}^2(X^{\top}X)^{-1}\]</span></p>
+<p>Matriz de <span class="math inline">\((k + 1) \times (k + 1)\)</span> de varianzas-covarianzas, tal que:</p>
+<ul>
+<li>El elemento de la diagonal <span class="math inline">\(a_{1,1}\)</span> es <span class="math inline">\(\hat{\text{Var}}(\hat{\beta}_0)\)</span>.</li>
+<li>El elemento de la diagonal <span class="math inline">\(a_{2,2}\)</span> es <span class="math inline">\(\hat{\text{Var}}(\hat{\beta}_1)\)</span>.</li>
+<li>Generalizando: el elemento de la diagonal <span class="math inline">\(a_{j+1,j+1}\)</span> es <span class="math inline">\(\hat{\text{Var}}(\hat{\beta}_j)\)</span>.</li>
+</ul>
+</section>
+<section id="varianza-del-estimador-mco-ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="varianza-del-estimador-mco-ejemplo">Varianza del Estimador MCO: Ejemplo</h2>
+<ul>
+<li>Supuestos clásicos <span class="math inline">\(\Rightarrow \hat{V}(\hat{\beta}) = \hat{\sigma}^2(X^{\top}X)^{-1}\)</span>.</li>
+<li>De los datos obtenemos: <span class="math display">\[(X^{\top}X)^{-1} = \begin{bmatrix} 0.05987 &amp; -0.00177 &amp; -0.00035 \\ -0.00177 &amp; 0.00030 &amp; -0.00002 \\ -0.00035 &amp; -0.00002 &amp; 0.00001 \end{bmatrix}\]</span></li>
+<li><span class="math inline">\(\hat{\sigma}^2 = \frac{SSR}{n-k-1} = 141925\)</span></li>
+</ul>
+</section>
+<section id="varianza-del-estimador-mco-ejemplo-cálculo" class="level2">
+<h2 class="anchored" data-anchor-id="varianza-del-estimador-mco-ejemplo-cálculo">Varianza del Estimador MCO: Ejemplo (Cálculo)</h2>
+<p>Entonces, podemos calcular: <span class="math display">\[\hat{V}(\hat{\beta}) = \hat{\sigma}^2(X^{\top}X)^{-1} = \begin{bmatrix} 8497.57 &amp; -250.80 &amp; -49.04 \\ -250.80 &amp; 42.90 &amp; -3.22 \\ -49.04 &amp; -3.22 &amp; 0.91 \end{bmatrix}\]</span></p>
+<ul>
+<li>En la diagonal principal, tienen la varianza de cada uno de los estimadores.</li>
+<li><strong>Ejemplo:</strong> <span class="math inline">\(\hat{V}(\hat{\beta}_1) = 42.6\)</span>. Es decir, el error estándar es: <span class="math display">\[\hat{se}(\hat{\beta}_1) = \sqrt{\hat{V}(\hat{\beta}_1)} = 6.53\]</span></li>
+</ul>
+</section>
+<section id="el-caso-particular-de-regresión-simple" class="level2">
+<h2 class="anchored" data-anchor-id="el-caso-particular-de-regresión-simple">El Caso Particular de Regresión Simple</h2>
+<p>En el modelo de regresión simple <span class="math inline">\(y = \beta_0 + \beta_1 x + u\)</span>, sigue cumpliéndose lo anterior.</p>
+<p><span class="math display">\[\hat{Var}(\hat{\beta}_1) = \frac{\hat{\sigma}^2}{\sum_{i=1}^{n}(x_i - \bar{x})^2}\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(x\)</span> tiene más variabilidad, hace que <span class="math inline">\(\hat{\beta}\)</span> sea más preciso (tengo más información).</li>
+<li>Si la varianza del residuo es más grande, mi estimador es menos preciso. Mi modelo no explica mucho de <span class="math inline">\(y\)</span>.</li>
+</ul>
+</section>
+<section id="intuición-de-la-varianza-en-el-modelo-múltiple" class="level2">
+<h2 class="anchored" data-anchor-id="intuición-de-la-varianza-en-el-modelo-múltiple">Intuición de la Varianza en el Modelo Múltiple</h2>
+<p>Intuición de la varianza del <span class="math inline">\(\hat{\beta}_1\)</span>: <span class="math display">\[\hat{Var}(\hat{\beta}_1|X) = \frac{\hat{\sigma}^2}{SST_1(1 - R^2_1)}\]</span></p>
+<ul>
+<li><strong><span class="math inline">\(SST_1\)</span></strong>: Suma total de los cuadrados de <span class="math inline">\(x_1\)</span>. Es decreciente en la varianza: se prefiere mayor variación muestral o aumentar <span class="math inline">\(n\)</span>.</li>
+<li><strong><span class="math inline">\(R^2_1\)</span></strong>: Coeficiente de determinación de la regresión de <span class="math inline">\(x_1\)</span> en todas las otras variables independientes. Indica cuánto de <span class="math inline">\(x_1\)</span> se explica por las demás.</li>
+<li><strong><span class="math inline">\(\sigma^2\)</span></strong>: Mientras más ruido no explicado haya, más difícil es estimar el efecto parcial de <span class="math inline">\(x_1\)</span>.</li>
+</ul>
+</section>
+<section id="problema-de-multicolinealidad" class="level2">
+<h2 class="anchored" data-anchor-id="problema-de-multicolinealidad">Problema de Multicolinealidad</h2>
+<p><span class="math display">\[\text{Var}(\hat{\beta}_1|X) = \frac{\sigma^2}{SST_1(1 - R^2_1)}\]</span></p>
+<ul>
+<li>Si las variables están muy correlacionadas, la varianza del estimador será muy alta. Si <span class="math inline">\(R^2_1 = 1\)</span>, la varianza es infinita (viola el supuesto 3).</li>
+<li><strong>Trade-offs</strong>:
+<ol type="1">
+<li>Incluir más variables reduce la <span class="math inline">\(SSR\)</span> (<span class="math inline">\(\sigma^2\)</span>), pero aumenta <span class="math inline">\(R^2_1\)</span>. El efecto es ambiguo.</li>
+<li>A menudo sacrificamos varianza para evitar el <strong>sesgo</strong> por variable omitida.</li>
+</ol></li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -932,12 +1000,15 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation column-page-right">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
+      <a href="../../material/modulo_01/s7.html" class="pagination-link" aria-label="Propiedades estadísticas del estimador MCO">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./material/modulo_01/s1.html" class="pagination-link" aria-label="Introducción">
-        <span class="nav-page-text"><span class="chapter-title">Introducción</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../material/modulo_02/s9.html" class="pagination-link" aria-label="Interpretación">
+        <span class="nav-page-text"><span class="chapter-title">Interpretación</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
