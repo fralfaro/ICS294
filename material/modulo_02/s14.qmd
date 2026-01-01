@@ -1,0 +1,110 @@
+#  Variables independientes binarias
+
+
+## Introducción
+
+Las variables binarias (o "dummies") permiten incorporar información cualitativa en nuestros modelos:
+
+* **Región** (Norte, Centro, Sur)
+* **Género** (Hombre, Mujer)
+* **Estado civil** (Casado, Soltero)
+* **Situación laboral** (Empleado, Desempleado)
+* **Educación** (Universitaria, Técnica, Escolar)
+
+Estas variables toman solo dos valores: **1** si posee la cualidad y **0** si no la posee.
+
+
+
+## Efecto Aditivo (Diferencia de Interceptos)
+
+Consideremos el modelo de salarios según género:
+$$\text{salario} = \beta_0 + \delta_0 \text{mujer} + \beta_1 \text{educ} + u$$
+
+Donde `mujer = 1` si es mujer y `0` si es hombre. 
+
+* **Para hombres (mujer=0):** $E[sal|educ] = \beta_0 + \beta_1 educ$
+* **Para mujeres (mujer=1):** $E[sal|educ] = (\beta_0 + \delta_0) + \beta_1 educ$
+
+$\delta_0$ representa la diferencia salarial constante entre mujeres y hombres para cualquier nivel de educación.
+
+
+
+
+
+## Regla de Oro y Categoría Base
+
+Si una variable cualitativa tiene **$q$** categorías, se deben incluir **$q - 1$** variables dummy en el modelo.
+
+**¿Por qué?**
+* Si incluimos las $q$ dummies más la constante, caemos en la "trampa de la variable dummy" (multicolinealidad perfecta).
+* La categoría omitida se llama **Categoría Base**.
+* La constante ($\beta_0$) representa el promedio de la categoría base.
+* Los coeficientes de las otras dummies representan la **diferencia** respecto a esa base.
+
+
+
+## Ejemplo: Salario por Carrera
+
+Supongamos 4 categorías: Economía, Medicina, Ingeniería y "Sin Universidad" (Base).
+$$\widehat{sal} = 100 + 500 \text{Econ} + 300 \text{Med} + 600 \text{Ing}$$
+
+* **Sin Universidad:** Ganan 100 en promedio.
+* **Economía:** Ganan $100 + 500 = 600$ en promedio.
+* **Diferencia:** Un economista gana 500 más que alguien sin universidad.
+* **Comparación:** Un ingeniero gana 300 más que un médico ($600 - 300$).
+
+
+
+## Interacción entre Variables Dummy
+
+¿Depende el "premio por matrimonio" del género?
+$$\text{wage} = \beta_0 + \beta_1 \text{mujer} + \beta_2 \text{casado} + \beta_3 (\text{mujer} \times \text{casado}) + u$$
+
+Interpretación de los grupos:
+1. **Hombre soltero:** $\beta_0$
+2. **Mujer soltera:** $\beta_0 + \beta_1$
+3. **Hombre casado:** $\beta_0 + \beta_2$
+4. **Mujer casada:** $\beta_0 + \beta_1 + \beta_2 + \beta_3$
+
+$\beta_3$ mide la **diferencia extra** en el salario que reciben las mujeres por estar casadas en comparación con el efecto que el matrimonio tiene en los hombres.
+
+
+
+## Interacción con Variables Cuantitativas
+
+Permite que la **pendiente** cambie según el grupo (diferentes retornos):
+$$\text{salario} = \beta_0 + \delta_0 \text{mujer} + \beta_1 \text{educ} + \delta_1 (\text{mujer} \times \text{educ}) + u$$
+
+* **Pendiente hombres:** $\beta_1$ (Retorno por año de educación para hombres).
+* **Pendiente mujeres:** $\beta_1 + \delta_1$ (Retorno por año de educación para mujeres).
+
+
+
+Si $\delta_1 \neq 0$, la educación tiene un impacto diferente en el salario según el género.
+
+
+
+## Test de Chow (Cambio Estructural)
+
+Se usa para testear si los coeficientes de un modelo son iguales para dos o más grupos. 
+
+**Pasos:**
+1. Estimar el modelo para cada grupo por separado y sumar sus SSR ($SSR_{ur} = \sum SSR_g$).
+2. Estimar el modelo para toda la muestra conjunta ($SSR_{r}$).
+3. Calcular el estadístico F:
+$$F = \frac{(SSR_r - SSR_{ur}) / (k + 1)}{SSR_{ur} / (n - 2(k + 1))}$$
+
+Si rechazamos $H_0$, significa que el comportamiento económico de los grupos es estructuralmente distinto y no deben modelarse con los mismos parámetros.
+
+
+
+## Ejercicio: Salarios de CEOs
+
+Modelo estimado:
+$$\log(\widehat{salary}) = 4.59 + 0.257 \log(sales) + 0.011 roe + 0.158 fin + 0.181 cons - 0.283 util$$
+
+* **Categoría Base:** Transporte.
+* **Pregunta:** ¿Cuál es la diferencia entre servicios básicos (*utility*) y transporte?
+    * El coeficiente de *utility* es $-0.283$. Esto indica que, a iguales ventas y ROE, los CEOs de servicios ganan aproximadamente un 28.3% menos que los de transporte.
+* **Pregunta:** ¿Diferencia entre productos de consumo y finanzas?
+    * Diferencia $= 0.181 - 0.158 = 0.023$ (2.3% aprox).

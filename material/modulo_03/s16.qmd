@@ -1,0 +1,82 @@
+# Heterocedasticidad
+
+
+## Homocedasticidad vs Heterocedasticidad
+
+Los errores $u_i$ son **heterocedásticos** si su varianza condicional no es constante para todas las observaciones:
+$$\text{Var}(u_i | X_i) \neq \sigma^2$$
+
+
+
+* **Homocedasticidad:** La dispersión de los errores es igual en todos los niveles de $X$.
+* **Heterocedasticidad:** La dispersión cambia (típicamente aumenta) a medida que $X$ aumenta.
+
+
+
+## Consecuencias de la Heterocedasticidad
+
+¿Qué pasa si ignoramos la heterocedasticidad y usamos MCO normal?
+
+1. **Insesgadez y Consistencia:** Se mantienen ($E[\hat{\beta}] = \beta$). El estimador sigue apuntando al valor correcto.
+2. **Eficiencia:** MCO **ya no es MELI** (no es el más eficiente). Existen otros estimadores con menor varianza.
+3. **Inferencia Inválida:** Las varianzas estimadas son sesgadas. Los **estadísticos $t$ y $F$ no son fiables**, lo que lleva a conclusiones erróneas en los tests de hipótesis.
+4. **Muestras Grandes:** Estos problemas **no desaparecen** al aumentar el tamaño de la muestra ($n$).
+
+
+
+## Test de Breusch-Pagan (BP)
+
+Sirve para detectar si la varianza de los errores depende de las variables explicativas.
+
+**Pasos:**
+1. Estimar el modelo original y obtener los residuos cuadrados $\hat{u}^2$.
+2. Correr una **regresión auxiliar**: $\hat{u}^2 = \delta_0 + \delta_1 x_1 + \dots + \delta_k x_k + v$.
+3. Testear $H_0: \delta_1 = \delta_2 = \dots = \delta_k = 0$.
+
+* Si el $R^2$ de esta regresión es alto, el $F$ será significativo y rechazaremos la homocedasticidad.
+* En **R**: `lmtest::bptest(modelo)`.
+
+
+
+## Test de White
+
+Es más general que el de BP porque detecta formas no lineales de heterocedasticidad (formas cuadráticas o interacciones).
+
+* **Regresión auxiliar de White:** Incluye los $x_j$, sus cuadrados $x_j^2$ y productos cruzados $x_j x_l$.
+* **Problema:** El número de variables en la regresión auxiliar crece muy rápido.
+* **Versión simplificada:** Se regresan los residuos cuadrados contra los valores ajustados y su cuadrado:
+$$\hat{u}^2 = \delta_0 + \delta_1 \hat{y} + \delta_2 \hat{y}^2 + v$$
+Esta versión solo tiene 2 restricciones ($q=2$).
+
+
+
+## Inferencia Robusta (Errores de White)
+
+Si detectamos heterocedasticidad, **no** necesitamos tirar el modelo de MCO. Podemos corregir los errores estándar para que la inferencia sea válida.
+
+La matriz de varianza-covarianza robusta se estima como:
+$$\widehat{\text{Var}}(\hat{\beta}) = (X'X)^{-1} \left( \sum_{i=1}^n \hat{u}_i^2 x_i x_i' \right) (X'X)^{-1}$$
+
+
+
+* Se conocen como **Errores Estándar Robustos** o de tipo "Sandwich".
+* Con estos errores, los estadísticos $t$ vuelven a ser fiables aunque exista heterocedasticidad.
+
+
+
+## Resumen de Propiedades
+
+| Propiedad | Homocedasticidad | Heterocedasticidad |
+| : | : | : |
+| **Insesgadez** | Sí | Sí |
+| **Eficiencia (MELI)** | Sí | No |
+| **Estadísticos $t$ / $F$** | Válidos | Inválidos (sesgados) |
+| **Inferencia asintótica** | Correcta | Incorrecta (salvo corrección) |
+
+
+
+## Recomendaciones Prácticas
+
+1. **Transformación Logarítmica:** Usar $\log(y)$ en lugar de $y$ a menudo reduce la heterocedasticidad al comprimir la escala de la variable dependiente.
+2. **Gráficos de Residuos:** Antes de los tests, siempre grafica los residuos contra los valores ajustados para detectar patrones visuales de "embudo".
+3. **Siempre usar errores robustos:** En la econometría moderna, es una práctica común reportar siempre errores estándar robustos para evitar dudas sobre la validez de la inferencia.

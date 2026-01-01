@@ -1,0 +1,111 @@
+
+
+# Error de Medición
+
+## El mundo real
+
+* Hasta ahora, hemos hablado de las variables $y$ e $x$ como dadas en nuestro modelo.
+* Pero una vez que tratamos de estimar la relación entre estas variables, hay que usar lo que está disponible en los datos reales.
+* A menudo, no se cuenta con datos sobre la variable económica que realmente nos interesa.
+* **Ejemplos:**
+    * Ingreso verdadero vs. ingreso declarado
+    * Calorías consumidas vs. calorías compradas
+
+
+
+## Error de Medición: Definición
+
+* La variable que nos interesa es $W^*$, pero solo tenemos una versión imprecisa $W$:
+  $$W = W^* + u$$
+* Se define como **error de medida** $u = W - W^*$. Es la diferencia entre lo observado y lo verdadero.
+* **Error Clásico:** Definimos el escenario menos grave cuando $E(u)=0$ y $Cov(u, W^*) = 0$.
+* Analizaremos el impacto de este error si ocurre en la variable dependiente o en la independiente.
+
+
+
+# Error de medición en la variable dependiente
+
+## Formulación del Modelo
+
+Considere el modelo verdadero (sin sesgo por variable omitida):
+$$Y^* = \beta_0 + \beta_1 X + \varepsilon$$
+$$E[\varepsilon \mid X] = 0$$
+
+Pero solo observamos $Y = Y^* + u$. Asumiendo error clásico: $Cov(Y^*, u) = 0$ y $V(u) = \sigma_u^2$.
+Sustituyendo $Y^* = Y - u$ en el modelo:
+$$Y = \beta_0 + \beta_1 X + v$$
+donde $v = (\varepsilon + u)$.
+
+
+
+## ¿Será $\hat{\beta}_1$ insesgado?
+
+* Como suponemos que el error de medición de la variable $Y$ **no** está correlacionado con $X$, no causará sesgo.
+* Demostración:
+  $$E(\hat{\beta}_1) = \frac{Cov(X, Y)}{Var(X)} = \frac{Cov(X, Y^* + u)}{Var(X)}$$
+  $$E(\hat{\beta}_1) = \frac{Cov(X, Y^*)}{Var(X)} + \frac{Cov(X, u)}{Var(X)}$$
+  $$E(\hat{\beta}_1) = \beta_1 + 0 = \beta_1$$
+* **Intuición:** Si el error de medida en $Y$ no está sistemáticamente relacionado con las $X$, el estimador MCO sigue siendo insesgado.
+
+
+
+## Impacto sobre la precisión
+
+* Aunque el estimador es insesgado, los estimadores MCO tendrán **mayor varianza**.
+* Con errores de medición en la variable dependiente, el término del error es $(\varepsilon + u)$.
+* Por lo tanto, la varianza del error total es:
+  $$Var(\varepsilon) + Var(u) > Var(\varepsilon)$$
+* Esto significa que será más difícil obtener resultados estadísticamente significativos.
+
+
+
+# Errores de medición en variables independientes
+
+## Ejemplo: Relación entre salario e IQ
+
+
+
+[Aquí va una imagen: RelacionSalarioIQ.jpeg]
+
+
+
+## Impacto sobre MCO
+
+* Cuando la variable mal medida es la independiente, el problema es **más grave**.
+* Tenemos $X = X^* + u$, con error clásico ($Cov(X^*, u) = 0$).
+* Modelo verdadero: $Y = \beta_0 + \beta_1 X^* + \epsilon$
+* Modelo estimado: $Y = b_0 + b_1 X + v$
+* Donde el nuevo error es $v = \epsilon - \beta_1 u$.
+* Veremos que ahora el estimador $\hat{b}_1$ será **sesgado**.
+
+
+
+## Sesgo de atenuación
+
+Derivando el valor esperado:
+$$E[\hat{b}_1] = \frac{Cov(X^* + u, Y)}{Var(X^* + u)} = \frac{Cov(X^*, Y)}{Var(X^*) + Var(u)}$$
+
+Sustituyendo $Y$:
+$$E[\hat{b}_1] = \frac{Cov(X^*, \beta_0 + \beta_1 X^* + \epsilon)}{Var(X^*) + Var(u)}$$
+$$E[\hat{b}_1] = \beta_1 \frac{Var(X^*)}{Var(X^*) + Var(u)} = a \cdot \beta_1$$
+
+Donde $a = \frac{Var(X^*)}{Var(X^*) + Var(u)} < 1$.
+
+
+
+## Análisis del Sesgo de Atenuación
+
+$$E(\hat{b}_1) = a \cdot \beta_1$$
+
+* El coeficiente de MCO será **más pequeño en valor absoluto**; subestimaremos el efecto real.
+* Si $\beta_1 > 0$, el estimador será menor al parámetro.
+* Si $\beta_1 < 0$, el estimador será mayor al parámetro (menos negativo).
+* La magnitud del sesgo depende del **"signal-to-noise ratio"**: qué tan grande es la varianza del error ($Var(u)$) comparada con la varianza de la variable real ($Var(X^*)$).
+
+
+
+## Conclusiones
+
+* **Variable Dependiente:** Errores de medición no generan sesgo, pero aumentan la varianza (menos precisión).
+* **Variable Independiente:** Genera **sesgo de atenuación**. Siempre vamos a subestimar la magnitud de la relación entre las variables.
+* En el mundo real, los datos imprecisos dificultan el reconocimiento de las verdaderas relaciones económicas.

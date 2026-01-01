@@ -1,0 +1,143 @@
+# Variables omitidas
+## Sesgo de selección y MCO
+
+* Supongamos que tenemos el siguiente modelo lineal donde nos interesa el efecto de $x_{i}$ en $y_{i}$:
+  $$y_{i}=\alpha+\beta x_{i}+\varepsilon_{i}$$
+* El supuesto clásico crucial de MCO para que $\beta$ sea el efecto causal (no haya sesgo de selección) es que:
+  $$E\left[\epsilon \mid x\right]=0$$
+* Es decir, que todo lo que está en el error no correlaciona con $x$.
+* Si esto no se cumple, nuestro coeficiente estará sesgado.
+
+---
+
+## Sesgo por Variables omitidas
+
+* ¿Qué pasa si omitimos una variable que afecta a $x$?
+* ¿En términos de grupo tratamiento y control, qué pasa si omitimos una variable que determina si el individuo es tratado o no?
+* En este caso, no se cumple que $E\left[\epsilon \mid x\right]=0$ y vamos a tener sesgo de selección.
+* **Ejemplo:** quiero estudiar el efecto de la consultoría en la productividad de la empresa. Sea $x_{i}$ una variable binaria que toma valor 1 si la empresa recibió asesoramiento.
+  $$\text{productividad}_{i}=\alpha+\beta \cdot x_{i}+\epsilon_{i}$$
+* ¿Es el $\hat{\beta}$ estimado por OLS el efecto causal? ¿Qué variables estoy omitiendo?
+* Podemos pensar que en el error está el **tamaño de la empresa**. Solo empresas más grandes pueden pagar por consultoría. El tamaño correlaciona positivamente con $x$. Al estar en el error, nuestro $\hat{\beta}$ MCO estará sesgado.
+
+---
+
+## Omitiendo variables
+
+* Suponga que la población sigue la siguiente ecuación (verdadera):
+  $$y=\alpha+ \beta_{1}x_{1}+\beta_{2} x_{2}+u \tag{A}$$
+  donde $E[u \mid x]=0$.
+* (Auxiliar) Además, supongan que sabemos que $x_{2}$ está relacionada con $x_{1}$ de la siguiente manera:
+  $$x_{2}=\delta_{0}+\delta_{1} x_{1}+v \tag{B}$$
+* Supongamos que como no observamos $x_{2}$, estimamos el modelo MCO omitiéndola (mandándola al error):
+  $$y=\tilde{\alpha}+x_{1} \tilde{\beta}_{1}+\epsilon \tag{C}$$
+* Noten que comparando con (A), sabemos que $\epsilon=\beta_{2} x_{2}+u$. Por (B), sabemos que $x_{1}$ correlaciona con $x_{2}$, entonces no se cumple $E\left[\epsilon \mid x_{1}\right]=0$.
+
+---
+
+## Omitiendo variables (continuación)
+
+* Reemplazando (B) en (A):
+  $$y=\alpha+x_{1} \beta_{1}+\beta_{2}\left(\delta_{0}+\delta_{1} x_{1}+v\right)+u$$
+* Reordenando:
+  $$y=\left(\alpha+\beta_2\delta_{0}\right)+x_{1}\left(\beta_{1}+\beta_{2} \delta_{1}\right)+\left(u+\beta_{2} v\right)$$
+* Es decir, que cuando omitimos una variable y estimamos un modelo como (C). El coeficiente que estimamos es:
+  $$\tilde{\beta}_{1}=\beta_{1}+\beta_{2} \delta_{1}$$
+* Entonces, capturamos el efecto causal $(\beta_{1})$ y un **sesgo** dado por $\beta_{2} \delta_{1}$.
+* ¿De qué depende el sesgo? ¿Cuándo es 0?
+
+---
+
+## Sesgo por omisión de variable
+
+::: {.columns}
+::: {.column width="50%"}
+**Escenarios:**
+
+1. [Aquí va una imagen: Diagrama causal X1 -> Y <- X2]
+2. [Aquí va una imagen: Diagrama causal X2 -> X1 -> Y]
+3. [Aquí va una imagen: Diagrama causal X2 afectando a X1 y a Y simultáneamente]
+:::
+
+::: {.column width="50%"}
+* ¿Cuándo una variable omitida provocará un sesgo?
+  $$\tilde{\beta}_{1}=\beta_{1}+\beta_{2} \delta_{1}$$
+* Solo en el caso (3) tenemos sesgo. Cuando omitimos una variable que afecta a $X$ y a $Y$ al mismo tiempo.
+* **Ejemplo:** $X_{1}$ : educación, $Y$ : salario, $X_{2}$ : Inteligencia. 
+* En ese caso, $\beta_{2}>0$, $\delta_{1}>0$. Por lo que $\tilde{\beta}_{1}$ sobreestimará el verdadero valor del parámetro.
+:::
+:::
+
+---
+
+## Sesgo por omisión de variable: Signos
+
+$$\tilde{\beta}_{1}=\beta_{1}+\beta_{2} \delta_{1}$$
+
+* Pensando en los signos de $\beta_{2}$ (efecto de la omitida en $y$) y $\delta_{1}$ (efecto de la omitida en $x_{1}$):
+  1. Si $\delta_{1}>0, \beta_{2}>0$ : **Sesgo positivo**. (Ej: Inteligencia)
+  2. Si $\delta_{1}<0, \beta_{2}<0$ : **Sesgo positivo**.
+  3. Si $\delta_{1}<0, \beta_{2}>0$ : **Sesgo negativo**.
+  4. Si $\delta_{1}>0, \beta_{2}<0$ : **Sesgo negativo**.
+
+* **Intuición:** En el caso (1), la gente más inteligente va más a la universidad ($\delta_{1}>0$) y gana más ($\beta_{2}>0$). Al omitir inteligencia, el coeficiente de educación captura también que esa gente ganaría más de todas formas.
+
+---
+
+## Soluciones a variables omitidas: Controles
+
+* ¿Cuál es la manera más obvia de solucionar el problema?
+* Si tengo la variable $x_{2}$, la puedo incluir como **control** en la regresión.
+* Vuelvo al caso en que $E[u \mid \mathbf{x}]=0$ porque ahora estoy dejando *ceteris paribus* $x_{2}$.
+* Esto resuelve el problema si conocemos el modelo verdadero, pero muchas veces no alcanza porque hay otras variables omitidas difíciles de medir.
+
+---
+
+## Ejemplo 1: Tabaquismo y Muerte
+
+* Appleton, French and Vanderpump (1996): relación entre consumo de cigarrillos y muerte.
+
+[Aquí va una imagen: RegySmoke.jpeg - Tabla de regresión de cigarrillos sobre mortalidad]
+
+* $\hat{\tilde{\beta}}_{1}=-1.81$ (Aparentemente fumar reduce la muerte)
+* ¿Qué variables estamos omitiendo acá?
+
+---
+
+## Ejemplo 2: Agregando Edad
+
+* ¿Y si agregamos edad?
+
+[Aquí va una imagen: RegySmokeAge.jpeg - Tabla de regresión controlando por edad]
+
+* Si este fuera el modelo verdadero, $\hat{\beta}_{1}=0.94 > \hat{\tilde{\beta}}_{1}=-1.81$. 
+* Si $\hat{\beta}_{2}>0$ (la edad aumenta el riesgo de muerte), ¿qué me dice esto sobre el signo de relación entre edad y fumar cigarrillos ($\delta_{2}$)?
+* Recuerden: $\tilde{\beta}_{1}=\beta_{1}+\beta_{2} \delta_{2}$.
+* Es negativa: cuanto mayor es la persona en esta muestra, menos fuma.
+
+---
+
+## ¿Más es mejor?
+
+* Se dice que un modelo está **sobreespecificado** cuando se incluyen variables que no forman parte del modelo poblacional.
+* Incluir variables irrelevantes en el modelo:
+  * No influye en el insesgamiento de los estimadores.
+  * **Pero** incrementa la varianza de los estimadores (perdemos precisión).
+
+---
+
+## Sin sesgo de selección
+
+* Si tenemos una **aleatorización** que garantiza que no haya sesgo de selección:
+* Si $X_{1}$ se determina de forma aleatoria, se garantiza que $E\left[\epsilon_{i} \mid X_{i}\right]=0$.
+* ¡La correlación entre cualquier variable no incluida en el modelo y el tratamiento será 0!
+* Entonces, no necesitamos incluir otras variables en el modelo para evitar sesgos (aunque pueden ayudar a la precisión).
+
+---
+
+## Conclusiones
+
+* Incluir variables a un modelo cambia la interpretación de nuestra variable de interés.
+* El impacto de la exclusión de una variable relevante depende de la correlación con la variable de interés y su relación con el *outcome*.
+* El supuesto clave de MCO para que no haya sesgo es $E[\epsilon \mid X]=0$.
+* Es poco frecuente tener **todas** las variables que determinan la asignación, por lo que la interpretación causal pura es difícil en modelos lineales simples sin diseño experimental.

@@ -1,0 +1,56 @@
+---
+title: "Home"
+format:
+  html:
+    css: css/neoteroi.css
+    toc: false
+---
+
+# Bienvenidos a ICS294!
+
+## Contenidos del Curso
+
+
+```{=html}
+<div class="nt-cards nt-grid cols-3">
+
+  <a class="nt-card" href="material/modulo_01/regresion.qmd">
+    <div class="nt-card-image">
+      <img src="images/regression.png" alt="Modelos de regresión">
+    </div>
+    <div class="nt-card-body">
+      <h3>Modelos de Regresión</h3>
+      <p>
+        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).
+      </p>
+    </div>
+  </a>
+
+  <a class="nt-card" href="material/modulo_02/inferencia_regresion.qmd">
+    <div class="nt-card-image">
+      <img src="images/statistics.png" alt="Inferencia en regresión">
+    </div>
+    <div class="nt-card-body">
+      <h3>Inferencia Estadística</h3>
+      <p>
+        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
+      </p>
+    </div>
+  </a>
+
+  <a class="nt-card" href="material/modulo_03/intervalos.qmd">
+    <div class="nt-card-image">
+      <img src="images/advanced.png" alt="Inferencia estadística">
+    </div>
+    <div class="nt-card-body">
+      <h3>Aplicaciones Avanzadas</h3>
+      <p>
+       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
+      </p>
+    </div>
+  </a>
+
+</div>
+
+
+```

@@ -1,0 +1,299 @@
+# Regresión lineal simple
+
+Queremos estudiar la relación entre dos variables $x$ e $y$ en la población.
+
+- Explicar $y$ en términos de $x$ o cómo cambia $y$ cuando cambia $x$.
+- **Modelo de regresión lineal simple (RLS):**
+    $$
+    y = \beta_0 + \beta_1 x + u
+    $$
+
+    - $\beta_0$, $\beta_1$ son **parámetros poblacionales**.
+    - $u$: término de error o perturbación, que representa factores no observables que afectan a $y$.
+    - El coeficiente $\beta_0$ permite suponer que $E(u) = 0$.
+    - $\beta_1$ captura cómo cambia $y$ cuando cambia $x$.
+
+## Terminología
+
+Dado el modelo:
+
+$$
+y = \beta_0 + \beta_1 x + u
+$$
+
+- **$y$**: variable dependiente, explicada, de respuesta, predicha o regresando.
+- **$x$**: variable independiente, explicativa, de control, predictora o regresor.
+- **$\beta_1$**: parámetro de la pendiente; mide el efecto de $x$ sobre $y$ manteniendo constantes los demás factores contenidos en $u$.
+- **$\beta_0$**: intercepto o término constante.
+
+**Ejemplo: Salario y Educación**
+
+* Por ejemplo:
+  $$\text{salario} = \beta_0 + \beta_1 \text{educación} + u$$
+* Si todos los demás factores son constantes ($\Delta u = 0$), entonces:
+  $$\Delta \text{salario} = \beta_1 \Delta \text{educación}$$
+* $\beta_1$ es el parámetro de la pendiente cuando los factores **no observables** son constantes. 
+
+> **Pregunta:** En general, ¿son constantes los factores no observables?
+
+# El Supuesto Clave: Media Condicional Cero
+
+* Es difícil decir que $u$ es constante cuando no lo observamos.
+* El supuesto clave para estimar $\beta_1$ (cómo $x$ afecta a $y$) es:
+  $$E[u|x] = 0$$
+* Esto significa que el valor promedio de $u$ es igual para cualquier valor de $x$.
+* Implica que $x$ no está correlacionada con los factores no observables.
+
+## Supuestos del modelo RLS
+
+1. **Linealidad en los parámetros:** la función que relaciona $y$ con $x$ es lineal.
+2. **Media condicional cero:**
+
+$$
+E[u \mid x] = E[u] = 0
+$$
+
+El valor esperado de los factores inobservables no depende de $x$.
+
+**Ejemplo**:
+
+$$
+\text{Salario} = \beta_0 + \beta_1 \, educ + u
+$$
+
+¿Qué contiene $u$?  
+¿Cómo se relaciona con $educ$?
+
+## Regresión poblacional
+
+Si se cumplen los supuestos de linealidad y media condicional cero:
+
+$$
+y = \beta_0 + \beta_1 x + u
+$$
+
+Entonces:
+
+$$
+E[y \mid x] = \beta_0 + \beta_1 x
+$$
+
+La expresión $E[y \mid x]$ se denomina **Función de Regresión Poblacional (FRP)**.
+
+## Esperanza condicional
+
+La esperanza condicional es la media poblacional de $Y_i$ cuando $X_i$ está fijo.
+
+| Individuo | Años educación | Ingreso |
+|----------|----------------|---------|
+| María    | 5              | 120     |
+| Juan     | 5              | 100     |
+| Pedro    | 4              | 80      |
+| Catalina | 2              | 50      |
+
+- $E[Y_i \mid X_i = 5] = 110$  
+- $E[Y_i \mid X_i = 4] = 80$  
+- $E[Y_i \mid X_i = 2] = 50$  
+- $E[Y_i] = 87.5$
+
+## Función de Regresión Poblacional
+
+```{=html}
+<figure style="text-align: center;">
+  <img src="../images/reg.png" width="80%" >
+  <figcaption>
+  </figcaption>
+</figure>
+```
+
+## Interpretación de los coeficientes
+
+$$
+y = \beta_0 + \beta_1 x + u
+$$
+
+$$
+E[y \mid x] = \beta_0 + \beta_1 x
+$$
+
+- Pendiente:
+
+$$
+\beta_1 = \frac{\Delta E[y \mid x]}{\Delta x}
+$$
+
+Cuando $x$ aumenta en una unidad, el valor esperado de $y$ cambia en $\beta_1$ unidades.
+
+- Intercepto:
+
+$$
+\beta_0 = E[y \mid x = 0]
+$$
+
+Es el valor esperado de $y$ cuando $x = 0$.
+
+## Estimación
+
+- Objetivo: estimar los parámetros poblacionales a partir de una muestra.
+- Modelo poblacional:
+
+$$
+y = \beta_0 + \beta_1 x + u
+$$
+
+- Para cada observación $i = 1, \dots, n$:
+
+$$
+y_i = \beta_0 + \beta_1 x_i + u_i
+$$
+
+## Mínimos Cuadrados Ordinarios (MCO)
+
+Modelo estimado:
+
+$$
+\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i + \hat{u}_i
+$$
+
+**Objetivo:** encontrar los estimadores que minimizan la suma de los residuos al cuadrado:
+
+$$
+\min_{\hat{\beta}_0, \hat{\beta}_1} \sum_{i=1}^{n} (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2
+$$
+
+## Estimadores MCO
+
+- Intercepto:
+
+$$
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}
+$$
+
+- Pendiente:
+
+$$
+\hat{\beta}_1 =
+\frac{\sum_{i=1}^{n} (x_i - \bar{x}) y_i}
+{\sum_{i=1}^{n} (x_i - \bar{x})^2}
+=
+\frac{\text{Cov}(x,y)}{\text{Var}(x)}
+$$
+
+## Regresión Muestral (FRM)
+
+1. Función estimada:
+
+$$
+\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x
+$$
+
+2. La FRM es la versión muestral de la FRP.
+3. La FRP es desconocida y se aproxima con una muestra.
+4. $\hat{y}$ es el valor ajustado o predicho.
+
+```{=html}
+<figure style="text-align: center;">
+  <img src="../images/mco.png" width="80%" >
+  <figcaption>
+  </figcaption>
+</figure>
+```
+
+## Ejemplo: educación y salarios
+
+$$
+\text{salario}_i = \beta_0 + \beta_1 \, educación_i + \varepsilon_i
+$$
+
+Datos de 562 individuos:
+
+```{=html}
+<figure style="text-align: center;">
+  <img src="../images/individ.png" width="80%" >
+  <figcaption>
+  </figcaption>
+</figure>
+```
+
+
+
+Resultado MCO:
+
+$$
+\hat{\text{salario}} = 0.095 + 0.54 \, \text{educación}
+$$
+
+```{=html}
+<figure style="text-align: center;">
+  <img src="../images/lineareg.png" width="80%" >
+  <figcaption>
+  </figcaption>
+</figure>
+```
+
+
+
+## Propiedades aritméticas de MCO
+
+1. $\sum_i \hat{u}_i = 0$
+2. $\sum_i x_i \hat{u}_i = 0$
+3. $\bar{y} = \bar{\hat{y}}$
+4. La recta pasa por $(\bar{x}, \bar{y})$
+
+## Descomposición de la varianza
+
+- Suma de cuadrados total:
+
+$$
+SST = \sum_{i=1}^{n} (y_i - \bar{y})^2
+$$
+
+- Suma de cuadrados explicada:
+
+$$
+SSE = \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2
+$$
+
+- Suma de cuadrados residual:
+
+$$
+SSR = \sum_{i=1}^{n} \hat{u}_i^2
+$$
+
+Se cumple:
+
+$$
+SST = SSE + SSR
+$$
+
+## Bondad de ajuste: $R^2$
+
+$$
+R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}
+$$
+
+Mide la proporción de la variabilidad de $y$ explicada por el modelo.
+
+## Supuestos RLS adicionales
+
+- Muestra aleatoria.
+- Variación en $x$.
+- Homocedasticidad:
+
+$$
+Var(u \mid x) = \sigma^2
+$$
+
+## Varianza de los estimadores MCO
+
+$$
+Var(\hat{\beta}_1) = \frac{\sigma^2}{\sum_{i=1}^n (x_i - \bar{x})^2}
+$$
+
+$$
+Var(\hat{\beta}_0) =
+\frac{\sigma^2 \sum_{i=1}^n x_i^2}
+{n \sum_{i=1}^n (x_i - \bar{x})^2}
+$$
+
+

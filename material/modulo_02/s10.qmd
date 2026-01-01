@@ -1,0 +1,128 @@
+
+# Inferencia sobre un parámetro
+
+
+## Teorema de Gauss-Markov
+
+* **Teorema:** Bajo los supuestos 1 a 5, el estimador de Mínimos Cuadrados Ordinarios (MCO) de $\beta$ es de mínima varianza entre los estimadores lineales insesgados de $\beta$.
+* El estimador MCO es el estimador lineal insesgado de menor varianza (**MELI** / **BLUE**).
+
+
+
+## Supuesto 6: Normalidad de $u$
+
+* Las perturbaciones $u$ se distribuyen como $u \sim N(0, \sigma^2)$.
+* Este supuesto es fundamental para realizar inferencia: para construir intervalos de confianza y realizar tests de hipótesis necesitamos conocer la **distribución** de los estimadores $\hat{\beta}$.
+* **Justificación:** Se apela al Teorema del Límite Central (TLC), considerando que $u$ es la suma de muchos factores no observados independientes.
+
+
+
+## Supuestos del Modelo Lineal Clásico (MLC)
+
+Si se satisfacen los supuestos de Gauss-Markov más el supuesto de normalidad:
+* Los estimadores MCO son insesgados de varianza mínima (ya no solo dentro de los lineales).
+* La distribución condicional es:
+  $$y|X \sim N(\beta_0 + \beta_1x_1 + \ldots + \beta_kx_k, \sigma^2)$$
+
+
+
+
+
+## Distribución del estimador de MCO
+
+Bajo los supuestos 1 a 6 se cumple:
+$$\hat{\beta}_j|X \sim N(\beta_j, \text{Var}(\hat{\beta}_j|X))$$
+
+Como $\sigma^2$ es desconocido, usamos su estimación $\hat{\sigma}^2$ para obtener el error estándar ($s.e.$). Esto transforma la distribución normal en una **t-Student**:
+
+$$\frac{\hat{\beta}_j - \beta_j}{s.e.(\hat{\beta}_j)} \sim t_{n-k-1}$$
+
+Donde $s.e.(\hat{\beta}_j) = \sqrt{\hat{\text{Var}}(\hat{\beta}_j|X)}$. Este estadístico es la base de la inferencia.
+
+
+
+## Test de hipótesis individual
+
+Para testear si un coeficiente es igual a un valor constante $a_j$:
+* $H_0 : \beta_j = a_j$
+* $H_1 : \beta_j \neq a_j$
+
+**Caso particular ($a_j = 0$):** Test de significancia. Si rechazamos $H_0$, la variable $x_j$ es estadísticamente significativa para explicar $y$.
+
+**Estadístico t:**
+$$t_{\hat{\beta}_j} = \frac{\hat{\beta}_j - a_j}{s.e.(\hat{\beta}_j)}$$
+
+
+
+## Errores Tipo I y Tipo II
+
+| Realidad | Decisión: No rechazar $H_0$ | Decisión: Rechazar $H_0$ |
+| : | : | : |
+| **$H_0$ es Verdadera** | Decisión Correcta | **Error Tipo I ($\alpha$)** |
+| **$H_0$ es Falsa** | **Error Tipo II ($\beta$)** | Decisión Correcta |
+
+* **Error Tipo I:** Rechazar lo que es cierto (falso positivo).
+* **Error Tipo II:** No detectar un efecto real (falso negativo).
+
+
+
+## Regla de Decisión (Test de dos colas)
+
+Fijamos un nivel de significancia $\alpha$ (usualmente 5%):
+* Se rechaza $H_0$ si: $|t_{\hat{\beta}_j}| \geq t_{\alpha/2, n-k-1}$
+
+
+
+* Si el valor absoluto de nuestro estadístico calculado es mayor al valor crítico de la tabla, la variable es significativa.
+
+
+
+## Valor-p (p-value)
+
+* Es el menor nivel de significancia al que se habría rechazado la hipótesis nula.
+* **Interpretación:** Probabilidad de observar un estadístico tan extremo como el obtenido si $H_0$ fuera cierta.
+* **Regla de oro:** Si $p\text{-valor} < \alpha$ (ej. 0.05), entonces **rechazamos** la hipótesis nula.
+
+
+
+## Intervalos de Confianza
+
+El intervalo al $(1-\alpha)100\%$ para $\beta_j$ es:
+$$\hat{\beta}_j \pm t_{\alpha/2} \cdot s.e.(\hat{\beta}_j)$$
+
+* Si el valor bajo la hipótesis nula (ej. 0) no está contenido en el intervalo, entonces el coeficiente es estadísticamente significativo al nivel $\alpha$.
+* **Ejemplo:** Con 95% de confianza, el verdadero valor de $\beta_j$ se encuentra entre los límites calculados.
+
+
+
+## Ejemplo: Educación e Ingresos
+
+Modelo: $y_i = \beta_0 + \beta_1 \text{educ}_i + \beta_2 \text{IQ}_i + u_i$
+* $\hat{\beta}_1 = 42.0576$
+* $s.e.(\hat{\beta}_1) = 6.5498$
+* $n = 935 \Rightarrow gl = 932$
+
+**Test $H_0: \beta_1 = 0$:**
+$$t = \frac{42.0576}{6.5498} = 6.42$$
+
+Como $|6.42| > 1.96$ (valor crítico normal para 5%), **rechazamos $H_0$**. La educación es significativa.
+
+
+
+## Tests de una cola
+
+Se usan cuando la teoría económica sugiere una dirección específica:
+* $H_0 : \beta_j = 0$
+* $H_1 : \beta_j > 0$ (o $\beta_j < 0$)
+
+En este caso, toda la probabilidad $\alpha$ se concentra en una sola cola. El valor crítico es menor (ej. 1.645 para 5% en una normal).
+
+
+
+
+
+## Conclusiones
+
+* La inferencia permite pasar de los datos muestrales a conclusiones poblacionales.
+* El **error estándar** mide la precisión de nuestra estimación.
+* El **estadístico t** y el **p-valor** son las herramientas estándar para decidir si una variable debe permanecer en nuestro modelo econométrico.

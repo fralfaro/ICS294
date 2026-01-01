@@ -1,0 +1,132 @@
+# Propiedades estadísticas del estimador MCO
+
+## Resumen clase anterior
+
+* Vimos la forma matricial del modelo de regresión lineal múltiple: $y = X\beta + u$
+* Demostramos que por MCO se puede obtener: 
+  $$\hat{\beta} = \begin{bmatrix} \hat{\beta}_0 \\ \hat{\beta}_1 \\ \vdots \\ \hat{\beta}_k \end{bmatrix} = (X^\top X)^{-1}X^\top y$$
+
+**Interpretación $\hat{\beta}_1$:** Cuando cambia $x_1$ en una unidad, en promedio $y$ cambia $\hat{\beta}_1$ unidades, manteniendo todas las demás $x$ constantes (*ceteris paribus*).
+
+
+
+## Ejemplo: Obtener $\hat{\beta} = (X^\top X)^{-1}X^\top y$
+
+Modelo: $y_i = \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + u_i$, con $n=5$.
+
+| Individuos | unos | $x_1$ (Exp.) | $x_2$ (Edu.) | $y$ (Salario) |
+|:|::|::|::|::|
+| Juan | 1 | 12 | 93 | 769 |
+| Pedro | 1 | 18 | 119 | 808 |
+| Sofia | 1 | 14 | 108 | 825 |
+| Caro | 1 | 12 | 96 | 650 |
+| Alex | 1 | 11 | 74 | 562 |
+
+
+
+## Ejemplo: Construcción de Matrices
+
+$$X = \begin{bmatrix} 1 & 12 & 93 \\ 1 & 18 & 119 \\ 1 & 14 & 108 \\ 1 & 12 & 96 \\ 1 & 11 & 74 \end{bmatrix}, \quad X^\top = \begin{bmatrix} 1 & 1 & 1 & 1 & 1 \\ 12 & 18 & 14 & 12 & 11 \\ 93 & 119 & 108 & 96 & 74 \end{bmatrix}$$
+
+**Cálculo de $X^\top X$:**
+$$X^\top X = \begin{bmatrix} 5 & 67 & 490 \\ 67 & 929 & 6736 \\ 490 & 6736 & 49166 \end{bmatrix}$$
+$$(X^\top X)^{-1} = \begin{bmatrix} 8.80 & 0.19 & -0.11 \\ 0.19 & 0.17 & -0.02 \\ -0.11 & -0.02 & 0.00 \end{bmatrix}$$
+
+
+
+## Ejemplo: Producto $X^\top y$ y Estimadores
+
+$$X^\top y = \begin{bmatrix} 1 & 1 & 1 & 1 & 1 \\ 12 & 18 & 14 & 12 & 11 \\ 93 & 119 & 108 & 96 & 74 \end{bmatrix} \times \begin{bmatrix} 769 \\ 808 \\ 825 \\ 650 \\ 562 \end{bmatrix} = \begin{bmatrix} 3614 \\ 49304 \\ 360757 \end{bmatrix}$$
+
+**Estimadores Finales:**
+$$\hat{\beta} = (X^{\top}X)^{-1}X^{\top}y = \begin{bmatrix} 140.59 \\ -16.79 \\ 8.24 \end{bmatrix}$$
+Donde $\hat{\beta}_0 = 140.59$, $\hat{\beta}_1 = -16.79$, y $\hat{\beta}_2 = 8.24$.
+
+
+
+## En R: Implementación Matricial
+
+
+
+Para calcular los estimadores en R de forma manual:
+
+```r
+X <- cbind(1, experiencia, educacion)
+beta_hat <- solve(t(X) %*% X) %*% t(X) %*% y_salario
+
+```
+
+
+
+## Supuestos Clásicos de Gauss-Markov
+
+Para que  sea un "buen" estimador, debemos cumplir 5 supuestos:
+
+1. **Linealidad en parámetros:** .
+2. **Muestra aleatoria:** Observaciones independientes; .
+3. **No multicolinealidad perfecta:**  tiene rango completo (). Existe .
+4. **Ortogonalidad (Exogeneidad):** . La covarianza entre  y el error es nula.
+5. **Homocedasticidad:** . La varianza del error es constante.
+
+
+
+## Supuesto 4: El supuesto crítico
+
+* Este supuesto permite la **interpretación causal**.
+* Puede fallar por:
+* Omisión de variables relevantes correlacionadas con .
+* Errores de medición en los regresores.
+
+
+* Si no se cumple, el estimador es **sesgado**.
+
+
+
+## Supuesto 5: Homocedasticidad
+
+La varianza del error no depende de los valores de :
+
+
+* **Homocedasticidad:** La dispersión de los residuos es constante a lo largo de .
+* **Heterocedasticidad:** La dispersión cambia (ej. el error en el salario varía más para personas con mucha educación que para personas con poca).
+
+
+
+## Propiedades Estadísticas de MCO
+
+Bajo los supuestos clásicos, los estimadores cumplen:
+
+1. **Insesgadez:** .
+2. **Varianza:** .
+3. **Teorema de Gauss-Markov:** MCO es el **MELI** (Mejor Estimador Lineal Insesgado) o BLUE en inglés. Es decir, es el que tiene la varianza mínima entre todos los lineales insesgados.
+
+
+
+## Demostración: Insesgadez
+
+Partiendo de  y sustituyendo :
+
+Aplicando esperanza condicional:
+
+
+
+Como  (Supuesto 4):
+
+
+
+
+## Demostración: Varianza del Estimador
+
+
+Sustituyendo :
+
+
+
+Bajo homocedasticidad ():
+
+
+```
+
+¿Te gustaría que incluya un ejemplo práctico en R sobre cómo detectar la heterocedasticidad o pasamos a la siguiente lección?
+
+```

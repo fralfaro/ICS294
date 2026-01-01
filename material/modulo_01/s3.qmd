@@ -1,0 +1,248 @@
+# Causalidad
+
+## Esperanza condicional versus causalidad
+
+Hasta ahora, hemos visto cómo funciona el modelo de regresión lineal, el cual nos entrega la **esperanza condicional** de una variable dada otra.
+
+Esto nos permite describir muchas realidades empíricas. Por ejemplo:
+
+- ¿Las personas con más educación reciben sueldos mayores?
+- ¿Estudiar Economía está asociado con un mayor sueldo?
+
+
+Sin embargo, surge una pregunta central: ¿las relaciones que estimamos son **causales**?
+
+- ¿Es la educación la que aumenta el salario, o simplemente observamos que las personas que se educan más tienen mayores salarios por otros motivos?
+- Para responder este tipo de preguntas, construiremos un **marco analítico para pensar la causalidad**.
+
+
+
+## Contrafactual
+
+Para pensar en causalidad, necesitamos imaginar un **mundo contrafactual**.
+
+Por ejemplo:  
+¿qué pasaría si pudiéramos observar a las personas que fueron a la universidad en un mundo alternativo en el que no hubieran ido?
+
+Aquí aparece el problema fundamental de la inferencia causal:
+
+- No podemos calcular directamente el impacto causal de un tratamiento para un individuo $i$, porque **no podemos observar al mismo individuo en los dos estados** (con y sin tratamiento).
+
+**Definición de contrafactual:**  
+El resultado que los mismos participantes de un programa hubieran obtenido en el caso hipotético de no haber participado.
+
+
+
+## El marco teórico de Rubin
+
+Estamos interesados en medir el impacto de un **tratamiento**, que es una variable binaria (recibirlo o no), sobre una variable de resultado $y$.
+
+Algunos ejemplos de tratamiento son:
+
+- Un subsidio del gobierno  
+- Participar en un programa específico  
+- Recibir una beca universitaria  
+- Recibir una vacuna  
+
+Definimos dos grupos:
+
+- **Tratados (T)**  
+- **No tratados o grupo de control (NT)**
+
+
+
+## Modelo de outcomes potenciales (Rubin)
+
+Queremos conocer el impacto causal del tratamiento $T$ sobre una variable $Y$.
+
+Definimos:
+
+- $Y_i$: outcome observado del individuo $i$  
+- $T_i$: variable binaria que vale 1 si el individuo fue tratado y 0 si no  
+- $Y_i^T$: outcome potencial del individuo si recibe el tratamiento  
+- $Y_i^{NT}$: outcome potencial del individuo si **no** recibe el tratamiento  
+
+El impacto causal individual del tratamiento sería:
+
+$$
+Y_i^T - Y_i^{NT}
+$$
+
+¿Podemos observar este efecto?  
+**No**, porque nunca observamos ambos outcomes al mismo tiempo para un mismo individuo.
+
+
+
+## ATE y ATT
+
+El **impacto promedio causal** (Average Treatment Effect, ATE) se define como:
+
+$$
+ATE = E\left[Y_i^T - Y_i^{NT}\right]
+$$
+
+Este efecto no es observable, ya que cada individuo solo se observa en uno de los dos estados.
+
+El **impacto promedio causal sobre los tratados** (Average Treatment Effect on the Treated, ATT) es:
+
+$$
+ATT = E\left[Y_i^T - Y_i^{NT} \mid T_i = 1\right]
+$$
+
+Tampoco es observable, porque $E\left[Y_i^{NT} \mid T_i = 1\right]$ no se puede observar directamente.
+
+
+
+## Observado y no observado: un ejemplo
+
+En los datos observamos lo siguiente:
+
+
+| Persona  | $T_i$ | $Y_i$ | $Y_i^{NT}$ | $Y_i^{T}$ |
+| -------- | ----: | ----: | ---------: | --------: |
+| Sofía    |     1 |   100 |         ?? |       100 |
+| Paula    |     0 |    40 |         40 |        ?? |
+| Ezequiel |     1 |    80 |         ?? |        80 |
+| Juan     |     0 |    20 |         20 |        ?? |
+| Caro     |     1 |    60 |         ?? |        60 |
+
+El efecto causal promedio sería:
+
+$$
+ATE = E\left[Y_i^T - Y_i^{NT}\right]
+$$
+
+Este efecto es **no observable**.  
+Por ejemplo, no podemos saber cuál habría sido $Y_i^{NT}$ para Caro si no hubiese recibido el tratamiento.
+
+Al menos nos gustaría identificar el efecto causal para los tratados:
+
+$$
+ATT = E\left[Y_i^T - Y_i^{NT} \mid T_i = 1\right]
+$$
+
+Pero este también es inobservable.
+
+
+
+## Usar datos observacionales para inferir el ATE
+
+No podemos estimar directamente el ATE ni el ATT.
+
+En su lugar, usamos los datos que sí observamos para aproximar el efecto del tratamiento, bajo ciertos **supuestos**.
+
+Como no podemos comparar a las mismas personas en mundos alternativos, la clave está en encontrar un **grupo de comparación** (contrafactual) que sea similar al grupo tratado en ausencia del tratamiento.
+
+
+
+## ATT y sesgo de selección
+
+Supongamos que queremos calcular el efecto de ir a la universidad ($T$) sobre el salario ($y$).
+
+Una idea natural es comparar el salario promedio entre quienes fueron a la universidad y quienes no:
+
+$$
+\beta_1 = E\left[Y_i \mid T_i = 1\right] - E\left[Y_i \mid T_i = 0\right]
+$$
+
+¿Esto corresponde al ATE o al ATT?
+
+En general, **no**.  
+En contextos no experimentales, las personas eligen participar en el tratamiento y, por tanto, difieren sistemáticamente del grupo de control.
+
+
+
+## Ejemplo de sesgo de selección
+
+La decisión de asistir a la universidad es voluntaria y puede estar influenciada por:
+
+- Intereses personales  
+- Recursos económicos  
+- Oportunidades previas  
+
+Por esta razón, quienes no cursaron estudios universitarios pueden diferir en muchas dimensiones de quienes sí lo hicieron. Compararlos directamente puede no ser adecuado, ya que no constituyen un buen contrafactual.
+
+
+
+## Descomposición de $\beta_1$
+
+Partimos de:
+
+$$
+\beta_1 = E\left(Y_i \mid T_i = 1\right) - E\left(Y_i \mid T_i = 0\right)
+$$
+
+Que es equivalente a:
+
+$$
+\beta_1 = E\left(Y_i^T \mid T_i = 1\right) - E\left(Y_i^{NT} \mid T_i = 0\right)
+$$
+
+Sumando y restando $E\left[Y_i^{NT} \mid T_i = 1\right]$:
+
+$$
+\begin{aligned}
+\beta_1 =\;& E\left(Y_i^T - Y_i^{NT} \mid T_i = 1\right) \\
+&+ E\left(Y_i^{NT} \mid T_i = 1\right) - E\left(Y_i^{NT} \mid T_i = 0\right)
+\end{aligned}
+$$
+
+- El **primer término** es el **ATT**, el efecto causal que nos interesa.
+- El **segundo término** corresponde al **sesgo de selección**.
+
+
+
+## Sesgo de selección
+
+El sesgo de selección surge porque el grupo tratado ya era distinto del grupo de control antes del tratamiento.
+
+Intuitivamente:
+
+- Incluso en un mundo sin tratamiento, el grupo tratado habría tenido un outcome distinto porque tenía características diferentes.
+
+Hay sesgo de selección cuando, aun sin intervención, los resultados promedio de tratados y no tratados son distintos.
+
+
+
+## Ejemplo: alarmas para casas
+
+Queremos saber si instalar una alarma reduce los robos.
+
+Problemas:
+
+- Cada familia decide voluntariamente si instalar una alarma.
+- Quienes instalan alarmas pueden vivir en zonas más peligrosas o tener mayor preocupación por la seguridad.
+
+Si comparamos robos entre casas con y sin alarmas:
+
+- ¿Obtendremos el efecto causal?
+- ¿O estaremos capturando sesgo de selección?
+
+
+
+## Aleatorización
+
+¿Qué supuesto elimina el sesgo de selección?
+
+El supuesto clave es que los **outcomes potenciales sean independientes del tratamiento**.
+
+La **aleatorización** (experimentos controlados aleatorios, RCT) resuelve este problema:
+
+- Se asigna aleatoriamente quién recibe el tratamiento y quién no.
+- En promedio, ambos grupos son iguales en ausencia del tratamiento.
+
+Formalmente:
+
+$$
+E\left(Y_i^{NT} \mid T\right) = E\left(Y_i^{NT} \mid NT\right)
+$$
+
+En este caso:
+
+$$
+\beta = ATE = ATT
+$$
+
+Y obtenemos el efecto causal verdadero.
+
+Este enfoque es ampliamente usado en medicina (drogas y vacunas) y cada vez más en ciencias sociales, políticas públicas y el ámbito empresarial.

@@ -1,0 +1,93 @@
+# Endogeneidad y Variables Instrumentales
+
+
+## Introducción a la Endogeneidad
+
+Decimos que una variable $x_1$ es **endógena** cuando está correlacionada con el término de error ($Cov(x_1, u) \neq 0$). Esto viola el supuesto de Gauss-Markov y hace que MCO sea:
+
+* **Sesgado:** El estimador no apunta al valor real.
+* **Inconsistente:** El error no desaparece ni con muestras grandes.
+
+**¿Cómo lo solucionamos?**
+1. Variables Instrumentales (**IV**).
+2. Mínimos Cuadrados en Dos Etapas (**MC2E**).
+
+
+
+## Causas de la Endogeneidad
+
+Existen tres fuentes principales por las que una $x$ se vuelve endógena:
+
+1. **Variables Omitidas:** Factores inobservables (como la habilidad o inteligencia) que afectan tanto a $x$ como a $y$.
+2. **Simultaneidad:** Cuando $x$ causa a $y$, pero $y$ también afecta a $x$ (ej. precio y cantidad en equilibrio).
+3. **Error de Medición:** Cuando la variable explicativa se mide con imprecisión.
+
+[Image showing the correlation between X and U]
+
+
+
+## El Instrumento Válido ($Z$)
+
+Un instrumento es una variable externa que ayuda a limpiar la endogeneidad. Para ser válido, debe cumplir dos condiciones:
+
+1. **Relevancia:** El instrumento debe afectar a $x$ ($Cov(Z, X) \neq 0$). Esto es testeable estadísticamente.
+2. **Exogeneidad (Exclusión):** El instrumento no debe afectar a $y$ directamente ni estar correlacionado con el error ($Cov(Z, u) = 0$). Solo afecta a $y$ *a través* de $x$.
+
+
+
+## Intuición de la Variable Instrumental
+
+Imagine que $X$ tiene dos componentes:
+* Una parte **sucia** (correlacionada con $u$).
+* Una parte **limpia** o exógena.
+
+El instrumento $Z$, al ser exógeno, "filtra" la variable $X$ y nos permite usar solo la variación "limpia" para identificar el efecto real sobre $Y$.
+
+[Image: Graph A (Valid IV), Graph B (Invalid: Z relates to U), Graph C (Invalid: Z doesn't relate to X)]
+
+
+
+## Estimación por Variables Instrumentales (IV)
+
+En un modelo simple $y = \beta_0 + \beta_1 x + u$, si tenemos un instrumento $z$, el estimador IV se calcula como:
+
+$$\hat{\beta}_{IV} = \frac{\text{Cov}(y, z)}{\text{Cov}(x, z)} = \frac{\sum (y_i - \bar{y})(z_i - \bar{z})}{\sum (x_i - \bar{x})(z_i - \bar{z})}$$
+
+* Si los supuestos se cumplen, $\hat{\beta}_{IV}$ es **consistente** ($\hat{\beta}_{IV} \xrightarrow{p} \beta$).
+* **Precio a pagar:** La varianza de IV siempre es mayor que la de MCO. Las estimaciones son menos precisas.
+
+
+
+## Mínimos Cuadrados en Dos Etapas (MC2E)
+
+Es el método estándar cuando tenemos múltiples controles o instrumentos.
+
+**Etapa 1: Limpieza de $X$**
+Regresamos $X$ sobre $Z$ y el resto de variables exógenas:
+$$x_1 = \alpha_0 + \alpha_1 z + \alpha_2 x_2 + v$$
+Obtenemos los valores predichos $\hat{x}_1$. Esta $\hat{x}_1$ es "pura" porque depende de variables exógenas.
+
+**Etapa 2: Estimación Final**
+Reemplazamos $x_1$ por $\hat{x}_1$ en la ecuación original:
+$$y = \beta_0 + \beta_1 \hat{x}_1 + \beta_2 x_2 + u$$
+Ahora estimamos por MCO. El $\hat{\beta}_1$ resultante es el estimador MC2E.
+
+
+
+## Comparación: MCO vs IV
+
+Consideremos los retornos de la educación, donde omitimos la "habilidad":
+$$\log(\text{salario}) = \beta_0 + \beta_1 \text{educ} + u$$
+
+* **MCO:** Suele estar **sesgado hacia arriba** ($\hat{\beta}_{MCO} > \beta$) porque la educación captura también el efecto de la habilidad omitida.
+* **IV:** Al usar un instrumento (como la distancia a la universidad), corregimos el sesgo. 
+* Si observamos que $\hat{\beta}_{MCO} > \hat{\beta}_{IV}$, confirmamos que MCO estaba sobreestimando el efecto.
+
+
+
+## Resumen y Conclusiones
+
+* La endogeneidad hace que MCO sea poco fiable para análisis causal.
+* Las **Variables Instrumentales** permiten obtener estimaciones consistentes (limpias de sesgo).
+* **MC2E** es el procedimiento operativo más común para aplicar IV.
+* **Advertencia:** Un instrumento "débil" (poca correlación con $x$) puede ser peor que MCO, ya que dispara el error estándar y la imprecisión del modelo.

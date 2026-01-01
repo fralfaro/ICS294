@@ -1,0 +1,100 @@
+
+#  Propiedades estadísticas del estimador MCO
+
+
+## Estimador MCO de $\sigma^2$
+
+* La matriz de varianzas-covarianzas viene dada por:
+  $$\text{Var}(\hat{\beta}|X) = \sigma^2(X^{\top}X)^{-1}$$
+* Notar que $(X^{\top}X)^{-1}$ es una matriz que se observa en los datos.
+* Pero, $\sigma^2$ es la varianza del error poblacional. NO es observable.
+
+
+
+## Estimador MCO de $\sigma^2$ (Continuación)
+
+El estimador $\hat{\sigma}^2$ de $\sigma^2$ se define como:
+
+$$\hat{\sigma}^2 = \frac{\sum_{i=1}^{n} \hat{u}_i^2 }{n-k-1}= \frac{SSR}{n - k - 1}$$
+
+* El término $n - k - 1$ son los grados de libertad (gl) para el problema general de MCO con $n$ observaciones y $k$ variables independientes.
+* Como en un modelo de regresión con $k$ variables independientes y un intercepto hay $k + 1$ parámetros.
+* $gl = (\text{observaciones}) - (\text{cantidad de parámetros estimados})$.
+* Bajo los supuestos del teorema de Gauss-Markov se cumple que $E[\hat{\sigma}^2|X] = \sigma^2$.
+
+
+
+## Grados de Libertad en los Residuales
+
+* En la obtención de las estimaciones de MCO, a los residuales de MCO se les impone $k + 1$ restricciones.
+* Esto significa que, dados $n - (k + 1)$ residuales, los restantes $k + 1$ residuales se conocen: sólo hay $n - (k + 1)$ grados de libertad en los residuales.
+* Esto se puede comparar con los errores $u_i$, que tienen $n$ grados de libertad en la muestra.
+
+
+
+## Varianza Estimada de Cada Estimador $\hat{\beta}_j$
+
+$$\hat{\text{Var}}(\hat{\beta}|X) = \hat{\sigma}^2(X^{\top}X)^{-1}$$
+
+Matriz de $(k + 1) \times (k + 1)$ de varianzas-covarianzas, tal que:
+
+* El elemento de la diagonal $a_{1,1}$ es $\hat{\text{Var}}(\hat{\beta}_0)$.
+* El elemento de la diagonal $a_{2,2}$ es $\hat{\text{Var}}(\hat{\beta}_1)$.
+* Generalizando: el elemento de la diagonal $a_{j+1,j+1}$ es $\hat{\text{Var}}(\hat{\beta}_j)$.
+
+
+
+## Varianza del Estimador MCO: Ejemplo
+
+* Supuestos clásicos $\Rightarrow \hat{V}(\hat{\beta}) = \hat{\sigma}^2(X^{\top}X)^{-1}$.
+* De los datos obtenemos:
+  $$(X^{\top}X)^{-1} = \begin{bmatrix} 0.05987 & -0.00177 & -0.00035 \\ -0.00177 & 0.00030 & -0.00002 \\ -0.00035 & -0.00002 & 0.00001 \end{bmatrix}$$
+* $\hat{\sigma}^2 = \frac{SSR}{n-k-1} = 141925$
+
+
+
+## Varianza del Estimador MCO: Ejemplo (Cálculo)
+
+Entonces, podemos calcular:
+$$\hat{V}(\hat{\beta}) = \hat{\sigma}^2(X^{\top}X)^{-1} = \begin{bmatrix} 8497.57 & -250.80 & -49.04 \\ -250.80 & 42.90 & -3.22 \\ -49.04 & -3.22 & 0.91 \end{bmatrix}$$
+
+* En la diagonal principal, tienen la varianza de cada uno de los estimadores.
+* **Ejemplo:** $\hat{V}(\hat{\beta}_1) = 42.6$. Es decir, el error estándar es:
+  $$\hat{se}(\hat{\beta}_1) = \sqrt{\hat{V}(\hat{\beta}_1)} = 6.53$$
+
+
+
+## El Caso Particular de Regresión Simple
+
+En el modelo de regresión simple $y = \beta_0 + \beta_1 x + u$, sigue cumpliéndose lo anterior.
+
+$$\hat{Var}(\hat{\beta}_1) = \frac{\hat{\sigma}^2}{\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+
+
+
+* Si $x$ tiene más variabilidad, hace que $\hat{\beta}$ sea más preciso (tengo más información).
+* Si la varianza del residuo es más grande, mi estimador es menos preciso. Mi modelo no explica mucho de $y$.
+
+
+
+## Intuición de la Varianza en el Modelo Múltiple
+
+Intuición de la varianza del $\hat{\beta}_1$:
+$$\hat{Var}(\hat{\beta}_1|X) = \frac{\hat{\sigma}^2}{SST_1(1 - R^2_1)}$$
+
+* **$SST_1$**: Suma total de los cuadrados de $x_1$. Es decreciente en la varianza: se prefiere mayor variación muestral o aumentar $n$.
+* **$R^2_1$**: Coeficiente de determinación de la regresión de $x_1$ en todas las otras variables independientes. Indica cuánto de $x_1$ se explica por las demás.
+* **$\sigma^2$**: Mientras más ruido no explicado haya, más difícil es estimar el efecto parcial de $x_1$.
+
+
+
+## Problema de Multicolinealidad
+
+$$\text{Var}(\hat{\beta}_1|X) = \frac{\sigma^2}{SST_1(1 - R^2_1)}$$
+
+
+
+* Si las variables están muy correlacionadas, la varianza del estimador será muy alta. Si $R^2_1 = 1$, la varianza es infinita (viola el supuesto 3).
+* **Trade-offs**: 
+    1. Incluir más variables reduce la $SSR$ ($\sigma^2$), pero aumenta $R^2_1$. El efecto es ambiguo.
+    2. A menudo sacrificamos varianza para evitar el **sesgo** por variable omitida.

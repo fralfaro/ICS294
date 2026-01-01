@@ -1,0 +1,90 @@
+
+# Inferencia sobre un conjunto de parámetros
+
+## Introducción
+
+* Hasta ahora, hemos visto tests de hipótesis sobre un **parámetro específico**.
+* Sin embargo, a menudo las preguntas económicas son más complejas:
+    * ¿Es el efecto de la variable A igual al de la variable B? ($\beta_1 = \beta_2$).
+    * ¿Es el impacto de la educación el doble que el de la experiencia? ($\beta_1 = 2\beta_2$).
+    * ¿Influyen varios factores en conjunto sobre mi variable de interés?
+    * ¿Podemos excluir variables discriminatorias (género, edad) del modelo?
+
+
+
+## Hipótesis de igualdad de parámetros
+
+Queremos testear la hipótesis nula de que dos coeficientes son iguales:
+* **$H_0: \beta_1 = \beta_2$** (o lo que es lo mismo: $\beta_1 - \beta_2 = 0$)
+* **$H_1: \beta_1 \neq \beta_2$**
+
+Dado que los estimadores $\hat{\beta}_j$ tienen una distribución normal, su diferencia también es normal. El estadístico $t$ se construye como:
+
+$$t = \frac{\hat{\beta}_1 - \hat{\beta}_2}{\sqrt{\hat{Var}(\hat{\beta}_1 - \hat{\beta}_2)}}$$
+
+
+
+## Cálculo de la varianza de la diferencia
+
+Para obtener el error estándar del denominador, usamos propiedades de la varianza:
+$$\text{Var}(A - B) = \text{Var}(A) + \text{Var}(B) - 2\text{Cov}(A, B)$$
+
+Aplicado a nuestros estimadores:
+$$\hat{Var}(\hat{\beta}_1 - \hat{\beta}_2) = \hat{Var}(\hat{\beta}_1) + \hat{Var}(\hat{\beta}_2) - 2\hat{Cov}(\hat{\beta}_1, \hat{\beta}_2)$$
+
+* Los términos de varianza están en la **diagonal principal** de la matriz de varianza-covarianza.
+* El término de covarianza es el elemento **fuera de la diagonal** correspondiente a ambos parámetros.
+
+
+
+## Ejemplo: Test $\beta_1 = \beta_2$
+
+Contamos con la siguiente matriz de varianza-covarianza estimada $\hat{V}(\hat{\beta})$:
+$$\begin{bmatrix} 8497.05 & -251.21 & -49.67 \\ -251.21 & \color{red}{42.58} & \color{blue}{-2.84} \\ -49.67 & \color{blue}{-2.84} & \color{red}{1.42} \end{bmatrix}$$
+
+Datos adicionales: $\hat{\beta}_1 = 42$, $\hat{\beta}_2 = 5$, $n = 140$.
+
+1. **Varianza de la diferencia:** $42.58 + 1.42 - 2(-2.84) = 49.68$
+2. **Error estándar:** $\sqrt{49.68} = 7.05$
+3. **Estadístico t:** $t = \frac{42 - 5}{7.05} = 5.3$
+
+
+
+## Conclusión del Ejemplo
+
+* **Estadístico calculado:** $t_e = 5.3$
+* **Valor crítico:** Para un 5% de significancia con 137 grados de libertad, $t_{crit} \approx 1.98$.
+* **Decisión:** Como $|5.3| > 1.98$, **rechazamos $H_0$**.
+* **Interpretación:** Existe evidencia estadística suficiente para concluir que el efecto de la variable $x_1$ es significativamente distinto al efecto de $x_2$.
+
+
+
+## Ejercicio: Proporcionalidad de parámetros
+
+Testear si el efecto de $x_1$ es el doble que el de $x_2$:
+* **$H_0: \beta_1 = 2\beta_2$** $\Rightarrow \beta_1 - 2\beta_2 = 0$
+* **$H_1: \beta_1 \neq 2\beta_2$**
+
+**Cálculo de la varianza necesaria:**
+$$\hat{Var}(\hat{\beta}_1 - 2\hat{\beta}_2) = \hat{Var}(\hat{\beta}_1) + 4\hat{Var}(\hat{\beta}_2) - 4\hat{Cov}(\hat{\beta}_1, \hat{\beta}_2)$$
+
+
+
+
+
+## Resolución del Ejercicio
+
+Usando los mismos datos anteriores:
+1. **Varianza:** $42.5 + 4(1.42) - 4(-2.84) = 59.54$
+2. **Error estándar:** $\sqrt{59.54} = 7.72$
+3. **Estadístico t:** $$t_e = \frac{42 - 2(5)}{7.72} = \frac{32}{7.72} = 4.15$$
+
+**Resultado:** Dado que $4.15 > 1.98$, se **rechaza $H_0$**. No se cumple la relación de que un efecto sea el doble del otro.
+
+
+
+## Resumen de la Inferencia Multivariada
+
+* La matriz de varianza-covarianza es esencial para testear relaciones entre variables.
+* No basta con mirar los errores estándar individuales; la **covarianza** entre estimadores afecta la precisión de nuestras conclusiones sobre sus diferencias.
+* Estos tests permiten validar teorías económicas sobre la magnitud relativa de distintos factores.

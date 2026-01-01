@@ -1,0 +1,67 @@
+# Variables dependientes binarias
+
+
+## Variables dependientes binarias
+
+En muchos problemas del mundo real, la variable que queremos explicar es de naturaleza cualitativa y se representa como una variable dummy ($y \in \{0, 1\}$).
+
+**Ejemplos:**
+* ¿Qué explica que un alumno asista a un colegio público (0) o privado (1)?
+* ¿Qué factores determinan si una persona se jubila anticipadamente (1) o no (0)?
+* ¿Qué perfil de conductor tiene mayor probabilidad de sufrir un accidente (1)?
+* ¿Aceptará un cliente un crédito bancario (1) o lo rechazará (0)?
+
+
+
+## Modelo de Probabilidad Lineal (MPL)
+
+Cuando usamos MCO con una variable dependiente binaria, el modelo se denomina **Modelo de Probabilidad Lineal**.
+
+$$y = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k + u$$
+
+En este modelo, el valor predicho $\hat{y}$ se interpreta directamente como la **probabilidad de éxito**:
+$$P(y=1 | X) = E[y | X] = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k$$
+
+
+
+
+
+## Problemas del MPL
+
+Aunque es fácil de estimar, el MPL presenta dos debilidades importantes:
+
+1. **Predicciones fuera de rango:** El modelo puede predecir probabilidades menores a 0 o mayores a 1 para ciertos valores de $X$.
+    * *Nota:* Si nos interesa el efecto promedio, no es tan grave. Si nos interesa la predicción precisa en individuos extremos, se prefieren modelos no lineales (Logit o Probit).
+2. **Heterocedasticidad inherente:** Por definición, la varianza del error en un MPL depende de $X$ ($\text{Var}(y|X) = p(1-p)$), lo que invalida los errores estándar usuales de MCO si no se corrigen.
+
+
+
+## Ejemplo: Probabilidad de Accidentes
+
+Supongamos que estimamos el modelo para accidentes de tránsito ($y=1$ si tuvo accidente):
+$$\widehat{Accidente} = 0.30 - 0.05 \text{educ} - 0.0001 \text{ingreso}$$
+
+**Interpretación de coeficientes:**
+* **$\hat{\beta}_0 = 0.30$:** Un individuo con 0 años de educación y 0 ingresos tiene una probabilidad del 30% de sufrir un accidente.
+* **Coeficiente de educ (-0.05):** Un año adicional de educación reduce la probabilidad de accidente en **5 puntos porcentuales** (ceteris paribus).
+
+
+
+## Aplicación del Ejemplo
+
+**Cálculo de probabilidad:**
+Para una persona con ingreso de 2.000 USD y 20 años de educación:
+$$\hat{P} = 0.30 - 0.05(20) - 0.0001(2000)$$
+$$\hat{P} = 0.30 - 1.00 - 0.20 = -0.90$$
+
+**¡Atención!** Obtenemos una probabilidad del **-90%**. Esto ilustra el problema de las predicciones fuera de rango del MPL cuando se usan valores altos en las variables independientes.
+
+
+
+
+
+## Resumen del MPL
+
+* **Ventaja:** La interpretación de los coeficientes es directa (cambio en la probabilidad).
+* **Desventaja:** Las predicciones pueden no tener sentido físico (probabilidades negativas o $>1$).
+* **Uso práctico:** Es un excelente punto de partida para análisis preliminares de variables binarias antes de pasar a modelos más complejos como Logit o Probit.

@@ -1,0 +1,164 @@
+# Estimación del Modelo de Regresión Lineal Múltiple
+
+
+## Modelo de Regresión Múltiple: Introducción
+
+* En las clases anteriores, vimos el modelo de regresión lineal simple:
+  $$y = \beta_0 + \beta_1x + u$$
+* Sin embargo, el supuesto de que $E[u|x] = 0$ en dicho modelo es muy fuerte, ya que todas las variables no incluidas van al error.
+* Además, si nos interesa la predicción, es muy difícil predecir la variable $y$ en base a una sola variable.
+* El modelo de regresión lineal múltiple (RLM) permite esto.
+
+
+
+## Modelo de Regresión Lineal Múltiple
+
+* A nivel poblacional, el modelo RLM se define como:
+  $$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \dots + \beta_kx_k + u$$
+* Asumamos que $E[u|x_1, x_2, \dots, x_k] = 0$.
+* **Interpretación de los parámetros $\beta$:**
+  * Si todas las variables excepto $x_1$ permanecen constantes:
+    $$\Delta E[y|x_1, \dots, x_k] = \beta_1 \Delta x_1$$
+    $$\Rightarrow \beta_1 = \frac{\Delta E[y|x_1, \dots, x_k]}{\Delta x_1}$$
+  * **Interpretación:** Cuando $x_1$ cambia en una unidad, el valor esperado de $y$ cambia en $\beta_1$ unidades, **manteniendo todas las demás variables incluidas constantes**. ¡Es como una derivada parcial!
+
+
+
+## Modelo de Regresión Múltiple: Estimación MCO
+
+* Al agregar más variables al modelo para poder estudiar el efecto de $x$, *ceteris paribus* estas otras variables.
+* Por ejemplo, al estudiar el efecto de educación en salario, queremos dejar la inteligencia constante (IQ).
+* Al incluir esta variable en la regresión, podemos ver cuánto afecta un año más de educación en salario, dejando constante IQ.
+* De hecho, si agregamos la variable IQ, el coeficiente de educación que obtenemos se hace más pequeño.
+
+**MCO Simple:** $\widehat{salario} = 0.09 + 0.54 \cdot educacion$
+
+**MCO Múltiple:** $\widehat{salario} = 0.065 + 0.37 \cdot educacion + 0.20 \cdot IQ$
+
+
+
+## Modelo de Regresión Lineal Múltiple: Estimación
+
+Dada una muestra de $n$ individuos, tenemos la siguiente ecuación:
+$$y_i = \hat{\beta_0} + \hat{\beta_1}x_{i1} + \hat{\beta_2}x_{i2} + \dots + \hat{\beta_k}x_{ik} + \hat{u_i}, \quad \forall i = 1, \dots, n$$
+
+Igual que en el modelo RLS, los **residuos** vienen dados por:
+$$\hat{u}_i = y_i - \hat{y}_i$$
+$$\hat{u_i}= y_i - (\hat{\beta}_0 + \hat{\beta}_1x_{i1} + \hat{\beta}_2x_{i2} + \dots + \hat{\beta}_kx_{ik})$$
+
+
+
+## MCO para el Modelo Lineal Múltiple
+
+$$\min_{\hat{\beta}_0, \hat{\beta}_1, \dots, \hat{\beta}_k} \sum_i \hat{u}_i^2$$
+Es decir,
+$$\min_{\hat{\beta}_0, \dots, \hat{\beta}_k} \sum_i \left( y_i - \hat{\beta}_0 - \hat{\beta}_1x_{i1} - \dots - \hat{\beta}_kx_{ik} \right)^2$$
+
+**CPO:**
+1. $\hat{\beta}_0: \sum_i \left( y_i - \hat{\beta}_0 - \hat{\beta}_1x_{i1} - \dots - \hat{\beta}_kx_{ik} \right) = 0$
+2. $\hat{\beta}_1: \sum_i x_{i1} \left( y_i - \hat{\beta}_0 - \dots - \hat{\beta}_kx_{ik} \right) = 0$
+3. ...
+4. $\hat{\beta}_k: \sum_i x_{ik} \left( y_i - \hat{\beta}_0 - \dots - \hat{\beta}_kx_{ik} \right) = 0$
+
+
+
+## Notación matricial modelo poblacional
+
+* El modelo para cada individuo $i$ es:
+  $$y_i = \beta_0 + \beta_1 x_{i1} + \dots + \beta_k x_{ik} + u_i$$
+* Matricialmente: $y_i = \mathbf{x}_i^\top \mathbf{\beta} + u_i$
+  con
+  $$\mathbf{x}_i = \begin{pmatrix} 1 \\ x_{i1} \\ \vdots \\ x_{ik} \end{pmatrix}, \quad \mathbf{\beta} = \begin{pmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_k \end{pmatrix}$$
+* Noten que son $n$ ecuaciones (una para cada individuo).
+
+
+
+## Notación General
+
+Para una muestra de $n$ observaciones:
+$$y = X\beta + u$$
+con
+$$y = \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}, \quad X = \begin{pmatrix} 1 & x_{11} & \dots & x_{1k} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & x_{n1} & \dots & x_{nk} \end{pmatrix}, \quad u = \begin{pmatrix} u_1 \\ \vdots \\ u_n \end{pmatrix}$$
+donde $u$ y $y$ son vectores de $n \times 1$ y $X$ es una matriz de $n \times (k + 1)$.
+
+
+
+## Ejemplo: $n=5$, dos variables $x_1, x_2$
+
+$$
+\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_5 \end{bmatrix} = 
+\beta_0 \begin{bmatrix} 1 \\ 1 \\ \vdots \\ 1 \end{bmatrix} + 
+\beta_1 \begin{bmatrix} x_{11} \\ x_{12} \\ \vdots \\ x_{15} \end{bmatrix} + 
+\beta_2 \begin{bmatrix} x_{21} \\ x_{22} \\ \vdots \\ x_{25} \end{bmatrix} + 
+\begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_5 \end{bmatrix}
+$$
+
+
+
+Re-escribiendo:
+$$
+\begin{bmatrix} y_1 \\ \vdots \\ y_5 \end{bmatrix} = 
+\begin{bmatrix} 1 & x_{11} & x_{12} \\ 1 & x_{12} & x_{22} \\ \vdots & \vdots & \vdots \\ 1 & x_{15} & x_{25} \end{bmatrix} 
+\begin{bmatrix} \beta_0 \\ \beta_1 \\ \beta_2 \end{bmatrix} + 
+\begin{bmatrix} u_1 \\ \vdots \\ u_5 \end{bmatrix}
+$$
+$$y = X\beta + u$$
+
+
+
+## Mínimos Cuadrados Ordinarios (Matricial)
+
+* Definimos:
+  * $\hat{\beta}$: estimadores, dimensión $(k+1) \times 1$
+  * $\hat{y} = X \hat{\beta}$: Valores predichos, dimensión $n \times 1$
+  * Residuos: $\hat{u} = y - \hat{y} = y - X \hat{\beta}$
+
+**Recordatorio matemático:**
+1. Derivadas: $\frac{d(a^\top \beta)}{d\beta} = a$, $\frac{d(\beta^\top A \beta)}{d\beta} = 2A\beta$
+2. Traspuesta: $(DE)^\top = E^\top D^\top$
+3. Potencias: $\sum s_i^2 = s^\top s$
+
+
+
+## Derivación de $\hat{\beta}$
+
+$$\min \sum \hat{u}_i^2 \quad \Rightarrow \quad \min_{\hat{\beta}} \hat{u}^\top \hat{u}$$
+$$\hat{u}^\top \hat{u} = (y - X \hat{\beta})^\top (y - X \hat{\beta}) = y^\top y - 2 y^\top X \hat{\beta} + \hat{\beta}^\top X^\top X \hat{\beta}$$
+
+**CPO:**
+$$\frac{\partial \hat{u}^\top \hat{u}}{\partial \hat{\beta}} = -2X^\top y + 2X^\top X \hat{\beta} = 0$$
+$$\Rightarrow \hat{\beta} = (X^\top X)^{-1} X^\top y$$
+
+* *Nota:* Suponemos que $X$ tiene rango completo para que $X^\top X$ sea invertible.
+
+
+
+## Propiedades algebraicas de MCO
+
+Derivadas de las CPO ($X^\top \hat{u} = 0$):
+
+1. **Suma de residuos:** $\sum_{i} \hat{u}_i = 0$.
+2. **Ortogonalidad:** $\sum_{i} x_{ij} \hat{u}_i = 0$ para cada variable $j$.
+3. **Medias:** $\bar{y} = \bar{\hat{y}}$. La media de lo observado es igual a la media de lo predicho.
+4. **Punto medio:** La línea de regresión siempre pasa por el centro de gravedad de los datos $(\bar{x}_1, \dots, \bar{x}_k, \bar{y})$.
+
+
+
+## Bondad de Ajuste: $R^2$
+
+El $R^2$ mide la proporción de la varianza muestral de $y$ explicada por la regresión:
+
+* **SSE (Explicada):** $\sum (\hat{y}_i - \bar{y})^2$
+* **SSR (Residual):** $\sum \hat{u}_i^2$
+* **SST (Total):** $\sum (y_i - \bar{y})^2$
+
+$$R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$$
+
+
+
+## Bondad de Ajuste: $R^2$ ajustado
+
+* El $R^2$ crece mecánicamente al agregar variables, aunque sean irrelevantes.
+* Necesitamos penalizar la inclusión de variables que no aportan al modelo poblacional.
+* **$R^2$ ajustado:**
+  $$\overline{R^2} = 1 - \frac{n - 1}{n - k - 1} \frac{SSR}{SST}$$

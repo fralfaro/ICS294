@@ -1,0 +1,93 @@
+#  Raíces Unitarias y Tendencias
+
+
+## Caminata Aleatoria (Random Walk)
+
+Muchas variables económicas presentan **persistencia**: su valor hoy depende fuertemente de su valor ayer.
+
+$$y_t = \rho y_{t-1} + \epsilon_t$$
+
+* **Si $|\rho| < 1$:** El proceso es **estacionario**. MCO funciona correctamente.
+* **Si $\rho = 1$:** Es una **Caminata Aleatoria** (proceso con raíz unitaria).
+    * Es un proceso **no estacionario**.
+    * Se dice que la serie es **integrada de orden 1**, denotado como $I(1)$.
+
+
+
+
+
+## El Riesgo de la Regresión Espuria
+
+Si intentamos relacionar dos variables que son $I(1)$ (tienen raíces unitarias) usando MCO en niveles:
+
+$$Y_t = \beta_0 + \beta_1 X_t + u_t$$
+
+* **Problema:** Encontraremos que $\beta_1$ es estadísticamente significativo incluso si $X$ e $Y$ no tienen ninguna relación real.
+* **Razón:** Ambas series comparten una "tendencia estocástica" (crecen o vagan por azar), lo que confunde al modelo.
+* **Resultado:** Conclusiones falsas y modelos sin validez científica.
+
+
+
+
+
+## Solución: Diferenciación
+
+Para corregir la no estacionariedad de un proceso $I(1)$, debemos trabajar con su **primera diferencia**:
+
+$$\Delta Y_t = Y_t - Y_{t-1}$$
+
+**Intuición:**
+* Si $Y_t$ es una caminata aleatoria ($Y_t = Y_{t-1} + \epsilon_t$), entonces $\Delta Y_t = \epsilon_t$.
+* Como $\epsilon_t$ es ruido blanco, la serie diferenciada es **estacionaria**.
+* **Modelo corregido:** $\Delta Y_t = \beta_0 + \beta_1 \Delta X_t + u_t$.
+
+
+
+## Tendencias Determinísticas
+
+A veces la serie crece de forma constante en el tiempo (variable omitida). Podemos incluir una **tendencia lineal ($t$):**
+
+$$y_t = \alpha_0 + \alpha_1 x_t + \alpha_2 t + \epsilon_t$$
+
+* $\alpha_2$ captura el crecimiento anual promedio.
+* $\alpha_1$ ahora mide la relación entre $x$ e $y$ una vez que hemos "extraído" el efecto del tiempo (detrending).
+
+
+
+## ¿Cómo saber si hay Raíz Unitaria? Test de Dickey-Fuller
+
+No podemos usar un test $t$ normal para $\rho=1$ porque su distribución no es estándar. Usamos el **Test de Dickey-Fuller (D-F)** basado en la ecuación:
+
+$$\Delta y_t = \alpha + \phi y_{t-1} + \epsilon_t$$
+
+* **Hipótesis Nula ($H_0$):** $\phi = 0$ (Existe raíz unitaria, la serie es $I(1)$).
+* **Hipótesis Alt ($H_1$):** $\phi < 0$ (La serie es estacionaria).
+
+**Importante:** Debemos comparar el estadístico $t$ con las **tablas críticas de Dickey-Fuller**, no con la tabla $t$ de Student.
+
+
+
+
+
+## Caso de Estudio: PIB Chileno
+
+¿Es el PIB de Chile estacionario?
+
+1.  **Gráfico en niveles:** Muestra una clara tendencia creciente (No estacionario).
+2.  **Gráfico en diferencias:** Muestra oscilaciones alrededor de una media (Parece estacionario).
+3.  **Resultado Test D-F:** Al realizar el test, el estadístico $t$ suele ser mayor al valor crítico de la tabla D-F (en valor absoluto $|-1.63| < |-3.50|$).
+* **Conclusión:** No se rechaza $H_0$. El PIB chileno tiene raíz unitaria y debe trabajarse en diferencias.
+
+
+
+
+
+## Resumen de Pasos a Seguir
+
+Al trabajar con series de tiempo, sigue este protocolo:
+
+1.  **Exploración Gráfica:** ¿Se ve tendencia? ¿La varianza cambia?
+2.  **Test Dickey-Fuller:** Formalizar si existe raíz unitaria.
+3.  **Si hay raíz unitaria ($I(1)$):** Diferenciar las variables antes de correr la regresión.
+4.  **Si hay tendencia determinística:** Incluir la variable temporal $t$ en el modelo.
+5.  **Interpretación:** Asegurarse de que los resultados no sean espurios verificando la estacionariedad de los residuos.

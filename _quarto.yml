@@ -1,0 +1,68 @@
+project:
+  type: book
+  output-dir: docs
+  
+book:
+  title: "ICS294 - Econometría"
+  author: 
+    - "Francisco Alfaro & Jocelyn Tapia" 
+  date: "03/03/2026"
+  favicon: "images/icon.png"
+  repo-url: "https://github.com/fralfaro/ICS294"
+  sidebar:
+    logo: "images/logo3.png"
+  
+
+
+  chapters:
+    - index.qmd
+    - material/modulo_01/s1.qmd
+    - part:  Fundamentos Estadísticos
+      chapters:
+        - material/modulo_01/s2.qmd
+        - material/modulo_01/s3.qmd
+        - material/modulo_01/s4.qmd
+        - material/modulo_01/s5.qmd
+        - material/modulo_01/s6.qmd
+        - material/modulo_01/s7.qmd 
+        - material/modulo_01/s8.qmd 
+
+    - part:  Modelos de Regresión
+      chapters:
+        - material/modulo_02/s9.qmd
+        - material/modulo_02/s10.qmd
+        - material/modulo_02/s11.qmd
+        - material/modulo_02/s12.qmd
+        - material/modulo_02/s13.qmd
+        - material/modulo_02/s14.qmd
+
+    - part: Aplicaciones Avanzadas
+      chapters:
+        - material/modulo_03/s15.qmd
+        - material/modulo_03/s16.qmd
+        - material/modulo_03/s17.qmd
+        - material/modulo_03/s18.qmd
+        - material/modulo_03/s19.qmd
+        - material/modulo_03/s20.qmd
+        - material/modulo_03/s21.qmd
+  
+index:
+  qmd:
+lang: es
+
+format:
+  html:
+    theme:
+      light: [flatly, light.scss]
+      dark: [darkly, dark.scss]
+
+    number-sections: false
+    toc: true
+    page-layout: full
+  epub:
+    cover-image: images/icon.png
+
+
+filters: 
+  - pyodide
+

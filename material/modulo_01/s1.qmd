@@ -1,0 +1,208 @@
+
+# Introducción 
+
+## ¿Qué es econometría?
+
+- Es una disciplina que emplea la teoría económica y métodos estadísticos para contrastar distintas teorías, pronosticar variables y evaluar políticas públicas utilizando bases de datos.
+- Es una aplicación del método científico en economía. Nos permite refutar hipótesis económicas.
+- Nos permite contestar preguntas como, por ejemplo:
+
+1. ¿Cuál es la brecha salarial por género?
+2. ¿Cuál es el efecto de haber completado la universidad en el salario?
+
+## Econometría moderna
+
+La econometría moderna se enfoca en contestar tres tipos de preguntas:
+
+- Estimar cómo la esperanza condicional de una variable depende de otra.
+- Estimar el impacto causal de una variable sobre otra.
+- Predecir el comportamiento de una variable hacia el futuro.
+
+## Método econométrico
+
+- **Definir el objetivo:** ¿qué quiero estudiar?
+
+### Estructura
+
+#### 1. Modelo económico
+
+Modelos que explican el comportamiento de una variable económica en función de otras:
+
+$$
+Y = f(x_1, x_2, \dots, x_k)
+$$
+
+**Ejemplo 1:** Función de producción
+
+$$
+Y = AK^{\alpha} L^{\beta}
+$$
+
+**Ejemplo 2:** Retornos a la educación
+
+$$
+\text{salario} = f(\text{educación}, \text{experiencia}, \text{ingreso familiar}, \text{habilidad})
+$$
+
+#### 2. Modelo econométrico
+
+Permite cuantificar, contrastar y evaluar el modelo económico.
+
+- Especificar la función $f(\cdot)$.
+- Las variables económicas son aleatorias, por lo que se incorpora un término de error:
+
+$$
+y = f(x_1, x_2, \dots, x_k) + u
+$$
+
+- Uso de datos.
+
+## Causalidad y correlación
+
+**Correlación no es causalidad**
+
+- Muchas veces nos interesa conocer el efecto causal de una variable sobre otra.
+- El concepto *ceteris paribus* es clave para la causalidad: efecto de \(X\) sobre \(Y\) manteniendo todos los demás factores relevantes constantes.
+- Esto es muy difícil de lograr en la práctica en ciencias sociales.
+- En el curso se estudiarán los supuestos necesarios y las técnicas para abordarlo.
+
+**Correlación espuria:** existe una relación matemática, pero los factores no presentan una relación lógica.
+
+## Ejemplo
+
+- **Información:** en una base de datos de individuos de 35 años en Chile, se observa que las personas que terminaron la universidad ganan un 30% más que aquellas que no la terminaron.
+- **Pregunta:** ¿puedo concluir que ir a la universidad causa un aumento del ingreso?
+
+### Discusión
+
+No se puede concluir eso directamente.
+
+- Ir a la universidad está asociado a muchas otras características que también afectan el ingreso.
+- Por ejemplo: la habilidad, el ingreso de los padres, entre otras.
+
+## Econometría como herramienta aplicada
+
+- **Problema:** ¿cómo solucionar el problema de los parásitos intestinales en África?  
+  Miguel y Kremer (2004), *Worms: Identifying Impacts on Education and Health in the Presence of Treatment Externalities*, muestran que repartir pastillas en colegios mejora la salud y reduce el ausentismo escolar, no solo en los tratados sino también en sus vecinos.  
+  Gracias a estos estudios, la iniciativa *Deworming the World* ha recaudado billones de dólares para esta política pública.
+
+- **Problema:** ¿las consultoras de management pueden mejorar la productividad de las firmas?  
+  Bloom et al. (2017), *Increasing Firm Productivity through Management Consulting Services in India*, muestran que sí y cuantifican este efecto.
+  - [JPAL – Estudio](https://www.povertyactionlab.org/evaluation/increasing-firm-productivity-through-management-consulting-services-india)
+
+## Tipos de datos
+
+- **Experimentales:** el investigador asigna de forma aleatoria la exposición.
+- **Pseudo-experimentales:** el investigador controla la exposición, pero no la asigna aleatoriamente.
+- **Observacionales (no experimentales):** el investigador no controla la exposición.
+
+El uso de datos experimentales es poco frecuente debido a su alto costo y a problemas éticos.
+
+### Datos de corte transversal
+
+Muestra de individuos, hogares, empresas, regiones o países recolectados en un momento determinado.  
+Aunque la recolección no siempre ocurre exactamente en el mismo período, se asume que las diferencias temporales menores son irrelevantes.
+
+Se asume muestreo aleatorio desde la población subyacente.
+
+### Series de tiempo
+
+Observaciones de una o más variables a lo largo del tiempo.
+
+Ejemplos: precios de acciones, tipo de cambio, IPC, ventas de automóviles.
+
+- Los eventos pasados influyen en los futuros.
+- Los rezagos son frecuentes en ciencias sociales.
+- La frecuencia temporal puede ser diaria, mensual, anual, trimestral, etc.
+- A diferencia del corte transversal, las observaciones no son independientes.
+
+### Datos de panel
+
+Datos longitudinales o de panel consisten en series de tiempo para cada unidad del conjunto de datos.
+
+**Ejemplo:** 10 años de datos de salario, educación y empleo para un grupo de individuos.
+
+**Ventajas:**
+
+- Control de características no observadas.
+- Facilita la inferencia causal.
+- Permite estudiar efectos dinámicos y rezagos.
+
+# Conceptos
+
+## Muestreo
+
+Los datos se obtienen sobre conjuntos de individuos u objetos llamados **unidades de observación**.  
+El conjunto total de unidades se denomina **población**.
+
+El **muestreo** estudia los métodos y procedimientos para obtener una muestra y realizar inferencias sobre la población.
+
+## Muestra representativa
+
+Una muestra es representativa si toda unidad de observación puede aparecer en la muestra con una probabilidad conocida.
+
+
+```{=html}
+<figure style="text-align: center;">
+  <img src="../images/s1_01.png" width="400px" >
+  <figcaption>
+  </figcaption>
+</figure>
+```
+
+
+## ¿Por qué muestrear la población?
+
+- Imposibilidad física de observar a toda la población.
+- Alto costo de estudiar todos los elementos.
+- Los resultados muestrales suelen ser adecuados.
+
+## Objetivos del muestreo
+
+**Estimar los parámetros de la población**
+
+- **Variable:** característica medida (educación, ingresos, etc.).
+- **Parámetro:** valor que describe a la población (media, desviación estándar, betas).
+- **Estadístico:** valor calculado sobre la muestra.
+- Los parámetros suelen ser desconocidos y se estiman mediante estadísticos.
+
+## Muestreo aleatorio
+
+- **Muestreo aleatorio simple:** todos los individuos tienen la misma probabilidad de ser seleccionados.
+- **Muestreo aleatorio sistemático:** se selecciona un punto inicial aleatorio y luego cada \(k\)-ésimo elemento.  
+  No es completamente aleatorio, ya que algunos elementos pueden tener probabilidad cero de selección.
+
+## Otros esquemas de muestreo
+
+- **Muestreo aleatorio estratificado:** la población se divide en estratos homogéneos y se muestrea dentro de cada uno.
+- **Muestreo por conglomerados (cluster):** la población se divide en conglomerados heterogéneos y se seleccionan grupos completos.
+
+### Estratificado vs. conglomerados
+
+```{=html}
+<figure style="text-align: center;">
+  <img src="../images/s1_02.png" width="700px" >
+  <figcaption>
+  </figcaption>
+</figure>
+```
+
+
+**Muestreo estratificado**
+
+- Estratos internamente homogéneos.
+- Se seleccionan observaciones dentro de cada estrato.
+
+**Muestreo por conglomerados**
+
+- Conglomerados internamente heterogéneos.
+- Se seleccionan grupos completos.
+
+## Muestreo no probabilístico
+
+En el muestreo no probabilístico, la inclusión en la muestra se basa en el juicio del investigador y no en probabilidades conocidas.
+
+## Estadística descriptiva e inferencial
+
+- **Estadística descriptiva:** las conclusiones son válidas solo para la muestra analizada.
+- **Estadística inferencial:** permite extraer conclusiones estadísticamente válidas para toda la población a partir de una muestra.

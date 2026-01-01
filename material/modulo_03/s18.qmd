@@ -1,0 +1,75 @@
+#  Multicolinealidad en el MCRL
+
+
+## ¿Qué es la Multicolinealidad?
+
+La multicolinealidad ocurre cuando dos o más variables explicativas ($X$) en un modelo de regresión están altamente correlacionadas entre sí.
+
+* **Multicolinealidad Perfecta:** Una variable es una combinación lineal exacta de otras. El modelo **no se puede estimar** (matriz $X'X$ no invertible).
+* **Multicolinealidad Imperfecta:** Existe una correlación fuerte pero no exacta. Es el caso más común en la práctica.
+
+
+
+
+
+## El Supuesto de No Multicolinealidad
+
+En el Modelo Clásico de Regresión Lineal (MCRL), el supuesto de **No Multicolinealidad Perfecta** es fundamental.
+
+* Si las variables están demasiado relacionadas, el modelo es incapaz de "aislar" el efecto individual de cada una.
+* **Intuición:** Es como intentar atribuir el éxito de un equipo a un solo jugador cuando dos de ellos siempre juegan juntos y hacen exactamente los mismos movimientos.
+
+
+
+## Efectos de la Multicolinealidad
+
+Aunque los estimadores MCO siguen siendo insesgados, la multicolinealidad genera:
+
+1.  **Inflación de Errores Estándar:** Las varianzas de los coeficientes ($\hat{\beta}$) se vuelven muy grandes.
+2.  **Insignificancia Individual:** Los estadísticos $t$ suelen ser pequeños (no significativos), incluso si las variables son importantes.
+3.  **Inestabilidad:** Pequeños cambios en los datos o la eliminación de una observación pueden cambiar drásticamente los signos y valores de los coeficientes.
+4.  **$R^2$ Alto vs. $t$ Bajos:** Una señal clásica es tener un modelo que explica mucho en conjunto ($R^2$ alto y prueba $F$ significativa), pero donde ninguna variable parece ser significativa por sí sola.
+
+
+
+## Detección: Matriz de Correlación
+
+El primer paso para detectar problemas es observar la **Matriz de Correlación** de las variables independientes.
+
+* Valores cercanos a $+1$ o $-1$ entre dos variables indican una relación lineal fuerte.
+* **Limitación:** Solo detecta colinealidad entre **pares** de variables. No detecta si una variable es una combinación lineal de otras tres (colinealidad múltiple).
+
+
+
+
+
+## Detección: Factor de Inflación de la Varianza (VIF)
+
+El **VIF** es la herramienta más precisa. Mide cuánto se "infla" la varianza de un coeficiente debido a la relación con las demás variables.
+
+Para una variable $X_j$:
+$$\text{VIF}(X_j) = \frac{1}{1 - R_j^2}$$
+
+* $R_j^2$ es el coeficiente de determinación al regresar $X_j$ sobre el resto de las $X$.
+* **Regla de oro:** * $\text{VIF} = 1$: Ausencia total de colinealidad.
+    * $\text{VIF} > 5$ o $10$: Indica un problema de multicolinealidad serio que debe ser atendido.
+
+
+
+## ¿Cómo mitigar la Multicolinealidad?
+
+Si el VIF es muy alto, se sugieren las siguientes acciones:
+
+1.  **Eliminar variables:** Si dos variables miden casi lo mismo (ej. ingreso mensual e ingreso anual), elimina una.
+2.  **Transformar variables:** Utilizar razones o tasas (ej. en lugar de "Población" y "PIB", usar "PIB per cápita").
+3.  **Aumentar la muestra:** A veces, más datos ayudan a separar los efectos correlacionados.
+4.  **Regularización:** Métodos avanzados como *Ridge* o *Lasso* añaden una penalización para estabilizar los coeficientes.
+
+
+
+## Conclusiones
+
+* La multicolinealidad **no sesga** los resultados, pero los hace **imprecisos**.
+* Si el objetivo es solo **predecir** $Y$, la multicolinealidad no suele ser un problema grave.
+* Si el objetivo es la **explicación o inferencia** (entender el impacto de cada $X$), la multicolinealidad es crítica y debe corregirse.
+* Siempre revisa los VIF antes de concluir sobre la importancia de una variable.
