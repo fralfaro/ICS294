@@ -3334,6 +3334,347 @@
     ]
   },
   {
+    "objectID": "material/anexos/algebra_matricial.html",
+    "href": "material/anexos/algebra_matricial.html",
+    "title": "Álgebra Matricial",
+    "section": "",
+    "text": "Notación y Definiciones Básicas",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#escalares-vectores-y-matrices",
+    "href": "material/anexos/algebra_matricial.html#escalares-vectores-y-matrices",
+    "title": "Álgebra Matricial",
+    "section": "Escalares, Vectores y Matrices",
+    "text": "Escalares, Vectores y Matrices\n\n\n\n\n\n\n\n\nObjeto\nNotación\nDimensión\n\n\n\n\nEscalar\n\\(a \\in \\mathbb{R}\\)\n\\(1 \\times 1\\)\n\n\nVector columna\n\\(\\mathbf{a} \\in \\mathbb{R}^n\\)\n\\(n \\times 1\\)\n\n\nVector fila\n\\(\\mathbf{a}^\\top \\in \\mathbb{R}^{1 \\times n}\\)\n\\(1 \\times n\\)\n\n\nMatriz\n\\(A \\in \\mathbb{R}^{m \\times n}\\)\n\\(m \\times n\\)\n\n\n\nUna matriz \\(A\\) de dimensión \\(m \\times n\\) se escribe:\n\\[A = \\begin{pmatrix}\na_{11} & a_{12} & \\cdots & a_{1n} \\\\\na_{21} & a_{22} & \\cdots & a_{2n} \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\na_{m1} & a_{m2} & \\cdots & a_{mn}\n\\end{pmatrix} = [a_{ij}]_{m \\times n}\\]\ndonde \\(a_{ij}\\) denota el elemento de la fila \\(i\\) y columna \\(j\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#tipos-especiales-de-matrices",
+    "href": "material/anexos/algebra_matricial.html#tipos-especiales-de-matrices",
+    "title": "Álgebra Matricial",
+    "section": "Tipos Especiales de Matrices",
+    "text": "Tipos Especiales de Matrices\n\n\n\n\n\n\n\n\nNombre\nCondición\nNotación\n\n\n\n\nCuadrada\n\\(m = n\\)\n\\(A_{n \\times n}\\)\n\n\nRectangular\n\\(m \\neq n\\)\n\\(A_{m \\times n}\\)\n\n\nDiagonal\n\\(a_{ij} = 0\\) si \\(i \\neq j\\)\n\\(\\text{diag}(d_1,\\ldots,d_n)\\)\n\n\nIdentidad\nDiagonal con \\(d_i = 1\\)\n\\(I_n\\)\n\n\nNula\n\\(a_{ij} = 0\\) para todo \\(i,j\\)\n\\(0_{m\\times n}\\)\n\n\nSimétrica\n\\(A = A^\\top\\)\n\\(a_{ij} = a_{ji}\\)\n\n\nTriangular superior\n\\(a_{ij} = 0\\) si \\(i &gt; j\\)\n\\(U\\)\n\n\nTriangular inferior\n\\(a_{ij} = 0\\) si \\(i &lt; j\\)\n\\(L\\)\n\n\nIdempotente\n\\(A^2 = A\\)\n\\(A \\cdot A = A\\)\n\n\nOrtogonal\n\\(A^\\top A = A A^\\top = I\\)\n\\(A^{-1} = A^\\top\\)\n\n\n\nMatriz de unos y vector de unos:\n\\[\\mathbf{1}_n = \\begin{pmatrix}1\\\\\\vdots\\\\1\\end{pmatrix}_{n\\times 1}, \\qquad\nJ_n = \\mathbf{1}_n\\mathbf{1}_n^\\top = \\begin{pmatrix}1&\\cdots&1\\\\\\vdots&\\ddots&\\vdots\\\\1&\\cdots&1\\end{pmatrix}_{n\\times n}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#suma-y-resta",
+    "href": "material/anexos/algebra_matricial.html#suma-y-resta",
+    "title": "Álgebra Matricial",
+    "section": "Suma y Resta",
+    "text": "Suma y Resta\nSolo definidas entre matrices de igual dimensión:\n\\[C = A \\pm B \\quad \\Leftrightarrow \\quad c_{ij} = a_{ij} \\pm b_{ij}\\]\n\nPropiedades de la Suma\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nS1\nConmutatividad\n\\(A + B = B + A\\)\n\n\nS2\nAsociatividad\n\\((A + B) + C = A + (B + C)\\)\n\n\nS3\nElemento neutro\n\\(A + 0 = A\\)\n\n\nS4\nElemento inverso\n\\(A + (-A) = 0\\)\n\n\nS5\nCompatibilidad escalar\n\\(\\alpha(A + B) = \\alpha A + \\alpha B\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#multiplicación-escalar",
+    "href": "material/anexos/algebra_matricial.html#multiplicación-escalar",
+    "title": "Álgebra Matricial",
+    "section": "Multiplicación Escalar",
+    "text": "Multiplicación Escalar\n\\[\\alpha A = [\\alpha\\, a_{ij}]_{m\\times n}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#producto-matricial",
+    "href": "material/anexos/algebra_matricial.html#producto-matricial",
+    "title": "Álgebra Matricial",
+    "section": "Producto Matricial",
+    "text": "Producto Matricial\nEl producto \\(C = AB\\) requiere que las dimensiones sean compatibles:\n\\[A_{m\\times k} \\cdot B_{k\\times n} = C_{m\\times n}\\]\n\\[c_{ij} = \\sum_{\\ell=1}^k a_{i\\ell}\\, b_{\\ell j} = \\mathbf{a}_{i\\cdot}^\\top \\mathbf{b}_{\\cdot j}\\]\n(fila \\(i\\) de \\(A\\) multiplicada escalarmente por columna \\(j\\) de \\(B\\)).\n\nPropiedades del Producto\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nM1\nNo conmutativo (en general)\n\\(AB \\neq BA\\)\n\n\nM2\nAsociatividad\n\\((AB)C = A(BC)\\)\n\n\nM3\nDistributividad izquierda\n\\(A(B+C) = AB + AC\\)\n\n\nM4\nDistributividad derecha\n\\((A+B)C = AC + BC\\)\n\n\nM5\nIdentidad\n\\(AI = IA = A\\)\n\n\nM6\nEscalar\n\\((\\alpha A)B = A(\\alpha B) = \\alpha(AB)\\)\n\n\nM7\nPotencia\n\\(A^k = A \\cdot A \\cdots A\\) (\\(k\\) veces, \\(A\\) cuadrada)\n\n\nM8\nAnulación (sin cancelación)\n\\(AB = 0 \\not\\Rightarrow A=0 \\text{ o } B=0\\)\n\n\n\n\n\n\n\n\n\nAdvertenciaLa multiplicación matricial no es conmutativa\n\n\n\n\\(AB \\neq BA\\) en general, incluso cuando ambos productos están definidos. Ejemplo: si \\(A\\) es \\(2\\times 3\\) y \\(B\\) es \\(3\\times 2\\), entonces \\(AB\\) es \\(2\\times 2\\) y \\(BA\\) es \\(3\\times 3\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#producto-interno-y-externo-de-vectores",
+    "href": "material/anexos/algebra_matricial.html#producto-interno-y-externo-de-vectores",
+    "title": "Álgebra Matricial",
+    "section": "Producto Interno y Externo de Vectores",
+    "text": "Producto Interno y Externo de Vectores\nProducto interno (escalar) — \\(\\mathbf{a}, \\mathbf{b} \\in \\mathbb{R}^n\\):\n\\[\\langle \\mathbf{a}, \\mathbf{b} \\rangle = \\mathbf{a}^\\top \\mathbf{b} = \\sum_{i=1}^n a_i b_i \\in \\mathbb{R}\\]\nProducto externo (matriz de rango 1):\n\\[\\mathbf{a}\\mathbf{b}^\\top = \\begin{pmatrix}a_1 b_1 & \\cdots & a_1 b_n \\\\ \\vdots & \\ddots & \\vdots \\\\ a_n b_1 & \\cdots & a_n b_n\\end{pmatrix} \\in \\mathbb{R}^{n\\times n}\\]\nForma cuadrática — central en OLS y en la función de verosimilitud:\n\\[\\mathbf{x}^\\top A \\mathbf{x} = \\sum_{i=1}^n \\sum_{j=1}^n a_{ij}\\, x_i x_j \\in \\mathbb{R}, \\qquad A_{n\\times n},\\; \\mathbf{x} \\in \\mathbb{R}^n\\]\n\nA &lt;- matrix(c(1,2,3,4,5,6), nrow = 2)   # 2x3\nB &lt;- matrix(c(7,8,9,10,11,12), nrow = 3) # 3x2\ncat(\"A (2x3):\\n\"); print(A)\n\nA (2x3):\n\n\n     [,1] [,2] [,3]\n[1,]    1    3    5\n[2,]    2    4    6\n\ncat(\"\\nB (3x2):\\n\"); print(B)\n\n\nB (3x2):\n\n\n     [,1] [,2]\n[1,]    7   10\n[2,]    8   11\n[3,]    9   12\n\ncat(\"\\nAB (2x2):\\n\"); print(A %*% B)\n\n\nAB (2x2):\n\n\n     [,1] [,2]\n[1,]   76  103\n[2,]  100  136\n\ncat(\"\\nBA (3x3):\\n\"); print(B %*% A)\n\n\nBA (3x3):\n\n\n     [,1] [,2] [,3]\n[1,]   27   61   95\n[2,]   30   68  106\n[3,]   33   75  117",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#definición",
+    "href": "material/anexos/algebra_matricial.html#definición",
+    "title": "Álgebra Matricial",
+    "section": "Definición",
+    "text": "Definición\n\\[(A^\\top)_{ij} = a_{ji}\\]\nTransponer intercambia filas por columnas: si \\(A\\) es \\(m \\times n\\), entonces \\(A^\\top\\) es \\(n \\times m\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#propiedades-de-la-transpuesta",
+    "href": "material/anexos/algebra_matricial.html#propiedades-de-la-transpuesta",
+    "title": "Álgebra Matricial",
+    "section": "Propiedades de la Transpuesta",
+    "text": "Propiedades de la Transpuesta\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nT1\nInvolución\n\\((A^\\top)^\\top = A\\)\n\n\nT2\nLinealidad\n\\((\\alpha A + \\beta B)^\\top = \\alpha A^\\top + \\beta B^\\top\\)\n\n\nT3\nProducto (inversión de orden)\n\\((AB)^\\top = B^\\top A^\\top\\)\n\n\nT4\nProducto múltiple\n\\((A_1 A_2 \\cdots A_k)^\\top = A_k^\\top \\cdots A_2^\\top A_1^\\top\\)\n\n\nT5\nProducto interno\n\\(\\mathbf{a}^\\top \\mathbf{b} = \\mathbf{b}^\\top \\mathbf{a}\\)\n\n\nT6\nForma cuadrática\n\\(\\mathbf{x}^\\top A \\mathbf{x} = \\mathbf{x}^\\top A^\\top \\mathbf{x}\\) si \\(A\\) simétrica\n\n\nT7\nSimetría de \\(A^\\top A\\)\n\\(A^\\top A\\) siempre es cuadrada y simétrica\n\n\n\n\n\n\n\n\n\nNotaImportancia de T7 en regresión\n\n\n\nEn el modelo \\(Y = X\\beta + \\varepsilon\\), la matriz \\(X^\\top X\\) es siempre cuadrada (\\(k \\times k\\)) y simétrica, independientemente de la forma de \\(X\\) (\\(n \\times k\\)). Esto es esencial para la existencia del estimador OLS.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#definición-1",
+    "href": "material/anexos/algebra_matricial.html#definición-1",
+    "title": "Álgebra Matricial",
+    "section": "Definición",
+    "text": "Definición\nLa traza de una matriz cuadrada es la suma de sus elementos diagonales:\n\\[\\text{tr}(A) = \\sum_{i=1}^n a_{ii}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#propiedades-de-la-traza",
+    "href": "material/anexos/algebra_matricial.html#propiedades-de-la-traza",
+    "title": "Álgebra Matricial",
+    "section": "Propiedades de la Traza",
+    "text": "Propiedades de la Traza\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nTr1\nLinealidad\n\\(\\text{tr}(\\alpha A + \\beta B) = \\alpha\\,\\text{tr}(A) + \\beta\\,\\text{tr}(B)\\)\n\n\nTr2\nTranspuesta\n\\(\\text{tr}(A) = \\text{tr}(A^\\top)\\)\n\n\nTr3\nCiclicidad\n\\(\\text{tr}(AB) = \\text{tr}(BA)\\)\n\n\nTr4\nCiclicidad múltiple\n\\(\\text{tr}(ABC) = \\text{tr}(BCA) = \\text{tr}(CAB)\\)\n\n\nTr5\nForma cuadrática\n\\(\\mathbf{a}^\\top A \\mathbf{a} = \\text{tr}(A\\,\\mathbf{a}\\mathbf{a}^\\top)\\)\n\n\nTr6\nProducto interno\n\\(\\text{tr}(A^\\top B) = \\sum_{i,j} a_{ij}b_{ij}\\) (producto de Frobenius)\n\n\nTr7\nSuma de autovalores\n\\(\\text{tr}(A) = \\sum_{i=1}^n \\lambda_i\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#definición-2",
+    "href": "material/anexos/algebra_matricial.html#definición-2",
+    "title": "Álgebra Matricial",
+    "section": "Definición",
+    "text": "Definición\nPara \\(A\\) cuadrada de orden \\(n\\):\n\\[\\det(A) = |A| = \\sum_{\\sigma \\in S_n} \\text{sgn}(\\sigma)\\prod_{i=1}^n a_{i,\\sigma(i)}\\]\nCasos simples:\n\\[\\det\\begin{pmatrix}a\\end{pmatrix} = a\\]\n\\[\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix} = ad - bc\\]\n\\[\\det(A_{3\\times 3}) = a_{11}(a_{22}a_{33}-a_{23}a_{32}) - a_{12}(a_{21}a_{33}-a_{23}a_{31}) + a_{13}(a_{21}a_{32}-a_{22}a_{31})\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#propiedades-del-determinante",
+    "href": "material/anexos/algebra_matricial.html#propiedades-del-determinante",
+    "title": "Álgebra Matricial",
+    "section": "Propiedades del Determinante",
+    "text": "Propiedades del Determinante\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nD1\nProducto\n\\(\\det(AB) = \\det(A)\\det(B)\\)\n\n\nD2\nTranspuesta\n\\(\\det(A^\\top) = \\det(A)\\)\n\n\nD3\nEscalar\n\\(\\det(\\alpha A) = \\alpha^n \\det(A)\\)\n\n\nD4\nInversa\n\\(\\det(A^{-1}) = 1/\\det(A)\\)\n\n\nD5\nTriangular / diagonal\n\\(\\det = \\prod_i a_{ii}\\)\n\n\nD6\nAutovalores\n\\(\\det(A) = \\prod_{i=1}^n \\lambda_i\\)\n\n\nD7\nSingularidad\n\\(A\\) invertible \\(\\iff \\det(A) \\neq 0\\)\n\n\nD8\nFila/columna nula\nSi alguna fila o columna es nula, \\(\\det = 0\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#rango",
+    "href": "material/anexos/algebra_matricial.html#rango",
+    "title": "Álgebra Matricial",
+    "section": "Rango",
+    "text": "Rango\nEl rango de \\(A_{m\\times n}\\), \\(\\text{rk}(A)\\), es la dimensión del espacio columna (equivalentemente, del espacio fila):\n\\[\\text{rk}(A) \\leq \\min(m, n)\\]\n\nRango completo por columnas: \\(\\text{rk}(A) = n\\) (columnas linealmente independientes)\nRango completo por filas: \\(\\text{rk}(A) = m\\)\n\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\n\\(\\text{rk}(A) = \\text{rk}(A^\\top)\\)\nRango fila = rango columna\n\n\n\\(\\text{rk}(AB) \\leq \\min(\\text{rk}(A), \\text{rk}(B))\\)\nEl rango no aumenta con el producto\n\n\n\\(\\text{rk}(A^\\top A) = \\text{rk}(A)\\)\nClave para OLS\n\n\n\\(A\\) invertible \\(\\iff \\text{rk}(A) = n\\)\nPara matrices cuadradas\n\n\n\n\n\n\n\n\n\nImportanteCondición de rango en OLS\n\n\n\nEl estimador OLS \\(\\hat\\beta = (X^\\top X)^{-1} X^\\top Y\\) existe y es único si y solo si \\(\\text{rk}(X) = k\\) (rango completo por columnas). Si hay multicolinealidad perfecta, \\(X^\\top X\\) es singular y OLS no tiene solución única.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#inversa",
+    "href": "material/anexos/algebra_matricial.html#inversa",
+    "title": "Álgebra Matricial",
+    "section": "Inversa",
+    "text": "Inversa\n\\(A^{-1}\\) existe (y \\(A\\) se llama invertible o no singular) si y solo si:\n\\[A A^{-1} = A^{-1} A = I_n\\]\nCondición necesaria y suficiente: \\(\\det(A) \\neq 0\\).\nFórmula para \\(2\\times 2\\):\n\\[\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}^{-1} = \\frac{1}{ad-bc}\\begin{pmatrix}d&-b\\\\-c&a\\end{pmatrix}\\]\nFórmula general mediante la matriz adjunta:\n\\[A^{-1} = \\frac{1}{\\det(A)}\\,\\text{adj}(A), \\qquad \\text{adj}(A)_{ij} = (-1)^{i+j}M_{ji}\\]\ndonde \\(M_{ji}\\) es el menor \\((j,i)\\) (determinante de la submatriz al eliminar fila \\(j\\) y columna \\(i\\)).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#propiedades-de-la-inversa",
+    "href": "material/anexos/algebra_matricial.html#propiedades-de-la-inversa",
+    "title": "Álgebra Matricial",
+    "section": "Propiedades de la Inversa",
+    "text": "Propiedades de la Inversa\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nI1\nUnicidad\nSi existe, \\(A^{-1}\\) es única\n\n\nI2\nInvolución\n\\((A^{-1})^{-1} = A\\)\n\n\nI3\nTranspuesta\n\\((A^\\top)^{-1} = (A^{-1})^\\top\\)\n\n\nI4\nProducto (inversión de orden)\n\\((AB)^{-1} = B^{-1}A^{-1}\\)\n\n\nI5\nProducto múltiple\n\\((A_1\\cdots A_k)^{-1} = A_k^{-1}\\cdots A_1^{-1}\\)\n\n\nI6\nEscalar\n\\((\\alpha A)^{-1} = \\frac{1}{\\alpha}A^{-1}\\)\n\n\nI7\nDiagonal\n\\(\\text{diag}(d_1,\\ldots,d_n)^{-1} = \\text{diag}(1/d_1,\\ldots,1/d_n)\\)\n\n\nI8\nDeterminante\n\\(\\det(A^{-1}) = 1/\\det(A)\\)\n\n\n\n\nA &lt;- matrix(c(4, 7, 2, 6), nrow = 2)\ncat(\"A:\\n\");        print(A)\n\nA:\n\n\n     [,1] [,2]\n[1,]    4    2\n[2,]    7    6\n\ncat(\"\\ndet(A):\", det(A), \"\\n\")\n\n\ndet(A): 10 \n\ncat(\"\\nA^{-1}:\\n\"); print(solve(A))\n\n\nA^{-1}:\n\n\n     [,1] [,2]\n[1,]  0.6 -0.2\n[2,] -0.7  0.4\n\ncat(\"\\nA %*% A^{-1} (deberia ser I):\\n\")\n\n\nA %*% A^{-1} (deberia ser I):\n\nprint(round(A %*% solve(A), 10))\n\n     [,1] [,2]\n[1,]    1    0\n[2,]    0    1",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#inversa-generalizada-moorepenrose",
+    "href": "material/anexos/algebra_matricial.html#inversa-generalizada-moorepenrose",
+    "title": "Álgebra Matricial",
+    "section": "Inversa Generalizada (Moore–Penrose)",
+    "text": "Inversa Generalizada (Moore–Penrose)\nCuando \\(A\\) no es cuadrada o es singular, se usa la pseudoinversa \\(A^+\\):\n\\[A^+ = (A^\\top A)^{-1} A^\\top \\quad \\text{(si } \\text{rk}(A) = n \\leq m\\text{)}\\]\nEsta es exactamente la expresión que aparece en la solución OLS: \\(\\hat\\beta = A^+ Y = (X^\\top X)^{-1} X^\\top Y\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#definiciones",
+    "href": "material/anexos/algebra_matricial.html#definiciones",
+    "title": "Álgebra Matricial",
+    "section": "Definiciones",
+    "text": "Definiciones\nSea \\(A\\) una matriz cuadrada y simétrica (\\(A = A^\\top\\)):\n\n\n\n\n\n\n\n\nTipo\nCondición\nNotación\n\n\n\n\nDefinida positiva (DP)\n\\(\\mathbf{x}^\\top A \\mathbf{x} &gt; 0\\) para todo \\(\\mathbf{x} \\neq \\mathbf{0}\\)\n\\(A \\succ 0\\)\n\n\nSemidefinida positiva (SDP)\n\\(\\mathbf{x}^\\top A \\mathbf{x} \\geq 0\\) para todo \\(\\mathbf{x}\\)\n\\(A \\succeq 0\\)\n\n\nDefinida negativa (DN)\n\\(\\mathbf{x}^\\top A \\mathbf{x} &lt; 0\\) para todo \\(\\mathbf{x} \\neq \\mathbf{0}\\)\n\\(A \\prec 0\\)\n\n\nIndefinida\nToma valores positivos y negativos\n—",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#criterios-equivalentes-para-dp",
+    "href": "material/anexos/algebra_matricial.html#criterios-equivalentes-para-dp",
+    "title": "Álgebra Matricial",
+    "section": "Criterios Equivalentes para DP",
+    "text": "Criterios Equivalentes para DP\nPara \\(A\\) simétrica, las siguientes condiciones son equivalentes:\n\n\n\n\n\n\n\nCriterio\nEnunciado\n\n\n\n\nForma cuadrática\n\\(\\mathbf{x}^\\top A \\mathbf{x} &gt; 0,\\;\\forall \\mathbf{x} \\neq \\mathbf{0}\\)\n\n\nAutovalores\nTodos los autovalores \\(\\lambda_i &gt; 0\\)\n\n\nMenores principales\nTodos los menores principales \\(&gt; 0\\) (criterio de Sylvester)\n\n\nFactorización Cholesky\nExiste \\(L\\) triangular inferior con \\(A = LL^\\top\\)\n\n\nInversa\n\\(A \\succ 0 \\Rightarrow A^{-1} \\succ 0\\)\n\n\n\nCriterio de Sylvester — verificar los \\(n\\) menores principales \\(\\Delta_k\\):\n\\[\\Delta_1 = a_{11} &gt; 0, \\quad\n\\Delta_2 = \\det\\begin{pmatrix}a_{11}&a_{12}\\\\a_{21}&a_{22}\\end{pmatrix} &gt; 0, \\quad \\ldots, \\quad \\Delta_n = \\det(A) &gt; 0\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#propiedades-de-las-matrices-dpsdp",
+    "href": "material/anexos/algebra_matricial.html#propiedades-de-las-matrices-dpsdp",
+    "title": "Álgebra Matricial",
+    "section": "Propiedades de las Matrices DP/SDP",
+    "text": "Propiedades de las Matrices DP/SDP\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\n\\(A \\succ 0 \\Rightarrow A\\) invertible\n\\(\\det(A) &gt; 0\\)\n\n\n\\(A \\succ 0 \\Rightarrow A^{-1} \\succ 0\\)\nLa inversa también es DP\n\n\n\\(A \\succeq 0,\\; B \\succeq 0 \\Rightarrow A+B \\succeq 0\\)\nLa suma de SDP es SDP\n\n\n\\(A \\succ 0,\\; B \\succ 0 \\Rightarrow A+B \\succ 0\\)\nLa suma de DP es DP\n\n\n\\(B^\\top A B \\succeq 0\\) para cualquier \\(B\\)\nSiempre SDP\n\n\n\\(B^\\top A B \\succ 0\\) si \\(A \\succ 0\\) y \\(B\\) rango completo\nDP bajo rango completo\n\n\n\\(X^\\top X \\succeq 0\\) siempre\nClave en OLS\n\n\n\\(X^\\top X \\succ 0 \\iff \\text{rk}(X)=k\\)\nOLS identificado\n\n\n\n\n\n\n\n\n\nNotaDefiniteness en OLS\n\n\n\nLa matriz de varianzas-covarianzas de los estimadores OLS es:\n\\[\\text{Var}(\\hat\\beta) = \\sigma^2(X^\\top X)^{-1}\\]\nPara que esta expresión sea válida como matriz de varianzas (SDP), se requiere que \\(X^\\top X \\succ 0\\), lo que equivale a que \\(X\\) tenga rango completo por columnas (ausencia de multicolinealidad perfecta).\n\n\n\n# Construccion de una matriz DP garantizada: A = B'B con B de rango completo\nB &lt;- matrix(c(2,1,0,\n              1,3,1,\n              0,1,2), nrow = 3, byrow = TRUE)\nA_dp &lt;- t(B) %*% B\ncat(\"A = B'B con B de rango completo (garantiza DP):\\n\")\n\nA = B'B con B de rango completo (garantiza DP):\n\nprint(A_dp)\n\n     [,1] [,2] [,3]\n[1,]    5    5    1\n[2,]    5   11    5\n[3,]    1    5    5\n\ncat(\"\\nAutovalores:\", round(eigen(A_dp)$values, 4), \"\\n\")\n\n\nAutovalores: 16 4 1 \n\ncat(\"Todos &gt; 0?\", all(eigen(A_dp)$values &gt; 1e-10), \"\\n\")\n\nTodos &gt; 0? TRUE \n\n# Cholesky\ncat(\"\\nFactorizacion Cholesky A = L L':\\n\")\n\n\nFactorizacion Cholesky A = L L':\n\nL_chol &lt;- chol(A_dp)   # R devuelve la triangular superior U tal que U'U = A\nprint(round(L_chol, 4))\n\n       [,1]   [,2]   [,3]\n[1,] 2.2361 2.2361 0.4472\n[2,] 0.0000 2.4495 1.6330\n[3,] 0.0000 0.0000 1.4606\n\ncat(\"Verificacion U'U == A:\\n\")\n\nVerificacion U'U == A:\n\nprint(round(t(L_chol) %*% L_chol - A_dp, 10))\n\n     [,1] [,2] [,3]\n[1,]    0    0    0\n[2,]    0    0    0\n[3,]    0    0    0",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#definición-3",
+    "href": "material/anexos/algebra_matricial.html#definición-3",
+    "title": "Álgebra Matricial",
+    "section": "Definición",
+    "text": "Definición\nPara \\(A_{n\\times n}\\) cuadrada, el escalar \\(\\lambda\\) y el vector no nulo \\(\\mathbf{v}\\) satisfacen:\n\\[A\\mathbf{v} = \\lambda\\mathbf{v}, \\qquad \\mathbf{v} \\neq \\mathbf{0}\\]\n\\(\\lambda\\) se llama autovalor y \\(\\mathbf{v}\\) autovector asociado.\nEcuación característica:\n\\[\\det(A - \\lambda I) = 0\\]\nEsto genera un polinomio de grado \\(n\\) en \\(\\lambda\\) con exactamente \\(n\\) raíces (complejas, contadas con multiplicidad).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#propiedades",
+    "href": "material/anexos/algebra_matricial.html#propiedades",
+    "title": "Álgebra Matricial",
+    "section": "Propiedades",
+    "text": "Propiedades\n\n\n\nPropiedad\nEnunciado\n\n\n\n\nTraza\n\\(\\text{tr}(A) = \\sum_i \\lambda_i\\)\n\n\nDeterminante\n\\(\\det(A) = \\prod_i \\lambda_i\\)\n\n\nPotencia\nAutovalores de \\(A^k\\) son \\(\\lambda_i^k\\)\n\n\nInversa\nAutovalores de \\(A^{-1}\\) son \\(1/\\lambda_i\\)\n\n\nSimétrica\nTodos los \\(\\lambda_i \\in \\mathbb{R}\\)\n\n\nSimétrica DP\nTodos los \\(\\lambda_i &gt; 0\\)\n\n\nOrtogonalidad\nAutovectores de \\(A\\) simétrica son ortogonales",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#descomposición-espectral",
+    "href": "material/anexos/algebra_matricial.html#descomposición-espectral",
+    "title": "Álgebra Matricial",
+    "section": "Descomposición Espectral",
+    "text": "Descomposición Espectral\nPara \\(A\\) simétrica, existe la descomposición:\n\\[A = Q \\Lambda Q^\\top\\]\ndonde \\(Q = [\\mathbf{q}_1 \\mid \\cdots \\mid \\mathbf{q}_n]\\) es ortogonal (\\(Q^\\top Q = I\\)) y \\(\\Lambda = \\text{diag}(\\lambda_1,\\ldots,\\lambda_n)\\).\nEsta descomposición es central en Análisis de Componentes Principales (PCA) y en el análisis de la geometría de la regresión.\n\nA_sym &lt;- matrix(c(4,2,2,3), nrow = 2)\nev    &lt;- eigen(A_sym)\ncat(\"Autovalores:\", round(ev$values, 4), \"\\n\")\n\nAutovalores: 5.5616 1.4384 \n\ncat(\"\\nAutovectores (columnas):\\n\"); print(round(ev$vectors, 4))\n\n\nAutovectores (columnas):\n\n\n        [,1]    [,2]\n[1,] -0.7882  0.6154\n[2,] -0.6154 -0.7882\n\n# Verificar: A v = lambda v\ncat(\"\\nA v1:\", round(A_sym %*% ev$vectors[,1], 4), \"\\n\")\n\n\nA v1: -4.3836 -3.4226 \n\ncat(\"lambda1 * v1:\", round(ev$values[1] * ev$vectors[,1], 4), \"\\n\")\n\nlambda1 * v1: -4.3836 -3.4226",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#convención-de-denominador",
+    "href": "material/anexos/algebra_matricial.html#convención-de-denominador",
+    "title": "Álgebra Matricial",
+    "section": "Convención de Denominador",
+    "text": "Convención de Denominador\nAdoptamos la convención denominador (numerator layout en inglés): el gradiente de un escalar \\(f\\) respecto a \\(\\mathbf{x} \\in \\mathbb{R}^n\\) es un vector columna:\n\\[\\frac{\\partial f}{\\partial \\mathbf{x}} = \\nabla_{\\mathbf{x}} f =\n\\begin{pmatrix}\n\\partial f/\\partial x_1 \\\\ \\vdots \\\\ \\partial f/\\partial x_n\n\\end{pmatrix} \\in \\mathbb{R}^n\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#derivadas-de-formas-lineales-y-cuadráticas",
+    "href": "material/anexos/algebra_matricial.html#derivadas-de-formas-lineales-y-cuadráticas",
+    "title": "Álgebra Matricial",
+    "section": "Derivadas de Formas Lineales y Cuadráticas",
+    "text": "Derivadas de Formas Lineales y Cuadráticas\nSean \\(\\mathbf{a}, \\mathbf{x} \\in \\mathbb{R}^n\\) y \\(A \\in \\mathbb{R}^{n\\times n}\\):\n\n\n\n\n\n\n\n\nExpresión\nDerivada respecto a \\(\\mathbf{x}\\)\nCondición\n\n\n\n\n\\(\\mathbf{a}^\\top \\mathbf{x}\\)\n\\(\\mathbf{a}\\)\n—\n\n\n\\(\\mathbf{x}^\\top \\mathbf{a}\\)\n\\(\\mathbf{a}\\)\n—\n\n\n\\(\\mathbf{x}^\\top \\mathbf{x}\\)\n\\(2\\mathbf{x}\\)\n—\n\n\n\\(\\mathbf{x}^\\top A \\mathbf{x}\\)\n\\((A + A^\\top)\\mathbf{x}\\)\ngeneral\n\n\n\\(\\mathbf{x}^\\top A \\mathbf{x}\\)\n\\(2A\\mathbf{x}\\)\n\\(A\\) simétrica\n\n\n\\((\\mathbf{y} - A\\mathbf{x})^\\top(\\mathbf{y} - A\\mathbf{x})\\)\n\\(-2A^\\top(\\mathbf{y} - A\\mathbf{x})\\)\n—\n\n\n\n\n\n\n\n\n\nImportanteLa regla más importante para OLS\n\n\n\nLa función objetivo de OLS es:\n\\[\\text{SCR}(\\boldsymbol\\beta) = (\\mathbf{Y} - X\\boldsymbol\\beta)^\\top(\\mathbf{Y} - X\\boldsymbol\\beta)\\]\nAplicando la última regla de la tabla con \\(\\mathbf{y} = \\mathbf{Y}\\) y \\(A = X\\):\n\\[\\frac{\\partial\\,\\text{SCR}}{\\partial\\boldsymbol\\beta} = -2X^\\top(\\mathbf{Y} - X\\boldsymbol\\beta)\\]\nIgualando a \\(\\mathbf{0}\\):\n\\[X^\\top(\\mathbf{Y} - X\\hat{\\boldsymbol\\beta}) = \\mathbf{0}\n\\;\\;\\Longrightarrow\\;\\;\nX^\\top X\\,\\hat{\\boldsymbol\\beta} = X^\\top \\mathbf{Y}\n\\;\\;\\Longrightarrow\\;\\;\n\\hat{\\boldsymbol\\beta} = (X^\\top X)^{-1} X^\\top \\mathbf{Y}\\]\nEstas son las ecuaciones normales de OLS.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#derivadas-de-trazas-y-determinantes",
+    "href": "material/anexos/algebra_matricial.html#derivadas-de-trazas-y-determinantes",
+    "title": "Álgebra Matricial",
+    "section": "Derivadas de Trazas y Determinantes",
+    "text": "Derivadas de Trazas y Determinantes\nSean \\(A, X \\in \\mathbb{R}^{n\\times n}\\):\n\n\n\nExpresión\nDerivada respecto a \\(X\\)\n\n\n\n\n\\(\\text{tr}(AX)\\)\n\\(A^\\top\\)\n\n\n\\(\\text{tr}(X^\\top A)\\)\n\\(A\\)\n\n\n\\(\\text{tr}(AXB)\\)\n\\(A^\\top B^\\top\\)\n\n\n\\(\\text{tr}(X^\\top AX)\\)\n\\((A + A^\\top)X\\)\n\n\n\\(\\text{tr}(X^\\top AX)\\)\n\\(2AX\\) si \\(A\\) simétrica\n\n\n\\(\\log\\det(X)\\)\n\\((X^{-1})^\\top = (X^\\top)^{-1}\\)\n\n\n\\(\\log\\det(X)\\)\n\\(X^{-1}\\) si \\(X\\) simétrica\n\n\n\nEstas aparecen en la derivación del EMV para el modelo Normal multivariante.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#segunda-derivada-hessiano",
+    "href": "material/anexos/algebra_matricial.html#segunda-derivada-hessiano",
+    "title": "Álgebra Matricial",
+    "section": "Segunda Derivada: Hessiano",
+    "text": "Segunda Derivada: Hessiano\nEl Hessiano de \\(f: \\mathbb{R}^n \\to \\mathbb{R}\\) es:\n\\[H = \\frac{\\partial^2 f}{\\partial \\mathbf{x}\\,\\partial \\mathbf{x}^\\top} =\n\\begin{pmatrix}\n\\frac{\\partial^2 f}{\\partial x_1^2} & \\cdots & \\frac{\\partial^2 f}{\\partial x_1 \\partial x_n} \\\\\n\\vdots & \\ddots & \\vdots \\\\\n\\frac{\\partial^2 f}{\\partial x_n \\partial x_1} & \\cdots & \\frac{\\partial^2 f}{\\partial x_n^2}\n\\end{pmatrix} \\in \\mathbb{R}^{n\\times n}\\]\nEl Hessiano es simétrico si \\(f\\) tiene derivadas continuas de segundo orden.\n\n\n\n\n\n\n\n\nExpresión \\(f(\\mathbf{x})\\)\nGradiente\nHessiano\n\n\n\n\n\\(\\mathbf{a}^\\top\\mathbf{x}\\)\n\\(\\mathbf{a}\\)\n\\(0\\)\n\n\n\\(\\mathbf{x}^\\top A\\mathbf{x}\\), \\(A\\) simétrica\n\\(2A\\mathbf{x}\\)\n\\(2A\\)\n\n\n\\(\\text{SCR}(\\boldsymbol\\beta)\\)\n\\(-2X^\\top(\\mathbf{Y}-X\\boldsymbol\\beta)\\)\n\\(2X^\\top X\\)\n\n\n\nPara la SCR, el Hessiano es \\(2X^\\top X\\). Como \\(X^\\top X \\succeq 0\\), la función SCR es convexa — el punto donde el gradiente se anula es un mínimo global.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#formulación",
+    "href": "material/anexos/algebra_matricial.html#formulación",
+    "title": "Álgebra Matricial",
+    "section": "Formulación",
+    "text": "Formulación\n\\[\\mathbf{Y} = X\\boldsymbol\\beta + \\boldsymbol\\varepsilon\\]\ndonde:\n\\[\\mathbf{Y} = \\begin{pmatrix}Y_1\\\\\\vdots\\\\Y_n\\end{pmatrix}_{n\\times 1}, \\quad\nX = \\begin{pmatrix}1 & X_{11} & \\cdots & X_{1,k-1}\\\\\n\\vdots & \\vdots & \\ddots & \\vdots\\\\\n1 & X_{n1} & \\cdots & X_{n,k-1}\\end{pmatrix}_{n\\times k}, \\quad\n\\boldsymbol\\beta = \\begin{pmatrix}\\beta_0\\\\\\beta_1\\\\\\vdots\\\\\\beta_{k-1}\\end{pmatrix}_{k\\times 1}, \\quad\n\\boldsymbol\\varepsilon = \\begin{pmatrix}\\varepsilon_1\\\\\\vdots\\\\\\varepsilon_n\\end{pmatrix}_{n\\times 1}\\]\nLos supuestos en forma matricial:\n\n\n\n\n\n\n\nSupuesto\nNotación matricial\n\n\n\n\nExogeneidad\n\\(E[\\boldsymbol\\varepsilon \\mid X] = \\mathbf{0}\\)\n\n\nEsfericalidad\n\\(\\text{Var}(\\boldsymbol\\varepsilon \\mid X) = \\sigma^2 I_n\\)\n\n\nNormalidad\n\\(\\boldsymbol\\varepsilon \\mid X \\sim \\mathcal{N}(\\mathbf{0},\\, \\sigma^2 I_n)\\)\n\n\nRango completo\n\\(\\text{rk}(X) = k\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#estimador-ols-y-propiedades",
+    "href": "material/anexos/algebra_matricial.html#estimador-ols-y-propiedades",
+    "title": "Álgebra Matricial",
+    "section": "Estimador OLS y Propiedades",
+    "text": "Estimador OLS y Propiedades\nDerivación: minimizar \\(\\text{SCR} = \\boldsymbol\\varepsilon^\\top\\boldsymbol\\varepsilon = (\\mathbf{Y}-X\\boldsymbol\\beta)^\\top(\\mathbf{Y}-X\\boldsymbol\\beta)\\)\n\\[\\frac{\\partial\\,\\text{SCR}}{\\partial\\boldsymbol\\beta} = -2X^\\top(\\mathbf{Y} - X\\boldsymbol\\beta) = \\mathbf{0}\n\\quad\\Rightarrow\\quad \\hat{\\boldsymbol\\beta} = (X^\\top X)^{-1} X^\\top \\mathbf{Y}\\]\nPropiedades:\n\\[E[\\hat{\\boldsymbol\\beta} \\mid X] = \\boldsymbol\\beta \\qquad \\text{(insesgado)}\\]\n\\[\\text{Var}(\\hat{\\boldsymbol\\beta} \\mid X) = \\sigma^2(X^\\top X)^{-1} \\qquad \\text{(matriz } k\\times k \\text{, SDP)}\\]\n\\[\\hat{\\boldsymbol\\beta} \\mid X \\sim \\mathcal{N}\\!\\left(\\boldsymbol\\beta,\\; \\sigma^2(X^\\top X)^{-1}\\right) \\quad \\text{(bajo normalidad)}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#matrices-de-proyección",
+    "href": "material/anexos/algebra_matricial.html#matrices-de-proyección",
+    "title": "Álgebra Matricial",
+    "section": "Matrices de Proyección",
+    "text": "Matrices de Proyección\nMatriz sombrero (hat matrix):\n\\[H = X(X^\\top X)^{-1}X^\\top \\in \\mathbb{R}^{n\\times n}\\]\n\\[\\hat{\\mathbf{Y}} = H\\mathbf{Y}, \\qquad \\hat{\\boldsymbol\\varepsilon} = (I - H)\\mathbf{Y} = M\\mathbf{Y}\\]\ndonde \\(M = I_n - H\\) es la matriz aniquiladora.\n\nPropiedades de \\(H\\) y \\(M\\)\n\n\n\n\n\n\n\n\nPropiedad\n\\(H\\)\n\\(M = I - H\\)\n\n\n\n\nSimetría\n\\(H^\\top = H\\)\n\\(M^\\top = M\\)\n\n\nIdempotencia\n\\(H^2 = H\\)\n\\(M^2 = M\\)\n\n\nOrtogonalidad\n\\(HM = MH = 0\\)\n\n\n\nTraza\n\\(\\text{tr}(H) = k\\)\n\\(\\text{tr}(M) = n-k\\)\n\n\nAutovalores\nSolo \\(0\\) y \\(1\\)\nSolo \\(0\\) y \\(1\\)\n\n\nRango\n\\(\\text{rk}(H) = k\\)\n\\(\\text{rk}(M) = n-k\\)\n\n\nResiduos\n\\(H\\hat{\\boldsymbol\\varepsilon} = \\mathbf{0}\\)\n\\(M\\mathbf{Y} = \\hat{\\boldsymbol\\varepsilon}\\)\n\n\n\n\n\n\n\n\n\nNotaInterpretación geométrica\n\n\n\n\\(H\\) proyecta \\(\\mathbf{Y}\\) sobre el espacio columna de \\(X\\) (los valores ajustados \\(\\hat{\\mathbf{Y}}\\)). \\(M\\) proyecta \\(\\mathbf{Y}\\) sobre el complemento ortogonal de ese espacio (los residuos \\(\\hat{\\boldsymbol\\varepsilon}\\)). La descomposición \\(\\mathbf{Y} = H\\mathbf{Y} + M\\mathbf{Y} = \\hat{\\mathbf{Y}} + \\hat{\\boldsymbol\\varepsilon}\\) es ortogonal: \\(\\hat{\\mathbf{Y}}^\\top\\hat{\\boldsymbol\\varepsilon} = 0\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/algebra_matricial.html#estimación-de-sigma2-y-descomposición-sct",
+    "href": "material/anexos/algebra_matricial.html#estimación-de-sigma2-y-descomposición-sct",
+    "title": "Álgebra Matricial",
+    "section": "Estimación de \\(\\sigma^2\\) y Descomposición SCT",
+    "text": "Estimación de \\(\\sigma^2\\) y Descomposición SCT\n\\[\\hat\\sigma^2 = \\frac{\\hat{\\boldsymbol\\varepsilon}^\\top\\hat{\\boldsymbol\\varepsilon}}{n-k}\n= \\frac{\\mathbf{Y}^\\top M\\mathbf{Y}}{n-k}, \\qquad\n\\frac{(n-k)\\hat\\sigma^2}{\\sigma^2} \\sim \\chi^2_{n-k}\\]\nDescomposición de la varianza total (en notación matricial):\n\\[\\mathbf{Y}^\\top M_0 \\mathbf{Y} = \\boldsymbol\\beta^\\top X^\\top M_0 X\\boldsymbol\\beta + \\hat{\\boldsymbol\\varepsilon}^\\top\\hat{\\boldsymbol\\varepsilon}\\]\ndonde \\(M_0 = I - \\frac{1}{n}J\\) es la matriz que centra los datos.\n\\[\\underbrace{\\text{SCT}}_{n-1\\text{ g.l.}} = \\underbrace{\\text{SCR}_{\\text{reg}}}_{k-1\\text{ g.l.}} + \\underbrace{\\text{SCR}_{\\text{res}}}_{n-k\\text{ g.l.}}\\]\n\nset.seed(99)\nn &lt;- 50; k &lt;- 3\nX_raw &lt;- matrix(rnorm(n * (k-1)), nrow = n)\nX     &lt;- cbind(1, X_raw)          # agrega columna de unos (intercepto)\nbeta  &lt;- c(2, 1.5, -0.8)\nY     &lt;- X %*% beta + rnorm(n, 0, 2)\n\n# Estimador OLS manual\nXtX_inv &lt;- solve(t(X) %*% X)\nbeta_hat &lt;- XtX_inv %*% t(X) %*% Y\n\ncat(\"beta verdadero: \", beta, \"\\n\")\n\nbeta verdadero:  2 1.5 -0.8 \n\ncat(\"beta_hat (OLS):\", round(beta_hat, 4), \"\\n\\n\")\n\nbeta_hat (OLS): 1.8257 1.6852 -0.407 \n\n# Matriz sombrero y residuos\nH       &lt;- X %*% XtX_inv %*% t(X)\nY_hat   &lt;- H %*% Y\ne_hat   &lt;- Y - Y_hat\nsig2    &lt;- as.numeric(t(e_hat) %*% e_hat / (n - k))\nVar_hat &lt;- sig2 * XtX_inv\n\ncat(\"sigma^2 estimado:\", round(sig2, 4), \"\\n\")\n\nsigma^2 estimado: 4.5136 \n\ncat(\"Errores estandar beta_hat:\", round(sqrt(diag(Var_hat)), 4), \"\\n\\n\")\n\nErrores estandar beta_hat: 0.3109 0.2995 0.4103 \n\n# Verificacion: H es idempotente?\ncat(\"max|H^2 - H|:\", max(abs(H %*% H - H)), \"  (debe ser ~0)\\n\")\n\nmax|H^2 - H|: 6.938894e-17   (debe ser ~0)\n\ncat(\"tr(H) =\", round(sum(diag(H)), 6), \"  (debe ser k =\", k, \")\\n\")\n\ntr(H) = 3   (debe ser k = 3 )\n\ncat(\"Y_hat' e_hat =\", round(sum(Y_hat * e_hat), 10), \"  (debe ser 0)\\n\")\n\nY_hat' e_hat = 0   (debe ser 0)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Álgebra Matricial</span>"
+    ]
+  },
+  {
     "objectID": "material/anexos/repaso_r.html",
     "href": "material/anexos/repaso_r.html",
     "title": "R en Google Colab",
@@ -3341,7 +3682,7 @@
     "text": "Para poder ejecutar código en R dentro de Google Colab, primero debe cambiar el entorno de ejecución. Diríjase al menú Runtime, seleccione Change runtime type y elija R como lenguaje antes de ejecutar las celdas del notebook.\n\n\n\nCambio de runtime en Google Colab\n\n\n\n1. Variables y Tipos de Datos Básicos\nEn R, puedes asignar valores a variables usando el operador &lt;- o =. R es dinámicamente tipado, lo que significa que no necesitas declarar el tipo de dato de una variable explícitamente.\n\n# Asignación de variables\nmi_entero &lt;- 10\nmi_decimal = 3.14\nmi_cadena &lt;- \"Hola, R\"\nmi_booleano &lt;- TRUE\n\n\ntypeof(mi_entero)\ntypeof(mi_decimal)\n\n'double'\n\n\n'double'\n\n\n\n# Imprimir variables y sus tipos\nprint(paste(\"Entero:\", mi_entero, \"Tipo:\", typeof(mi_entero)))\nprint(paste(\"Decimal:\", mi_decimal, \"Tipo:\", typeof(mi_decimal)))\nprint(paste(\"Cadena:\", mi_cadena, \"Tipo:\", typeof(mi_cadena)))\nprint(paste(\"Booleano:\", mi_booleano, \"Tipo:\", typeof(mi_booleano)))\n\n[1] \"Entero: 10 Tipo: double\"\n[1] \"Decimal: 3.14 Tipo: double\"\n[1] \"Cadena: Hola, R Tipo: character\"\n[1] \"Booleano: TRUE Tipo: logical\"\n\n\n\n# Operaciones básicas\nresultado_suma &lt;- mi_entero + 5\nresultado_multiplicacion &lt;- mi_decimal * 2\nprint(paste(\"Suma:\", resultado_suma))\nprint(paste(\"Multiplicación:\", resultado_multiplicacion))\n\n[1] \"Suma: 15\"\n[1] \"Multiplicación: 6.28\"\n\n\n\n\n2. Estructuras de Datos\nR tiene varias estructuras de datos fundamentales para organizar información.\n\n2.1. Vectores\nLos vectores son las estructuras de datos más básicas en R. Son colecciones ordenadas de elementos del mismo tipo de dato.\n\n# Crear un vector numérico\nvector_numerico &lt;- c(1, 2, 3, 4, 5)\nprint(\"Vector Numérico:\")\nprint(vector_numerico)\n\n# Crear un vector de caracteres\nvector_caracteres &lt;- c(\"manzana\", \"banana\", \"cereza\")\nprint(\"Vector de Caracteres:\")\nprint(vector_caracteres)\n\n# Acceder a elementos de un vector (indexación base 1)\nprint(paste(\"Primer elemento:\", vector_numerico[1]))\nprint(paste(\"Elementos 2 a 4:\", paste(vector_numerico[2:4], collapse = \", \")))\n\n# Operaciones con vectores\nvector_suma &lt;- vector_numerico + 10\nprint(\"Vector Suma:\")\nprint(vector_suma)\n\n[1] \"Vector Numérico:\"\n[1] 1 2 3 4 5\n[1] \"Vector de Caracteres:\"\n[1] \"manzana\" \"banana\"  \"cereza\" \n[1] \"Primer elemento: 1\"\n[1] \"Elementos 2 a 4: 2, 3, 4\"\n[1] \"Vector Suma:\"\n[1] 11 12 13 14 15\n\n\n\n\n2.2. Listas\nLas listas son colecciones ordenadas de objetos, donde los objetos pueden ser de diferentes tipos de datos (incluso otras listas o data frames).\n\n# Crear una lista\nmi_lista &lt;- list(\"nombre\" = \"Alice\", \"edad\" = 30, \"numeros\" = c(1, 2, 3))\nprint(\"Mi Lista:\")\nprint(mi_lista)\n\n# Acceder a elementos de una lista\nprint(paste(\"Nombre:\", mi_lista$nombre))\nprint(paste(\"Edad:\", mi_lista[[\"edad\"]]))\nprint(\"Números:\")\nprint(mi_lista$numeros)\n\n[1] \"Mi Lista:\"\n$nombre\n[1] \"Alice\"\n\n$edad\n[1] 30\n\n$numeros\n[1] 1 2 3\n\n[1] \"Nombre: Alice\"\n[1] \"Edad: 30\"\n[1] \"Números:\"\n[1] 1 2 3\n\n\nprint(“”\n\n\n2.3. Matrices\nLas matrices son colecciones bidimensionales de elementos del mismo tipo de dato. Son como tablas de datos con filas y columnas.\n\n# Crear una matriz de 2x3\nmatriz_ejemplo &lt;- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3, byrow = TRUE)\nprint(\"Matriz Ejemplo:\")\nprint(matriz_ejemplo)\n\n# Acceder a elementos de una matriz (fila, columna)\nprint(paste(\"Elemento (1,2):\", matriz_ejemplo[1, 2]))\nprint(\"Primera fila:\")\nprint(matriz_ejemplo[1, ])\nprint(\"Segunda columna:\")\nprint(matriz_ejemplo[, 2])\n\n[1] \"Matriz Ejemplo:\"\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6\n[1] \"Elemento (1,2): 2\"\n[1] \"Primera fila:\"\n[1] 1 2 3\n[1] \"Segunda columna:\"\n[1] 2 5\n\n\n\n\n2.4. Data Frames\nLos Data Frames son la estructura de datos más importante y utilizada en R para el análisis de datos. Son como hojas de cálculo o tablas de bases de datos, donde cada columna puede contener un tipo de dato diferente (pero todas las columnas tienen la misma longitud).\n\n# Crear un Data Frame\ndatos_clientes &lt;- data.frame(\n  ID = c(1, 2, 3),\n  Nombre = c(\"Ana\", \"Luis\", \"Marta\"),\n  Edad = c(25, 30, 22),\n  Ciudad = c(\"Madrid\", \"Barcelona\", \"Valencia\")\n)\nprint(\"Data Frame Datos Clientes:\")\nprint(datos_clientes)\n\n# Acceder a columnas\nprint(\"Nombres:\")\nprint(datos_clientes$Nombre)\nprint(\"Edad (con corchetes dobles):\")\nprint(datos_clientes[[\"Edad\"]])\n\n# Acceder a filas\nprint(\"Primera fila:\")\nprint(datos_clientes[1, ])\n\n# Filtrar filas\nprint(\"Clientes mayores de 25 años:\")\nprint(datos_clientes[datos_clientes$Edad &gt; 25, ])\n\n[1] \"Data Frame Datos Clientes:\"\n  ID Nombre Edad    Ciudad\n1  1    Ana   25    Madrid\n2  2   Luis   30 Barcelona\n3  3  Marta   22  Valencia\n[1] \"Nombres:\"\n[1] \"Ana\"   \"Luis\"  \"Marta\"\n[1] \"Edad (con corchetes dobles):\"\n[1] 25 30 22\n[1] \"Primera fila:\"\n  ID Nombre Edad Ciudad\n1  1    Ana   25 Madrid\n[1] \"Clientes mayores de 25 años:\"\n  ID Nombre Edad    Ciudad\n2  2   Luis   30 Barcelona\n\n\n\n\n\n3. Control de Flujo\nEl control de flujo te permite ejecutar diferentes bloques de código basándose en condiciones o repetir tareas.\n\n3.1. if-else (Condicionales)\n\nnumero &lt;- \"hola\"\n\nif (numero &gt; 10) {\n  print(\"El número es mayor que 10\")\n} else if (numero == 10) {\n  print(\"El número es igual a 10\")\n} else {\n  print(\"El número es menor que 10\")\n}\n\n[1] \"El número es mayor que 10\"\n\n\n\n\n3.2. Bucles for\n\nfrutas &lt;- c(\"manzana\", \"plátano\", \"uva\")\n\nfor (fruta in frutas) {\n  print(paste(\"Me gusta comer\", fruta))\n}\n\n# Bucle for con un rango numérico\nfor (i in 1:5) {\n  print(paste(\"Contando:\", i))\n}\n\n[1] \"Me gusta comer manzana\"\n[1] \"Me gusta comer plátano\"\n[1] \"Me gusta comer uva\"\n[1] \"Contando: 1\"\n[1] \"Contando: 2\"\n[1] \"Contando: 3\"\n[1] \"Contando: 4\"\n[1] \"Contando: 5\"\n\n\n\n\n3.3. Bucles while\n\ni &lt;- 1\nwhile (i &lt;= 3) {\n  print(paste(\"Iteración:\", i))\n  i &lt;- i + 1\n}\n\n[1] \"Iteración: 1\"\n[1] \"Iteración: 2\"\n[1] \"Iteración: 3\"\n\n\n\n\n\n4. Funciones\nLas funciones te permiten encapsular bloques de código para reutilizarlos. Son fundamentales para escribir código modular y legible.\n\n# Definir una función simple\nsaludar &lt;- function(nombre) {\n  mensaje &lt;- paste(\"Hola,\", nombre, \"¡Bienvenido a R!\")\n  return(mensaje)\n}\n\n# Llamar a la función\nprint(saludar(\"Carlos\"))\nprint(saludar(\"María\"))\n\n# Función con múltiples argumentos y valor por defecto\ncalcular_area_rectangulo &lt;- function(largo, ancho = 3) {\n  area &lt;- largo * ancho\n  return(area)\n}\n\nprint(paste(\"Área de un rectángulo 5x3:\", calcular_area_rectangulo(5, 3)))\nprint(paste(\"Área de un rectángulo 7x1 (ancho por defecto):\", calcular_area_rectangulo(7)))\n\n[1] \"Hola, Carlos ¡Bienvenido a R!\"\n[1] \"Hola, María ¡Bienvenido a R!\"\n[1] \"Área de un rectángulo 5x3: 15\"\n[1] \"Área de un rectángulo 7x1 (ancho por defecto): 21\"\n\n\n\n\n5. Paquetes (Librerías)\nR tiene un vasto ecosistema de paquetes que extienden su funcionalidad. Para usarlos, primero debes instalarlos y luego cargarlos.\n\n5.1. dplyr para Manipulación de Datos\ndplyr es parte del tidyverse y es excelente para la manipulación de Data Frames.\n\n# Instalar dplyr (solo si no lo tienes instalado)\n# install.packages(\"dplyr\")\n\n# Cargar dplyr\nlibrary(dplyr)\n\n# Crear un Data Frame de ejemplo\ndf_ventas &lt;- data.frame(\n  Producto = c(\"A\", \"B\", \"A\", \"C\", \"B\", \"\"),\n  Region = c(\"Norte\", \"Sur\", \"Norte\", \"Este\", \"Oeste\", \"Norte\"),\n  Ventas = c(100, 150, 120, 80, 200, 90)\n)\n\nprint(\"Data Frame original:\")\nprint(df_ventas)\n\n[1] \"Data Frame original:\"\n  Producto Region Ventas\n1        A  Norte    100\n2        B    Sur    150\n3        A  Norte    120\n4        C   Este     80\n5        B  Oeste    200\n6           Norte     90\n\n\n\n# Filtrar (filter()): Ventas mayores a 100\nprint(\"Ventas &gt; 100:\")\nfilter(df_ventas, Ventas &gt; 100)\n\n[1] \"Ventas &gt; 100:\"\n\n\n\nA data.frame: 3 × 3\n\n\nProducto\nRegion\nVentas\n\n\n&lt;chr&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n\n\n\n\nB\nSur\n150\n\n\nA\nNorte\n120\n\n\nB\nOeste\n200\n\n\n\n\n\n\n\n\n\n# Seleccionar (select()): Solo Producto y Ventas\nprint(\"Solo Producto y Ventas:\")\nprint(select(df_ventas, Producto, Ventas))\n\n# Agrupar y resumir (group_by(), summarise()): Suma de ventas por producto\nprint(\"Suma de Ventas por Producto:\")\nprint(df_ventas %&gt;%\n        group_by(Producto) %&gt;%\n        summarise(Total_Ventas = sum(Ventas)))\n\n\n[1] \"Data Frame original:\"\n\n  Producto Region Ventas\n\n1        A  Norte    100\n\n2        B    Sur    150\n\n3        A  Norte    120\n\n4        C   Este     80\n\n5        B  Oeste    200\n\n6        C  Norte     90\n\n[1] \"Ventas &gt; 100:\"\n\n  Producto Region Ventas\n\n1        B    Sur    150\n\n2        A  Norte    120\n\n3        B  Oeste    200\n\n[1] \"Solo Producto y Ventas:\"\n\n  Producto Ventas\n\n1        A    100\n\n2        B    150\n\n3        A    120\n\n4        C     80\n\n5        B    200\n\n6        C     90\n\n[1] \"Suma de Ventas por Producto:\"\n\n# A tibble: 3 × 2\n\n  Producto Total_Ventas\n\n  &lt;chr&gt;           &lt;dbl&gt;\n\n1 A                 220\n\n2 B                 350\n\n3 C                 170\n\n\n\n\n\n\n5.2. ggplot2 para Visualización de Datos\nggplot2 también es parte del tidyverse y es una de las librerías más potentes para crear gráficos en R.\n\n# Instalar ggplot2 (solo si no lo tienes instalado)\n# install.packages(\"ggplot2\")\n\n# Cargar ggplot2\nlibrary(ggplot2)\n\n# Crear datos de ejemplo\ndatos_grafico &lt;- data.frame(\n  Categoria = c(\"A\", \"B\", \"C\", \"D\"),\n  Valor = c(20, 35, 15, 40)\n)\n\n# Crear un gráfico de barras simple\nmi_grafico &lt;- ggplot(datos_grafico, aes(x = Categoria, y = Valor)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  labs(title = \"Ejemplo de Gráfico de Barras\",\n       x = \"Categoría\",\n       y = \"Valor\") +\n  theme_minimal()\n\nprint(mi_grafico)\n\n\n\n\n\n\n\n\n\n\n\nConclusión\nEn este cuaderno revisamos los principales fundamentos de R para comenzar a trabajar con el lenguaje. Partimos configurando R en Google Colab y luego exploramos conceptos esenciales como variables, tipos de datos y las estructuras de datos más utilizadas, incluyendo vectores, listas, matrices y data frames.\nTambién vimos cómo controlar el flujo de un programa utilizando estructuras como if-else, for y while, además de cómo definir y utilizar funciones. Finalmente, se presentó una breve introducción a paquetes muy utilizados en el ecosistema de R, como dplyr para la manipulación de datos y ggplot2 para su visualización.\nLa idea es que este material sirva como una base o repaso para entender los conceptos fundamentales de R y poder seguir profundizando en el análisis de datos con este lenguaje.",
     "crumbs": [
       "Anexos",
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>R en Google Colab</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>R en Google Colab</span>"
     ]
   }
 ]
