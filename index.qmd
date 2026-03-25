@@ -13,6 +13,97 @@ format:
 Asignatura teórico-práctica orientada a la aplicación de métodos estadísticos y econométricos para el análisis, modelamiento y evaluación de fenómenos económicos y sociales. El curso enfatiza el uso de modelos de regresión, análisis de datos reales y la correcta interpretación de resultados obtenidos mediante software especializado, incorporando criterios de inferencia, diagnóstico y validación de modelos.
 
 
+```{=html}
+<div class="notebooklm-card">
+  <div class="notebooklm-header">
+    <svg width="28" height="28" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4z" fill="#1a73e8" opacity="0.15"/>
+      <path d="M8 24c0-8.8 7.2-16 16-16" stroke="#1a73e8" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M13 24c0-6.1 4.9-11 11-11" stroke="#1a73e8" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M18 24c0-3.3 2.7-6 6-6" stroke="#1a73e8" stroke-width="3.5" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <span class="notebooklm-label">Recursos disponibles en</span>
+      <strong class="notebooklm-brand">NotebookLM</strong>
+    </div>
+  </div>
+  <p class="notebooklm-desc">
+    Accede a los notebooks del curso para explorar el material con inteligencia artificial.
+    Puedes hacer preguntas, obtener resúmenes y profundizar en los contenidos.
+  </p>
+  <div class="notebooklm-links">
+    <a href="https://notebooklm.google.com/notebook/0a216414-3796-460a-9b62-9badf7c1618c" target="_blank" class="notebooklm-btn">
+      📊 Econometría USM
+    </a>
+    <a href="https://notebooklm.google.com/notebook/1431805c-e3e8-4951-b23d-0f45e57c0e1e" target="_blank" class="notebooklm-btn">
+      📈 Probabilidad y Estadística USM
+    </a>
+  </div>
+</div>
+
+<style>
+.notebooklm-card {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+  border: 1px solid #c5d8f7;
+  border-left: 4px solid #1a73e8;
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+  font-family: inherit;
+}
+
+.notebooklm-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.notebooklm-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #5f6368;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.notebooklm-brand {
+  font-size: 1.05rem;
+  color: #1a73e8;
+}
+
+.notebooklm-desc {
+  font-size: 0.92rem;
+  color: #3c4043;
+  margin: 0 0 1rem 0;
+  line-height: 1.55;
+}
+
+.notebooklm-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.notebooklm-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: #1a73e8;
+  color: white !important;
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.notebooklm-btn:hover {
+  background: #1558b0;
+  transform: translateY(-1px);
+}
+</style>
+```
+
 ## Contenidos 
 
 - Muestreo y análisis exploratorio de datos  

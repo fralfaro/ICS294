@@ -37,7 +37,7 @@ jobs:
 
       - name: Install R packages
         run: |
-          Rscript -e 'install.packages(c("knitr", "rmarkdown"), repos="https://cloud.r-project.org")'
+          Rscript -e 'install.packages(c("knitr", "rmarkdown", "ggplot2", "dplyr", "tidyr", "kableExtra", "scales", "e1071", "gridExtra"), repos="https://cloud.r-project.org")'
 
       - name: Render book
         run: quarto render
