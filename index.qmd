@@ -116,11 +116,118 @@ Asignatura teórico-práctica orientada a la aplicación de métodos estadístic
 - Introducción a econometría espacial  
 - Introducción al análisis multivariado  
 
+
+```{=html}
+<div class="github-card">
+  <div class="github-header">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" class="github-icon">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+    <div>
+      <span class="github-label">Entregables del curso en</span>
+      <strong class="github-brand">GitHub</strong>
+    </div>
+  </div>
+  <p class="github-desc">
+    Todos los entregables se gestionan a través de GitHub. Crea una cuenta gratuita
+    y clona el repositorio del curso usando el botón <strong>Use this template</strong>.
+  </p>
+  <div class="github-repo">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0; opacity:0.5"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+    <code>fralfaro/ics194-entregables</code>
+  </div>
+  <div class="github-links">
+    <a href="https://github.com/signup" target="_blank" class="github-btn github-btn-outline">
+      Crear cuenta
+    </a>
+    <a href="https://github.com/fralfaro/ics194-entregables" target="_blank" class="github-btn github-btn-green">
+      Use this template →
+    </a>
+  </div>
+</div>
+
+<style>
+.github-card {
+  background: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-left: 4px solid #24292f;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+  font-family: inherit;
+}
+.github-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.65rem;
+}
+.github-icon { opacity: 0.85; }
+.github-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #57606a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.github-brand {
+  font-size: 1rem;
+  color: #24292f;
+}
+.github-desc {
+  font-size: 0.9rem;
+  color: #444d56;
+  margin: 0 0 0.85rem 0;
+  line-height: 1.55;
+}
+.github-repo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 7px 12px;
+  margin-bottom: 1rem;
+}
+.github-repo code {
+  font-size: 0.83rem;
+  color: #24292f;
+}
+.github-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.github-btn {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: opacity 0.15s;
+}
+.github-btn:hover { opacity: 0.85; }
+.github-btn-outline {
+  background: white;
+  color: #24292f !important;
+  border: 1px solid #d0d7de;
+}
+.github-btn-green {
+  background: #2da44e;
+  color: white !important;
+  border: 1px solid #2c974b;
+}
+</style>
+```
+
+
 ## Secciones
 
 
 ```{=html}
-<div class="nt-cards nt-grid cols-3">
+<div class="nt-cards nt-grid cols-4">
 
   <a class="nt-card" href="material/modulo_01/index.qmd">
     <div class="nt-card-image">
@@ -141,7 +248,7 @@ Asignatura teórico-práctica orientada a la aplicación de métodos estadístic
     <div class="nt-card-body">
       <h3>Inferencia Estadística</h3>
       <p>
-        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.
+        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y calidad del ajuste.
       </p>
     </div>
   </a>
@@ -154,6 +261,17 @@ Asignatura teórico-práctica orientada a la aplicación de métodos estadístic
       <h3>Aplicaciones Avanzadas</h3>
       <p>
        Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).
+      </p>
+    </div>
+
+  <a class="nt-card" href="material/anexos/estadistica_descriptiva_r.qmd">
+    <div class="nt-card-image">
+      <img src="images/anexos2.png" alt="Anexos">
+    </div>
+    <div class="nt-card-body">
+      <h3>Repaso Estadística y Probabilidad</h3>
+      <p>
+        Material de repaso: estadística descriptiva, variables aleatorias, inferencial e introducción a R con Google Colab.
       </p>
     </div>
   </a>

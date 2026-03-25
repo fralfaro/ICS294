@@ -1,7 +1,7 @@
 on:
   workflow_dispatch:
   push:
-    branches: main
+    branches: [main]
 
 name: Quarto Publish
 
@@ -34,6 +34,9 @@ jobs:
           path: ${{ env.R_LIBS_USER }}
           key: r-${{ hashFiles('**/DESCRIPTION') }}
           restore-keys: r-
+
+      - name: Install system dependencies
+        run: sudo apt-get install -y libxml2-dev libcurl4-openssl-dev libssl-dev libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev
 
       - name: Install R packages
         run: |
