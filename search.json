@@ -10,13 +10,53 @@
     ]
   },
   {
-    "objectID": "index.html#contenidos-del-curso",
-    "href": "index.html#contenidos-del-curso",
+    "objectID": "index.html#descripción",
+    "href": "index.html#descripción",
     "title": "ICS294 - Econometría",
-    "section": "Contenidos del Curso",
-    "text": "Contenidos del Curso\n\n\n  \n    \n      \n    \n    \n      Modelos de Regresión\n      \n        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).\n      \n    \n  \n\n  \n    \n      \n    \n    \n      Inferencia Estadística\n      \n        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y evaluación de la calidad del ajuste.\n      \n    \n  \n\n  \n    \n      \n    \n    \n      Aplicaciones Avanzadas\n      \n       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).",
+    "section": "Descripción",
+    "text": "Descripción\nAsignatura teórico-práctica orientada a la aplicación de métodos estadísticos y econométricos para el análisis, modelamiento y evaluación de fenómenos económicos y sociales. El curso enfatiza el uso de modelos de regresión, análisis de datos reales y la correcta interpretación de resultados obtenidos mediante software especializado, incorporando criterios de inferencia, diagnóstico y validación de modelos.\n\n  \n    \n      \n      \n      \n      \n    \n    \n      Recursos disponibles en\n      NotebookLM\n    \n  \n  \n    Accede a los notebooks del curso para explorar el material con inteligencia artificial.\n    Puedes hacer preguntas, obtener resúmenes y profundizar en los contenidos.\n  \n  \n    \n      📊 Econometría USM\n    \n    \n      📈 Probabilidad y Estadística USM",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#contenidos",
+    "href": "index.html#contenidos",
+    "title": "ICS294 - Econometría",
+    "section": "Contenidos",
+    "text": "Contenidos\n\nMuestreo y análisis exploratorio de datos\n\nNaturaleza de la econometría y tipos de datos económicos\n\nModelo de regresión lineal simple\n\nModelo de regresión lineal múltiple\n\nVariables dummy y variables cualitativas\n\nHeterocedasticidad\n\nRegresión con datos de series de tiempo\n\nIntroducción a econometría espacial\n\nIntroducción al análisis multivariado\n\n\n  \n    \n      \n    \n    \n      Entregables del curso en\n      GitHub\n    \n  \n  \n    Todos los entregables se gestionan a través de GitHub. Crea una cuenta gratuita\n    y clona el repositorio del curso usando el botón Use this template.\n  \n  \n    \n    fralfaro/ics194-entregables\n  \n  \n    \n      Crear cuenta\n    \n    \n      Use this template →",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#secciones",
+    "href": "index.html#secciones",
+    "title": "ICS294 - Econometría",
+    "section": "Secciones",
+    "text": "Secciones\n\n\n  \n    \n      \n    \n    \n      Modelos de Regresión\n      \n        Estimación e interpretación de modelos de regresión simple y múltiple (supuestos, vatiables dummies, etc.).\n      \n    \n  \n\n  \n    \n      \n    \n    \n      Inferencia Estadística\n      \n        Intervalos de confianza, pruebas de hipótesis, significancia estadística de coeficientes y calidad del ajuste.\n      \n    \n  \n\n  \n    \n      \n    \n    \n      Aplicaciones Avanzadas\n      \n       Análisis econométricos aplicados a series de tiempo y modelos estocásticos simples (como random walk).\n      \n    \n\n  \n    \n      \n    \n    \n      Repaso Estadística y Probabilidad\n      \n        Material de repaso: estadística descriptiva, variables aleatorias, inferencial e introducción a R con Google Colab.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/index.html",
+    "href": "material/modulo_01/index.html",
+    "title": "Fundamentos Estadísticos",
+    "section": "",
+    "text": "Objetivo\nEste módulo introduce los conceptos esenciales de la econometría y los fundamentos estadísticos necesarios para estimar e interpretar modelos de regresión. Se estudia el modelo de regresión lineal simple, los supuestos de Gauss-Markov, los principios de causalidad e inferencia causal, y los principales problemas que afectan a la estimación por Mínimos Cuadrados Ordinarios (MCO), como las variables omitidas y los errores de medición. Al finalizar el módulo, el estudiante será capaz de formular un modelo de regresión, estimar sus parámetros y evaluar críticamente las condiciones bajo las cuales la estimación es válida.",
+    "crumbs": [
+      "Fundamentos Estadísticos"
+    ]
+  },
+  {
+    "objectID": "material/modulo_01/index.html#contenidos",
+    "href": "material/modulo_01/index.html#contenidos",
+    "title": "Fundamentos Estadísticos",
+    "section": "Contenidos",
+    "text": "Contenidos\n\n\n\n#\nTema\nPresentación\n\n\n\n\n1\nIntroducción a la Econometría\nslides\n\n\n2\nRegresión Lineal Simple\nslides\n\n\n3\nCausalidad\nslides\n\n\n4\nVariables Omitidas\nslides\n\n\n5\nError de Medición\nslides\n\n\n6\nRegresión Lineal Múltiple\nslides\n\n\n7\nPropiedades Estadísticas MCO (I)\nslides\n\n\n8\nPropiedades Estadísticas MCO (II)\nslides",
+    "crumbs": [
+      "Fundamentos Estadísticos"
     ]
   },
   {
@@ -26,6 +66,7 @@
     "section": "",
     "text": "¿Qué es econometría?",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -36,6 +77,7 @@
     "section": "",
     "text": "Es una disciplina que emplea la teoría económica y métodos estadísticos para contrastar distintas teorías, pronosticar variables y evaluar políticas públicas utilizando bases de datos.\nEs una aplicación del método científico en economía. Nos permite refutar hipótesis económicas.\nNos permite contestar preguntas como, por ejemplo:\n\n\n¿Cuál es la brecha salarial por género?\n¿Cuál es el efecto de haber completado la universidad en el salario?",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -46,6 +88,7 @@
     "section": "Econometría moderna",
     "text": "Econometría moderna\nLa econometría moderna se enfoca en contestar tres tipos de preguntas:\n\nEstimar cómo la esperanza condicional de una variable depende de otra.\nEstimar el impacto causal de una variable sobre otra.\nPredecir el comportamiento de una variable hacia el futuro.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -56,6 +99,7 @@
     "section": "Método econométrico",
     "text": "Método econométrico\n\nDefinir el objetivo: ¿qué quiero estudiar?\n\n\nEstructura\n\n1. Modelo económico\nModelos que explican el comportamiento de una variable económica en función de otras:\n\\[\nY = f(x_1, x_2, \\dots, x_k)\n\\]\nEjemplo 1: Función de producción\n\\[\nY = AK^{\\alpha} L^{\\beta}\n\\]\nEjemplo 2: Retornos a la educación\n\\[\n\\text{salario} = f(\\text{educación}, \\text{experiencia}, \\text{ingreso familiar}, \\text{habilidad})\n\\]\n\n\n2. Modelo econométrico\nPermite cuantificar, contrastar y evaluar el modelo económico.\n\nEspecificar la función \\(f(\\cdot)\\).\nLas variables económicas son aleatorias, por lo que se incorpora un término de error:\n\n\\[\ny = f(x_1, x_2, \\dots, x_k) + u\n\\]\n\nUso de datos.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -66,6 +110,7 @@
     "section": "Causalidad y correlación",
     "text": "Causalidad y correlación\nCorrelación no es causalidad\n\nMuchas veces nos interesa conocer el efecto causal de una variable sobre otra.\nEl concepto ceteris paribus es clave para la causalidad: efecto de (X) sobre (Y) manteniendo todos los demás factores relevantes constantes.\nEsto es muy difícil de lograr en la práctica en ciencias sociales.\nEn el curso se estudiarán los supuestos necesarios y las técnicas para abordarlo.\n\nCorrelación espuria: existe una relación matemática, pero los factores no presentan una relación lógica.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -76,6 +121,7 @@
     "section": "Ejemplo",
     "text": "Ejemplo\n\nInformación: en una base de datos de individuos de 35 años en Chile, se observa que las personas que terminaron la universidad ganan un 30% más que aquellas que no la terminaron.\nPregunta: ¿puedo concluir que ir a la universidad causa un aumento del ingreso?\n\n\nDiscusión\nNo se puede concluir eso directamente.\n\nIr a la universidad está asociado a muchas otras características que también afectan el ingreso.\nPor ejemplo: la habilidad, el ingreso de los padres, entre otras.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -86,6 +132,7 @@
     "section": "Econometría como herramienta aplicada",
     "text": "Econometría como herramienta aplicada\n\nProblema: ¿cómo solucionar el problema de los parásitos intestinales en África?\nMiguel y Kremer (2004), Worms: Identifying Impacts on Education and Health in the Presence of Treatment Externalities, muestran que repartir pastillas en colegios mejora la salud y reduce el ausentismo escolar, no solo en los tratados sino también en sus vecinos.\nGracias a estos estudios, la iniciativa Deworming the World ha recaudado billones de dólares para esta política pública.\nProblema: ¿las consultoras de management pueden mejorar la productividad de las firmas?\nBloom et al. (2017), Increasing Firm Productivity through Management Consulting Services in India, muestran que sí y cuantifican este efecto.\n\nJPAL – Estudio",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -96,6 +143,7 @@
     "section": "Tipos de datos",
     "text": "Tipos de datos\n\nExperimentales: el investigador asigna de forma aleatoria la exposición.\nPseudo-experimentales: el investigador controla la exposición, pero no la asigna aleatoriamente.\nObservacionales (no experimentales): el investigador no controla la exposición.\n\nEl uso de datos experimentales es poco frecuente debido a su alto costo y a problemas éticos.\n\nDatos de corte transversal\nMuestra de individuos, hogares, empresas, regiones o países recolectados en un momento determinado.\nAunque la recolección no siempre ocurre exactamente en el mismo período, se asume que las diferencias temporales menores son irrelevantes.\nSe asume muestreo aleatorio desde la población subyacente.\n\n\nSeries de tiempo\nObservaciones de una o más variables a lo largo del tiempo.\nEjemplos: precios de acciones, tipo de cambio, IPC, ventas de automóviles.\n\nLos eventos pasados influyen en los futuros.\nLos rezagos son frecuentes en ciencias sociales.\nLa frecuencia temporal puede ser diaria, mensual, anual, trimestral, etc.\nA diferencia del corte transversal, las observaciones no son independientes.\n\n\n\nDatos de panel\nDatos longitudinales o de panel consisten en series de tiempo para cada unidad del conjunto de datos.\nEjemplo: 10 años de datos de salario, educación y empleo para un grupo de individuos.\nVentajas:\n\nControl de características no observadas.\nFacilita la inferencia causal.\nPermite estudiar efectos dinámicos y rezagos.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -106,6 +154,7 @@
     "section": "Muestreo",
     "text": "Muestreo\nLos datos se obtienen sobre conjuntos de individuos u objetos llamados unidades de observación.\nEl conjunto total de unidades se denomina población.\nEl muestreo estudia los métodos y procedimientos para obtener una muestra y realizar inferencias sobre la población.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -116,6 +165,7 @@
     "section": "Muestra representativa",
     "text": "Muestra representativa\nUna muestra es representativa si toda unidad de observación puede aparecer en la muestra con una probabilidad conocida.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -126,6 +176,7 @@
     "section": "¿Por qué muestrear la población?",
     "text": "¿Por qué muestrear la población?\n\nImposibilidad física de observar a toda la población.\nAlto costo de estudiar todos los elementos.\nLos resultados muestrales suelen ser adecuados.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -136,6 +187,7 @@
     "section": "Objetivos del muestreo",
     "text": "Objetivos del muestreo\nEstimar los parámetros de la población\n\nVariable: característica medida (educación, ingresos, etc.).\nParámetro: valor que describe a la población (media, desviación estándar, betas).\nEstadístico: valor calculado sobre la muestra.\nLos parámetros suelen ser desconocidos y se estiman mediante estadísticos.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -146,6 +198,7 @@
     "section": "Muestreo aleatorio",
     "text": "Muestreo aleatorio\n\nMuestreo aleatorio simple: todos los individuos tienen la misma probabilidad de ser seleccionados.\nMuestreo aleatorio sistemático: se selecciona un punto inicial aleatorio y luego cada (k)-ésimo elemento.\nNo es completamente aleatorio, ya que algunos elementos pueden tener probabilidad cero de selección.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -156,6 +209,7 @@
     "section": "Otros esquemas de muestreo",
     "text": "Otros esquemas de muestreo\n\nMuestreo aleatorio estratificado: la población se divide en estratos homogéneos y se muestrea dentro de cada uno.\nMuestreo por conglomerados (cluster): la población se divide en conglomerados heterogéneos y se seleccionan grupos completos.\n\n\nEstratificado vs. conglomerados\n\n  \n  \n  \n\nMuestreo estratificado\n\nEstratos internamente homogéneos.\nSe seleccionan observaciones dentro de cada estrato.\n\nMuestreo por conglomerados\n\nConglomerados internamente heterogéneos.\nSe seleccionan grupos completos.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -166,6 +220,7 @@
     "section": "Muestreo no probabilístico",
     "text": "Muestreo no probabilístico\nEn el muestreo no probabilístico, la inclusión en la muestra se basa en el juicio del investigador y no en probabilidades conocidas.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -176,6 +231,7 @@
     "section": "Estadística descriptiva e inferencial",
     "text": "Estadística descriptiva e inferencial\n\nEstadística descriptiva: las conclusiones son válidas solo para la muestra analizada.\nEstadística inferencial: permite extraer conclusiones estadísticamente válidas para toda la población a partir de una muestra.",
     "crumbs": [
+      "Fundamentos Estadísticos",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introducción</span>"
     ]
   },
@@ -1181,6 +1237,26 @@
     ]
   },
   {
+    "objectID": "material/modulo_02/index.html",
+    "href": "material/modulo_02/index.html",
+    "title": "Modelos de Regresión",
+    "section": "",
+    "text": "Objetivo\nEste módulo desarrolla las herramientas necesarias para la interpretación, inferencia y evaluación de modelos de regresión lineal múltiple. Se estudia la interpretación de coeficientes bajo distintas especificaciones funcionales (logarítmica, cuadrática, interacciones), la realización de tests de hipótesis individuales y conjuntos, las propiedades asintóticas del estimador MCO y la incorporación de variables cualitativas mediante variables binarias. Al finalizar el módulo, el estudiante será capaz de especificar, estimar e interpretar modelos de regresión múltiple, realizar inferencia estadística rigurosa y aplicar el Test F para evaluar la significancia conjunta de grupos de variables.",
+    "crumbs": [
+      "Modelos de Regresión"
+    ]
+  },
+  {
+    "objectID": "material/modulo_02/index.html#contenidos",
+    "href": "material/modulo_02/index.html#contenidos",
+    "title": "Modelos de Regresión",
+    "section": "Contenidos",
+    "text": "Contenidos\n\n\n\n#\nTema\nPresentación\n\n\n\n\n9\nInterpretación de Coeficientes\nslides\n\n\n10\nInferencia sobre un Parámetro\nslides\n\n\n11\nInferencia sobre Diferencias entre Parámetros\nslides\n\n\n12\nTest F: Significancia Conjunta\nslides\n\n\n13\nPropiedades Asintóticas\nslides\n\n\n14\nVariables Independientes Binarias\nslides",
+    "crumbs": [
+      "Modelos de Regresión"
+    ]
+  },
+  {
     "objectID": "material/modulo_02/s9.html",
     "href": "material/modulo_02/s9.html",
     "title": "Interpretación",
@@ -1482,7 +1558,7 @@
     "href": "material/modulo_02/s11.html#ejemplo-test-beta_1-beta_2",
     "title": "Inferencia sobre un conjunto de parámetros",
     "section": "Ejemplo: Test \\(\\beta_1 = \\beta_2\\)",
-    "text": "Ejemplo: Test \\(\\beta_1 = \\beta_2\\)\nContamos con la siguiente matriz de varianza-covarianza estimada \\(\\hat{V}(\\hat{\\beta})\\): \\[\\begin{bmatrix} 8497.05 & -251.21 & -49.67 \\\\ -251.21 & \\color{red}{42.58} & \\color{blue}{-2.84} \\\\ -49.67 & \\color{blue}{-2.84} & \\color{red}{1.42} \\end{bmatrix}\\]\nDatos adicionales: \\(\\hat{\\beta}_1 = 42\\), \\(\\hat{\\beta}_2 = 5\\), \\(n = 140\\).\n\nVarianza de la diferencia: \\(42.58 + 1.42 - 2(-2.84) = 49.68\\)\nError estándar: \\(\\sqrt{49.68} = 7.05\\)\nEstadístico t: \\(t = \\frac{42 - 5}{7.05} = 5.3\\)",
+    "text": "Ejemplo: Test \\(\\beta_1 = \\beta_2\\)\nContamos con la siguiente matriz de varianza-covarianza estimada \\(\\hat{V}(\\hat{\\beta})\\): \\[\\begin{bmatrix} 8497.05 & -251.21 & -49.67 \\\\ -251.21 & \\mathbf{42.58} & -2.84 \\\\ -49.67 & -2.84 & \\mathbf{1.42} \\end{bmatrix}\\]\nDatos adicionales: \\(\\hat{\\beta}_1 = 42\\), \\(\\hat{\\beta}_2 = 5\\), \\(n = 140\\).\n\nVarianza de la diferencia: \\(42.58 + 1.42 - 2(-2.84) = 49.68\\)\nError estándar: \\(\\sqrt{49.68} = 7.05\\)\nEstadístico t: \\(t = \\frac{42 - 5}{7.05} = 5.3\\)",
     "crumbs": [
       "Modelos de Regresión",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Inferencia sobre un conjunto de parámetros</span>"
@@ -1805,6 +1881,26 @@
     "crumbs": [
       "Modelos de Regresión",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Variables independientes binarias</span>"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/index.html",
+    "href": "material/modulo_03/index.html",
+    "title": "Aplicaciones Avanzadas",
+    "section": "",
+    "text": "Objetivo\nEste módulo amplía el alcance de la econometría hacia contextos más complejos y aplicados. Se estudian los modelos con variables dependientes binarias (MPL), los problemas de heterocedasticidad y multicolinealidad, la endogeneidad y su corrección mediante variables instrumentales (IV/MC2E), y el análisis de series de tiempo, incluyendo la autocorrelación, estacionariedad, modelos AR y MA, y el test de raíz unitaria de Dickey-Fuller. Al finalizar el módulo, el estudiante será capaz de identificar y corregir violaciones a los supuestos clásicos de MCO, aplicar estimadores robustos adecuados al contexto y trabajar con datos de series de tiempo de forma rigurosa.",
+    "crumbs": [
+      "Aplicaciones Avanzadas"
+    ]
+  },
+  {
+    "objectID": "material/modulo_03/index.html#contenidos",
+    "href": "material/modulo_03/index.html#contenidos",
+    "title": "Aplicaciones Avanzadas",
+    "section": "Contenidos",
+    "text": "Contenidos\n\n\n\n#\nTema\nPresentación\n\n\n\n\n15\nVariables Dependientes Binarias\nslides\n\n\n16\nHeterocedasticidad\nslides\n\n\n17\nEndogeneidad y Variables Instrumentales\nslides\n\n\n18\nMulticolinealidad\nslides\n\n\n19\nDependencia de Errores en Series de Tiempo\nslides\n\n\n20\nSeries de Tiempo\nslides\n\n\n21\nRaíces Unitarias y Tendencias\nslides",
+    "crumbs": [
+      "Aplicaciones Avanzadas"
     ]
   },
   {
@@ -2410,6 +2506,842 @@
     "crumbs": [
       "Aplicaciones Avanzadas",
       "<span class='chapter-number'>22</span>  <span class='chapter-title'>Raíces Unitarias y Tendencias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html",
+    "href": "material/anexos/estadistica_descriptiva_r.html",
+    "title": "Estadística Descriptiva",
+    "section": "",
+    "text": "Introducción\nLa estadística descriptiva resume y describe las características principales de un conjunto de datos sin extraer conclusiones hacia una población más amplia (eso corresponde a la estadística inferencial).\nLos estadísticos son funciones calculadas sobre los datos de una muestra:\n\\[f(X_1, X_2, \\ldots, X_n)\\]\nSus herramientas principales son:",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#media-aritmética-promedio",
+    "href": "material/anexos/estadistica_descriptiva_r.html#media-aritmética-promedio",
+    "title": "Estadística Descriptiva",
+    "section": "Media Aritmética (Promedio)",
+    "text": "Media Aritmética (Promedio)\nLa media muestral es el promedio simple de los \\(n\\) datos:\n\\[\\bar{X} = \\frac{1}{n}\\sum_{i=1}^{n} X_i\\]\nEn R: mean(x)\n\nPropiedades\n\n\n\n\n\n\n\n\nPropiedad\nFórmula\nDescripción\n\n\n\n\nLinealidad\n\\(\\overline{aX+b} = a\\bar{X}+b\\)\nInvariante a transformaciones lineales\n\n\nSuma de desviaciones\n\\(\\sum_{i=1}^n (X_i - \\bar{X}) = 0\\)\nLa media es el “centro de masa”\n\n\nSuma cuadrática mínima\n\\(\\operatorname{argmin}_c \\sum(X_i-c)^2 = \\bar{X}\\)\nMinimiza la suma de errores cuadráticos\n\n\nPonderada\n\\(\\bar{X}_w = \\frac{\\sum w_i X_i}{\\sum w_i}\\)\nCada dato tiene un peso \\(w_i\\) (weighted.mean)\n\n\n\n\nx &lt;- c(4, 7, 13, 2, 1)\ncat(\"Media:\", mean(x), \"\\n\")\n\nMedia: 5.4 \n\ncat(\"Suma desviaciones:\", round(sum(x - mean(x)), 10), \"\\n\")   # ≈ 0\n\nSuma desviaciones: 0 \n\n# Propiedad de linealidad: mean(a*x + b) = a*mean(x) + b\na &lt;- 3; b &lt;- 5\ncat(\"mean(3x+5):\", mean(a * x + b), \"== 3*mean(x)+5:\", a * mean(x) + b, \"\\n\")\n\nmean(3x+5): 21.2 == 3*mean(x)+5: 21.2 \n\n\n\nSensibilidad a outliers: La media se ve muy afectada por valores extremos. En distribuciones asimétricas es preferible usar la mediana.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#mediana",
+    "href": "material/anexos/estadistica_descriptiva_r.html#mediana",
+    "title": "Estadística Descriptiva",
+    "section": "Mediana",
+    "text": "Mediana\nDado el vector ordenado \\(X_{(1)} \\leq X_{(2)} \\leq \\cdots \\leq X_{(n)}\\):\n\\[\\text{Med} = \\begin{cases}\nX_{\\left(\\frac{n+1}{2}\\right)} & \\text{si } n \\text{ es impar} \\\\[6pt]\n\\dfrac{X_{(n/2)} + X_{(n/2+1)}}{2} & \\text{si } n \\text{ es par}\n\\end{cases}\\]\nEn R: median(x)\nEjemplo (n = 13, impar):\n\\[X_{(1)}, \\ldots, \\underbrace{X_{(7)}}_{\\text{mediana}}, \\ldots, X_{(13)}\\]\nEjemplo (n = 12, par):\n\\[X_{(1)}, \\ldots, \\underbrace{X_{(6)}, X_{(7)}}_{\\text{mediana} = \\frac{X_{(6)}+X_{(7)}}{2}}, \\ldots, X_{(12)}\\]\n\nPropiedades\n\n\n\n\n\n\n\nPropiedad\nDescripción\n\n\n\n\nRobustez\nNo se afecta por outliers\n\n\nSuma de desviaciones absolutas mínima\n\\(\\operatorname{argmin}_c \\sum |X_i - c| = \\text{Med}\\)\n\n\nLinealidad\n\\(\\text{Med}(aX+b) = a\\cdot\\text{Med}(X)+b\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#moda",
+    "href": "material/anexos/estadistica_descriptiva_r.html#moda",
+    "title": "Estadística Descriptiva",
+    "section": "Moda",
+    "text": "Moda\nEl valor que aparece con mayor frecuencia. Un conjunto puede ser unimodal, bimodal o multimodal. R base no tiene función mode() para estadística (usa table() + which.max()).\n\nmoda &lt;- function(x) as.numeric(names(which.max(table(x))))\nx2 &lt;- c(1, 2, 2, 3, 3, 3, 4)\ncat(\"Moda:\", moda(x2), \"\\n\")\n\nModa: 3",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#comparación-media-vs.-mediana",
+    "href": "material/anexos/estadistica_descriptiva_r.html#comparación-media-vs.-mediana",
+    "title": "Estadística Descriptiva",
+    "section": "Comparación Media vs. Mediana",
+    "text": "Comparación Media vs. Mediana\n\nsimetrica   &lt;- rnorm(500, 50, 10)\nasim_pos    &lt;- c(rnorm(450, 30, 5), runif(50, 60, 100))\nasim_neg    &lt;- c(runif(50, 0, 40),  rnorm(450, 70, 5))\n\ndf_asim &lt;- bind_rows(\n  data.frame(valor = simetrica, tipo = \"Distribución simétrica\"),\n  data.frame(valor = asim_pos,  tipo = \"Asimetría positiva (cola derecha)\"),\n  data.frame(valor = asim_neg,  tipo = \"Asimetría negativa (cola izquierda)\")\n) |&gt;\n  group_by(tipo) |&gt;\n  mutate(\n    media   = mean(valor),\n    mediana = median(valor)\n  ) |&gt;\n  ungroup() |&gt;\n  mutate(tipo = factor(tipo, levels = c(\n    \"Distribución simétrica\",\n    \"Asimetría positiva (cola derecha)\",\n    \"Asimetría negativa (cola izquierda)\"\n  )))\n\nggplot(df_asim, aes(x = valor)) +\n  geom_histogram(bins = 30, fill = \"#4C72B0\", colour = \"white\", alpha = 0.8) +\n  geom_vline(aes(xintercept = media,   colour = \"Media\"),   linewidth = 1.2, linetype = \"dashed\") +\n  geom_vline(aes(xintercept = mediana, colour = \"Mediana\"), linewidth = 1.2) +\n  scale_colour_manual(\n    name   = \"\",\n    values = c(\"Media\" = \"#DD4444\", \"Mediana\" = \"#228B22\")\n  ) +\n  facet_wrap(~tipo, scales = \"free\") +\n  labs(x = \"Valor\", y = \"Frecuencia\") +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\nFigura 25.1: Efecto de la asimetría sobre media y mediana",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#percentiles",
+    "href": "material/anexos/estadistica_descriptiva_r.html#percentiles",
+    "title": "Estadística Descriptiva",
+    "section": "Percentiles",
+    "text": "Percentiles\nEl percentil \\(p\\) (\\(P_p\\)) es el valor tal que el \\(p\\%\\) de los datos es menor o igual a él.\n\\[P_p = X_{\\left(\\lceil np/100 \\rceil\\right)}\\]\nEn R: quantile(x, probs = p/100) — R implementa 9 métodos distintos de interpolación (argumento type); el predeterminado es type = 7.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#cuartiles",
+    "href": "material/anexos/estadistica_descriptiva_r.html#cuartiles",
+    "title": "Estadística Descriptiva",
+    "section": "Cuartiles",
+    "text": "Cuartiles\nLos cuartiles dividen los datos en 4 partes iguales:\n\n\n\nCuartil\nEquivalente\nFunción R\nDescripción\n\n\n\n\n\\(q_1\\)\n\\(P_{25}\\)\nquantile(x, 0.25)\n25% de datos por debajo\n\n\n\\(q_2\\)\n\\(P_{50}\\) = Mediana\nmedian(x)\n50% de datos por debajo\n\n\n\\(q_3\\)\n\\(P_{75}\\)\nquantile(x, 0.75)\n75% de datos por debajo\n\n\n\nAnálogamente existen los quintiles (\\(P_{20}, P_{40}, \\ldots\\)) y deciles (\\(P_{10}, P_{20}, \\ldots\\)).\n\nx_ej &lt;- rnorm(200, 50, 10)\nquantile(x_ej, probs = c(0.25, 0.50, 0.75))\n\n     25%      50%      75% \n43.97503 49.97905 57.13860",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#rango",
+    "href": "material/anexos/estadistica_descriptiva_r.html#rango",
+    "title": "Estadística Descriptiva",
+    "section": "Rango",
+    "text": "Rango\n\\[\\text{Rango} = X_{(n)} - X_{(1)} = \\max - \\min\\]\nEn R: diff(range(x)) o max(x) - min(x)\n\nMuy simple pero extremadamente sensible a outliers.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#rango-intercuartílico-riq",
+    "href": "material/anexos/estadistica_descriptiva_r.html#rango-intercuartílico-riq",
+    "title": "Estadística Descriptiva",
+    "section": "Rango Intercuartílico (RIQ)",
+    "text": "Rango Intercuartílico (RIQ)\n\\[\\text{RIQ} = q_3 - q_1\\]\nEn R: IQR(x)\nRepresenta la dispersión del 50% central de los datos. Es robusto ante outliers.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#varianza-muestral",
+    "href": "material/anexos/estadistica_descriptiva_r.html#varianza-muestral",
+    "title": "Estadística Descriptiva",
+    "section": "Varianza Muestral",
+    "text": "Varianza Muestral\n\\[S^2 = \\frac{\\sum_{i=1}^{n}(X_i - \\bar{X})^2}{n-1}\\]\nEn R: var(x) (usa divisor \\(n-1\\) por defecto).\nEl denominador \\(n-1\\) corresponde a los grados de libertad y hace que \\(S^2\\) sea un estimador insesgado de la varianza poblacional \\(\\sigma^2\\).\n\nFórmula computacional equivalente\n\\[S^2 = \\frac{\\sum_{i=1}^n X_i^2 - n\\bar{X}^2}{n-1}\n     = \\frac{1}{n-1}\\left(\\sum X_i^2 - \\frac{(\\sum X_i)^2}{n}\\right)\\]\n\n\nPropiedades\n\n\n\nPropiedad\nFórmula\n\n\n\n\nNo negatividad\n\\(S^2 \\geq 0\\)\n\n\nTraslación\n\\(\\text{Var}(X+b) = \\text{Var}(X)\\)\n\n\nEscala\n\\(\\text{Var}(aX) = a^2\\,\\text{Var}(X)\\)\n\n\nTransformación lineal\n\\(\\text{Var}(aX+b) = a^2\\,\\text{Var}(X)\\)\n\n\n\n\nx_v &lt;- rnorm(100, 50, 10)\na &lt;- 3; b &lt;- 5\ncat(\"Var(x)     :\", round(var(x_v), 4), \"\\n\")\n\nVar(x)     : 113.6546 \n\ncat(\"Var(x + 5) :\", round(var(x_v + b), 4), \"  (igual, traslación)\\n\")\n\nVar(x + 5) : 113.6546   (igual, traslación)\n\ncat(\"Var(3x)    :\", round(var(a * x_v), 4), \"== 9*Var(x):\", round(a^2 * var(x_v), 4), \"\\n\")\n\nVar(3x)    : 1022.891 == 9*Var(x): 1022.891",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#desviación-estándar-muestral",
+    "href": "material/anexos/estadistica_descriptiva_r.html#desviación-estándar-muestral",
+    "title": "Estadística Descriptiva",
+    "section": "Desviación Estándar Muestral",
+    "text": "Desviación Estándar Muestral\n\\[S = \\sqrt{S^2} = \\sqrt{\\frac{\\sum_{i=1}^{n}(X_i - \\bar{X})^2}{n-1}}\\]\nEn R: sd(x)\nTiene las mismas unidades que los datos originales, a diferencia de la varianza.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#coeficiente-de-variación-cv",
+    "href": "material/anexos/estadistica_descriptiva_r.html#coeficiente-de-variación-cv",
+    "title": "Estadística Descriptiva",
+    "section": "Coeficiente de Variación (CV)",
+    "text": "Coeficiente de Variación (CV)\nPermite comparar dispersiones de variables con distintas escalas:\n\\[CV = \\frac{S}{|\\bar{X}|} \\times 100\\%\\]\n\nUn CV &lt; 15% sugiere baja variabilidad; CV &gt; 30% indica alta variabilidad.\n\n\ncv &lt;- function(x) sd(x) / abs(mean(x)) * 100\ncat(\"CV(x_ej) =\", round(cv(x_ej), 2), \"%\\n\")\n\nCV(x_ej) = 19.8 %",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#resumen-de-medidas-de-dispersión",
+    "href": "material/anexos/estadistica_descriptiva_r.html#resumen-de-medidas-de-dispersión",
+    "title": "Estadística Descriptiva",
+    "section": "Resumen de medidas de dispersión",
+    "text": "Resumen de medidas de dispersión\n\ndata_ej &lt;- rnorm(200, 50, 10)\nq1v &lt;- quantile(data_ej, 0.25)\nq3v &lt;- quantile(data_ej, 0.75)\n\ntibble(\n  Medida     = c(\"Rango\", \"RIQ\", \"Varianza muestral\", \"Desv. estándar\", \"CV (%)\"),\n  `Función R` = c(\"diff(range(x))\", \"IQR(x)\", \"var(x)\", \"sd(x)\", \"sd/mean × 100\"),\n  Valor      = c(\n    round(diff(range(data_ej)), 2),\n    round(IQR(data_ej), 2),\n    round(var(data_ej), 2),\n    round(sd(data_ej), 2),\n    round(cv(data_ej), 2)\n  ),\n  Robustez   = c(\"Baja\", \"Alta\", \"Baja\", \"Baja\", \"Moderada\"),\n  Unidades   = c(\"mismas que X\", \"mismas que X\", \"X²\", \"mismas que X\", \"adimensional\")\n) |&gt;\n  kable(align = \"lllcc\") |&gt;\n  kable_styling(bootstrap_options = c(\"striped\", \"hover\"), full_width = FALSE) |&gt;\n  column_spec(1, bold = TRUE)\n\n\n\nTabla 27.1: Comparación de medidas de dispersión\n\n\n\n\n\n\nMedida\nFunción R\nValor\nRobustez\nUnidades\n\n\n\n\nRango\ndiff(range(x))\n44.80\nBaja\nmismas que X\n\n\nRIQ\nIQR(x)\n14.71\nAlta\nmismas que X\n\n\nVarianza muestral\nvar(x)\n99.35\nBaja\nX²\n\n\nDesv. estándar\nsd(x)\n9.97\nBaja\nmismas que X\n\n\nCV (%)\nsd/mean × 100\n20.03\nModerada\nadimensional",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#asimetría-skewness",
+    "href": "material/anexos/estadistica_descriptiva_r.html#asimetría-skewness",
+    "title": "Estadística Descriptiva",
+    "section": "Asimetría (Skewness)",
+    "text": "Asimetría (Skewness)\nMide la desviación de la distribución respecto a la simetría:\n\\[\\text{Asimetría} = \\frac{1}{n}\\sum_{i=1}^n \\left(\\frac{X_i - \\bar{X}}{S}\\right)^3\\]\nEn R: e1071::skewness(x) o moments::skewness(x).\n\n\n\nValor\nInterpretación\n\n\n\n\n\\(= 0\\)\nDistribución simétrica\n\n\n\\(&gt; 0\\)\nAsimetría positiva (cola derecha) → \\(\\bar{X} &gt; \\text{Med}\\)\n\n\n\\(&lt; 0\\)\nAsimetría negativa (cola izquierda) → \\(\\bar{X} &lt; \\text{Med}\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#curtosis-kurtosis",
+    "href": "material/anexos/estadistica_descriptiva_r.html#curtosis-kurtosis",
+    "title": "Estadística Descriptiva",
+    "section": "Curtosis (Kurtosis)",
+    "text": "Curtosis (Kurtosis)\nMide qué tan “puntiaguda” o “plana” es la distribución respecto a la normal:\n\\[\\text{Curtosis} = \\frac{1}{n}\\sum_{i=1}^n \\left(\\frac{X_i - \\bar{X}}{S}\\right)^4 - 3\\]\nEn R: e1071::kurtosis(x) (excess kurtosis, ya resta 3).\n\n\n\nValor\nTipo\nDescripción\n\n\n\n\n\\(= 0\\)\nMesocúrtica\nSimilar a la normal\n\n\n\\(&gt; 0\\)\nLeptocúrtica\nMás puntiaguda, colas pesadas\n\n\n\\(&lt; 0\\)\nPlaticúrtica\nMás plana, colas ligeras\n\n\n\n\ncat(\"Asimetría :\", round(skewness(data_ej), 4), \"\\n\")\n\nAsimetría : 0.1356 \n\ncat(\"Curtosis  :\", round(kurtosis(data_ej), 4), \"\\n\")\n\nCurtosis  : -0.6052",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#histograma",
+    "href": "material/anexos/estadistica_descriptiva_r.html#histograma",
+    "title": "Estadística Descriptiva",
+    "section": "Histograma",
+    "text": "Histograma\nDivide el rango en \\(k\\) intervalos y cuenta las observaciones en cada uno.\nRegla de Sturges para elegir el número de intervalos: \\[k = 1 + \\log_2(n) \\approx 1 + 3.322\\,\\log_{10}(n)\\]\n\neduc &lt;- c(sample(11:12, 220, replace = TRUE),\n          sample(13:17, 80,  replace = TRUE))\n\nggplot(data.frame(educ), aes(x = educ)) +\n  geom_histogram(bins = 15, fill = \"#4C72B0\", colour = \"white\", alpha = 0.85) +\n  geom_vline(aes(xintercept = mean(educ),   colour = \"Media\"),\n             linewidth = 1.3, linetype = \"dashed\") +\n  geom_vline(aes(xintercept = median(educ), colour = \"Mediana\"),\n             linewidth = 1.3) +\n  scale_colour_manual(\n    name   = \"\",\n    values = c(\"Media\" = \"#DD4444\", \"Mediana\" = \"#228B22\")\n  ) +\n  labs(\n    title = \"Distribución de los Años de Educación\",\n    x     = \"Años de educación\",\n    y     = \"Frecuencia\"\n  )\n\n\n\n\n\n\n\nFigura 30.1: Histograma con media y mediana",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#boxplot-gráfico-de-caja",
+    "href": "material/anexos/estadistica_descriptiva_r.html#boxplot-gráfico-de-caja",
+    "title": "Estadística Descriptiva",
+    "section": "Boxplot (Gráfico de Caja)",
+    "text": "Boxplot (Gráfico de Caja)\nEl boxplot resume visualmente 5 estadísticos clave:\n\\[\\text{Bigote superior} = \\min\\!\\left(q_3 + 1.5\\,\\text{RIQ},\\; X_{(n)}\\right)\\] \\[\\text{Bigote inferior} = \\max\\!\\left(q_1 - 1.5\\,\\text{RIQ},\\; X_{(1)}\\right)\\]\nLos puntos fuera de los bigotes son considerados outliers.\n\nwage &lt;- c(rnorm(400, 5, 2), runif(26, 15, 26))\nwage &lt;- wage[wage &gt; 0]\n\nq1w  &lt;- quantile(wage, 0.25)\nq3w  &lt;- quantile(wage, 0.75)\nmedw &lt;- median(wage)\nriqw &lt;- IQR(wage)\n\nggplot(data.frame(wage), aes(x = \"\", y = wage)) +\n  geom_boxplot(\n    fill       = \"#AED6F1\",\n    colour     = \"#2980B9\",\n    outlier.colour = \"red\",\n    outlier.alpha  = 0.6,\n    linewidth  = 0.9,\n    width      = 0.4\n  ) +\n  # Anotaciones\n  annotate(\"text\", x = 1.32, y = medw, label = \"Mediana (q₂)\",\n           hjust = 0, size = 3.5, colour = \"#154360\") +\n  annotate(\"text\", x = 1.32, y = q3w,  label = \"q₃ (tercer cuartil)\",\n           hjust = 0, size = 3.5, colour = \"#2980B9\") +\n  annotate(\"text\", x = 1.32, y = q1w,  label = \"q₁ (primer cuartil)\",\n           hjust = 0, size = 3.5, colour = \"#2980B9\") +\n  annotate(\"label\", x = 0.68, y = (q1w + q3w) / 2,\n           label  = paste0(\"RIQ = \", round(riqw, 1)),\n           size   = 3.5, colour = \"#117A65\",\n           fill   = \"#D5F5E3\", label.size = 0.4) +\n  annotate(\"text\", x = 1.32, y = 22, label = \"Outliers\",\n           hjust = 0, size = 3.5, colour = \"red\") +\n  scale_x_discrete(labels = NULL) +\n  labs(\n    title = \"Box Plot de la variable wage\",\n    x     = NULL,\n    y     = \"wage (salario por hora)\"\n  )\n\nWarning in annotate(\"label\", x = 0.68, y = (q1w + q3w)/2, label = paste0(\"RIQ =\n\", : Ignoring unknown parameters: `label.size`\n\n\n\n\n\n\n\n\nFigura 30.2: Anatomía del boxplot — variable wage\n\n\n\n\n\n\nAnatomía del Boxplot\n\n\n\nElemento\nDefinición\n\n\n\n\nLínea central\nMediana (\\(q_2\\))\n\n\nBorde superior de la caja\n\\(q_3\\)\n\n\nBorde inferior de la caja\n\\(q_1\\)\n\n\nLargo de la caja\nRIQ \\(= q_3 - q_1\\)\n\n\nBigote superior\n\\(\\min(q_3 + 1.5\\,\\text{RIQ},\\; X_{(n)})\\)\n\n\nBigote inferior\n\\(\\max(q_1 - 1.5\\,\\text{RIQ},\\; X_{(1)})\\)\n\n\nPuntos aislados\nOutliers",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/estadistica_descriptiva_r.html#diagrama-de-dispersión",
+    "href": "material/anexos/estadistica_descriptiva_r.html#diagrama-de-dispersión",
+    "title": "Estadística Descriptiva",
+    "section": "Diagrama de Dispersión",
+    "text": "Diagrama de Dispersión\nÚtil para explorar la relación entre dos variables numéricas \\(X\\) e \\(Y\\).\n\ndf_sc &lt;- data.frame(\n  educ2 = sample(8:17, 300, replace = TRUE)\n) |&gt;\n  mutate(wage2 = 1.5 * educ2 + rnorm(300, 0, 3))\n\nggplot(df_sc, aes(x = educ2, y = wage2)) +\n  geom_point(colour = \"#4C72B0\", alpha = 0.5, size = 2) +\n  geom_smooth(method = \"lm\", se = FALSE, colour = \"#DD4444\", linewidth = 1.2) +\n  labs(\n    title = \"Educación vs. Salario\",\n    x     = \"Años de educación\",\n    y     = \"Salario por hora\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nFigura 30.3: Diagrama de dispersión: educación vs. salario",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Estadística Descriptiva</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html",
+    "href": "material/anexos/variables_aleatorias.html",
+    "title": "Variables Aleatorias",
+    "section": "",
+    "text": "Variables Aleatorias",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#definición",
+    "href": "material/anexos/variables_aleatorias.html#definición",
+    "title": "Variables Aleatorias",
+    "section": "Definición",
+    "text": "Definición\nUna variable aleatoria (v.a.) es una función medible que asigna un número real a cada resultado de un espacio muestral \\(\\Omega\\):\n\\[X : \\Omega \\longrightarrow \\mathbb{R}\\]\nSe clasifican en:\n\n\n\n\n\n\n\n\nTipo\nDescripción\nEjemplo\n\n\n\n\nDiscreta\nToma valores en un conjunto numerable\nNúmero de hijos, lanzamiento de dado\n\n\nContinua\nToma valores en un intervalo de \\(\\mathbb{R}\\)\nAltura, temperatura, salario",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#función-de-distribución-acumulada-fda",
+    "href": "material/anexos/variables_aleatorias.html#función-de-distribución-acumulada-fda",
+    "title": "Variables Aleatorias",
+    "section": "Función de Distribución Acumulada (FDA)",
+    "text": "Función de Distribución Acumulada (FDA)\nPara cualquier v.a. \\(X\\) (discreta o continua), la FDA se define como:\n\\[F_X(x) = P(X \\leq x), \\qquad x \\in \\mathbb{R}\\]\n\nPropiedades de la FDA\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\nAcotación\n\\(0 \\leq F_X(x) \\leq 1\\) para todo \\(x\\)\n\n\nMonotonicidad\n\\(F_X\\) es no decreciente\n\n\nLímites\n\\(\\lim_{x \\to -\\infty} F_X(x) = 0 \\;\\) y \\(\\; \\lim_{x \\to +\\infty} F_X(x) = 1\\)\n\n\nContinuidad por derecha\n\\(\\lim_{h \\to 0^+} F_X(x+h) = F_X(x)\\)\n\n\nProbabilidad de intervalo\n\\(P(a &lt; X \\leq b) = F_X(b) - F_X(a)\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#función-de-masa-densidad-de-probabilidad",
+    "href": "material/anexos/variables_aleatorias.html#función-de-masa-densidad-de-probabilidad",
+    "title": "Variables Aleatorias",
+    "section": "Función de Masa / Densidad de Probabilidad",
+    "text": "Función de Masa / Densidad de Probabilidad\nCaso discreto — función de masa de probabilidad (f.m.p.):\n\\[p_X(x_k) = P(X = x_k) \\geq 0, \\qquad \\sum_k p_X(x_k) = 1\\]\nCaso continuo — función de densidad de probabilidad (f.d.p.):\n\\[f_X(x) \\geq 0, \\qquad \\int_{-\\infty}^{+\\infty} f_X(x)\\,dx = 1\\]\n\\[P(a \\leq X \\leq b) = \\int_a^b f_X(x)\\,dx, \\qquad F_X(x) = \\int_{-\\infty}^x f_X(t)\\,dt\\]\n\nNota: Para v.a. continuas, \\(P(X = x) = 0\\) para cualquier valor puntual \\(x\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#definición-1",
+    "href": "material/anexos/variables_aleatorias.html#definición-1",
+    "title": "Variables Aleatorias",
+    "section": "Definición",
+    "text": "Definición\nLa esperanza \\(E[X]\\) mide el valor promedio que tomaría \\(X\\) en infinitas repeticiones:\n\\[E[X] = \\begin{cases}\n\\displaystyle\\sum_k x_k\\, p_X(x_k) & \\text{caso discreto} \\\\[10pt]\n\\displaystyle\\int_{-\\infty}^{+\\infty} x\\, f_X(x)\\,dx & \\text{caso continuo}\n\\end{cases}\\]\nTambién se denota \\(\\mu_X\\) o simplemente \\(\\mu\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#esperanza-de-una-transformación",
+    "href": "material/anexos/variables_aleatorias.html#esperanza-de-una-transformación",
+    "title": "Variables Aleatorias",
+    "section": "Esperanza de una Transformación",
+    "text": "Esperanza de una Transformación\nLey del estadístico inconsciente (LOTUS):\n\\[E[g(X)] = \\begin{cases}\n\\displaystyle\\sum_k g(x_k)\\, p_X(x_k) & \\text{discreto} \\\\[10pt]\n\\displaystyle\\int_{-\\infty}^{+\\infty} g(x)\\, f_X(x)\\,dx & \\text{continuo}\n\\end{cases}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#propiedades-de-la-esperanza",
+    "href": "material/anexos/variables_aleatorias.html#propiedades-de-la-esperanza",
+    "title": "Variables Aleatorias",
+    "section": "Propiedades de la Esperanza",
+    "text": "Propiedades de la Esperanza\nSea \\(X\\), \\(Y\\) v.a. y \\(a, b \\in \\mathbb{R}\\) constantes:\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nP1\nConstante\n\\(E[a] = a\\)\n\n\nP2\nLinealidad\n\\(E[aX + b] = a\\,E[X] + b\\)\n\n\nP3\nAditividad\n\\(E[X + Y] = E[X] + E[Y]\\)\n\n\nP4\nHomogeneidad\n\\(E[aX] = a\\,E[X]\\)\n\n\nP5\nIndependencia\nSi \\(X \\perp Y\\), entonces \\(E[XY] = E[X]\\,E[Y]\\)\n\n\nP6\nNo negatividad\nSi \\(X \\geq 0\\), entonces \\(E[X] \\geq 0\\)\n\n\nP7\nMonotonía\nSi \\(X \\leq Y\\), entonces \\(E[X] \\leq E[Y]\\)\n\n\nP8\nPotencias\n$E[X^n] = $ \\(n\\)-ésimo momento (ver §3)\n\n\n\n\n\n\n\n\n\nImportanteLa linealidad de la esperanza es siempre válida\n\n\n\nLas propiedades P2 y P3 valen sin importar si \\(X\\) e \\(Y\\) son independientes o no. Esto es una de las herramientas más poderosas del cálculo probabilístico.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#momentos",
+    "href": "material/anexos/variables_aleatorias.html#momentos",
+    "title": "Variables Aleatorias",
+    "section": "Momentos",
+    "text": "Momentos\nEl \\(n\\)-ésimo momento de \\(X\\) respecto al origen es:\n\\[\\mu'_n = E[X^n]\\]\nEl \\(n\\)-ésimo momento central (respecto a la media) es:\n\\[\\mu_n = E\\!\\left[(X - \\mu)^n\\right]\\]\n\n\n\nMomento central\nNombre\nFórmula\n\n\n\n\n\\(\\mu_1\\)\n—\n\\(0\\) (por definición)\n\n\n\\(\\mu_2\\)\nVarianza\n\\(\\text{Var}(X)\\)\n\n\n\\(\\mu_3 / \\sigma^3\\)\nAsimetría (skewness)\n\\(\\gamma_1\\)\n\n\n\\(\\mu_4 / \\sigma^4 - 3\\)\nCurtosis excess\n\\(\\gamma_2\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#desigualdades-clásicas",
+    "href": "material/anexos/variables_aleatorias.html#desigualdades-clásicas",
+    "title": "Variables Aleatorias",
+    "section": "Desigualdades Clásicas",
+    "text": "Desigualdades Clásicas\nDesigualdad de Markov (requiere \\(X \\geq 0\\)):\n\\[P(X \\geq a) \\leq \\frac{E[X]}{a}, \\qquad a &gt; 0\\]\nDesigualdad de Chebyshev (requiere solo \\(\\text{Var}(X) &lt; \\infty\\)):\n\\[P\\!\\left(|X - \\mu| \\geq k\\sigma\\right) \\leq \\frac{1}{k^2}, \\qquad k &gt; 0\\]\nEquivalentemente: al menos \\(1 - 1/k^2\\) de la masa probabilística cae en \\((\\mu - k\\sigma,\\; \\mu + k\\sigma)\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#definición-2",
+    "href": "material/anexos/variables_aleatorias.html#definición-2",
+    "title": "Variables Aleatorias",
+    "section": "Definición",
+    "text": "Definición\n\\[\\text{Var}(X) = \\sigma^2_X = E\\!\\left[(X - \\mu)^2\\right]\\]\n\nFórmula computacional\n\\[\\text{Var}(X) = E[X^2] - \\left(E[X]\\right)^2\\]\nDemostración: \\[E[(X-\\mu)^2] = E[X^2 - 2\\mu X + \\mu^2]\n= E[X^2] - 2\\mu E[X] + \\mu^2\n= E[X^2] - 2\\mu^2 + \\mu^2\n= E[X^2] - \\mu^2\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#propiedades-de-la-varianza",
+    "href": "material/anexos/variables_aleatorias.html#propiedades-de-la-varianza",
+    "title": "Variables Aleatorias",
+    "section": "Propiedades de la Varianza",
+    "text": "Propiedades de la Varianza\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nV1\nNo negatividad\n\\(\\text{Var}(X) \\geq 0\\)\n\n\nV2\nNulidad\n\\(\\text{Var}(X) = 0 \\iff X = c\\) (constante c.s.)\n\n\nV3\nConstante\n\\(\\text{Var}(c) = 0\\)\n\n\nV4\nTraslación\n\\(\\text{Var}(X + b) = \\text{Var}(X)\\)\n\n\nV5\nEscala\n\\(\\text{Var}(aX) = a^2\\,\\text{Var}(X)\\)\n\n\nV6\nLineal\n\\(\\text{Var}(aX + b) = a^2\\,\\text{Var}(X)\\)\n\n\nV7\nSuma (independientes)\nSi \\(X \\perp Y\\): \\(\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y)\\)\n\n\nV8\nSuma (general)\n\\(\\text{Var}(X + Y) = \\text{Var}(X) + \\text{Var}(Y) + 2\\,\\text{Cov}(X,Y)\\)\n\n\n\n\nGeneralización a \\(n\\) variables\n\\[\\text{Var}\\!\\left(\\sum_{i=1}^n a_i X_i\\right)\n= \\sum_{i=1}^n a_i^2\\,\\text{Var}(X_i)\n+ 2\\sum_{i &lt; j} a_i a_j\\,\\text{Cov}(X_i, X_j)\\]\nSi todas son mutuamente independientes:\n\\[\\text{Var}\\!\\left(\\sum_{i=1}^n a_i X_i\\right) = \\sum_{i=1}^n a_i^2\\,\\text{Var}(X_i)\\]\nCaso especial importante — media muestral \\(\\bar{X} = \\frac{1}{n}\\sum X_i\\) con \\(X_i\\) i.i.d.:\n\\[\\text{Var}(\\bar{X}) = \\frac{\\sigma^2}{n}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#covarianza",
+    "href": "material/anexos/variables_aleatorias.html#covarianza",
+    "title": "Variables Aleatorias",
+    "section": "Covarianza",
+    "text": "Covarianza\n\\[\\text{Cov}(X, Y) = E\\!\\left[(X - \\mu_X)(Y - \\mu_Y)\\right]\\]\n\nFórmula computacional\n\\[\\text{Cov}(X, Y) = E[XY] - E[X]\\,E[Y]\\]\n\n\nPropiedades de la Covarianza\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nC1\nSimetría\n\\(\\text{Cov}(X, Y) = \\text{Cov}(Y, X)\\)\n\n\nC2\nVarianza propia\n\\(\\text{Cov}(X, X) = \\text{Var}(X)\\)\n\n\nC3\nConstante\n\\(\\text{Cov}(X, c) = 0\\)\n\n\nC4\nBilinealidad\n\\(\\text{Cov}(aX + b, cY + d) = ac\\,\\text{Cov}(X,Y)\\)\n\n\nC5\nAditividad\n\\(\\text{Cov}(X+Z, Y) = \\text{Cov}(X,Y) + \\text{Cov}(Z,Y)\\)\n\n\nC6\nIndependencia\nSi \\(X \\perp Y \\Rightarrow \\text{Cov}(X,Y) = 0\\) (recíproco falso en general)\n\n\nC7\nDesigualdad de Cauchy-Schwarz\n\\(|\\text{Cov}(X,Y)|^2 \\leq \\text{Var}(X)\\,\\text{Var}(Y)\\)\n\n\n\n\n\n\n\n\n\nAdvertenciaCovarianza cero \\(\\not\\Rightarrow\\) independencia\n\n\n\nSi \\(X \\sim U(-1,1)\\) e \\(Y = X^2\\), entonces \\(\\text{Cov}(X,Y) = 0\\) pero \\(Y\\) depende funcionalmente de \\(X\\). La independencia implica covarianza cero, pero no al revés.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#correlación-de-pearson",
+    "href": "material/anexos/variables_aleatorias.html#correlación-de-pearson",
+    "title": "Variables Aleatorias",
+    "section": "Correlación de Pearson",
+    "text": "Correlación de Pearson\nLa covarianza depende de las unidades. La correlación estandariza:\n\\[\\rho_{XY} = \\text{Corr}(X, Y) = \\frac{\\text{Cov}(X, Y)}{\\sigma_X\\,\\sigma_Y}\\]\n\nPropiedades\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\nAcotación\n\\(-1 \\leq \\rho_{XY} \\leq 1\\)\n\n\nLineal perfecta\n\\(|\\rho_{XY}| = 1 \\iff Y = aX + b\\) c.s.\n\n\nDirección\n\\(\\rho &gt; 0\\): relación directa; \\(\\rho &lt; 0\\): relación inversa; \\(\\rho = 0\\): sin correlación lineal\n\n\nInvarianza a escala\n\\(\\text{Corr}(aX+b,\\, cY+d) = \\text{sign}(ac)\\,\\rho_{XY}\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#matriz-de-covarianzas",
+    "href": "material/anexos/variables_aleatorias.html#matriz-de-covarianzas",
+    "title": "Variables Aleatorias",
+    "section": "Matriz de Covarianzas",
+    "text": "Matriz de Covarianzas\nPara el vector aleatorio \\(\\mathbf{X} = (X_1, \\ldots, X_p)^\\top\\):\n\\[\\boldsymbol{\\Sigma} = \\text{Cov}(\\mathbf{X}) = E\\!\\left[(\\mathbf{X} - \\boldsymbol{\\mu})(\\mathbf{X} - \\boldsymbol{\\mu})^\\top\\right]\\]\ndonde \\(\\Sigma_{ij} = \\text{Cov}(X_i, X_j)\\) y \\(\\Sigma_{ii} = \\text{Var}(X_i)\\).\nPropiedades de \\(\\boldsymbol{\\Sigma}\\):\n\nSimétrica: \\(\\boldsymbol{\\Sigma} = \\boldsymbol{\\Sigma}^\\top\\)\nSemidefinida positiva: \\(\\mathbf{v}^\\top \\boldsymbol{\\Sigma}\\, \\mathbf{v} \\geq 0\\) para todo \\(\\mathbf{v}\\)\nPara \\(\\mathbf{Y} = A\\mathbf{X} + \\mathbf{b}\\): \\(\\;\\text{Cov}(\\mathbf{Y}) = A\\,\\boldsymbol{\\Sigma}\\,A^\\top\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-condicional",
+    "href": "material/anexos/variables_aleatorias.html#distribución-condicional",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Condicional",
+    "text": "Distribución Condicional\nCaso discreto:\n\\[P(X = x \\mid Y = y) = \\frac{P(X=x,\\; Y=y)}{P(Y=y)}\\]\nCaso continuo:\n\\[f_{X|Y}(x \\mid y) = \\frac{f_{X,Y}(x, y)}{f_Y(y)}, \\qquad f_Y(y) &gt; 0\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#esperanza-condicional",
+    "href": "material/anexos/variables_aleatorias.html#esperanza-condicional",
+    "title": "Variables Aleatorias",
+    "section": "Esperanza Condicional",
+    "text": "Esperanza Condicional\n\\[E[X \\mid Y = y] = \\begin{cases}\n\\displaystyle\\sum_x x\\,P(X=x \\mid Y=y) & \\text{discreto} \\\\[8pt]\n\\displaystyle\\int x\\, f_{X|Y}(x \\mid y)\\,dx & \\text{continuo}\n\\end{cases}\\]\nNótese que \\(E[X \\mid Y]\\) es una variable aleatoria (función de \\(Y\\)).\n\nPropiedades de la Esperanza Condicional\n\n\n\n\n\n\n\n\n#\nPropiedad\nEnunciado\n\n\n\n\nEC1\nLinealidad\n\\(E[aX + bZ \\mid Y] = a\\,E[X\\mid Y] + b\\,E[Z\\mid Y]\\)\n\n\nEC2\nTorre (LIE)\n\\(E[E[X \\mid Y]] = E[X]\\)\n\n\nEC3\nExtracción\n\\(E[g(Y)\\,X \\mid Y] = g(Y)\\,E[X \\mid Y]\\)\n\n\nEC4\nIndependencia\nSi \\(X \\perp Y\\): \\(E[X \\mid Y] = E[X]\\)\n\n\nEC5\nFunción de Y\n\\(E[g(Y) \\mid Y] = g(Y)\\)\n\n\n\n\n\n\n\n\n\nNotaLey de la Esperanza Total (LET) / Ley de la Torre\n\n\n\n\\[E[X] = E\\!\\left[E[X \\mid Y]\\right] = \\sum_y E[X \\mid Y=y]\\,P(Y=y)\\]\nEsta ley es central en econometría: permite descomponer \\(E[Y \\mid X]\\) en subpoblaciones.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#varianza-condicional",
+    "href": "material/anexos/variables_aleatorias.html#varianza-condicional",
+    "title": "Variables Aleatorias",
+    "section": "Varianza Condicional",
+    "text": "Varianza Condicional\n\\[\\text{Var}(X \\mid Y) = E\\!\\left[(X - E[X\\mid Y])^2 \\mid Y\\right] = E[X^2 \\mid Y] - \\left(E[X \\mid Y]\\right)^2\\]\n\nLey de la Varianza Total (Descomposición EVE)\n\\[\\text{Var}(X) = \\underbrace{E[\\text{Var}(X \\mid Y)]}_{\\text{varianza intra-grupo (inexplicada)}}\n+ \\underbrace{\\text{Var}(E[X \\mid Y])}_{\\text{varianza inter-grupo (explicada por }Y\\text{)}}\\]\nEsta descomposición es el fundamento del análisis de varianza (ANOVA) y del \\(R^2\\) en regresión lineal.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#definición-3",
+    "href": "material/anexos/variables_aleatorias.html#definición-3",
+    "title": "Variables Aleatorias",
+    "section": "Definición",
+    "text": "Definición\nLa función generatriz de momentos (fgm) de \\(X\\) es:\n\\[M_X(t) = E\\!\\left[e^{tX}\\right], \\qquad t \\in \\mathbb{R}\\]\ncuando existe en un entorno de \\(t = 0\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#propiedades-1",
+    "href": "material/anexos/variables_aleatorias.html#propiedades-1",
+    "title": "Variables Aleatorias",
+    "section": "Propiedades",
+    "text": "Propiedades\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\nMomentos\n\\(E[X^n] = M_X^{(n)}(0) = \\left.\\dfrac{d^n}{dt^n}M_X(t)\\right|_{t=0}\\)\n\n\nUnicidad\nSi \\(M_X(t) = M_Y(t)\\) en un entorno de 0, entonces \\(F_X = F_Y\\)\n\n\nIndependencia\nSi \\(X \\perp Y\\): \\(M_{X+Y}(t) = M_X(t)\\cdot M_Y(t)\\)\n\n\nLineal\n\\(M_{aX+b}(t) = e^{bt}\\,M_X(at)\\)\n\n\n\nLa fgm es especialmente útil para demostrar que la suma de normales independientes es normal, la suma de Poisson independientes es Poisson, etc.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-normal-mathcalnmu-sigma2",
+    "href": "material/anexos/variables_aleatorias.html#distribución-normal-mathcalnmu-sigma2",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Normal \\(\\mathcal{N}(\\mu, \\sigma^2)\\)",
+    "text": "Distribución Normal \\(\\mathcal{N}(\\mu, \\sigma^2)\\)\n\\[f(x) = \\frac{1}{\\sigma\\sqrt{2\\pi}}\\exp\\!\\left(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\right), \\qquad x \\in \\mathbb{R}\\]\n\n\n\nParámetro / Momento\nValor\n\n\n\n\nSoporte\n\\((-\\infty, +\\infty)\\)\n\n\n\\(E[X]\\)\n\\(\\mu\\)\n\n\n\\(\\text{Var}(X)\\)\n\\(\\sigma^2\\)\n\n\n\\(M_X(t)\\)\n\\(\\exp\\!\\left(\\mu t + \\frac{\\sigma^2 t^2}{2}\\right)\\)\n\n\nSkewness\n\\(0\\)\n\n\nCurtosis excess\n\\(0\\)\n\n\n\nPropiedades clave:\n\nSi \\(X \\sim \\mathcal{N}(\\mu, \\sigma^2)\\), entonces \\(Z = \\dfrac{X - \\mu}{\\sigma} \\sim \\mathcal{N}(0,1)\\)\nSi \\(X_i \\overset{\\text{iid}}{\\sim} \\mathcal{N}(\\mu_i, \\sigma_i^2)\\) independientes, entonces \\(\\sum_i a_i X_i \\sim \\mathcal{N}\\!\\left(\\sum a_i\\mu_i,\\; \\sum a_i^2\\sigma_i^2\\right)\\)\nLa normal es la única distribución simétrica y estable bajo suma (hasta escala)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-chi-cuadrado-chi2_nu",
+    "href": "material/anexos/variables_aleatorias.html#distribución-chi-cuadrado-chi2_nu",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Chi-Cuadrado \\(\\chi^2_\\nu\\)",
+    "text": "Distribución Chi-Cuadrado \\(\\chi^2_\\nu\\)\nSi \\(Z_1, \\ldots, Z_\\nu \\overset{\\text{iid}}{\\sim} \\mathcal{N}(0,1)\\), entonces:\n\\[Q = \\sum_{i=1}^\\nu Z_i^2 \\sim \\chi^2_\\nu\\]\n\\[f(x) = \\frac{x^{\\nu/2-1}\\,e^{-x/2}}{2^{\\nu/2}\\,\\Gamma(\\nu/2)}, \\qquad x &gt; 0\\]\n\n\n\nMomento\nValor\n\n\n\n\n\\(E[Q]\\)\n\\(\\nu\\)\n\n\n\\(\\text{Var}(Q)\\)\n\\(2\\nu\\)\n\n\nModa\n\\(\\max(\\nu - 2,\\; 0)\\)\n\n\n\nUsos en inferencia:\n\nDistribución de \\(\\frac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}\\) bajo normalidad\nEstadístico de pruebas de bondad de ajuste y tablas de contingencia\nSuma: si \\(Q_1 \\perp Q_2\\), \\(Q_1 + Q_2 \\sim \\chi^2_{\\nu_1 + \\nu_2}\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-t-de-student-t_nu",
+    "href": "material/anexos/variables_aleatorias.html#distribución-t-de-student-t_nu",
+    "title": "Variables Aleatorias",
+    "section": "Distribución \\(t\\) de Student \\(t_\\nu\\)",
+    "text": "Distribución \\(t\\) de Student \\(t_\\nu\\)\nSi \\(Z \\sim \\mathcal{N}(0,1)\\) y \\(Q \\sim \\chi^2_\\nu\\) independientes:\n\\[T = \\frac{Z}{\\sqrt{Q/\\nu}} \\sim t_\\nu\\]\n\\[f(t) = \\frac{\\Gamma\\!\\left(\\frac{\\nu+1}{2}\\right)}{\\sqrt{\\nu\\pi}\\;\\Gamma\\!\\left(\\frac{\\nu}{2}\\right)}\n\\left(1 + \\frac{t^2}{\\nu}\\right)^{-(\\nu+1)/2}, \\qquad t \\in \\mathbb{R}\\]\n\n\n\nMomento\nValor\n\n\n\n\n\\(E[T]\\)\n\\(0\\) (para \\(\\nu &gt; 1\\))\n\n\n\\(\\text{Var}(T)\\)\n\\(\\dfrac{\\nu}{\\nu - 2}\\) (para \\(\\nu &gt; 2\\))\n\n\nLímite\n\\(t_\\nu \\xrightarrow{\\nu \\to \\infty} \\mathcal{N}(0,1)\\)\n\n\n\nUsos en inferencia:\n\nEstadístico de prueba para \\(\\mu\\) con \\(\\sigma^2\\) desconocido: \\(T = \\dfrac{\\bar{X}-\\mu_0}{S/\\sqrt{n}} \\sim t_{n-1}\\)\nIntervalos de confianza para la media muestral\nContraste de dos medias",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-f-de-fisher-snedecor-f_nu_1nu_2",
+    "href": "material/anexos/variables_aleatorias.html#distribución-f-de-fisher-snedecor-f_nu_1nu_2",
+    "title": "Variables Aleatorias",
+    "section": "Distribución \\(F\\) de Fisher-Snedecor \\(F_{\\nu_1,\\nu_2}\\)",
+    "text": "Distribución \\(F\\) de Fisher-Snedecor \\(F_{\\nu_1,\\nu_2}\\)\nSi \\(Q_1 \\sim \\chi^2_{\\nu_1}\\) y \\(Q_2 \\sim \\chi^2_{\\nu_2}\\) independientes:\n\\[F = \\frac{Q_1/\\nu_1}{Q_2/\\nu_2} \\sim F_{\\nu_1, \\nu_2}\\]\n\\[f(x) = \\frac{\\sqrt{\\dfrac{(\\nu_1 x)^{\\nu_1}\\,\\nu_2^{\\nu_2}}{(\\nu_1 x + \\nu_2)^{\\nu_1+\\nu_2}}}}{x\\,B\\!\\left(\\frac{\\nu_1}{2},\\frac{\\nu_2}{2}\\right)}, \\qquad x &gt; 0\\]\n\n\n\n\n\n\n\nMomento\nValor\n\n\n\n\n\\(E[F]\\)\n\\(\\dfrac{\\nu_2}{\\nu_2-2}\\) (para \\(\\nu_2 &gt; 2\\))\n\n\n\\(\\text{Var}(F)\\)\n\\(\\dfrac{2\\nu_2^2(\\nu_1+\\nu_2-2)}{\\nu_1(\\nu_2-2)^2(\\nu_2-4)}\\) (para \\(\\nu_2 &gt; 4\\))\n\n\nRelación con \\(t\\)\n\\(T^2 \\sim F_{1,\\,\\nu}\\) si \\(T \\sim t_\\nu\\)\n\n\nInversa\n\\(1/F_{\\nu_1,\\nu_2} \\sim F_{\\nu_2,\\nu_1}\\)\n\n\n\nUsos en inferencia:\n\nContraste de igualdad de varianzas: \\(F = S_1^2/S_2^2 \\sim F_{n_1-1,\\,n_2-1}\\)\nEstadístico global del modelo de regresión lineal (prueba \\(F\\))\nANOVA de uno y dos factores",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-normal-multivariante-mathcaln_pboldsymbolmu-boldsymbolsigma",
+    "href": "material/anexos/variables_aleatorias.html#distribución-normal-multivariante-mathcaln_pboldsymbolmu-boldsymbolsigma",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Normal Multivariante \\(\\mathcal{N}_p(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\)",
+    "text": "Distribución Normal Multivariante \\(\\mathcal{N}_p(\\boldsymbol{\\mu}, \\boldsymbol{\\Sigma})\\)\n\\[f(\\mathbf{x}) = \\frac{1}{(2\\pi)^{p/2}|\\boldsymbol{\\Sigma}|^{1/2}}\n\\exp\\!\\left(-\\frac{1}{2}(\\mathbf{x}-\\boldsymbol{\\mu})^\\top\\boldsymbol{\\Sigma}^{-1}(\\mathbf{x}-\\boldsymbol{\\mu})\\right)\\]\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\nMarginales\n\\(X_i \\sim \\mathcal{N}(\\mu_i, \\Sigma_{ii})\\)\n\n\nIndependencia\n\\(X_i \\perp X_j \\iff \\Sigma_{ij} = 0\\)\n\n\nCondicional\n\\(X_1 \\mid X_2 = x_2 \\sim \\mathcal{N}(\\mu_{1|2},\\; \\Sigma_{1|2})\\)\n\n\nCombinación lineal\n\\(A\\mathbf{X} + \\mathbf{b} \\sim \\mathcal{N}_q(A\\boldsymbol{\\mu}+\\mathbf{b},\\; A\\boldsymbol{\\Sigma}A^\\top)\\)\n\n\nForma cuadrática\n\\((\\mathbf{X}-\\boldsymbol{\\mu})^\\top\\boldsymbol{\\Sigma}^{-1}(\\mathbf{X}-\\boldsymbol{\\mu}) \\sim \\chi^2_p\\)\n\n\n\ndonde la media y varianza condicionadas son:\n\\[\\mu_{1|2} = \\mu_1 + \\Sigma_{12}\\Sigma_{22}^{-1}(x_2 - \\mu_2)\\] \\[\\Sigma_{1|2} = \\Sigma_{11} - \\Sigma_{12}\\Sigma_{22}^{-1}\\Sigma_{21}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-uniforme-continua-ua-b",
+    "href": "material/anexos/variables_aleatorias.html#distribución-uniforme-continua-ua-b",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Uniforme Continua \\(U(a, b)\\)",
+    "text": "Distribución Uniforme Continua \\(U(a, b)\\)\n\\[f(x) = \\frac{1}{b-a}, \\quad x \\in [a,b]\\]\n\\(E[X] = \\dfrac{a+b}{2}\\), \\(\\quad \\text{Var}(X) = \\dfrac{(b-a)^2}{12}\\)\nFundamental para simulación: si \\(U \\sim U(0,1)\\) y \\(F\\) es una FDA invertible, entonces \\(F^{-1}(U) \\sim F\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-bernoulli-textberp",
+    "href": "material/anexos/variables_aleatorias.html#distribución-bernoulli-textberp",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Bernoulli \\(\\text{Ber}(p)\\)",
+    "text": "Distribución Bernoulli \\(\\text{Ber}(p)\\)\n\\[P(X=1) = p, \\quad P(X=0) = 1-p\\]\n\\(E[X] = p\\), \\(\\quad \\text{Var}(X) = p(1-p)\\)\nBloque elemental de la v.a. discreta binaria.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-binomial-textbinn-p",
+    "href": "material/anexos/variables_aleatorias.html#distribución-binomial-textbinn-p",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Binomial \\(\\text{Bin}(n, p)\\)",
+    "text": "Distribución Binomial \\(\\text{Bin}(n, p)\\)\n\\[P(X=k) = \\binom{n}{k} p^k (1-p)^{n-k}, \\quad k = 0, 1, \\ldots, n\\]\n\\(E[X] = np\\), \\(\\quad \\text{Var}(X) = np(1-p)\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-de-poisson-textpoilambda",
+    "href": "material/anexos/variables_aleatorias.html#distribución-de-poisson-textpoilambda",
+    "title": "Variables Aleatorias",
+    "section": "Distribución de Poisson \\(\\text{Poi}(\\lambda)\\)",
+    "text": "Distribución de Poisson \\(\\text{Poi}(\\lambda)\\)\n\\[P(X=k) = \\frac{e^{-\\lambda}\\lambda^k}{k!}, \\quad k = 0, 1, 2, \\ldots\\]\n\\(E[X] = \\lambda\\), \\(\\quad \\text{Var}(X) = \\lambda\\) (media = varianza)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-exponencial-textexplambda",
+    "href": "material/anexos/variables_aleatorias.html#distribución-exponencial-textexplambda",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Exponencial \\(\\text{Exp}(\\lambda)\\)",
+    "text": "Distribución Exponencial \\(\\text{Exp}(\\lambda)\\)\n\\[f(x) = \\lambda e^{-\\lambda x}, \\quad x &gt; 0\\]\n\\(E[X] = 1/\\lambda\\), \\(\\quad \\text{Var}(X) = 1/\\lambda^2\\)\nPropiedad de falta de memoria: \\(P(X &gt; s+t \\mid X &gt; s) = P(X &gt; t)\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-gamma-gammaalpha-beta",
+    "href": "material/anexos/variables_aleatorias.html#distribución-gamma-gammaalpha-beta",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Gamma \\(\\Gamma(\\alpha, \\beta)\\)",
+    "text": "Distribución Gamma \\(\\Gamma(\\alpha, \\beta)\\)\n\\[f(x) = \\frac{\\beta^\\alpha}{\\Gamma(\\alpha)}\\,x^{\\alpha-1}e^{-\\beta x}, \\quad x &gt; 0\\]\n\\(E[X] = \\alpha/\\beta\\), \\(\\quad \\text{Var}(X) = \\alpha/\\beta^2\\)\nCasos especiales: \\(\\chi^2_\\nu = \\Gamma(\\nu/2,\\, 1/2)\\), \\(\\;\\text{Exp}(\\lambda) = \\Gamma(1, \\lambda)\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/variables_aleatorias.html#distribución-beta-textbetaalpha-beta",
+    "href": "material/anexos/variables_aleatorias.html#distribución-beta-textbetaalpha-beta",
+    "title": "Variables Aleatorias",
+    "section": "Distribución Beta \\(\\text{Beta}(\\alpha, \\beta)\\)",
+    "text": "Distribución Beta \\(\\text{Beta}(\\alpha, \\beta)\\)\n\\[f(x) = \\frac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha,\\beta)}, \\quad x \\in (0,1)\\]\n\\(E[X] = \\dfrac{\\alpha}{\\alpha+\\beta}\\), \\(\\quad \\text{Var}(X) = \\dfrac{\\alpha\\beta}{(\\alpha+\\beta)^2(\\alpha+\\beta+1)}\\)\nUsada como distribución a priori conjugada de la Binomial en estadística bayesiana.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Variables Aleatorias</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html",
+    "href": "material/anexos/inferencia_estadistica.html",
+    "title": "Inferencia Estadística",
+    "section": "",
+    "text": "Marco General de la Inferencia Estadística\nLa inferencia estadística utiliza datos de una muestra para obtener conclusiones sobre una población desconocida.\nFigura 26.1: Esquema general: población → muestra → inferencia\nSupuesto fundamental: \\(X_1, \\ldots, X_n \\overset{\\text{iid}}{\\sim} f(x;\\,\\theta)\\), donde \\(\\theta \\in \\Theta\\) es el parámetro desconocido de interés.\nUn estadístico es cualquier función \\(T = T(X_1,\\ldots,X_n)\\) que no depende de \\(\\theta\\). Su distribución en el muestreo se llama distribución muestral.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#definición-de-estimador",
+    "href": "material/anexos/inferencia_estadistica.html#definición-de-estimador",
+    "title": "Inferencia Estadística",
+    "section": "Definición de Estimador",
+    "text": "Definición de Estimador\nUn estimador de \\(\\theta\\) es un estadístico \\(\\hat\\theta = T(X_1,\\ldots,X_n)\\) que toma valores en \\(\\Theta\\). Una vez observada la muestra, su valor realizado \\(\\hat\\theta(x_1,\\ldots,x_n)\\) se llama estimación.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#propiedades-de-los-estimadores",
+    "href": "material/anexos/inferencia_estadistica.html#propiedades-de-los-estimadores",
+    "title": "Inferencia Estadística",
+    "section": "Propiedades de los Estimadores",
+    "text": "Propiedades de los Estimadores\n\nSesgo (Bias)\n\\[\\text{Sesgo}(\\hat\\theta) = B(\\hat\\theta) = E[\\hat\\theta] - \\theta\\]\n\nInsesgado: \\(B(\\hat\\theta) = 0\\), es decir, \\(E[\\hat\\theta] = \\theta\\)\nAsintóticamente insesgado: \\(B(\\hat\\theta_n) \\to 0\\) cuando \\(n \\to \\infty\\)\n\nEjemplos canónicos:\n\n\n\n\n\n\n\n\n\nEstimador\nParámetro\n\\(E[\\hat\\theta]\\)\nInsesgado\n\n\n\n\n\\(\\bar X = \\frac{1}{n}\\sum X_i\\)\n\\(\\mu\\)\n\\(\\mu\\)\n✓\n\n\n\\(S^2 = \\frac{1}{n-1}\\sum(X_i-\\bar X)^2\\)\n\\(\\sigma^2\\)\n\\(\\sigma^2\\)\n✓\n\n\n\\(\\tilde\\sigma^2 = \\frac{1}{n}\\sum(X_i-\\bar X)^2\\)\n\\(\\sigma^2\\)\n\\(\\frac{n-1}{n}\\sigma^2\\)\n✗ (sesgado)\n\n\n\\(X_{(n)} = \\max_i X_i\\)\n\\(\\beta\\) en \\(U(0,\\beta)\\)\n\\(\\frac{n}{n+1}\\beta\\)\n✗\n\n\n\n\n\nError Cuadrático Medio (ECM)\n\\[\\text{ECM}(\\hat\\theta) = E\\!\\left[(\\hat\\theta - \\theta)^2\\right]\\]\nDescomposición sesgo–varianza:\n\\[\\text{ECM}(\\hat\\theta) = \\text{Var}(\\hat\\theta) + \\left[B(\\hat\\theta)\\right]^2\\]\n\nUn estimador insesgado minimiza el ECM dentro de su clase si y solo si minimiza la varianza.\n\n\n\nConsistencia\n\\(\\hat\\theta_n\\) es consistente si \\(\\hat\\theta_n \\xrightarrow{P} \\theta\\) cuando \\(n \\to \\infty\\):\n\\[\\forall\\,\\varepsilon &gt; 0:\\quad \\lim_{n\\to\\infty} P\\!\\left(|\\hat\\theta_n - \\theta| &gt; \\varepsilon\\right) = 0\\]\nCondición suficiente: si \\(E[\\hat\\theta_n] \\to \\theta\\) y \\(\\text{Var}(\\hat\\theta_n) \\to 0\\), entonces \\(\\hat\\theta_n\\) es consistente (por la desigualdad de Chebyshev).\n\n\nEficiencia y Cota de Cramér–Rao\nBajo condiciones de regularidad, la varianza de cualquier estimador insesgado de \\(\\theta\\) satisface:\n\\[\\text{Var}(\\hat\\theta) \\geq \\frac{1}{I_n(\\theta)}\\]\ndonde \\(I_n(\\theta) = n\\,I(\\theta)\\) es la información de Fisher muestral y:\n\\[I(\\theta) = E\\!\\left[\\left(\\frac{\\partial}{\\partial\\theta}\\log f(X;\\theta)\\right)^2\\right]\n= -E\\!\\left[\\frac{\\partial^2}{\\partial\\theta^2}\\log f(X;\\theta)\\right]\\]\nUn estimador insesgado que alcanza la cota se llama eficiente (UMVUE).\nEficiencia relativa entre dos estimadores insesgados \\(\\hat\\theta_1\\), \\(\\hat\\theta_2\\):\n\\[e(\\hat\\theta_1, \\hat\\theta_2) = \\frac{\\text{Var}(\\hat\\theta_2)}{\\text{Var}(\\hat\\theta_1)}\\]\nSi \\(e &gt; 1\\), el estimador \\(\\hat\\theta_1\\) es más eficiente.\n\n\nSuficiencia\n\\(T(X_1,\\ldots,X_n)\\) es suficiente para \\(\\theta\\) si la distribución condicional de la muestra dado \\(T = t\\) no depende de \\(\\theta\\):\n\\[f(x_1,\\ldots,x_n \\mid T=t) \\text{ no depende de } \\theta\\]\nCriterio de factorización de Fisher–Neyman:\n\\[f(x_1,\\ldots,x_n;\\theta) = g(T(\\mathbf{x}),\\theta)\\cdot h(\\mathbf{x})\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#métodos-de-estimación",
+    "href": "material/anexos/inferencia_estadistica.html#métodos-de-estimación",
+    "title": "Inferencia Estadística",
+    "section": "Métodos de Estimación",
+    "text": "Métodos de Estimación\n\nMétodo de Momentos (MM)\nSe igualan los momentos poblacionales con los momentos muestrales:\n\\[\\mu'_k(\\theta) = E[X^k] \\stackrel{!}{=} \\hat\\mu'_k = \\frac{1}{n}\\sum_{i=1}^n X_i^k, \\qquad k = 1, 2, \\ldots, p\\]\nSe resuelve el sistema para obtener \\(\\hat\\theta_{\\text{MM}}\\).\nPropiedades: consistente, asintóticamente normal. No siempre eficiente.\n\n\nMáxima Verosimilitud (EMV)\nDado el vector de observaciones \\(\\mathbf{x} = (x_1,\\ldots,x_n)\\), la función de verosimilitud es:\n\\[L(\\theta;\\mathbf{x}) = \\prod_{i=1}^n f(x_i;\\theta)\\]\nEl estimador de máxima verosimilitud es:\n\\[\\hat\\theta_{\\text{MV}} = \\operatorname*{argmax}_{\\theta \\in \\Theta}\\; L(\\theta;\\mathbf{x})\\]\nEn la práctica se maximiza la log-verosimilitud:\n\\[\\ell(\\theta) = \\log L(\\theta;\\mathbf{x}) = \\sum_{i=1}^n \\log f(x_i;\\theta)\\]\nCondición de primer orden (ecuación de verosimilitud):\n\\[\\frac{\\partial\\,\\ell(\\theta)}{\\partial\\theta} = \\sum_{i=1}^n \\frac{\\partial}{\\partial\\theta}\\log f(x_i;\\theta) = 0\\]\n\nPropiedades asintóticas del EMV\nBajo condiciones de regularidad, cuando \\(n \\to \\infty\\):\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\nConsistencia\n\\(\\hat\\theta_{\\text{MV}} \\xrightarrow{P} \\theta_0\\)\n\n\nNormalidad asintótica\n\\(\\sqrt{n}(\\hat\\theta_{\\text{MV}} - \\theta_0) \\xrightarrow{d} \\mathcal{N}(0,\\, I(\\theta_0)^{-1})\\)\n\n\nEficiencia asintótica\nAlcanza la cota de Cramér–Rao en el límite\n\n\nInvarianza\nSi \\(\\hat\\theta_{\\text{MV}}\\) es EMV de \\(\\theta\\), entonces \\(g(\\hat\\theta_{\\text{MV}})\\) es EMV de \\(g(\\theta)\\)\n\n\n\n\n\nEMV para la Normal \\(\\mathcal{N}(\\mu,\\sigma^2)\\)\n\\[\\hat\\mu_{\\text{MV}} = \\bar X = \\frac{1}{n}\\sum X_i \\qquad \\text{(insesgado)}\\]\n\\[\\hat\\sigma^2_{\\text{MV}} = \\frac{1}{n}\\sum_{i=1}^n(X_i - \\bar X)^2 \\qquad \\text{(sesgado, pero consistente)}\\]\n\nn    &lt;- 30\nmu0  &lt;- 5\nsig  &lt;- 2\nx_obs &lt;- rnorm(n, mu0, sig)\n\nmu_grid &lt;- seq(2, 8, length.out = 300)\nloglik  &lt;- sapply(mu_grid, function(m)\n  sum(dnorm(x_obs, m, sig, log = TRUE)))\n\nemv &lt;- mean(x_obs)\n\nggplot(data.frame(mu = mu_grid, ll = loglik), aes(mu, ll)) +\n  geom_line(colour = pal[1], linewidth = 1.3) +\n  geom_vline(xintercept = emv,  colour = pal[2], linetype = \"dashed\", linewidth = 1) +\n  geom_vline(xintercept = mu0,  colour = pal[3], linetype = \"dotted\", linewidth = 1) +\n  annotate(\"text\", x = emv + 0.15, y = min(loglik) + 3,\n           label = paste0(\"EMV = \", round(emv, 2)), colour = pal[2], hjust = 0) +\n  annotate(\"text\", x = mu0 - 0.15, y = min(loglik) + 3,\n           label = paste0(\"μ verdadero = \", mu0), colour = pal[3], hjust = 1) +\n  labs(title = \"Log-verosimilitud  ℓ(μ)\",\n       subtitle = paste0(\"n = \", n, \",  σ = \", sig, \"  conocido\"),\n       x = \"μ\", y = \"ℓ(μ)\")\n\n\n\n\n\n\n\nFigura 27.1: Log-verosimilitud para μ con σ² conocido — la cima es el EMV",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#definición",
+    "href": "material/anexos/inferencia_estadistica.html#definición",
+    "title": "Inferencia Estadística",
+    "section": "Definición",
+    "text": "Definición\nUn intervalo de confianza (IC) al nivel \\(1-\\alpha\\) para \\(\\theta\\) es un par de estadísticos \\((L_n, U_n)\\) tal que:\n\\[P\\!\\left(L_n \\leq \\theta \\leq U_n\\right) \\geq 1 - \\alpha, \\qquad \\forall\\,\\theta \\in \\Theta\\]\n\n\n\n\n\n\nImportanteInterpretación frecuentista correcta\n\n\n\nEl intervalo no tiene probabilidad \\(1-\\alpha\\) de contener \\(\\theta\\) una vez observado — \\(\\theta\\) es fijo y el IC es o no lo contiene. La interpretación correcta es: si repitiéramos el experimento muchas veces, el \\((1-\\alpha)\\times 100\\%\\) de los intervalos construidos contendría el verdadero \\(\\theta\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#método-pivotal",
+    "href": "material/anexos/inferencia_estadistica.html#método-pivotal",
+    "title": "Inferencia Estadística",
+    "section": "Método Pivotal",
+    "text": "Método Pivotal\nUn pivote es una función \\(Q = Q(X_1,\\ldots,X_n;\\theta)\\) cuya distribución no depende de \\(\\theta\\). Si se conocen los cuantiles \\(q_{\\alpha/2}\\) y \\(q_{1-\\alpha/2}\\) de \\(Q\\):\n\\[P\\!\\left(q_{\\alpha/2} \\leq Q \\leq q_{1-\\alpha/2}\\right) = 1 - \\alpha\\]\nse despeja \\(\\theta\\) para obtener el IC.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#intervalos-clásicos-para-la-normal",
+    "href": "material/anexos/inferencia_estadistica.html#intervalos-clásicos-para-la-normal",
+    "title": "Inferencia Estadística",
+    "section": "Intervalos Clásicos para la Normal",
+    "text": "Intervalos Clásicos para la Normal\nSea \\(X_1,\\ldots,X_n \\overset{\\text{iid}}{\\sim} \\mathcal{N}(\\mu,\\sigma^2)\\).\n\nIC para \\(\\mu\\) con \\(\\sigma^2\\) conocido\nPivote: \\(\\quad Z = \\dfrac{\\bar X - \\mu}{\\sigma/\\sqrt{n}} \\sim \\mathcal{N}(0,1)\\)\n\\[\\text{IC}_{1-\\alpha}(\\mu) = \\left(\\bar X - z_{\\alpha/2}\\,\\frac{\\sigma}{\\sqrt{n}},\\;\\;\n\\bar X + z_{\\alpha/2}\\,\\frac{\\sigma}{\\sqrt{n}}\\right)\\]\ndonde \\(z_{\\alpha/2} = \\Phi^{-1}(1-\\alpha/2)\\).\nLongitud del IC: \\(\\quad \\ell = 2\\,z_{\\alpha/2}\\,\\dfrac{\\sigma}{\\sqrt{n}}\\)\n\n\nIC para \\(\\mu\\) con \\(\\sigma^2\\) desconocido\nPivote: \\(\\quad T = \\dfrac{\\bar X - \\mu}{S/\\sqrt{n}} \\sim t_{n-1}\\)\n\\[\\text{IC}_{1-\\alpha}(\\mu) = \\left(\\bar X - t_{n-1,\\,\\alpha/2}\\,\\frac{S}{\\sqrt{n}},\\;\\;\n\\bar X + t_{n-1,\\,\\alpha/2}\\,\\frac{S}{\\sqrt{n}}\\right)\\]\n\n\nIC para \\(\\sigma^2\\)\nPivote: \\(\\quad \\chi^2 = \\dfrac{(n-1)S^2}{\\sigma^2} \\sim \\chi^2_{n-1}\\)\n\\[\\text{IC}_{1-\\alpha}(\\sigma^2) = \\left(\\frac{(n-1)S^2}{\\chi^2_{n-1,\\,\\alpha/2}},\\;\\;\n\\frac{(n-1)S^2}{\\chi^2_{n-1,\\,1-\\alpha/2}}\\right)\\]\n\nEste IC no es simétrico (porque \\(\\chi^2\\) no lo es).\n\n\n\nIC para la diferencia de medias\nVarianzas conocidas:\n\\[\\text{IC}_{1-\\alpha}(\\mu_1-\\mu_2) = (\\bar X_1 - \\bar X_2) \\pm z_{\\alpha/2}\n\\sqrt{\\frac{\\sigma_1^2}{n_1}+\\frac{\\sigma_2^2}{n_2}}\\]\nVarianzas desconocidas iguales (\\(\\sigma_1^2 = \\sigma_2^2 = \\sigma^2\\)):\n\\[S_p^2 = \\frac{(n_1-1)S_1^2 + (n_2-1)S_2^2}{n_1+n_2-2} \\quad \\text{(varianza combinada)}\\]\n\\[\\text{IC}_{1-\\alpha}(\\mu_1-\\mu_2) = (\\bar X_1 - \\bar X_2) \\pm\nt_{n_1+n_2-2,\\,\\alpha/2}\\;S_p\\sqrt{\\frac{1}{n_1}+\\frac{1}{n_2}}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#tamaño-de-muestra",
+    "href": "material/anexos/inferencia_estadistica.html#tamaño-de-muestra",
+    "title": "Inferencia Estadística",
+    "section": "Tamaño de Muestra",
+    "text": "Tamaño de Muestra\nFijado un margen de error \\(e\\) y nivel \\(1-\\alpha\\), para estimar \\(\\mu\\) con \\(\\sigma\\) conocido:\n\\[n \\geq \\left(\\frac{z_{\\alpha/2}\\,\\sigma}{e}\\right)^2\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#relación-ic-longitud-confianza",
+    "href": "material/anexos/inferencia_estadistica.html#relación-ic-longitud-confianza",
+    "title": "Inferencia Estadística",
+    "section": "Relación IC – Longitud – Confianza",
+    "text": "Relación IC – Longitud – Confianza\n\nn_sim &lt;- 50; n_obs &lt;- 25; mu_true &lt;- 0; sig_ic &lt;- 1; alpha_ic &lt;- 0.05\nz_a2 &lt;- qnorm(1 - alpha_ic / 2)\n\nset.seed(7)\nsims &lt;- replicate(n_sim, {\n  xs  &lt;- rnorm(n_obs, mu_true, sig_ic)\n  xb  &lt;- mean(xs)\n  m   &lt;- z_a2 * sig_ic / sqrt(n_obs)\n  c(xb - m, xb + m)\n})\n\ndf_ic &lt;- data.frame(\n  id   = 1:n_sim,\n  lo   = sims[1,],\n  hi   = sims[2,],\n  xbar = colMeans(sims)\n) |&gt;\n  mutate(cubre = lo &lt;= mu_true & mu_true &lt;= hi,\n         color = ifelse(cubre, pal[1], pal[2]))\n\nggplot(df_ic, aes(y = id)) +\n  geom_segment(aes(x = lo, xend = hi, yend = id, colour = color), linewidth = 0.8) +\n  geom_point(aes(x = xbar, colour = color), size = 1.8) +\n  geom_vline(xintercept = mu_true, linetype = \"dashed\", linewidth = 0.8, colour = \"grey30\") +\n  scale_colour_identity(\n    guide  = guide_legend(title = NULL),\n    breaks = c(pal[1], pal[2]),\n    labels = c(\"Contiene mu\", \"No contiene mu\")) +\n  annotate(\"text\", x = mu_true + 0.05, y = n_sim + 1.5,\n           label = \"μ = 0\", hjust = 0, size = 3.5) +\n  labs(title = paste0(\"Simulación de \", n_sim, \" IC al 95%\"),\n       subtitle = paste0(sum(df_ic$cubre), \" de \", n_sim,\n                         \" intervalos contienen μ\"),\n       x = \"Valor\", y = \"Simulación #\")\n\n\n\n\n\n\n\nFigura 28.1: Simulación de 50 intervalos de confianza al 95% para μ = 0",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#formulación-del-problema",
+    "href": "material/anexos/inferencia_estadistica.html#formulación-del-problema",
+    "title": "Inferencia Estadística",
+    "section": "Formulación del Problema",
+    "text": "Formulación del Problema\nUna prueba de hipótesis decide entre dos hipótesis sobre \\(\\theta\\):\n\\[H_0: \\theta \\in \\Theta_0 \\qquad \\text{vs} \\qquad H_1: \\theta \\in \\Theta_1,\n\\qquad \\Theta_0 \\cap \\Theta_1 = \\emptyset\\]\n\n\n\n\n\n\n\n\nNombre\nForma\nEjemplo\n\n\n\n\nSimple\nUn único valor\n\\(H_0: \\theta = \\theta_0\\)\n\n\nCompuesta bilateral\n\\(H_0: \\theta = \\theta_0\\) vs \\(H_1: \\theta \\neq \\theta_0\\)\n\n\n\nCompuesta unilateral derecha\n\\(H_0: \\theta \\leq \\theta_0\\) vs \\(H_1: \\theta &gt; \\theta_0\\)\n\n\n\nCompuesta unilateral izquierda\n\\(H_0: \\theta \\geq \\theta_0\\) vs \\(H_1: \\theta &lt; \\theta_0\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#tipos-de-error",
+    "href": "material/anexos/inferencia_estadistica.html#tipos-de-error",
+    "title": "Inferencia Estadística",
+    "section": "Tipos de Error",
+    "text": "Tipos de Error\n\n\n\n\n\n\n\n\n\n\\(H_0\\) verdadera\n\\(H_0\\) falsa\n\n\n\n\nNo rechazar \\(H_0\\)\nDecisión correcta (\\(1-\\alpha\\))\nError tipo II (\\(\\beta\\))\n\n\nRechazar \\(H_0\\)\nError tipo I (\\(\\alpha\\))\nDecisión correcta (\\(1-\\beta\\))\n\n\n\n\\[\\alpha = P(\\text{rechazar } H_0 \\mid H_0 \\text{ verdadera}) \\quad \\text{(nivel de significancia)}\\] \\[\\beta = P(\\text{no rechazar } H_0 \\mid H_1 \\text{ verdadera}) \\quad \\text{(probabilidad de error tipo II)}\\] \\[1 - \\beta = \\text{Potencia de la prueba}\\]\n\n\n\n\n\n\nNotaDilema \\(\\alpha\\)–\\(\\beta\\)\n\n\n\nPara tamaño de muestra fijo, reducir \\(\\alpha\\) aumenta \\(\\beta\\) y viceversa. La única forma de reducir ambos simultáneamente es aumentar \\(n\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#función-de-potencia",
+    "href": "material/anexos/inferencia_estadistica.html#función-de-potencia",
+    "title": "Inferencia Estadística",
+    "section": "Función de Potencia",
+    "text": "Función de Potencia\n\\[\\pi(\\theta) = P(\\text{rechazar } H_0 \\mid \\theta) = \\begin{cases}\n\\alpha & \\text{si } \\theta \\in \\Theta_0 \\\\\n1-\\beta(\\theta) & \\text{si } \\theta \\in \\Theta_1\n\\end{cases}\\]\nUna prueba ideal tiene \\(\\pi(\\theta) \\approx 0\\) para \\(\\theta \\in \\Theta_0\\) y \\(\\pi(\\theta) \\approx 1\\) para \\(\\theta \\in \\Theta_1\\).\n\nmu_grid_p &lt;- seq(-3, 3, length.out = 300)\nsig_p &lt;- 1; mu0_p &lt;- 0; alpha_p &lt;- 0.05\n\npotencia &lt;- function(mu, n, mu0 = 0, sig = 1, alpha = 0.05) {\n  z_crit &lt;- qnorm(1 - alpha / 2)\n  se     &lt;- sig / sqrt(n)\n  # P(rechazar H0) = P(Z &lt; -z_c | μ) + P(Z &gt; z_c | μ)\n  pnorm(-z_crit, mean = (mu - mu0)/se) +\n  pnorm( z_crit, mean = (mu - mu0)/se, lower.tail = FALSE)\n}\n\ndf_pot &lt;- expand.grid(mu = mu_grid_p, n = c(10, 25, 50, 100)) |&gt;\n  mutate(pot = mapply(potencia, mu, n),\n         n   = factor(paste0(\"n = \", n), levels = paste0(\"n = \", c(10,25,50,100))))\n\nggplot(df_pot, aes(mu, pot, colour = n)) +\n  geom_line(linewidth = 1.1) +\n  geom_hline(yintercept = alpha_p, linetype = \"dashed\", colour = \"grey40\") +\n  geom_vline(xintercept = 0,       linetype = \"dotted\", colour = \"grey40\") +\n  scale_colour_manual(values = pal[1:4], name = NULL) +\n  annotate(\"text\", x = 2.5, y = alpha_p + 0.03,\n           label = paste0(\"α = \", alpha_p), colour = \"grey30\", size = 3.5) +\n  labs(title = \"Función de potencia — prueba bilateral H₀: μ = 0\",\n       x = \"μ (valor verdadero)\", y = \"π(μ) = P(rechazar H₀)\")\n\n\n\n\n\n\n\nFigura 29.1: Función de potencia para prueba bilateral de μ con distintos n",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#estadístico-de-prueba-y-región-de-rechazo",
+    "href": "material/anexos/inferencia_estadistica.html#estadístico-de-prueba-y-región-de-rechazo",
+    "title": "Inferencia Estadística",
+    "section": "Estadístico de Prueba y Región de Rechazo",
+    "text": "Estadístico de Prueba y Región de Rechazo\nEl procedimiento general:\n\nElegir estadístico \\(T = T(X_1,\\ldots,X_n)\\) cuya distribución bajo \\(H_0\\) sea conocida\nFijar \\(\\alpha\\) y determinar la región crítica \\(C_\\alpha\\) tal que \\(P(T \\in C_\\alpha \\mid H_0) = \\alpha\\)\nSi \\(T_{\\text{obs}} \\in C_\\alpha\\): rechazar \\(H_0\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#pruebas-clásicas-para-la-normal",
+    "href": "material/anexos/inferencia_estadistica.html#pruebas-clásicas-para-la-normal",
+    "title": "Inferencia Estadística",
+    "section": "Pruebas Clásicas para la Normal",
+    "text": "Pruebas Clásicas para la Normal\n\nPrueba \\(Z\\) (σ conocido)\n\\[H_0: \\mu = \\mu_0 \\qquad Z = \\frac{\\bar X - \\mu_0}{\\sigma/\\sqrt{n}} \\sim \\mathcal{N}(0,1)\\]\n\n\n\nHipótesis alternativa\nRegión de rechazo\n\n\n\n\n\\(H_1: \\mu \\neq \\mu_0\\)\n\\(|Z| &gt; z_{\\alpha/2}\\)\n\n\n\\(H_1: \\mu &gt; \\mu_0\\)\n\\(Z &gt; z_\\alpha\\)\n\n\n\\(H_1: \\mu &lt; \\mu_0\\)\n\\(Z &lt; -z_\\alpha\\)\n\n\n\n\n\nPrueba \\(t\\) de una muestra (σ desconocido)\n\\[H_0: \\mu = \\mu_0 \\qquad T = \\frac{\\bar X - \\mu_0}{S/\\sqrt{n}} \\sim t_{n-1}\\]\nRegiones de rechazo análogas a la prueba \\(Z\\) pero usando cuantiles \\(t_{n-1,\\alpha}\\).\n\n\nPrueba \\(t\\) de dos muestras independientes\n\\[H_0: \\mu_1 = \\mu_2 \\qquad T = \\frac{\\bar X_1 - \\bar X_2}{S_p\\sqrt{1/n_1+1/n_2}} \\sim t_{n_1+n_2-2}\\]\n(asumiendo \\(\\sigma_1^2 = \\sigma_2^2\\); si no, se usa la aproximación de Welch).\n\n\nPrueba \\(\\chi^2\\) para la varianza\n\\[H_0: \\sigma^2 = \\sigma_0^2 \\qquad \\chi^2 = \\frac{(n-1)S^2}{\\sigma_0^2} \\sim \\chi^2_{n-1}\\]\n\n\nPrueba \\(F\\) para igualdad de varianzas\n\\[H_0: \\sigma_1^2 = \\sigma_2^2 \\qquad F = \\frac{S_1^2}{S_2^2} \\sim F_{n_1-1,\\,n_2-1}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#el-p-valor",
+    "href": "material/anexos/inferencia_estadistica.html#el-p-valor",
+    "title": "Inferencia Estadística",
+    "section": "El \\(p\\)-valor",
+    "text": "El \\(p\\)-valor\n\\[p\\text{-valor} = P(|T| \\geq |T_{\\text{obs}}| \\mid H_0)\\]\nMide la evidencia en contra de \\(H_0\\): la probabilidad de observar un resultado al menos tan extremo como el obtenido, si \\(H_0\\) fuera cierta.\n\n\n\n\\(p\\)-valor\nInterpretación convencional\n\n\n\n\n\\(&gt; 0.10\\)\nSin evidencia contra \\(H_0\\)\n\n\n\\(0.05 - 0.10\\)\nEvidencia débil\n\n\n\\(0.01 - 0.05\\)\nEvidencia moderada\n\n\n\\(&lt; 0.01\\)\nEvidencia fuerte\n\n\n\\(&lt; 0.001\\)\nEvidencia muy fuerte\n\n\n\n\n\n\n\n\n\nAdvertenciaEl \\(p\\)-valor no es \\(P(H_0 \\text{ verdadera})\\)\n\n\n\nUn \\(p\\)-valor pequeño indica que los datos son improbables bajo \\(H_0\\), pero no cuantifica la probabilidad de que \\(H_0\\) sea falsa. Tampoco mide la magnitud del efecto.\n\n\n\nx_seq &lt;- seq(-4, 4, length.out = 500)\ndf_z  &lt;- data.frame(x = x_seq, y = dnorm(x_seq))\nt_obs &lt;- 2.1; z_c &lt;- qnorm(0.975)\n\nshade &lt;- function(lo, hi) {\n  sub &lt;- df_z |&gt; filter(x &gt;= lo, x &lt;= hi)\n  geom_area(data = sub, aes(x = x, y = y), fill = pal[2], alpha = 0.4, inherit.aes = FALSE)\n}\n\np_bil &lt;- ggplot(df_z, aes(x, y)) +\n  geom_line(linewidth = 1) +\n  shade(-4, -z_c) + shade(z_c, 4) +\n  geom_vline(xintercept = c(-t_obs, t_obs), colour = pal[2], linetype = \"dashed\") +\n  geom_vline(xintercept = 0, colour = \"grey50\", linetype = \"dotted\") +\n  annotate(\"text\", x =  3.1, y = 0.08, label = \"α/2\", colour = pal[2], size = 4) +\n  annotate(\"text\", x = -3.1, y = 0.08, label = \"α/2\", colour = pal[2], size = 4) +\n  annotate(\"text\", x =  t_obs, y = 0.25,\n           label = paste0(\"T = \", t_obs), colour = pal[2], hjust = -0.1, size = 3.5) +\n  labs(title = \"Prueba bilateral  H₁: μ ≠ μ₀\",\n       subtitle = paste0(\"p-valor = \", round(2*pnorm(-t_obs), 3)),\n       x = \"Z\", y = \"f(z)\")\n\np_uni &lt;- ggplot(df_z, aes(x, y)) +\n  geom_line(linewidth = 1) +\n  shade(z_c, 4) +\n  geom_vline(xintercept = t_obs, colour = pal[2], linetype = \"dashed\") +\n  geom_vline(xintercept = 0, colour = \"grey50\", linetype = \"dotted\") +\n  annotate(\"text\", x = 3.1, y = 0.08, label = \"α\", colour = pal[2], size = 4) +\n  annotate(\"text\", x = t_obs, y = 0.25,\n           label = paste0(\"T = \", t_obs), colour = pal[2], hjust = -0.1, size = 3.5) +\n  labs(title = \"Prueba unilateral derecha  H₁: μ &gt; μ₀\",\n       subtitle = paste0(\"p-valor = \", round(pnorm(-t_obs), 3)),\n       x = \"Z\", y = \"f(z)\")\n\ngrid.arrange(p_bil, p_uni, ncol = 2)\n\n\n\n\n\n\n\nFigura 29.2: Región de rechazo y p-valor para prueba bilateral y unilateral",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#relación-entre-ic-y-pruebas-de-hipótesis",
+    "href": "material/anexos/inferencia_estadistica.html#relación-entre-ic-y-pruebas-de-hipótesis",
+    "title": "Inferencia Estadística",
+    "section": "Relación entre IC y Pruebas de Hipótesis",
+    "text": "Relación entre IC y Pruebas de Hipótesis\nExiste una dualidad exacta:\n\nRechazar \\(H_0: \\theta = \\theta_0\\) al nivel \\(\\alpha\\) \\(\\;\\iff\\;\\) \\(\\theta_0 \\notin \\text{IC}_{1-\\alpha}(\\theta)\\)\n\nPara una prueba bilateral, el IC al \\(1-\\alpha\\) y la prueba al nivel \\(\\alpha\\) son equivalentes y llevan siempre a la misma decisión.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#lema-de-neymanpearson",
+    "href": "material/anexos/inferencia_estadistica.html#lema-de-neymanpearson",
+    "title": "Inferencia Estadística",
+    "section": "Lema de Neyman–Pearson",
+    "text": "Lema de Neyman–Pearson\nPara contrastar \\(H_0: \\theta = \\theta_0\\) vs \\(H_1: \\theta = \\theta_1\\) (hipótesis simples), la prueba más potente de nivel \\(\\alpha\\) es la prueba de razón de verosimilitud:\n\\[\\Lambda(\\mathbf{x}) = \\frac{L(\\theta_1;\\mathbf{x})}{L(\\theta_0;\\mathbf{x})} &gt; k_\\alpha\\]\ndonde \\(k_\\alpha\\) se determina por \\(P(\\Lambda &gt; k_\\alpha \\mid H_0) = \\alpha\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#prueba-de-razón-de-verosimilitud-prv",
+    "href": "material/anexos/inferencia_estadistica.html#prueba-de-razón-de-verosimilitud-prv",
+    "title": "Inferencia Estadística",
+    "section": "Prueba de Razón de Verosimilitud (PRV)",
+    "text": "Prueba de Razón de Verosimilitud (PRV)\nPara hipótesis compuestas, el estadístico generalizado es:\n\\[\\Lambda(\\mathbf{x}) = \\frac{\\sup_{\\theta \\in \\Theta_0} L(\\theta;\\mathbf{x})}\n{\\sup_{\\theta \\in \\Theta} L(\\theta;\\mathbf{x})}\n= \\frac{L(\\hat\\theta_0)}{L(\\hat\\theta_{\\text{MV}})} \\in [0,1]\\]\nTeorema de Wilks: bajo \\(H_0\\) y condiciones de regularidad,\n\\[-2\\log\\Lambda(\\mathbf{X}) \\xrightarrow{d} \\chi^2_r \\quad (n \\to \\infty)\\]\ndonde \\(r = \\dim(\\Theta) - \\dim(\\Theta_0)\\) es el número de restricciones.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#el-modelo",
+    "href": "material/anexos/inferencia_estadistica.html#el-modelo",
+    "title": "Inferencia Estadística",
+    "section": "El Modelo",
+    "text": "El Modelo\n\\[Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i, \\qquad i = 1, \\ldots, n\\]\nSupuestos clásicos (Gauss–Markov + normalidad):\n\n\n\n\n\n\n\n\n#\nSupuesto\nNotación\n\n\n\n\nA1\nLinealidad\n\\(E[Y \\mid X] = \\beta_0 + \\beta_1 X\\)\n\n\nA2\nExogeneidad estricta\n\\(E[\\varepsilon_i \\mid X_1,\\ldots,X_n] = 0\\)\n\n\nA3\nHomocedasticidad\n\\(\\text{Var}(\\varepsilon_i \\mid X) = \\sigma^2 &lt; \\infty\\)\n\n\nA4\nNo autocorrelación\n\\(\\text{Cov}(\\varepsilon_i,\\varepsilon_j) = 0,\\; i \\neq j\\)\n\n\nA5\nNormalidad\n\\(\\varepsilon_i \\mid X \\sim \\mathcal{N}(0,\\sigma^2)\\)\n\n\n\nCon A1–A4 aplica el teorema de Gauss–Markov; con A5 se obtienen distribuciones exactas para los estadísticos de prueba.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#estimador-ols",
+    "href": "material/anexos/inferencia_estadistica.html#estimador-ols",
+    "title": "Inferencia Estadística",
+    "section": "Estimador OLS",
+    "text": "Estimador OLS\nSe minimizan los residuos cuadráticos:\n\\[(\\hat\\beta_0, \\hat\\beta_1) = \\operatorname*{argmin}_{\\beta_0,\\beta_1}\n\\sum_{i=1}^n (Y_i - \\beta_0 - \\beta_1 X_i)^2 = \\operatorname*{argmin} \\text{SCR}(\\beta)\\]\nFórmulas cerradas:\n\\[\\hat\\beta_1 = \\frac{\\sum_{i=1}^n (X_i - \\bar X)(Y_i - \\bar Y)}\n{\\sum_{i=1}^n (X_i - \\bar X)^2}\n= \\frac{S_{XY}}{S_{XX}}\n= \\frac{\\widehat{\\text{Cov}}(X,Y)}{\\widehat{\\text{Var}}(X)}\\]\n\\[\\hat\\beta_0 = \\bar Y - \\hat\\beta_1\\,\\bar X\\]\nNotación compacta: definiendo \\(S_{XX} = \\sum(X_i-\\bar X)^2\\), \\(S_{YY} = \\sum(Y_i-\\bar Y)^2\\), \\(S_{XY} = \\sum(X_i-\\bar X)(Y_i-\\bar Y)\\):\n\\[\\hat\\beta_1 = \\frac{S_{XY}}{S_{XX}}, \\qquad\n\\hat r = \\frac{S_{XY}}{\\sqrt{S_{XX}\\,S_{YY}}} = \\hat\\rho_{XY}\\]",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#propiedades-de-los-estimadores-ols",
+    "href": "material/anexos/inferencia_estadistica.html#propiedades-de-los-estimadores-ols",
+    "title": "Inferencia Estadística",
+    "section": "Propiedades de los Estimadores OLS",
+    "text": "Propiedades de los Estimadores OLS\nBajo A1–A4 (Teorema de Gauss–Markov):\n\\[E[\\hat\\beta_j] = \\beta_j \\qquad \\text{(insesgado)}\\]\n\\[\\text{Var}(\\hat\\beta_1) = \\frac{\\sigma^2}{S_{XX}}, \\qquad\n\\text{Var}(\\hat\\beta_0) = \\sigma^2\\left(\\frac{1}{n} + \\frac{\\bar X^2}{S_{XX}}\\right)\\]\n\\[\\text{Cov}(\\hat\\beta_0, \\hat\\beta_1) = -\\frac{\\sigma^2\\,\\bar X}{S_{XX}}\\]\n\n\\(\\hat\\beta_0\\) y \\(\\hat\\beta_1\\) son los mejores estimadores lineales insesgados (MELI/BLUE): tienen la varianza mínima dentro de la clase de estimadores lineales e insesgados.\n\nEstimador de \\(\\sigma^2\\):\n\\[\\hat\\sigma^2 = S^2_e = \\frac{\\text{SCR}}{n-2} = \\frac{\\sum_{i=1}^n \\hat\\varepsilon_i^2}{n-2}\\]\ndonde \\(\\hat\\varepsilon_i = Y_i - \\hat Y_i\\) son los residuos. Se divide por \\(n-2\\) porque se estiman 2 parámetros (\\(\\beta_0\\) y \\(\\beta_1\\)).\nBajo A5: \\(\\quad \\dfrac{(n-2)S_e^2}{\\sigma^2} \\sim \\chi^2_{n-2}\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#distribución-de-los-estimadores-bajo-normalidad",
+    "href": "material/anexos/inferencia_estadistica.html#distribución-de-los-estimadores-bajo-normalidad",
+    "title": "Inferencia Estadística",
+    "section": "Distribución de los Estimadores bajo Normalidad",
+    "text": "Distribución de los Estimadores bajo Normalidad\nBajo A1–A5:\n\\[\\hat\\beta_1 \\sim \\mathcal{N}\\!\\left(\\beta_1,\\; \\frac{\\sigma^2}{S_{XX}}\\right)\\]\n\\[\\hat\\beta_0 \\sim \\mathcal{N}\\!\\left(\\beta_0,\\; \\sigma^2\\left(\\frac{1}{n}+\\frac{\\bar X^2}{S_{XX}}\\right)\\right)\\]\nEstadísticos de prueba (con \\(\\sigma^2\\) estimado):\n\\[T_j = \\frac{\\hat\\beta_j - \\beta_j^0}{\\text{se}(\\hat\\beta_j)} \\sim t_{n-2}\\]\ndonde \\(\\text{se}(\\hat\\beta_1) = \\hat\\sigma / \\sqrt{S_{XX}}\\).",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#descomposición-de-la-varianza-anova-de-regresión",
+    "href": "material/anexos/inferencia_estadistica.html#descomposición-de-la-varianza-anova-de-regresión",
+    "title": "Inferencia Estadística",
+    "section": "Descomposición de la Varianza (ANOVA de Regresión)",
+    "text": "Descomposición de la Varianza (ANOVA de Regresión)\n\\[\\underbrace{\\sum_{i=1}^n (Y_i-\\bar Y)^2}_{\\text{SCT}} =\n\\underbrace{\\sum_{i=1}^n (\\hat Y_i - \\bar Y)^2}_{\\text{SCR}_{\\text{reg}}} +\n\\underbrace{\\sum_{i=1}^n (Y_i-\\hat Y_i)^2}_{\\text{SCR}_{\\text{res}}}\\]\n\n\n\n\n\n\n\n\n\n\nFuente\nSC\ngl\nCM\n\\(F\\)\n\n\n\n\nRegresión\n\\(\\text{SCR}_{\\text{reg}}\\)\n\\(1\\)\n\\(\\text{CM}_{\\text{reg}}\\)\n\\(\\text{CM}_{\\text{reg}}/\\hat\\sigma^2\\)\n\n\nResidual\n\\(\\text{SCR}_{\\text{res}}\\)\n\\(n-2\\)\n\\(\\hat\\sigma^2\\)\n\n\n\nTotal\n\\(\\text{SCT}\\)\n\\(n-1\\)",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#coeficiente-de-determinación-r2",
+    "href": "material/anexos/inferencia_estadistica.html#coeficiente-de-determinación-r2",
+    "title": "Inferencia Estadística",
+    "section": "Coeficiente de Determinación \\(R^2\\)",
+    "text": "Coeficiente de Determinación \\(R^2\\)\n\\[R^2 = \\frac{\\text{SCR}_{\\text{reg}}}{\\text{SCT}} = 1 - \\frac{\\text{SCR}_{\\text{res}}}{\\text{SCT}} \\in [0,1]\\]\nPropiedades:\n\n\n\n\n\n\n\nPropiedad\nEnunciado\n\n\n\n\nInterpretación\nProporción de variabilidad de \\(Y\\) explicada por \\(X\\)\n\n\nRelación con \\(\\hat r\\)\n\\(R^2 = \\hat\\rho_{XY}^2\\) (solo en regresión simple)\n\n\nNo mide causalidad\nUn \\(R^2\\) alto no implica que \\(X\\) cause \\(Y\\)\n\n\nSensible a \\(n\\) y \\(k\\)\nAumenta artificialmente con más regresores",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#intervalos-de-confianza-en-regresión",
+    "href": "material/anexos/inferencia_estadistica.html#intervalos-de-confianza-en-regresión",
+    "title": "Inferencia Estadística",
+    "section": "Intervalos de Confianza en Regresión",
+    "text": "Intervalos de Confianza en Regresión\nIC para \\(\\beta_1\\):\n\\[\\text{IC}_{1-\\alpha}(\\beta_1) = \\hat\\beta_1 \\pm t_{n-2,\\,\\alpha/2}\\,\\frac{\\hat\\sigma}{\\sqrt{S_{XX}}}\\]\nIC para la respuesta media \\(E[Y \\mid X = x^*]\\):\n\\[\\hat Y^* \\pm t_{n-2,\\,\\alpha/2}\\;\\hat\\sigma\\sqrt{\\frac{1}{n} + \\frac{(x^*-\\bar X)^2}{S_{XX}}}\\]\nIntervalo de predicción para una nueva observación \\(Y^*\\):\n\\[\\hat Y^* \\pm t_{n-2,\\,\\alpha/2}\\;\\hat\\sigma\\sqrt{1 + \\frac{1}{n} + \\frac{(x^*-\\bar X)^2}{S_{XX}}}\\]\n\nEl intervalo de predicción es siempre más ancho que el IC de la media porque incorpora tanto la incertidumbre en \\(E[Y\\mid X]\\) como la variabilidad individual de \\(Y\\).\n\n\nset.seed(21)\nn_r   &lt;- 60\nx_r   &lt;- rnorm(n_r, 10, 3)\ny_r   &lt;- 2 + 1.5 * x_r + rnorm(n_r, 0, 3)\ndf_r  &lt;- data.frame(x = x_r, y = y_r)\nfit_r &lt;- lm(y ~ x, data = df_r)\n\nx_pred &lt;- seq(min(x_r) - 0.5, max(x_r) + 0.5, length.out = 200)\nci_m   &lt;- predict(fit_r, newdata = data.frame(x = x_pred),\n                  interval = \"confidence\", level = 0.95)\nci_p   &lt;- predict(fit_r, newdata = data.frame(x = x_pred),\n                  interval = \"prediction\", level = 0.95)\n\ndf_band &lt;- data.frame(\n  x    = x_pred,\n  fit  = ci_m[,\"fit\"],\n  ci_lo = ci_m[,\"lwr\"], ci_hi = ci_m[,\"upr\"],\n  pi_lo = ci_p[,\"lwr\"], pi_hi = ci_p[,\"upr\"]\n)\n\nggplot() +\n  geom_ribbon(data = df_band, aes(x, ymin = pi_lo, ymax = pi_hi),\n              fill = pal[4], alpha = 0.18) +\n  geom_ribbon(data = df_band, aes(x, ymin = ci_lo, ymax = ci_hi),\n              fill = pal[1], alpha = 0.30) +\n  geom_line(data = df_band, aes(x, fit), colour = pal[1], linewidth = 1.3) +\n  geom_point(data = df_r, aes(x, y), alpha = 0.55, size = 2, colour = \"grey30\") +\n  annotate(\"text\", x = max(x_r) - 1, y = min(y_r) + 1.5,\n           label = paste0(\"R² = \", round(summary(fit_r)$r.squared, 3)),\n           size = 4, colour = pal[1], fontface = \"bold\") +\n  labs(\n    title    = \"Regresión lineal simple — OLS\",\n    subtitle = \"Azul: IC 95% para E[Y|X]   |   Naranja: IP 95% para Y*\",\n    x = \"X\", y = \"Y\"\n  )\n\n\n\n\n\n\n\nFigura 30.1: OLS: recta ajustada, banda de confianza para la media e intervalo de predicción",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/inferencia_estadistica.html#verificación-de-supuestos",
+    "href": "material/anexos/inferencia_estadistica.html#verificación-de-supuestos",
+    "title": "Inferencia Estadística",
+    "section": "Verificación de Supuestos",
+    "text": "Verificación de Supuestos\n\ndf_diag &lt;- data.frame(\n  fitted    = fitted(fit_r),\n  residuals = residuals(fit_r),\n  std_res   = rstandard(fit_r),\n  obs       = seq_len(n_r)\n)\n\n# 1. Residuos vs Ajustados (homocedasticidad / linealidad)\np_rv &lt;- ggplot(df_diag, aes(fitted, residuals)) +\n  geom_point(alpha = 0.6, colour = pal[1]) +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  geom_smooth(se = FALSE, colour = pal[2], linewidth = 0.8, method = \"loess\") +\n  labs(title = \"Residuos vs Valores Ajustados\",\n       subtitle = \"Homocedasticidad y linealidad\",\n       x = expression(hat(Y)), y = expression(hat(epsilon)))\n\n# 2. QQ-plot (normalidad)\np_qq &lt;- ggplot(df_diag, aes(sample = std_res)) +\n  stat_qq(colour = pal[1], alpha = 0.7) +\n  stat_qq_line(colour = pal[2], linewidth = 1) +\n  labs(title = \"Q-Q Normal de residuos estandarizados\",\n       subtitle = \"Normalidad de errores\",\n       x = \"Cuantiles teóricos\", y = \"Cuantiles muestrales\")\n\n# 3. Scale-Location (homocedasticidad)\np_sl &lt;- ggplot(df_diag, aes(fitted, sqrt(abs(std_res)))) +\n  geom_point(alpha = 0.6, colour = pal[3]) +\n  geom_smooth(se = FALSE, colour = pal[2], linewidth = 0.8, method = \"loess\") +\n  labs(title = \"Scale-Location\",\n       subtitle = \"Raíz de |residuos estandarizados| vs ajustados\",\n       x = expression(hat(Y)), y = expression(sqrt(\"|\"~hat(epsilon)[std]~\"|\")))\n\n# 4. Residuos vs Índice (autocorrelación)\np_idx &lt;- ggplot(df_diag, aes(obs, residuals)) +\n  geom_point(alpha = 0.6, colour = pal[5]) +\n  geom_hline(yintercept = 0, linetype = \"dashed\") +\n  geom_line(alpha = 0.3, colour = pal[5]) +\n  labs(title = \"Residuos vs Índice de Observación\",\n       subtitle = \"Detección de autocorrelación\",\n       x = \"Índice\", y = expression(hat(epsilon)))\n\ngrid.arrange(p_rv, p_qq, p_sl, p_idx, ncol = 2)\n\n`geom_smooth()` using formula = 'y ~ x'\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nFigura 30.2: Gráficos de diagnóstico de supuestos OLS\n\n\n\n\n\n\n\n\n\n\n\n\n\nGráfico\nSupuesto verificado\nSeñal de problema\n\n\n\n\nResiduos vs Ajustados\nLinealidad + homocedasticidad\nPatrón sistemático o embudo\n\n\nQ-Q Normal\nNormalidad de \\(\\varepsilon\\)\nDesviaciones en las colas\n\n\nScale-Location\nHomocedasticidad\nTendencia creciente\n\n\nResiduos vs Índice\nNo autocorrelación\nPatrón temporal o cíclico",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>Inferencia Estadística</span>"
+    ]
+  },
+  {
+    "objectID": "material/anexos/repaso_r.html",
+    "href": "material/anexos/repaso_r.html",
+    "title": "R en Google Colab",
+    "section": "",
+    "text": "Para poder ejecutar código en R dentro de Google Colab, primero debe cambiar el entorno de ejecución. Diríjase al menú Runtime, seleccione Change runtime type y elija R como lenguaje antes de ejecutar las celdas del notebook.\n\n\n\nCambio de runtime en Google Colab\n\n\n\n1. Variables y Tipos de Datos Básicos\nEn R, puedes asignar valores a variables usando el operador &lt;- o =. R es dinámicamente tipado, lo que significa que no necesitas declarar el tipo de dato de una variable explícitamente.\n\n# Asignación de variables\nmi_entero &lt;- 10\nmi_decimal = 3.14\nmi_cadena &lt;- \"Hola, R\"\nmi_booleano &lt;- TRUE\n\n\ntypeof(mi_entero)\ntypeof(mi_decimal)\n\n'double'\n\n\n'double'\n\n\n\n# Imprimir variables y sus tipos\nprint(paste(\"Entero:\", mi_entero, \"Tipo:\", typeof(mi_entero)))\nprint(paste(\"Decimal:\", mi_decimal, \"Tipo:\", typeof(mi_decimal)))\nprint(paste(\"Cadena:\", mi_cadena, \"Tipo:\", typeof(mi_cadena)))\nprint(paste(\"Booleano:\", mi_booleano, \"Tipo:\", typeof(mi_booleano)))\n\n[1] \"Entero: 10 Tipo: double\"\n[1] \"Decimal: 3.14 Tipo: double\"\n[1] \"Cadena: Hola, R Tipo: character\"\n[1] \"Booleano: TRUE Tipo: logical\"\n\n\n\n# Operaciones básicas\nresultado_suma &lt;- mi_entero + 5\nresultado_multiplicacion &lt;- mi_decimal * 2\nprint(paste(\"Suma:\", resultado_suma))\nprint(paste(\"Multiplicación:\", resultado_multiplicacion))\n\n[1] \"Suma: 15\"\n[1] \"Multiplicación: 6.28\"\n\n\n\n\n2. Estructuras de Datos\nR tiene varias estructuras de datos fundamentales para organizar información.\n\n2.1. Vectores\nLos vectores son las estructuras de datos más básicas en R. Son colecciones ordenadas de elementos del mismo tipo de dato.\n\n# Crear un vector numérico\nvector_numerico &lt;- c(1, 2, 3, 4, 5)\nprint(\"Vector Numérico:\")\nprint(vector_numerico)\n\n# Crear un vector de caracteres\nvector_caracteres &lt;- c(\"manzana\", \"banana\", \"cereza\")\nprint(\"Vector de Caracteres:\")\nprint(vector_caracteres)\n\n# Acceder a elementos de un vector (indexación base 1)\nprint(paste(\"Primer elemento:\", vector_numerico[1]))\nprint(paste(\"Elementos 2 a 4:\", paste(vector_numerico[2:4], collapse = \", \")))\n\n# Operaciones con vectores\nvector_suma &lt;- vector_numerico + 10\nprint(\"Vector Suma:\")\nprint(vector_suma)\n\n[1] \"Vector Numérico:\"\n[1] 1 2 3 4 5\n[1] \"Vector de Caracteres:\"\n[1] \"manzana\" \"banana\"  \"cereza\" \n[1] \"Primer elemento: 1\"\n[1] \"Elementos 2 a 4: 2, 3, 4\"\n[1] \"Vector Suma:\"\n[1] 11 12 13 14 15\n\n\n\n\n2.2. Listas\nLas listas son colecciones ordenadas de objetos, donde los objetos pueden ser de diferentes tipos de datos (incluso otras listas o data frames).\n\n# Crear una lista\nmi_lista &lt;- list(\"nombre\" = \"Alice\", \"edad\" = 30, \"numeros\" = c(1, 2, 3))\nprint(\"Mi Lista:\")\nprint(mi_lista)\n\n# Acceder a elementos de una lista\nprint(paste(\"Nombre:\", mi_lista$nombre))\nprint(paste(\"Edad:\", mi_lista[[\"edad\"]]))\nprint(\"Números:\")\nprint(mi_lista$numeros)\n\n[1] \"Mi Lista:\"\n$nombre\n[1] \"Alice\"\n\n$edad\n[1] 30\n\n$numeros\n[1] 1 2 3\n\n[1] \"Nombre: Alice\"\n[1] \"Edad: 30\"\n[1] \"Números:\"\n[1] 1 2 3\n\n\nprint(“”\n\n\n2.3. Matrices\nLas matrices son colecciones bidimensionales de elementos del mismo tipo de dato. Son como tablas de datos con filas y columnas.\n\n# Crear una matriz de 2x3\nmatriz_ejemplo &lt;- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2, ncol = 3, byrow = TRUE)\nprint(\"Matriz Ejemplo:\")\nprint(matriz_ejemplo)\n\n# Acceder a elementos de una matriz (fila, columna)\nprint(paste(\"Elemento (1,2):\", matriz_ejemplo[1, 2]))\nprint(\"Primera fila:\")\nprint(matriz_ejemplo[1, ])\nprint(\"Segunda columna:\")\nprint(matriz_ejemplo[, 2])\n\n[1] \"Matriz Ejemplo:\"\n     [,1] [,2] [,3]\n[1,]    1    2    3\n[2,]    4    5    6\n[1] \"Elemento (1,2): 2\"\n[1] \"Primera fila:\"\n[1] 1 2 3\n[1] \"Segunda columna:\"\n[1] 2 5\n\n\n\n\n2.4. Data Frames\nLos Data Frames son la estructura de datos más importante y utilizada en R para el análisis de datos. Son como hojas de cálculo o tablas de bases de datos, donde cada columna puede contener un tipo de dato diferente (pero todas las columnas tienen la misma longitud).\n\n# Crear un Data Frame\ndatos_clientes &lt;- data.frame(\n  ID = c(1, 2, 3),\n  Nombre = c(\"Ana\", \"Luis\", \"Marta\"),\n  Edad = c(25, 30, 22),\n  Ciudad = c(\"Madrid\", \"Barcelona\", \"Valencia\")\n)\nprint(\"Data Frame Datos Clientes:\")\nprint(datos_clientes)\n\n# Acceder a columnas\nprint(\"Nombres:\")\nprint(datos_clientes$Nombre)\nprint(\"Edad (con corchetes dobles):\")\nprint(datos_clientes[[\"Edad\"]])\n\n# Acceder a filas\nprint(\"Primera fila:\")\nprint(datos_clientes[1, ])\n\n# Filtrar filas\nprint(\"Clientes mayores de 25 años:\")\nprint(datos_clientes[datos_clientes$Edad &gt; 25, ])\n\n[1] \"Data Frame Datos Clientes:\"\n  ID Nombre Edad    Ciudad\n1  1    Ana   25    Madrid\n2  2   Luis   30 Barcelona\n3  3  Marta   22  Valencia\n[1] \"Nombres:\"\n[1] \"Ana\"   \"Luis\"  \"Marta\"\n[1] \"Edad (con corchetes dobles):\"\n[1] 25 30 22\n[1] \"Primera fila:\"\n  ID Nombre Edad Ciudad\n1  1    Ana   25 Madrid\n[1] \"Clientes mayores de 25 años:\"\n  ID Nombre Edad    Ciudad\n2  2   Luis   30 Barcelona\n\n\n\n\n\n3. Control de Flujo\nEl control de flujo te permite ejecutar diferentes bloques de código basándose en condiciones o repetir tareas.\n\n3.1. if-else (Condicionales)\n\nnumero &lt;- \"hola\"\n\nif (numero &gt; 10) {\n  print(\"El número es mayor que 10\")\n} else if (numero == 10) {\n  print(\"El número es igual a 10\")\n} else {\n  print(\"El número es menor que 10\")\n}\n\n[1] \"El número es mayor que 10\"\n\n\n\n\n3.2. Bucles for\n\nfrutas &lt;- c(\"manzana\", \"plátano\", \"uva\")\n\nfor (fruta in frutas) {\n  print(paste(\"Me gusta comer\", fruta))\n}\n\n# Bucle for con un rango numérico\nfor (i in 1:5) {\n  print(paste(\"Contando:\", i))\n}\n\n[1] \"Me gusta comer manzana\"\n[1] \"Me gusta comer plátano\"\n[1] \"Me gusta comer uva\"\n[1] \"Contando: 1\"\n[1] \"Contando: 2\"\n[1] \"Contando: 3\"\n[1] \"Contando: 4\"\n[1] \"Contando: 5\"\n\n\n\n\n3.3. Bucles while\n\ni &lt;- 1\nwhile (i &lt;= 3) {\n  print(paste(\"Iteración:\", i))\n  i &lt;- i + 1\n}\n\n[1] \"Iteración: 1\"\n[1] \"Iteración: 2\"\n[1] \"Iteración: 3\"\n\n\n\n\n\n4. Funciones\nLas funciones te permiten encapsular bloques de código para reutilizarlos. Son fundamentales para escribir código modular y legible.\n\n# Definir una función simple\nsaludar &lt;- function(nombre) {\n  mensaje &lt;- paste(\"Hola,\", nombre, \"¡Bienvenido a R!\")\n  return(mensaje)\n}\n\n# Llamar a la función\nprint(saludar(\"Carlos\"))\nprint(saludar(\"María\"))\n\n# Función con múltiples argumentos y valor por defecto\ncalcular_area_rectangulo &lt;- function(largo, ancho = 3) {\n  area &lt;- largo * ancho\n  return(area)\n}\n\nprint(paste(\"Área de un rectángulo 5x3:\", calcular_area_rectangulo(5, 3)))\nprint(paste(\"Área de un rectángulo 7x1 (ancho por defecto):\", calcular_area_rectangulo(7)))\n\n[1] \"Hola, Carlos ¡Bienvenido a R!\"\n[1] \"Hola, María ¡Bienvenido a R!\"\n[1] \"Área de un rectángulo 5x3: 15\"\n[1] \"Área de un rectángulo 7x1 (ancho por defecto): 21\"\n\n\n\n\n5. Paquetes (Librerías)\nR tiene un vasto ecosistema de paquetes que extienden su funcionalidad. Para usarlos, primero debes instalarlos y luego cargarlos.\n\n5.1. dplyr para Manipulación de Datos\ndplyr es parte del tidyverse y es excelente para la manipulación de Data Frames.\n\n# Instalar dplyr (solo si no lo tienes instalado)\n# install.packages(\"dplyr\")\n\n# Cargar dplyr\nlibrary(dplyr)\n\n# Crear un Data Frame de ejemplo\ndf_ventas &lt;- data.frame(\n  Producto = c(\"A\", \"B\", \"A\", \"C\", \"B\", \"\"),\n  Region = c(\"Norte\", \"Sur\", \"Norte\", \"Este\", \"Oeste\", \"Norte\"),\n  Ventas = c(100, 150, 120, 80, 200, 90)\n)\n\nprint(\"Data Frame original:\")\nprint(df_ventas)\n\n[1] \"Data Frame original:\"\n  Producto Region Ventas\n1        A  Norte    100\n2        B    Sur    150\n3        A  Norte    120\n4        C   Este     80\n5        B  Oeste    200\n6           Norte     90\n\n\n\n# Filtrar (filter()): Ventas mayores a 100\nprint(\"Ventas &gt; 100:\")\nfilter(df_ventas, Ventas &gt; 100)\n\n[1] \"Ventas &gt; 100:\"\n\n\n\nA data.frame: 3 × 3\n\n\nProducto\nRegion\nVentas\n\n\n&lt;chr&gt;\n&lt;chr&gt;\n&lt;dbl&gt;\n\n\n\n\nB\nSur\n150\n\n\nA\nNorte\n120\n\n\nB\nOeste\n200\n\n\n\n\n\n\n\n\n\n# Seleccionar (select()): Solo Producto y Ventas\nprint(\"Solo Producto y Ventas:\")\nprint(select(df_ventas, Producto, Ventas))\n\n# Agrupar y resumir (group_by(), summarise()): Suma de ventas por producto\nprint(\"Suma de Ventas por Producto:\")\nprint(df_ventas %&gt;%\n        group_by(Producto) %&gt;%\n        summarise(Total_Ventas = sum(Ventas)))\n\n\n[1] \"Data Frame original:\"\n\n  Producto Region Ventas\n\n1        A  Norte    100\n\n2        B    Sur    150\n\n3        A  Norte    120\n\n4        C   Este     80\n\n5        B  Oeste    200\n\n6        C  Norte     90\n\n[1] \"Ventas &gt; 100:\"\n\n  Producto Region Ventas\n\n1        B    Sur    150\n\n2        A  Norte    120\n\n3        B  Oeste    200\n\n[1] \"Solo Producto y Ventas:\"\n\n  Producto Ventas\n\n1        A    100\n\n2        B    150\n\n3        A    120\n\n4        C     80\n\n5        B    200\n\n6        C     90\n\n[1] \"Suma de Ventas por Producto:\"\n\n# A tibble: 3 × 2\n\n  Producto Total_Ventas\n\n  &lt;chr&gt;           &lt;dbl&gt;\n\n1 A                 220\n\n2 B                 350\n\n3 C                 170\n\n\n\n\n\n\n5.2. ggplot2 para Visualización de Datos\nggplot2 también es parte del tidyverse y es una de las librerías más potentes para crear gráficos en R.\n\n# Instalar ggplot2 (solo si no lo tienes instalado)\n# install.packages(\"ggplot2\")\n\n# Cargar ggplot2\nlibrary(ggplot2)\n\n# Crear datos de ejemplo\ndatos_grafico &lt;- data.frame(\n  Categoria = c(\"A\", \"B\", \"C\", \"D\"),\n  Valor = c(20, 35, 15, 40)\n)\n\n# Crear un gráfico de barras simple\nmi_grafico &lt;- ggplot(datos_grafico, aes(x = Categoria, y = Valor)) +\n  geom_bar(stat = \"identity\", fill = \"skyblue\") +\n  labs(title = \"Ejemplo de Gráfico de Barras\",\n       x = \"Categoría\",\n       y = \"Valor\") +\n  theme_minimal()\n\nprint(mi_grafico)\n\n\n\n\n\n\n\n\n\n\n\nConclusión\nEn este cuaderno revisamos los principales fundamentos de R para comenzar a trabajar con el lenguaje. Partimos configurando R en Google Colab y luego exploramos conceptos esenciales como variables, tipos de datos y las estructuras de datos más utilizadas, incluyendo vectores, listas, matrices y data frames.\nTambién vimos cómo controlar el flujo de un programa utilizando estructuras como if-else, for y while, además de cómo definir y utilizar funciones. Finalmente, se presentó una breve introducción a paquetes muy utilizados en el ecosistema de R, como dplyr para la manipulación de datos y ggplot2 para su visualización.\nLa idea es que este material sirva como una base o repaso para entender los conceptos fundamentales de R y poder seguir profundizando en el análisis de datos con este lenguaje.",
+    "crumbs": [
+      "Anexos",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>R en Google Colab</span>"
     ]
   }
 ]

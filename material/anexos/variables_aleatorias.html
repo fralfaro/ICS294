@@ -1,0 +1,2257 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Variables Aleatorias – ICS294 - Econometría</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../material/anexos/inferencia_estadistica.html" rel="next">
+<link href="../../material/anexos/estadistica_descriptiva_r.html" rel="prev">
+<link href="../../images/icon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d657bf7690219e97efde434ca28cf501.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-02f69ddec8db6f163318686ba9cde2b1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-d657bf7690219e97efde434ca28cf501.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/anexos/estadistica_descriptiva_r.html">Anexos</a></li><li class="breadcrumb-item"><a href="../../material/anexos/variables_aleatorias.html"><span class="chapter-title">Variables Aleatorias</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo3.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">ICS294 - Econometría</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/fralfaro/ICS294" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../material/modulo_01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Fundamentos Estadísticos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal simple</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Causalidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s4.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables omitidas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s5.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Error de Medición</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s6.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación del Modelo de Regresión Lineal Múltiple</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s7.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_01/s8.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades estadísticas del estimador MCO</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../material/modulo_02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modelos de Regresión</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_02/s9.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Interpretación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_02/s10.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un parámetro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_02/s11.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_02/s12.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia sobre un conjunto de parámetros</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_02/s13.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Propiedades asintóticas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_02/s14.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables independientes binarias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../material/modulo_03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aplicaciones Avanzadas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_03/s15.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Variables dependientes binarias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_03/s16.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Heterocedasticidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_03/s17.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Endogeneidad y Variables Instrumentales</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_03/s18.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Multicolinealidad en el MCRL</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_03/s19.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Dependencia de los errores en series de tiempo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_03/s20.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Series de Tiempo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/modulo_03/s21.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Raíces Unitarias y Tendencias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/anexos/estadistica_descriptiva_r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística Descriptiva</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/anexos/variables_aleatorias.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Variables Aleatorias</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/anexos/inferencia_estadistica.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Inferencia Estadística</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../material/anexos/repaso_r.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">R en Google Colab</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#variables-aleatorias" id="toc-variables-aleatorias" class="nav-link active" data-scroll-target="#variables-aleatorias">Variables Aleatorias</a>
+  <ul class="collapse">
+  <li><a href="#definición" id="toc-definición" class="nav-link" data-scroll-target="#definición">Definición</a></li>
+  <li><a href="#función-de-distribución-acumulada-fda" id="toc-función-de-distribución-acumulada-fda" class="nav-link" data-scroll-target="#función-de-distribución-acumulada-fda">Función de Distribución Acumulada (FDA)</a>
+  <ul class="collapse">
+  <li><a href="#propiedades-de-la-fda" id="toc-propiedades-de-la-fda" class="nav-link" data-scroll-target="#propiedades-de-la-fda">Propiedades de la FDA</a></li>
+  </ul></li>
+  <li><a href="#función-de-masa-densidad-de-probabilidad" id="toc-función-de-masa-densidad-de-probabilidad" class="nav-link" data-scroll-target="#función-de-masa-densidad-de-probabilidad">Función de Masa / Densidad de Probabilidad</a></li>
+  </ul></li>
+  <li><a href="#esperanza-valor-esperado" id="toc-esperanza-valor-esperado" class="nav-link" data-scroll-target="#esperanza-valor-esperado">Esperanza (Valor Esperado)</a>
+  <ul class="collapse">
+  <li><a href="#definición-1" id="toc-definición-1" class="nav-link" data-scroll-target="#definición-1">Definición</a></li>
+  <li><a href="#esperanza-de-una-transformación" id="toc-esperanza-de-una-transformación" class="nav-link" data-scroll-target="#esperanza-de-una-transformación">Esperanza de una Transformación</a></li>
+  <li><a href="#propiedades-de-la-esperanza" id="toc-propiedades-de-la-esperanza" class="nav-link" data-scroll-target="#propiedades-de-la-esperanza">Propiedades de la Esperanza</a></li>
+  <li><a href="#momentos" id="toc-momentos" class="nav-link" data-scroll-target="#momentos">Momentos</a></li>
+  <li><a href="#desigualdades-clásicas" id="toc-desigualdades-clásicas" class="nav-link" data-scroll-target="#desigualdades-clásicas">Desigualdades Clásicas</a></li>
+  </ul></li>
+  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar" class="nav-link" data-scroll-target="#varianza-y-desviación-estándar">Varianza y Desviación Estándar</a>
+  <ul class="collapse">
+  <li><a href="#definición-2" id="toc-definición-2" class="nav-link" data-scroll-target="#definición-2">Definición</a>
+  <ul class="collapse">
+  <li><a href="#fórmula-computacional" id="toc-fórmula-computacional" class="nav-link" data-scroll-target="#fórmula-computacional">Fórmula computacional</a></li>
+  </ul></li>
+  <li><a href="#propiedades-de-la-varianza" id="toc-propiedades-de-la-varianza" class="nav-link" data-scroll-target="#propiedades-de-la-varianza">Propiedades de la Varianza</a>
+  <ul class="collapse">
+  <li><a href="#generalización-a-n-variables" id="toc-generalización-a-n-variables" class="nav-link" data-scroll-target="#generalización-a-n-variables">Generalización a <span class="math inline">\(n\)</span> variables</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#covarianza-y-correlación" id="toc-covarianza-y-correlación" class="nav-link" data-scroll-target="#covarianza-y-correlación">Covarianza y Correlación</a>
+  <ul class="collapse">
+  <li><a href="#covarianza" id="toc-covarianza" class="nav-link" data-scroll-target="#covarianza">Covarianza</a>
+  <ul class="collapse">
+  <li><a href="#fórmula-computacional-1" id="toc-fórmula-computacional-1" class="nav-link" data-scroll-target="#fórmula-computacional-1">Fórmula computacional</a></li>
+  <li><a href="#propiedades-de-la-covarianza" id="toc-propiedades-de-la-covarianza" class="nav-link" data-scroll-target="#propiedades-de-la-covarianza">Propiedades de la Covarianza</a></li>
+  </ul></li>
+  <li><a href="#correlación-de-pearson" id="toc-correlación-de-pearson" class="nav-link" data-scroll-target="#correlación-de-pearson">Correlación de Pearson</a>
+  <ul class="collapse">
+  <li><a href="#propiedades" id="toc-propiedades" class="nav-link" data-scroll-target="#propiedades">Propiedades</a></li>
+  </ul></li>
+  <li><a href="#matriz-de-covarianzas" id="toc-matriz-de-covarianzas" class="nav-link" data-scroll-target="#matriz-de-covarianzas">Matriz de Covarianzas</a></li>
+  </ul></li>
+  <li><a href="#esperanza-y-varianza-condicionada" id="toc-esperanza-y-varianza-condicionada" class="nav-link" data-scroll-target="#esperanza-y-varianza-condicionada">Esperanza y Varianza Condicionada</a>
+  <ul class="collapse">
+  <li><a href="#distribución-condicional" id="toc-distribución-condicional" class="nav-link" data-scroll-target="#distribución-condicional">Distribución Condicional</a></li>
+  <li><a href="#esperanza-condicional" id="toc-esperanza-condicional" class="nav-link" data-scroll-target="#esperanza-condicional">Esperanza Condicional</a>
+  <ul class="collapse">
+  <li><a href="#propiedades-de-la-esperanza-condicional" id="toc-propiedades-de-la-esperanza-condicional" class="nav-link" data-scroll-target="#propiedades-de-la-esperanza-condicional">Propiedades de la Esperanza Condicional</a></li>
+  </ul></li>
+  <li><a href="#varianza-condicional" id="toc-varianza-condicional" class="nav-link" data-scroll-target="#varianza-condicional">Varianza Condicional</a>
+  <ul class="collapse">
+  <li><a href="#ley-de-la-varianza-total-descomposición-eve" id="toc-ley-de-la-varianza-total-descomposición-eve" class="nav-link" data-scroll-target="#ley-de-la-varianza-total-descomposición-eve">Ley de la Varianza Total (Descomposición EVE)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#función-generatriz-de-momentos" id="toc-función-generatriz-de-momentos" class="nav-link" data-scroll-target="#función-generatriz-de-momentos">Función Generatriz de Momentos</a>
+  <ul class="collapse">
+  <li><a href="#definición-3" id="toc-definición-3" class="nav-link" data-scroll-target="#definición-3">Definición</a></li>
+  <li><a href="#propiedades-1" id="toc-propiedades-1" class="nav-link" data-scroll-target="#propiedades-1">Propiedades</a></li>
+  </ul></li>
+  <li><a href="#distribuciones-fundamentales-para-inferencia" id="toc-distribuciones-fundamentales-para-inferencia" class="nav-link" data-scroll-target="#distribuciones-fundamentales-para-inferencia">Distribuciones Fundamentales para Inferencia</a>
+  <ul class="collapse">
+  <li><a href="#distribución-normal-mathcalnmu-sigma2" id="toc-distribución-normal-mathcalnmu-sigma2" class="nav-link" data-scroll-target="#distribución-normal-mathcalnmu-sigma2">Distribución Normal <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span></a></li>
+  <li><a href="#distribución-chi-cuadrado-chi2_nu" id="toc-distribución-chi-cuadrado-chi2_nu" class="nav-link" data-scroll-target="#distribución-chi-cuadrado-chi2_nu">Distribución Chi-Cuadrado <span class="math inline">\(\chi^2_\nu\)</span></a></li>
+  <li><a href="#distribución-t-de-student-t_nu" id="toc-distribución-t-de-student-t_nu" class="nav-link" data-scroll-target="#distribución-t-de-student-t_nu">Distribución <span class="math inline">\(t\)</span> de Student <span class="math inline">\(t_\nu\)</span></a></li>
+  <li><a href="#distribución-f-de-fisher-snedecor-f_nu_1nu_2" id="toc-distribución-f-de-fisher-snedecor-f_nu_1nu_2" class="nav-link" data-scroll-target="#distribución-f-de-fisher-snedecor-f_nu_1nu_2">Distribución <span class="math inline">\(F\)</span> de Fisher-Snedecor <span class="math inline">\(F_{\nu_1,\nu_2}\)</span></a></li>
+  <li><a href="#distribución-normal-multivariante-mathcaln_pboldsymbolmu-boldsymbolsigma" id="toc-distribución-normal-multivariante-mathcaln_pboldsymbolmu-boldsymbolsigma" class="nav-link" data-scroll-target="#distribución-normal-multivariante-mathcaln_pboldsymbolmu-boldsymbolsigma">Distribución Normal Multivariante <span class="math inline">\(\mathcal{N}_p(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span></a></li>
+  </ul></li>
+  <li><a href="#otras-distribuciones-relevantes" id="toc-otras-distribuciones-relevantes" class="nav-link" data-scroll-target="#otras-distribuciones-relevantes">Otras Distribuciones Relevantes</a>
+  <ul class="collapse">
+  <li><a href="#distribución-uniforme-continua-ua-b" id="toc-distribución-uniforme-continua-ua-b" class="nav-link" data-scroll-target="#distribución-uniforme-continua-ua-b">Distribución Uniforme Continua <span class="math inline">\(U(a, b)\)</span></a></li>
+  <li><a href="#distribución-bernoulli-textberp" id="toc-distribución-bernoulli-textberp" class="nav-link" data-scroll-target="#distribución-bernoulli-textberp">Distribución Bernoulli <span class="math inline">\(\text{Ber}(p)\)</span></a></li>
+  <li><a href="#distribución-binomial-textbinn-p" id="toc-distribución-binomial-textbinn-p" class="nav-link" data-scroll-target="#distribución-binomial-textbinn-p">Distribución Binomial <span class="math inline">\(\text{Bin}(n, p)\)</span></a></li>
+  <li><a href="#distribución-de-poisson-textpoilambda" id="toc-distribución-de-poisson-textpoilambda" class="nav-link" data-scroll-target="#distribución-de-poisson-textpoilambda">Distribución de Poisson <span class="math inline">\(\text{Poi}(\lambda)\)</span></a></li>
+  <li><a href="#distribución-exponencial-textexplambda" id="toc-distribución-exponencial-textexplambda" class="nav-link" data-scroll-target="#distribución-exponencial-textexplambda">Distribución Exponencial <span class="math inline">\(\text{Exp}(\lambda)\)</span></a></li>
+  <li><a href="#distribución-gamma-gammaalpha-beta" id="toc-distribución-gamma-gammaalpha-beta" class="nav-link" data-scroll-target="#distribución-gamma-gammaalpha-beta">Distribución Gamma <span class="math inline">\(\Gamma(\alpha, \beta)\)</span></a></li>
+  <li><a href="#distribución-beta-textbetaalpha-beta" id="toc-distribución-beta-textbetaalpha-beta" class="nav-link" data-scroll-target="#distribución-beta-textbetaalpha-beta">Distribución Beta <span class="math inline">\(\text{Beta}(\alpha, \beta)\)</span></a></li>
+  </ul></li>
+  <li><a href="#visualización-de-las-distribuciones-clave" id="toc-visualización-de-las-distribuciones-clave" class="nav-link" data-scroll-target="#visualización-de-las-distribuciones-clave">Visualización de las Distribuciones Clave</a></li>
+  <li><a href="#relaciones-entre-distribuciones" id="toc-relaciones-entre-distribuciones" class="nav-link" data-scroll-target="#relaciones-entre-distribuciones">Relaciones entre Distribuciones</a></li>
+  <li><a href="#resumen-propiedades-de-esperanza-varianza-y-covarianza" id="toc-resumen-propiedades-de-esperanza-varianza-y-covarianza" class="nav-link" data-scroll-target="#resumen-propiedades-de-esperanza-varianza-y-covarianza">Resumen: Propiedades de Esperanza, Varianza y Covarianza</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-body" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../material/anexos/estadistica_descriptiva_r.html">Anexos</a></li><li class="breadcrumb-item"><a href="../../material/anexos/variables_aleatorias.html"><span class="chapter-title">Variables Aleatorias</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Variables Aleatorias</span></h1>
+<p class="subtitle lead">Propiedades de Esperanza, Varianza, Covarianza y Distribuciones para Inferencia</p>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<hr>
+<section id="variables-aleatorias" class="level1">
+<h1>Variables Aleatorias</h1>
+<section id="definición" class="level2">
+<h2 class="anchored" data-anchor-id="definición">Definición</h2>
+<p>Una <strong>variable aleatoria</strong> (v.a.) es una función medible que asigna un número real a cada resultado de un espacio muestral <span class="math inline">\(\Omega\)</span>:</p>
+<p><span class="math display">\[X : \Omega \longrightarrow \mathbb{R}\]</span></p>
+<p>Se clasifican en:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 46%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Descripción</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Discreta</strong></td>
+<td>Toma valores en un conjunto numerable</td>
+<td>Número de hijos, lanzamiento de dado</td>
+</tr>
+<tr class="even">
+<td><strong>Continua</strong></td>
+<td>Toma valores en un intervalo de <span class="math inline">\(\mathbb{R}\)</span></td>
+<td>Altura, temperatura, salario</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="función-de-distribución-acumulada-fda" class="level2">
+<h2 class="anchored" data-anchor-id="función-de-distribución-acumulada-fda">Función de Distribución Acumulada (FDA)</h2>
+<p>Para cualquier v.a. <span class="math inline">\(X\)</span> (discreta o continua), la <strong>FDA</strong> se define como:</p>
+<p><span class="math display">\[F_X(x) = P(X \leq x), \qquad x \in \mathbb{R}\]</span></p>
+<section id="propiedades-de-la-fda" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades-de-la-fda">Propiedades de la FDA</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Acotación</td>
+<td><span class="math inline">\(0 \leq F_X(x) \leq 1\)</span> para todo <span class="math inline">\(x\)</span></td>
+</tr>
+<tr class="even">
+<td>Monotonicidad</td>
+<td><span class="math inline">\(F_X\)</span> es no decreciente</td>
+</tr>
+<tr class="odd">
+<td>Límites</td>
+<td><span class="math inline">\(\lim_{x \to -\infty} F_X(x) = 0 \;\)</span> y <span class="math inline">\(\; \lim_{x \to +\infty} F_X(x) = 1\)</span></td>
+</tr>
+<tr class="even">
+<td>Continuidad por derecha</td>
+<td><span class="math inline">\(\lim_{h \to 0^+} F_X(x+h) = F_X(x)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Probabilidad de intervalo</td>
+<td><span class="math inline">\(P(a &lt; X \leq b) = F_X(b) - F_X(a)\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="función-de-masa-densidad-de-probabilidad" class="level2">
+<h2 class="anchored" data-anchor-id="función-de-masa-densidad-de-probabilidad">Función de Masa / Densidad de Probabilidad</h2>
+<p><strong>Caso discreto</strong> — función de masa de probabilidad (f.m.p.):</p>
+<p><span class="math display">\[p_X(x_k) = P(X = x_k) \geq 0, \qquad \sum_k p_X(x_k) = 1\]</span></p>
+<p><strong>Caso continuo</strong> — función de densidad de probabilidad (f.d.p.):</p>
+<p><span class="math display">\[f_X(x) \geq 0, \qquad \int_{-\infty}^{+\infty} f_X(x)\,dx = 1\]</span></p>
+<p><span class="math display">\[P(a \leq X \leq b) = \int_a^b f_X(x)\,dx, \qquad F_X(x) = \int_{-\infty}^x f_X(t)\,dt\]</span></p>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> Para v.a. continuas, <span class="math inline">\(P(X = x) = 0\)</span> para cualquier valor puntual <span class="math inline">\(x\)</span>.</p>
+</blockquote>
+<hr>
+</section>
+</section>
+<section id="esperanza-valor-esperado" class="level1">
+<h1>Esperanza (Valor Esperado)</h1>
+<section id="definición-1" class="level2">
+<h2 class="anchored" data-anchor-id="definición-1">Definición</h2>
+<p>La <strong>esperanza</strong> <span class="math inline">\(E[X]\)</span> mide el valor promedio que tomaría <span class="math inline">\(X\)</span> en infinitas repeticiones:</p>
+<p><span class="math display">\[E[X] = \begin{cases}
+\displaystyle\sum_k x_k\, p_X(x_k) &amp; \text{caso discreto} \\[10pt]
+\displaystyle\int_{-\infty}^{+\infty} x\, f_X(x)\,dx &amp; \text{caso continuo}
+\end{cases}\]</span></p>
+<p>También se denota <span class="math inline">\(\mu_X\)</span> o simplemente <span class="math inline">\(\mu\)</span>.</p>
+</section>
+<section id="esperanza-de-una-transformación" class="level2">
+<h2 class="anchored" data-anchor-id="esperanza-de-una-transformación">Esperanza de una Transformación</h2>
+<p><strong>Ley del estadístico inconsciente (LOTUS):</strong></p>
+<p><span class="math display">\[E[g(X)] = \begin{cases}
+\displaystyle\sum_k g(x_k)\, p_X(x_k) &amp; \text{discreto} \\[10pt]
+\displaystyle\int_{-\infty}^{+\infty} g(x)\, f_X(x)\,dx &amp; \text{continuo}
+\end{cases}\]</span></p>
+</section>
+<section id="propiedades-de-la-esperanza" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-de-la-esperanza">Propiedades de la Esperanza</h2>
+<p>Sea <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> v.a. y <span class="math inline">\(a, b \in \mathbb{R}\)</span> constantes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P1</td>
+<td><strong>Constante</strong></td>
+<td><span class="math inline">\(E[a] = a\)</span></td>
+</tr>
+<tr class="even">
+<td>P2</td>
+<td><strong>Linealidad</strong></td>
+<td><span class="math inline">\(E[aX + b] = a\,E[X] + b\)</span></td>
+</tr>
+<tr class="odd">
+<td>P3</td>
+<td><strong>Aditividad</strong></td>
+<td><span class="math inline">\(E[X + Y] = E[X] + E[Y]\)</span></td>
+</tr>
+<tr class="even">
+<td>P4</td>
+<td><strong>Homogeneidad</strong></td>
+<td><span class="math inline">\(E[aX] = a\,E[X]\)</span></td>
+</tr>
+<tr class="odd">
+<td>P5</td>
+<td><strong>Independencia</strong></td>
+<td>Si <span class="math inline">\(X \perp Y\)</span>, entonces <span class="math inline">\(E[XY] = E[X]\,E[Y]\)</span></td>
+</tr>
+<tr class="even">
+<td>P6</td>
+<td><strong>No negatividad</strong></td>
+<td>Si <span class="math inline">\(X \geq 0\)</span>, entonces <span class="math inline">\(E[X] \geq 0\)</span></td>
+</tr>
+<tr class="odd">
+<td>P7</td>
+<td><strong>Monotonía</strong></td>
+<td>Si <span class="math inline">\(X \leq Y\)</span>, entonces <span class="math inline">\(E[X] \leq E[Y]\)</span></td>
+</tr>
+<tr class="even">
+<td>P8</td>
+<td><strong>Potencias</strong></td>
+<td>$E[X^n] = $ <span class="math inline">\(n\)</span>-ésimo momento (ver §3)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Importante</span>La linealidad de la esperanza es siempre válida
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Las propiedades P2 y P3 valen <strong>sin importar si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes o no</strong>. Esto es una de las herramientas más poderosas del cálculo probabilístico.</p>
+</div>
+</div>
+</section>
+<section id="momentos" class="level2">
+<h2 class="anchored" data-anchor-id="momentos">Momentos</h2>
+<p>El <strong><span class="math inline">\(n\)</span>-ésimo momento</strong> de <span class="math inline">\(X\)</span> respecto al origen es:</p>
+<p><span class="math display">\[\mu'_n = E[X^n]\]</span></p>
+<p>El <strong><span class="math inline">\(n\)</span>-ésimo momento central</strong> (respecto a la media) es:</p>
+<p><span class="math display">\[\mu_n = E\!\left[(X - \mu)^n\right]\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Momento central</th>
+<th>Nombre</th>
+<th>Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mu_1\)</span></td>
+<td>—</td>
+<td><span class="math inline">\(0\)</span> (por definición)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu_2\)</span></td>
+<td>Varianza</td>
+<td><span class="math inline">\(\text{Var}(X)\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mu_3 / \sigma^3\)</span></td>
+<td>Asimetría (skewness)</td>
+<td><span class="math inline">\(\gamma_1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mu_4 / \sigma^4 - 3\)</span></td>
+<td>Curtosis excess</td>
+<td><span class="math inline">\(\gamma_2\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="desigualdades-clásicas" class="level2">
+<h2 class="anchored" data-anchor-id="desigualdades-clásicas">Desigualdades Clásicas</h2>
+<p><strong>Desigualdad de Markov</strong> (requiere <span class="math inline">\(X \geq 0\)</span>):</p>
+<p><span class="math display">\[P(X \geq a) \leq \frac{E[X]}{a}, \qquad a &gt; 0\]</span></p>
+<p><strong>Desigualdad de Chebyshev</strong> (requiere solo <span class="math inline">\(\text{Var}(X) &lt; \infty\)</span>):</p>
+<p><span class="math display">\[P\!\left(|X - \mu| \geq k\sigma\right) \leq \frac{1}{k^2}, \qquad k &gt; 0\]</span></p>
+<p>Equivalentemente: al menos <span class="math inline">\(1 - 1/k^2\)</span> de la masa probabilística cae en <span class="math inline">\((\mu - k\sigma,\; \mu + k\sigma)\)</span>.</p>
+<hr>
+</section>
+</section>
+<section id="varianza-y-desviación-estándar" class="level1">
+<h1>Varianza y Desviación Estándar</h1>
+<section id="definición-2" class="level2">
+<h2 class="anchored" data-anchor-id="definición-2">Definición</h2>
+<p><span class="math display">\[\text{Var}(X) = \sigma^2_X = E\!\left[(X - \mu)^2\right]\]</span></p>
+<section id="fórmula-computacional" class="level3">
+<h3 class="anchored" data-anchor-id="fórmula-computacional">Fórmula computacional</h3>
+<p><span class="math display">\[\text{Var}(X) = E[X^2] - \left(E[X]\right)^2\]</span></p>
+<p><strong>Demostración:</strong> <span class="math display">\[E[(X-\mu)^2] = E[X^2 - 2\mu X + \mu^2]
+= E[X^2] - 2\mu E[X] + \mu^2
+= E[X^2] - 2\mu^2 + \mu^2
+= E[X^2] - \mu^2\]</span></p>
+</section>
+</section>
+<section id="propiedades-de-la-varianza" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-de-la-varianza">Propiedades de la Varianza</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V1</td>
+<td><strong>No negatividad</strong></td>
+<td><span class="math inline">\(\text{Var}(X) \geq 0\)</span></td>
+</tr>
+<tr class="even">
+<td>V2</td>
+<td><strong>Nulidad</strong></td>
+<td><span class="math inline">\(\text{Var}(X) = 0 \iff X = c\)</span> (constante c.s.)</td>
+</tr>
+<tr class="odd">
+<td>V3</td>
+<td><strong>Constante</strong></td>
+<td><span class="math inline">\(\text{Var}(c) = 0\)</span></td>
+</tr>
+<tr class="even">
+<td>V4</td>
+<td><strong>Traslación</strong></td>
+<td><span class="math inline">\(\text{Var}(X + b) = \text{Var}(X)\)</span></td>
+</tr>
+<tr class="odd">
+<td>V5</td>
+<td><strong>Escala</strong></td>
+<td><span class="math inline">\(\text{Var}(aX) = a^2\,\text{Var}(X)\)</span></td>
+</tr>
+<tr class="even">
+<td>V6</td>
+<td><strong>Lineal</strong></td>
+<td><span class="math inline">\(\text{Var}(aX + b) = a^2\,\text{Var}(X)\)</span></td>
+</tr>
+<tr class="odd">
+<td>V7</td>
+<td><strong>Suma (independientes)</strong></td>
+<td>Si <span class="math inline">\(X \perp Y\)</span>: <span class="math inline">\(\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)\)</span></td>
+</tr>
+<tr class="even">
+<td>V8</td>
+<td><strong>Suma (general)</strong></td>
+<td><span class="math inline">\(\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) + 2\,\text{Cov}(X,Y)\)</span></td>
+</tr>
+</tbody>
+</table>
+<section id="generalización-a-n-variables" class="level3">
+<h3 class="anchored" data-anchor-id="generalización-a-n-variables">Generalización a <span class="math inline">\(n\)</span> variables</h3>
+<p><span class="math display">\[\text{Var}\!\left(\sum_{i=1}^n a_i X_i\right)
+= \sum_{i=1}^n a_i^2\,\text{Var}(X_i)
++ 2\sum_{i &lt; j} a_i a_j\,\text{Cov}(X_i, X_j)\]</span></p>
+<p>Si todas son mutuamente independientes:</p>
+<p><span class="math display">\[\text{Var}\!\left(\sum_{i=1}^n a_i X_i\right) = \sum_{i=1}^n a_i^2\,\text{Var}(X_i)\]</span></p>
+<p><strong>Caso especial importante</strong> — media muestral <span class="math inline">\(\bar{X} = \frac{1}{n}\sum X_i\)</span> con <span class="math inline">\(X_i\)</span> i.i.d.:</p>
+<p><span class="math display">\[\text{Var}(\bar{X}) = \frac{\sigma^2}{n}\]</span></p>
+<hr>
+</section>
+</section>
+</section>
+<section id="covarianza-y-correlación" class="level1">
+<h1>Covarianza y Correlación</h1>
+<section id="covarianza" class="level2">
+<h2 class="anchored" data-anchor-id="covarianza">Covarianza</h2>
+<p><span class="math display">\[\text{Cov}(X, Y) = E\!\left[(X - \mu_X)(Y - \mu_Y)\right]\]</span></p>
+<section id="fórmula-computacional-1" class="level3">
+<h3 class="anchored" data-anchor-id="fórmula-computacional-1">Fórmula computacional</h3>
+<p><span class="math display">\[\text{Cov}(X, Y) = E[XY] - E[X]\,E[Y]\]</span></p>
+</section>
+<section id="propiedades-de-la-covarianza" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades-de-la-covarianza">Propiedades de la Covarianza</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C1</td>
+<td><strong>Simetría</strong></td>
+<td><span class="math inline">\(\text{Cov}(X, Y) = \text{Cov}(Y, X)\)</span></td>
+</tr>
+<tr class="even">
+<td>C2</td>
+<td><strong>Varianza propia</strong></td>
+<td><span class="math inline">\(\text{Cov}(X, X) = \text{Var}(X)\)</span></td>
+</tr>
+<tr class="odd">
+<td>C3</td>
+<td><strong>Constante</strong></td>
+<td><span class="math inline">\(\text{Cov}(X, c) = 0\)</span></td>
+</tr>
+<tr class="even">
+<td>C4</td>
+<td><strong>Bilinealidad</strong></td>
+<td><span class="math inline">\(\text{Cov}(aX + b, cY + d) = ac\,\text{Cov}(X,Y)\)</span></td>
+</tr>
+<tr class="odd">
+<td>C5</td>
+<td><strong>Aditividad</strong></td>
+<td><span class="math inline">\(\text{Cov}(X+Z, Y) = \text{Cov}(X,Y) + \text{Cov}(Z,Y)\)</span></td>
+</tr>
+<tr class="even">
+<td>C6</td>
+<td><strong>Independencia</strong></td>
+<td>Si <span class="math inline">\(X \perp Y \Rightarrow \text{Cov}(X,Y) = 0\)</span> (recíproco falso en general)</td>
+</tr>
+<tr class="odd">
+<td>C7</td>
+<td><strong>Desigualdad de Cauchy-Schwarz</strong></td>
+<td><span class="math inline">\(|\text{Cov}(X,Y)|^2 \leq \text{Var}(X)\,\text{Var}(Y)\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Covarianza cero <span class="math inline">\(\not\Rightarrow\)</span> independencia
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si <span class="math inline">\(X \sim U(-1,1)\)</span> e <span class="math inline">\(Y = X^2\)</span>, entonces <span class="math inline">\(\text{Cov}(X,Y) = 0\)</span> pero <span class="math inline">\(Y\)</span> depende funcionalmente de <span class="math inline">\(X\)</span>. La independencia implica covarianza cero, pero no al revés.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="correlación-de-pearson" class="level2">
+<h2 class="anchored" data-anchor-id="correlación-de-pearson">Correlación de Pearson</h2>
+<p>La covarianza depende de las unidades. La <strong>correlación</strong> estandariza:</p>
+<p><span class="math display">\[\rho_{XY} = \text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X\,\sigma_Y}\]</span></p>
+<section id="propiedades" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades">Propiedades</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Acotación</td>
+<td><span class="math inline">\(-1 \leq \rho_{XY} \leq 1\)</span></td>
+</tr>
+<tr class="even">
+<td>Lineal perfecta</td>
+<td><span class="math inline">\(|\rho_{XY}| = 1 \iff Y = aX + b\)</span> c.s.</td>
+</tr>
+<tr class="odd">
+<td>Dirección</td>
+<td><span class="math inline">\(\rho &gt; 0\)</span>: relación directa; <span class="math inline">\(\rho &lt; 0\)</span>: relación inversa; <span class="math inline">\(\rho = 0\)</span>: sin correlación lineal</td>
+</tr>
+<tr class="even">
+<td>Invarianza a escala</td>
+<td><span class="math inline">\(\text{Corr}(aX+b,\, cY+d) = \text{sign}(ac)\,\rho_{XY}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="matriz-de-covarianzas" class="level2">
+<h2 class="anchored" data-anchor-id="matriz-de-covarianzas">Matriz de Covarianzas</h2>
+<p>Para el vector aleatorio <span class="math inline">\(\mathbf{X} = (X_1, \ldots, X_p)^\top\)</span>:</p>
+<p><span class="math display">\[\boldsymbol{\Sigma} = \text{Cov}(\mathbf{X}) = E\!\left[(\mathbf{X} - \boldsymbol{\mu})(\mathbf{X} - \boldsymbol{\mu})^\top\right]\]</span></p>
+<p>donde <span class="math inline">\(\Sigma_{ij} = \text{Cov}(X_i, X_j)\)</span> y <span class="math inline">\(\Sigma_{ii} = \text{Var}(X_i)\)</span>.</p>
+<p><strong>Propiedades de <span class="math inline">\(\boldsymbol{\Sigma}\)</span>:</strong></p>
+<ul>
+<li>Simétrica: <span class="math inline">\(\boldsymbol{\Sigma} = \boldsymbol{\Sigma}^\top\)</span></li>
+<li>Semidefinida positiva: <span class="math inline">\(\mathbf{v}^\top \boldsymbol{\Sigma}\, \mathbf{v} \geq 0\)</span> para todo <span class="math inline">\(\mathbf{v}\)</span></li>
+<li>Para <span class="math inline">\(\mathbf{Y} = A\mathbf{X} + \mathbf{b}\)</span>: <span class="math inline">\(\;\text{Cov}(\mathbf{Y}) = A\,\boldsymbol{\Sigma}\,A^\top\)</span></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="esperanza-y-varianza-condicionada" class="level1">
+<h1>Esperanza y Varianza Condicionada</h1>
+<section id="distribución-condicional" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-condicional">Distribución Condicional</h2>
+<p><strong>Caso discreto:</strong></p>
+<p><span class="math display">\[P(X = x \mid Y = y) = \frac{P(X=x,\; Y=y)}{P(Y=y)}\]</span></p>
+<p><strong>Caso continuo:</strong></p>
+<p><span class="math display">\[f_{X|Y}(x \mid y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}, \qquad f_Y(y) &gt; 0\]</span></p>
+</section>
+<section id="esperanza-condicional" class="level2">
+<h2 class="anchored" data-anchor-id="esperanza-condicional">Esperanza Condicional</h2>
+<p><span class="math display">\[E[X \mid Y = y] = \begin{cases}
+\displaystyle\sum_x x\,P(X=x \mid Y=y) &amp; \text{discreto} \\[8pt]
+\displaystyle\int x\, f_{X|Y}(x \mid y)\,dx &amp; \text{continuo}
+\end{cases}\]</span></p>
+<p>Nótese que <span class="math inline">\(E[X \mid Y]\)</span> es una <strong>variable aleatoria</strong> (función de <span class="math inline">\(Y\)</span>).</p>
+<section id="propiedades-de-la-esperanza-condicional" class="level3">
+<h3 class="anchored" data-anchor-id="propiedades-de-la-esperanza-condicional">Propiedades de la Esperanza Condicional</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EC1</td>
+<td><strong>Linealidad</strong></td>
+<td><span class="math inline">\(E[aX + bZ \mid Y] = a\,E[X\mid Y] + b\,E[Z\mid Y]\)</span></td>
+</tr>
+<tr class="even">
+<td>EC2</td>
+<td><strong>Torre (LIE)</strong></td>
+<td><span class="math inline">\(E[E[X \mid Y]] = E[X]\)</span></td>
+</tr>
+<tr class="odd">
+<td>EC3</td>
+<td><strong>Extracción</strong></td>
+<td><span class="math inline">\(E[g(Y)\,X \mid Y] = g(Y)\,E[X \mid Y]\)</span></td>
+</tr>
+<tr class="even">
+<td>EC4</td>
+<td><strong>Independencia</strong></td>
+<td>Si <span class="math inline">\(X \perp Y\)</span>: <span class="math inline">\(E[X \mid Y] = E[X]\)</span></td>
+</tr>
+<tr class="odd">
+<td>EC5</td>
+<td><strong>Función de Y</strong></td>
+<td><span class="math inline">\(E[g(Y) \mid Y] = g(Y)\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Ley de la Esperanza Total (LET) / Ley de la Torre
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[E[X] = E\!\left[E[X \mid Y]\right] = \sum_y E[X \mid Y=y]\,P(Y=y)\]</span></p>
+<p>Esta ley es central en econometría: permite descomponer <span class="math inline">\(E[Y \mid X]\)</span> en subpoblaciones.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="varianza-condicional" class="level2">
+<h2 class="anchored" data-anchor-id="varianza-condicional">Varianza Condicional</h2>
+<p><span class="math display">\[\text{Var}(X \mid Y) = E\!\left[(X - E[X\mid Y])^2 \mid Y\right] = E[X^2 \mid Y] - \left(E[X \mid Y]\right)^2\]</span></p>
+<section id="ley-de-la-varianza-total-descomposición-eve" class="level3">
+<h3 class="anchored" data-anchor-id="ley-de-la-varianza-total-descomposición-eve">Ley de la Varianza Total (Descomposición EVE)</h3>
+<p><span class="math display">\[\text{Var}(X) = \underbrace{E[\text{Var}(X \mid Y)]}_{\text{varianza intra-grupo (inexplicada)}}
++ \underbrace{\text{Var}(E[X \mid Y])}_{\text{varianza inter-grupo (explicada por }Y\text{)}}\]</span></p>
+<p>Esta descomposición es el fundamento del <strong>análisis de varianza (ANOVA)</strong> y del <span class="math inline">\(R^2\)</span> en regresión lineal.</p>
+<hr>
+</section>
+</section>
+</section>
+<section id="función-generatriz-de-momentos" class="level1">
+<h1>Función Generatriz de Momentos</h1>
+<section id="definición-3" class="level2">
+<h2 class="anchored" data-anchor-id="definición-3">Definición</h2>
+<p>La <strong>función generatriz de momentos (fgm)</strong> de <span class="math inline">\(X\)</span> es:</p>
+<p><span class="math display">\[M_X(t) = E\!\left[e^{tX}\right], \qquad t \in \mathbb{R}\]</span></p>
+<p>cuando existe en un entorno de <span class="math inline">\(t = 0\)</span>.</p>
+</section>
+<section id="propiedades-1" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-1">Propiedades</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Momentos</td>
+<td><span class="math inline">\(E[X^n] = M_X^{(n)}(0) = \left.\dfrac{d^n}{dt^n}M_X(t)\right|_{t=0}\)</span></td>
+</tr>
+<tr class="even">
+<td>Unicidad</td>
+<td>Si <span class="math inline">\(M_X(t) = M_Y(t)\)</span> en un entorno de 0, entonces <span class="math inline">\(F_X = F_Y\)</span></td>
+</tr>
+<tr class="odd">
+<td>Independencia</td>
+<td>Si <span class="math inline">\(X \perp Y\)</span>: <span class="math inline">\(M_{X+Y}(t) = M_X(t)\cdot M_Y(t)\)</span></td>
+</tr>
+<tr class="even">
+<td>Lineal</td>
+<td><span class="math inline">\(M_{aX+b}(t) = e^{bt}\,M_X(at)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>La fgm es especialmente útil para demostrar que la <strong>suma de normales independientes es normal</strong>, la <strong>suma de Poisson independientes es Poisson</strong>, etc.</p>
+<hr>
+</section>
+</section>
+<section id="distribuciones-fundamentales-para-inferencia" class="level1">
+<h1>Distribuciones Fundamentales para Inferencia</h1>
+<section id="distribución-normal-mathcalnmu-sigma2" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-normal-mathcalnmu-sigma2">Distribución Normal <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span></h2>
+<p><span class="math display">\[f(x) = \frac{1}{\sigma\sqrt{2\pi}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \qquad x \in \mathbb{R}\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parámetro / Momento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Soporte</td>
+<td><span class="math inline">\((-\infty, +\infty)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(E[X]\)</span></td>
+<td><span class="math inline">\(\mu\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\text{Var}(X)\)</span></td>
+<td><span class="math inline">\(\sigma^2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(M_X(t)\)</span></td>
+<td><span class="math inline">\(\exp\!\left(\mu t + \frac{\sigma^2 t^2}{2}\right)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Skewness</td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>Curtosis excess</td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Propiedades clave:</strong></p>
+<ul>
+<li>Si <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span>, entonces <span class="math inline">\(Z = \dfrac{X - \mu}{\sigma} \sim \mathcal{N}(0,1)\)</span></li>
+<li>Si <span class="math inline">\(X_i \overset{\text{iid}}{\sim} \mathcal{N}(\mu_i, \sigma_i^2)\)</span> independientes, entonces <span class="math inline">\(\sum_i a_i X_i \sim \mathcal{N}\!\left(\sum a_i\mu_i,\; \sum a_i^2\sigma_i^2\right)\)</span></li>
+<li>La normal es la única distribución simétrica y estable bajo suma (hasta escala)</li>
+</ul>
+</section>
+<section id="distribución-chi-cuadrado-chi2_nu" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-chi-cuadrado-chi2_nu">Distribución Chi-Cuadrado <span class="math inline">\(\chi^2_\nu\)</span></h2>
+<p>Si <span class="math inline">\(Z_1, \ldots, Z_\nu \overset{\text{iid}}{\sim} \mathcal{N}(0,1)\)</span>, entonces:</p>
+<p><span class="math display">\[Q = \sum_{i=1}^\nu Z_i^2 \sim \chi^2_\nu\]</span></p>
+<p><span class="math display">\[f(x) = \frac{x^{\nu/2-1}\,e^{-x/2}}{2^{\nu/2}\,\Gamma(\nu/2)}, \qquad x &gt; 0\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Momento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E[Q]\)</span></td>
+<td><span class="math inline">\(\nu\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{Var}(Q)\)</span></td>
+<td><span class="math inline">\(2\nu\)</span></td>
+</tr>
+<tr class="odd">
+<td>Moda</td>
+<td><span class="math inline">\(\max(\nu - 2,\; 0)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usos en inferencia:</strong></p>
+<ul>
+<li>Distribución de <span class="math inline">\(\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}\)</span> bajo normalidad</li>
+<li>Estadístico de pruebas de bondad de ajuste y tablas de contingencia</li>
+<li>Suma: si <span class="math inline">\(Q_1 \perp Q_2\)</span>, <span class="math inline">\(Q_1 + Q_2 \sim \chi^2_{\nu_1 + \nu_2}\)</span></li>
+</ul>
+</section>
+<section id="distribución-t-de-student-t_nu" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-t-de-student-t_nu">Distribución <span class="math inline">\(t\)</span> de Student <span class="math inline">\(t_\nu\)</span></h2>
+<p>Si <span class="math inline">\(Z \sim \mathcal{N}(0,1)\)</span> y <span class="math inline">\(Q \sim \chi^2_\nu\)</span> independientes:</p>
+<p><span class="math display">\[T = \frac{Z}{\sqrt{Q/\nu}} \sim t_\nu\]</span></p>
+<p><span class="math display">\[f(t) = \frac{\Gamma\!\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\;\Gamma\!\left(\frac{\nu}{2}\right)}
+\left(1 + \frac{t^2}{\nu}\right)^{-(\nu+1)/2}, \qquad t \in \mathbb{R}\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Momento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E[T]\)</span></td>
+<td><span class="math inline">\(0\)</span> (para <span class="math inline">\(\nu &gt; 1\)</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{Var}(T)\)</span></td>
+<td><span class="math inline">\(\dfrac{\nu}{\nu - 2}\)</span> (para <span class="math inline">\(\nu &gt; 2\)</span>)</td>
+</tr>
+<tr class="odd">
+<td>Límite</td>
+<td><span class="math inline">\(t_\nu \xrightarrow{\nu \to \infty} \mathcal{N}(0,1)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usos en inferencia:</strong></p>
+<ul>
+<li>Estadístico de prueba para <span class="math inline">\(\mu\)</span> con <span class="math inline">\(\sigma^2\)</span> desconocido: <span class="math inline">\(T = \dfrac{\bar{X}-\mu_0}{S/\sqrt{n}} \sim t_{n-1}\)</span></li>
+<li>Intervalos de confianza para la media muestral</li>
+<li>Contraste de dos medias</li>
+</ul>
+</section>
+<section id="distribución-f-de-fisher-snedecor-f_nu_1nu_2" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-f-de-fisher-snedecor-f_nu_1nu_2">Distribución <span class="math inline">\(F\)</span> de Fisher-Snedecor <span class="math inline">\(F_{\nu_1,\nu_2}\)</span></h2>
+<p>Si <span class="math inline">\(Q_1 \sim \chi^2_{\nu_1}\)</span> y <span class="math inline">\(Q_2 \sim \chi^2_{\nu_2}\)</span> independientes:</p>
+<p><span class="math display">\[F = \frac{Q_1/\nu_1}{Q_2/\nu_2} \sim F_{\nu_1, \nu_2}\]</span></p>
+<p><span class="math display">\[f(x) = \frac{\sqrt{\dfrac{(\nu_1 x)^{\nu_1}\,\nu_2^{\nu_2}}{(\nu_1 x + \nu_2)^{\nu_1+\nu_2}}}}{x\,B\!\left(\frac{\nu_1}{2},\frac{\nu_2}{2}\right)}, \qquad x &gt; 0\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 56%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Momento</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(E[F]\)</span></td>
+<td><span class="math inline">\(\dfrac{\nu_2}{\nu_2-2}\)</span> (para <span class="math inline">\(\nu_2 &gt; 2\)</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\text{Var}(F)\)</span></td>
+<td><span class="math inline">\(\dfrac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}\)</span> (para <span class="math inline">\(\nu_2 &gt; 4\)</span>)</td>
+</tr>
+<tr class="odd">
+<td>Relación con <span class="math inline">\(t\)</span></td>
+<td><span class="math inline">\(T^2 \sim F_{1,\,\nu}\)</span> si <span class="math inline">\(T \sim t_\nu\)</span></td>
+</tr>
+<tr class="even">
+<td>Inversa</td>
+<td><span class="math inline">\(1/F_{\nu_1,\nu_2} \sim F_{\nu_2,\nu_1}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usos en inferencia:</strong></p>
+<ul>
+<li>Contraste de igualdad de varianzas: <span class="math inline">\(F = S_1^2/S_2^2 \sim F_{n_1-1,\,n_2-1}\)</span></li>
+<li>Estadístico global del modelo de regresión lineal (prueba <span class="math inline">\(F\)</span>)</li>
+<li>ANOVA de uno y dos factores</li>
+</ul>
+</section>
+<section id="distribución-normal-multivariante-mathcaln_pboldsymbolmu-boldsymbolsigma" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-normal-multivariante-mathcaln_pboldsymbolmu-boldsymbolsigma">Distribución Normal Multivariante <span class="math inline">\(\mathcal{N}_p(\boldsymbol{\mu}, \boldsymbol{\Sigma})\)</span></h2>
+<p><span class="math display">\[f(\mathbf{x}) = \frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}
+\exp\!\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Propiedad</th>
+<th>Enunciado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Marginales</td>
+<td><span class="math inline">\(X_i \sim \mathcal{N}(\mu_i, \Sigma_{ii})\)</span></td>
+</tr>
+<tr class="even">
+<td>Independencia</td>
+<td><span class="math inline">\(X_i \perp X_j \iff \Sigma_{ij} = 0\)</span></td>
+</tr>
+<tr class="odd">
+<td>Condicional</td>
+<td><span class="math inline">\(X_1 \mid X_2 = x_2 \sim \mathcal{N}(\mu_{1|2},\; \Sigma_{1|2})\)</span></td>
+</tr>
+<tr class="even">
+<td>Combinación lineal</td>
+<td><span class="math inline">\(A\mathbf{X} + \mathbf{b} \sim \mathcal{N}_q(A\boldsymbol{\mu}+\mathbf{b},\; A\boldsymbol{\Sigma}A^\top)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Forma cuadrática</td>
+<td><span class="math inline">\((\mathbf{X}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu}) \sim \chi^2_p\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>donde la media y varianza condicionadas son:</p>
+<p><span class="math display">\[\mu_{1|2} = \mu_1 + \Sigma_{12}\Sigma_{22}^{-1}(x_2 - \mu_2)\]</span> <span class="math display">\[\Sigma_{1|2} = \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\]</span></p>
+<hr>
+</section>
+</section>
+<section id="otras-distribuciones-relevantes" class="level1">
+<h1>Otras Distribuciones Relevantes</h1>
+<section id="distribución-uniforme-continua-ua-b" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-uniforme-continua-ua-b">Distribución Uniforme Continua <span class="math inline">\(U(a, b)\)</span></h2>
+<p><span class="math display">\[f(x) = \frac{1}{b-a}, \quad x \in [a,b]\]</span></p>
+<p><span class="math inline">\(E[X] = \dfrac{a+b}{2}\)</span>, <span class="math inline">\(\quad \text{Var}(X) = \dfrac{(b-a)^2}{12}\)</span></p>
+<p>Fundamental para simulación: si <span class="math inline">\(U \sim U(0,1)\)</span> y <span class="math inline">\(F\)</span> es una FDA invertible, entonces <span class="math inline">\(F^{-1}(U) \sim F\)</span>.</p>
+</section>
+<section id="distribución-bernoulli-textberp" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-bernoulli-textberp">Distribución Bernoulli <span class="math inline">\(\text{Ber}(p)\)</span></h2>
+<p><span class="math display">\[P(X=1) = p, \quad P(X=0) = 1-p\]</span></p>
+<p><span class="math inline">\(E[X] = p\)</span>, <span class="math inline">\(\quad \text{Var}(X) = p(1-p)\)</span></p>
+<p>Bloque elemental de la v.a. discreta binaria.</p>
+</section>
+<section id="distribución-binomial-textbinn-p" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-binomial-textbinn-p">Distribución Binomial <span class="math inline">\(\text{Bin}(n, p)\)</span></h2>
+<p><span class="math display">\[P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, \ldots, n\]</span></p>
+<p><span class="math inline">\(E[X] = np\)</span>, <span class="math inline">\(\quad \text{Var}(X) = np(1-p)\)</span></p>
+</section>
+<section id="distribución-de-poisson-textpoilambda" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-de-poisson-textpoilambda">Distribución de Poisson <span class="math inline">\(\text{Poi}(\lambda)\)</span></h2>
+<p><span class="math display">\[P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad k = 0, 1, 2, \ldots\]</span></p>
+<p><span class="math inline">\(E[X] = \lambda\)</span>, <span class="math inline">\(\quad \text{Var}(X) = \lambda\)</span> (media = varianza)</p>
+</section>
+<section id="distribución-exponencial-textexplambda" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-exponencial-textexplambda">Distribución Exponencial <span class="math inline">\(\text{Exp}(\lambda)\)</span></h2>
+<p><span class="math display">\[f(x) = \lambda e^{-\lambda x}, \quad x &gt; 0\]</span></p>
+<p><span class="math inline">\(E[X] = 1/\lambda\)</span>, <span class="math inline">\(\quad \text{Var}(X) = 1/\lambda^2\)</span></p>
+<p>Propiedad de <strong>falta de memoria</strong>: <span class="math inline">\(P(X &gt; s+t \mid X &gt; s) = P(X &gt; t)\)</span></p>
+</section>
+<section id="distribución-gamma-gammaalpha-beta" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-gamma-gammaalpha-beta">Distribución Gamma <span class="math inline">\(\Gamma(\alpha, \beta)\)</span></h2>
+<p><span class="math display">\[f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)}\,x^{\alpha-1}e^{-\beta x}, \quad x &gt; 0\]</span></p>
+<p><span class="math inline">\(E[X] = \alpha/\beta\)</span>, <span class="math inline">\(\quad \text{Var}(X) = \alpha/\beta^2\)</span></p>
+<p>Casos especiales: <span class="math inline">\(\chi^2_\nu = \Gamma(\nu/2,\, 1/2)\)</span>, <span class="math inline">\(\;\text{Exp}(\lambda) = \Gamma(1, \lambda)\)</span></p>
+</section>
+<section id="distribución-beta-textbetaalpha-beta" class="level2">
+<h2 class="anchored" data-anchor-id="distribución-beta-textbetaalpha-beta">Distribución Beta <span class="math inline">\(\text{Beta}(\alpha, \beta)\)</span></h2>
+<p><span class="math display">\[f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \quad x \in (0,1)\]</span></p>
+<p><span class="math inline">\(E[X] = \dfrac{\alpha}{\alpha+\beta}\)</span>, <span class="math inline">\(\quad \text{Var}(X) = \dfrac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}\)</span></p>
+<p>Usada como distribución a priori conjugada de la Binomial en estadística bayesiana.</p>
+<hr>
+</section>
+</section>
+<section id="visualización-de-las-distribuciones-clave" class="level1">
+<h1>Visualización de las Distribuciones Clave</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Paleta ──────────────────────────────────────────────────────────────────</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#2E86AB"</span>, <span class="st">"#E84855"</span>, <span class="st">"#3BB273"</span>, <span class="st">"#F18F01"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">"#7B2D8B"</span>, <span class="st">"#C75146"</span>, <span class="st">"#5C6BC0"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 1. Normal ────────────────────────────────────────────────────────────────</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>x_n <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df_norm <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_n, <span class="at">y =</span> <span class="fu">dnorm</span>(x_n, <span class="dv">0</span>, <span class="dv">1</span>),   <span class="at">grupo =</span> <span class="st">"N(0,1)"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_n, <span class="at">y =</span> <span class="fu">dnorm</span>(x_n, <span class="dv">0</span>, <span class="fl">0.5</span>), <span class="at">grupo =</span> <span class="st">"N(0, 0.25)"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_n, <span class="at">y =</span> <span class="fu">dnorm</span>(x_n, <span class="dv">1</span>, <span class="dv">1</span>),   <span class="at">grupo =</span> <span class="st">"N(1, 1)"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_norm, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Normal  N(μ, σ²)"</span>, <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"f(x)"</span>) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 2. Chi-cuadrado ──────────────────────────────────────────────────────────</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>x_c <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>df_chi <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_c, <span class="at">y =</span> <span class="fu">dchisq</span>(x_c, <span class="dv">1</span>),  <span class="at">grupo =</span> <span class="st">"χ²(1)"</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_c, <span class="at">y =</span> <span class="fu">dchisq</span>(x_c, <span class="dv">3</span>),  <span class="at">grupo =</span> <span class="st">"χ²(3)"</span>),</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_c, <span class="at">y =</span> <span class="fu">dchisq</span>(x_c, <span class="dv">5</span>),  <span class="at">grupo =</span> <span class="st">"χ²(5)"</span>),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_c, <span class="at">y =</span> <span class="fu">dchisq</span>(x_c, <span class="dv">10</span>), <span class="at">grupo =</span> <span class="st">"χ²(10)"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_chi, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Chi-cuadrado  χ²(ν)"</span>, <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"f(x)"</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 3. t de Student ──────────────────────────────────────────────────────────</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>x_t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>df_t <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_t, <span class="at">y =</span> <span class="fu">dt</span>(x_t, <span class="dv">1</span>),   <span class="at">grupo =</span> <span class="st">"t(1)"</span>),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_t, <span class="at">y =</span> <span class="fu">dt</span>(x_t, <span class="dv">3</span>),   <span class="at">grupo =</span> <span class="st">"t(3)"</span>),</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_t, <span class="at">y =</span> <span class="fu">dt</span>(x_t, <span class="dv">10</span>),  <span class="at">grupo =</span> <span class="st">"t(10)"</span>),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_t, <span class="at">y =</span> <span class="fu">dnorm</span>(x_t),   <span class="at">grupo =</span> <span class="st">"N(0,1)"</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_t, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> grupo, <span class="at">linetype =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(pal[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="st">"black"</span>), <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"solid"</span>,<span class="st">"solid"</span>,<span class="st">"solid"</span>,<span class="st">"dashed"</span>), <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"t de Student  t(ν)  vs  N(0,1)"</span>, <span class="at">x =</span> <span class="st">"t"</span>, <span class="at">y =</span> <span class="st">"f(t)"</span>) <span class="sc">+</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 4. F de Fisher ───────────────────────────────────────────────────────────</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>x_f <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>df_f <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_f, <span class="at">y =</span> <span class="fu">df</span>(x_f, <span class="dv">1</span>,  <span class="dv">10</span>), <span class="at">grupo =</span> <span class="st">"F(1,10)"</span>),</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_f, <span class="at">y =</span> <span class="fu">df</span>(x_f, <span class="dv">5</span>,  <span class="dv">10</span>), <span class="at">grupo =</span> <span class="st">"F(5,10)"</span>),</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_f, <span class="at">y =</span> <span class="fu">df</span>(x_f, <span class="dv">10</span>, <span class="dv">30</span>), <span class="at">grupo =</span> <span class="st">"F(10,30)"</span>),</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_f, <span class="at">y =</span> <span class="fu">df</span>(x_f, <span class="dv">30</span>, <span class="dv">50</span>), <span class="at">grupo =</span> <span class="st">"F(30,50)"</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_f, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.2</span>)) <span class="sc">+</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"F de Fisher-Snedecor  F(ν₁, ν₂)"</span>, <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"f(x)"</span>) <span class="sc">+</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 5. Gamma ─────────────────────────────────────────────────────────────────</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>x_g <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>df_gam <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_g, <span class="at">y =</span> <span class="fu">dgamma</span>(x_g, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">rate =</span> <span class="dv">1</span>), <span class="at">grupo =</span> <span class="st">"Γ(1,1) = Exp(1)"</span>),</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_g, <span class="at">y =</span> <span class="fu">dgamma</span>(x_g, <span class="at">shape =</span> <span class="dv">2</span>, <span class="at">rate =</span> <span class="dv">1</span>), <span class="at">grupo =</span> <span class="st">"Γ(2,1)"</span>),</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_g, <span class="at">y =</span> <span class="fu">dgamma</span>(x_g, <span class="at">shape =</span> <span class="dv">5</span>, <span class="at">rate =</span> <span class="dv">1</span>), <span class="at">grupo =</span> <span class="st">"Γ(5,1)"</span>),</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_g, <span class="at">y =</span> <span class="fu">dgamma</span>(x_g, <span class="at">shape =</span> <span class="dv">9</span>, <span class="at">rate =</span> <span class="dv">2</span>), <span class="at">grupo =</span> <span class="st">"Γ(9,2)"</span>)</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_gam, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gamma  Γ(α, β)"</span>, <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"f(x)"</span>) <span class="sc">+</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="co"># ── 6. Beta ──────────────────────────────────────────────────────────────────</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>x_b <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>df_beta <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_b, <span class="at">y =</span> <span class="fu">dbeta</span>(x_b, <span class="fl">0.5</span>, <span class="fl">0.5</span>), <span class="at">grupo =</span> <span class="st">"Beta(0.5, 0.5)"</span>),</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_b, <span class="at">y =</span> <span class="fu">dbeta</span>(x_b, <span class="dv">1</span>,   <span class="dv">1</span>  ), <span class="at">grupo =</span> <span class="st">"Beta(1, 1) = U(0,1)"</span>),</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_b, <span class="at">y =</span> <span class="fu">dbeta</span>(x_b, <span class="dv">2</span>,   <span class="dv">5</span>  ), <span class="at">grupo =</span> <span class="st">"Beta(2, 5)"</span>),</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_b, <span class="at">y =</span> <span class="fu">dbeta</span>(x_b, <span class="dv">5</span>,   <span class="dv">2</span>  ), <span class="at">grupo =</span> <span class="st">"Beta(5, 2)"</span>),</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_b, <span class="at">y =</span> <span class="fu">dbeta</span>(x_b, <span class="dv">3</span>,   <span class="dv">3</span>  ), <span class="at">grupo =</span> <span class="st">"Beta(3, 3)"</span>)</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_beta, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> pal[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">3.5</span>)) <span class="sc">+</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Beta  Beta(α, β)"</span>, <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"f(x)"</span>) <span class="sc">+</span></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Layout ───────────────────────────────────────────────────────────────────</span></span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, p4, p5, p6, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-distribuciones" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-distribuciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="variables_aleatorias_files/figure-html/fig-distribuciones-1.png" class="img-fluid figure-img" width="1248">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-distribuciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;33.1: Distribuciones fundamentales para inferencia estadística
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="relaciones-entre-distribuciones" class="level1">
+<h1>Relaciones entre Distribuciones</h1>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x_r <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># t → Normal</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df_conv_t <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_r, <span class="at">y =</span> <span class="fu">dt</span>(x_r, <span class="dv">2</span>),    <span class="at">grupo =</span> <span class="st">"t(2)"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_r, <span class="at">y =</span> <span class="fu">dt</span>(x_r, <span class="dv">5</span>),    <span class="at">grupo =</span> <span class="st">"t(5)"</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_r, <span class="at">y =</span> <span class="fu">dt</span>(x_r, <span class="dv">30</span>),   <span class="at">grupo =</span> <span class="st">"t(30)"</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">x =</span> x_r, <span class="at">y =</span> <span class="fu">dnorm</span>(x_r),    <span class="at">grupo =</span> <span class="st">"N(0,1)  [límite]"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>p_t <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_conv_t, <span class="fu">aes</span>(x, y, <span class="at">colour =</span> grupo, <span class="at">linetype =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E84855"</span>,<span class="st">"#F18F01"</span>,<span class="st">"#2E86AB"</span>,<span class="st">"black"</span>), <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"solid"</span>,<span class="st">"solid"</span>,<span class="st">"solid"</span>,<span class="st">"dashed"</span>), <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"t(ν)  →  N(0,1)  cuando  ν → ∞"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"f(x)"</span>) <span class="sc">+</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># χ²/ν → Normal (estandarizado)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>nu_vals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>df_conv_chi <span class="ot">&lt;-</span> <span class="fu">lapply</span>(nu_vals, <span class="cf">function</span>(nu) {</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  xs <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">max</span>(<span class="dv">0</span>, nu <span class="sc">-</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>nu)), nu <span class="sc">+</span> <span class="dv">4</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="dv">2</span><span class="sc">*</span>nu), <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Estandarizamos: Z = (Q - nu) / sqrt(2*nu)</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  zs <span class="ot">&lt;-</span> (xs <span class="sc">-</span> nu) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> nu)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  ys <span class="ot">&lt;-</span> <span class="fu">dchisq</span>(xs, nu) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> nu)   <span class="co"># cambio de variable jacobiano</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">z =</span> zs, <span class="at">y =</span> ys, <span class="at">grupo =</span> <span class="fu">paste0</span>(<span class="st">"χ²("</span>, nu, <span class="st">") estandarizada"</span>))</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">|&gt;</span> <span class="fu">bind_rows</span>()</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>df_norm_ref <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">z =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">400</span>),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                          <span class="at">y =</span> <span class="fu">dnorm</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">400</span>)),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                          <span class="at">grupo =</span> <span class="st">"N(0,1)  [límite]"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>p_chi <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">bind_rows</span>(df_conv_chi, df_norm_ref),</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(z, y, <span class="at">colour =</span> grupo, <span class="at">linetype =</span> grupo)) <span class="sc">+</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.1</span>) <span class="sc">+</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#E84855"</span>,<span class="st">"#F18F01"</span>,<span class="st">"#2E86AB"</span>,<span class="st">"#3BB273"</span>,<span class="st">"black"</span>), <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"solid"</span>,<span class="st">"solid"</span>,<span class="st">"solid"</span>,<span class="st">"solid"</span>,<span class="st">"dashed"</span>), <span class="at">name =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.55</span>)) <span class="sc">+</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"χ²(ν) estandarizada  →  N(0,1)  (TLC)"</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"(Q − ν) / √(2ν)"</span>, <span class="at">y =</span> <span class="st">"densidad"</span>) <span class="sc">+</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p_t, p_chi, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-relaciones" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-relaciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="variables_aleatorias_files/figure-html/fig-relaciones-1.png" class="img-fluid figure-img" width="1152">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-relaciones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;34.1: Convergencia de t(ν) y χ²(ν) a la Normal cuando ν → ∞
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="resumen-propiedades-de-esperanza-varianza-y-covarianza" class="level1">
+<h1>Resumen: Propiedades de Esperanza, Varianza y Covarianza</h1>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kableExtra'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
+<div id="tbl-resumen" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-resumen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;35.1
+</figcaption>
+<div aria-describedby="tbl-resumen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table table-striped table-hover table-condensed caption-top table-sm small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Operador</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Propiedad</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="6">
+<td colspan="3" style="border-bottom: 1px solid"><strong>Esperanza E[·]</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">E</td>
+<td style="text-align: left;">Constante</td>
+<td style="text-align: center; width: 8cm;">$E[c] = c$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">E</td>
+<td style="text-align: left;">Linealidad</td>
+<td style="text-align: center; width: 8cm;">$E[aX+b] = aE[X]+b$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">E</td>
+<td style="text-align: left;">Aditividad</td>
+<td style="text-align: center; width: 8cm;">$E[X+Y] = E[X]+E[Y]$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">E</td>
+<td style="text-align: left;">Independencia</td>
+<td style="text-align: center; width: 8cm;">$X\perp Y \Rightarrow E[XY]=E[X]E[Y]$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">E</td>
+<td style="text-align: left;">LOTUS</td>
+<td style="text-align: center; width: 8cm;">$E[g(X)] = \int g(x)f(x)\,dx$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">E</td>
+<td style="text-align: left;">Ley de la Torre</td>
+<td style="text-align: center; width: 8cm;">$E[X] = E[E[X\mid Y]]$</td>
+</tr>
+<tr class="even" data-grouplength="8">
+<td colspan="3" style="border-bottom: 1px solid"><strong>Varianza Var(·)</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">No negatividad</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(X)\geq 0$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">Fórmula computacional</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(X)=E[X^2]-(E[X])^2$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">Traslación</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(X+b)=\text{Var}(X)$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">Escala</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(aX)=a^2\text{Var}(X)$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">Suma (independientes)</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(X+Y)=\text{Var}(X)+\text{Var}(Y)$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">Suma (general)</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(X+Y)=\text{Var}(X)+\text{Var}(Y)+2\text{Cov}(X,Y)$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">Media muestral i.i.d.</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(\bar{X})=\sigma^2/n$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Var</td>
+<td style="text-align: left;">Ley total (EVE)</td>
+<td style="text-align: center; width: 8cm;">$\text{Var}(X)=E[\text{Var}(X&amp;#124;Y)]+\text{Var}(E[X&amp;#124;Y])$</td>
+</tr>
+<tr class="odd" data-grouplength="7">
+<td colspan="3" style="border-bottom: 1px solid"><strong>Covarianza / Corr</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Cov</td>
+<td style="text-align: left;">Simetría</td>
+<td style="text-align: center; width: 8cm;">$\text{Cov}(X,Y)=\text{Cov}(Y,X)$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Cov</td>
+<td style="text-align: left;">Varianza propia</td>
+<td style="text-align: center; width: 8cm;">$\text{Cov}(X,X)=\text{Var}(X)$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Cov</td>
+<td style="text-align: left;">Bilinealidad</td>
+<td style="text-align: center; width: 8cm;">$\text{Cov}(aX+b,cY+d)=ac\,\text{Cov}(X,Y)$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Cov</td>
+<td style="text-align: left;">Independencia</td>
+<td style="text-align: center; width: 8cm;">$X\perp Y \Rightarrow \text{Cov}(X,Y)=0$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">Cov</td>
+<td style="text-align: left;">Cauchy-Schwarz</td>
+<td style="text-align: center; width: 8cm;">$&amp;#124;\text{Cov}(X,Y)&amp;#124;^2\leq\text{Var}(X)\text{Var}(Y)$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">ρ</td>
+<td style="text-align: left;">Correlación de Pearson</td>
+<td style="text-align: center; width: 8cm;">$\rho = \text{Cov}(X,Y)/(\sigma_X\sigma_Y)$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em; width: 1.5cm; font-weight: bold;" data-indentlevel="1">ρ</td>
+<td style="text-align: left;">Acotación</td>
+<td style="text-align: center; width: 8cm;">$-1\leq\rho\leq 1$</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Esquema de relaciones entre distribuciones
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="math inline">\(Z \sim \mathcal{N}(0,1) \;\Rightarrow\; Z^2 \sim \chi^2_1\)</span></li>
+<li><span class="math inline">\(\sum_{i=1}^\nu Z_i^2 \sim \chi^2_\nu\)</span></li>
+<li><span class="math inline">\(Z / \sqrt{\chi^2_\nu / \nu} \sim t_\nu\)</span></li>
+<li><span class="math inline">\((\chi^2_{\nu_1}/\nu_1) / (\chi^2_{\nu_2}/\nu_2) \sim F_{\nu_1,\nu_2}\)</span></li>
+<li><span class="math inline">\(T^2 \sim F_{1,\nu}\)</span> si <span class="math inline">\(T \sim t_\nu\)</span></li>
+<li><span class="math inline">\(t_\nu \xrightarrow{\nu\to\infty} \mathcal{N}(0,1)\)</span></li>
+<li><span class="math inline">\(\chi^2_\nu \approx \mathcal{N}(\nu, 2\nu)\)</span> para <span class="math inline">\(\nu\)</span> grande (TLC)</li>
+<li><span class="math inline">\(F_{\nu_1,\nu_2} \xrightarrow{\nu_1\to\infty} \chi^2_{\nu_2}/\nu_2\)</span></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Supuesto de normalidad en inferencia clásica
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La cadena <span class="math inline">\(\mathcal{N} \to \chi^2 \to t \to F\)</span> es el pilar del <strong>enfoque frecuentista clásico</strong>: bajo muestras de una población normal, los estadísticos de prueba siguen exactamente estas distribuciones. Para muestras grandes, el <strong>Teorema Central del Límite</strong> garantiza la aproximación normal sin necesidad del supuesto de normalidad poblacional.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="../../material/anexos/estadistica_descriptiva_r.html" class="pagination-link" aria-label="Estadística Descriptiva">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Estadística Descriptiva</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../material/anexos/inferencia_estadistica.html" class="pagination-link" aria-label="Inferencia Estadística">
+        <span class="nav-page-text"><span class="chapter-title">Inferencia Estadística</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
