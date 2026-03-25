@@ -83,3 +83,5 @@ _others_
 .vscode
 .codegpt
 demo.md
+
+**/*.quarto_ipynb

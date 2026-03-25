@@ -1,0 +1,701 @@
+---
+title: "Álgebra Matricial"
+subtitle: "Fundamentos para Regresión Lineal Múltiple"
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(kableExtra)
+library(Matrix)
+
+# helper para imprimir matrices con título
+kmat <- function(m, digits = 3, ...) {
+  kable(round(m, digits), align = "c", ...) |>
+    kable_styling(bootstrap_options = c("bordered", "condensed"),
+                  full_width = FALSE, position = "left")
+}
+```
+
+---
+
+# Notación y Definiciones Básicas
+ 
+## Escalares, Vectores y Matrices
+
+| Objeto | Notación | Dimensión |
+|--------|----------|-----------|
+| Escalar | $a \in \mathbb{R}$ | $1 \times 1$ |
+| Vector columna | $\mathbf{a} \in \mathbb{R}^n$ | $n \times 1$ |
+| Vector fila | $\mathbf{a}^\top \in \mathbb{R}^{1 \times n}$ | $1 \times n$ |
+| Matriz | $A \in \mathbb{R}^{m \times n}$ | $m \times n$ |
+
+Una **matriz** $A$ de dimensión $m \times n$ se escribe:
+
+$$A = \begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{pmatrix} = [a_{ij}]_{m \times n}$$
+
+donde $a_{ij}$ denota el elemento de la fila $i$ y columna $j$.
+
+## Tipos Especiales de Matrices
+
+| Nombre | Condición | Notación |
+|--------|-----------|----------|
+| Cuadrada | $m = n$ | $A_{n \times n}$ |
+| Rectangular | $m \neq n$ | $A_{m \times n}$ |
+| Diagonal | $a_{ij} = 0$ si $i \neq j$ | $\text{diag}(d_1,\ldots,d_n)$ |
+| Identidad | Diagonal con $d_i = 1$ | $I_n$ |
+| Nula | $a_{ij} = 0$ para todo $i,j$ | $0_{m\times n}$ |
+| Simétrica | $A = A^\top$ | $a_{ij} = a_{ji}$ |
+| Triangular superior | $a_{ij} = 0$ si $i > j$ | $U$ |
+| Triangular inferior | $a_{ij} = 0$ si $i < j$ | $L$ |
+| Idempotente | $A^2 = A$ | $A \cdot A = A$ |
+| Ortogonal | $A^\top A = A A^\top = I$ | $A^{-1} = A^\top$ |
+
+**Matriz de unos** y **vector de unos**:
+
+$$\mathbf{1}_n = \begin{pmatrix}1\\\vdots\\1\end{pmatrix}_{n\times 1}, \qquad
+J_n = \mathbf{1}_n\mathbf{1}_n^\top = \begin{pmatrix}1&\cdots&1\\\vdots&\ddots&\vdots\\1&\cdots&1\end{pmatrix}_{n\times n}$$
+
+---
+
+# Operaciones Fundamentales
+
+## Suma y Resta
+
+Solo definidas entre matrices de **igual dimensión**:
+
+$$C = A \pm B \quad \Leftrightarrow \quad c_{ij} = a_{ij} \pm b_{ij}$$
+
+### Propiedades de la Suma
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| S1 | Conmutatividad | $A + B = B + A$ |
+| S2 | Asociatividad | $(A + B) + C = A + (B + C)$ |
+| S3 | Elemento neutro | $A + 0 = A$ |
+| S4 | Elemento inverso | $A + (-A) = 0$ |
+| S5 | Compatibilidad escalar | $\alpha(A + B) = \alpha A + \alpha B$ |
+
+## Multiplicación Escalar
+
+$$\alpha A = [\alpha\, a_{ij}]_{m\times n}$$
+
+## Producto Matricial
+
+El producto $C = AB$ requiere que las dimensiones sean **compatibles**:
+
+$$A_{m\times k} \cdot B_{k\times n} = C_{m\times n}$$
+
+$$c_{ij} = \sum_{\ell=1}^k a_{i\ell}\, b_{\ell j} = \mathbf{a}_{i\cdot}^\top \mathbf{b}_{\cdot j}$$
+
+(fila $i$ de $A$ multiplicada escalarmente por columna $j$ de $B$).
+
+### Propiedades del Producto
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| M1 | No conmutativo (en general) | $AB \neq BA$ |
+| M2 | Asociatividad | $(AB)C = A(BC)$ |
+| M3 | Distributividad izquierda | $A(B+C) = AB + AC$ |
+| M4 | Distributividad derecha | $(A+B)C = AC + BC$ |
+| M5 | Identidad | $AI = IA = A$ |
+| M6 | Escalar | $(\alpha A)B = A(\alpha B) = \alpha(AB)$ |
+| M7 | Potencia | $A^k = A \cdot A \cdots A$ ($k$ veces, $A$ cuadrada) |
+| M8 | Anulación (sin cancelación) | $AB = 0 \not\Rightarrow A=0 \text{ o } B=0$ |
+
+::: {.callout-warning}
+## La multiplicación matricial no es conmutativa
+$AB \neq BA$ en general, incluso cuando ambos productos están definidos.
+**Ejemplo:** si $A$ es $2\times 3$ y $B$ es $3\times 2$, entonces $AB$ es $2\times 2$ y $BA$ es $3\times 3$.
+:::
+
+## Producto Interno y Externo de Vectores
+
+**Producto interno** (escalar) — $\mathbf{a}, \mathbf{b} \in \mathbb{R}^n$:
+
+$$\langle \mathbf{a}, \mathbf{b} \rangle = \mathbf{a}^\top \mathbf{b} = \sum_{i=1}^n a_i b_i \in \mathbb{R}$$
+
+**Producto externo** (matriz de rango 1):
+
+$$\mathbf{a}\mathbf{b}^\top = \begin{pmatrix}a_1 b_1 & \cdots & a_1 b_n \\ \vdots & \ddots & \vdots \\ a_n b_1 & \cdots & a_n b_n\end{pmatrix} \in \mathbb{R}^{n\times n}$$
+
+**Forma cuadrática** — central en OLS y en la función de verosimilitud:
+
+$$\mathbf{x}^\top A \mathbf{x} = \sum_{i=1}^n \sum_{j=1}^n a_{ij}\, x_i x_j \in \mathbb{R}, \qquad A_{n\times n},\; \mathbf{x} \in \mathbb{R}^n$$
+
+```{r}
+#| label: demo-producto
+A <- matrix(c(1,2,3,4,5,6), nrow = 2)   # 2x3
+B <- matrix(c(7,8,9,10,11,12), nrow = 3) # 3x2
+cat("A (2x3):\n"); print(A)
+cat("\nB (3x2):\n"); print(B)
+cat("\nAB (2x2):\n"); print(A %*% B)
+cat("\nBA (3x3):\n"); print(B %*% A)
+```
+
+---
+
+# Transpuesta
+
+## Definición
+
+$$(A^\top)_{ij} = a_{ji}$$
+
+Transponer intercambia filas por columnas: si $A$ es $m \times n$, entonces $A^\top$ es $n \times m$.
+
+## Propiedades de la Transpuesta
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| T1 | Involución | $(A^\top)^\top = A$ |
+| T2 | Linealidad | $(\alpha A + \beta B)^\top = \alpha A^\top + \beta B^\top$ |
+| T3 | Producto (inversión de orden) | $(AB)^\top = B^\top A^\top$ |
+| T4 | Producto múltiple | $(A_1 A_2 \cdots A_k)^\top = A_k^\top \cdots A_2^\top A_1^\top$ |
+| T5 | Producto interno | $\mathbf{a}^\top \mathbf{b} = \mathbf{b}^\top \mathbf{a}$ |
+| T6 | Forma cuadrática | $\mathbf{x}^\top A \mathbf{x} = \mathbf{x}^\top A^\top \mathbf{x}$ si $A$ simétrica |
+| T7 | Simetría de $A^\top A$ | $A^\top A$ siempre es cuadrada y simétrica |
+
+::: {.callout-note}
+## Importancia de T7 en regresión
+En el modelo $Y = X\beta + \varepsilon$, la matriz $X^\top X$ es siempre **cuadrada** ($k \times k$)
+y **simétrica**, independientemente de la forma de $X$ ($n \times k$).
+Esto es esencial para la existencia del estimador OLS.
+:::
+
+---
+
+# Traza
+
+## Definición
+
+La **traza** de una matriz cuadrada es la suma de sus elementos diagonales:
+
+$$\text{tr}(A) = \sum_{i=1}^n a_{ii}$$
+
+## Propiedades de la Traza
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| Tr1 | Linealidad | $\text{tr}(\alpha A + \beta B) = \alpha\,\text{tr}(A) + \beta\,\text{tr}(B)$ |
+| Tr2 | Transpuesta | $\text{tr}(A) = \text{tr}(A^\top)$ |
+| Tr3 | Ciclicidad | $\text{tr}(AB) = \text{tr}(BA)$ |
+| Tr4 | Ciclicidad múltiple | $\text{tr}(ABC) = \text{tr}(BCA) = \text{tr}(CAB)$ |
+| Tr5 | Forma cuadrática | $\mathbf{a}^\top A \mathbf{a} = \text{tr}(A\,\mathbf{a}\mathbf{a}^\top)$ |
+| Tr6 | Producto interno | $\text{tr}(A^\top B) = \sum_{i,j} a_{ij}b_{ij}$ (producto de Frobenius) |
+| Tr7 | Suma de autovalores | $\text{tr}(A) = \sum_{i=1}^n \lambda_i$ |
+
+---
+
+# Determinante
+
+## Definición
+
+Para $A$ cuadrada de orden $n$:
+
+$$\det(A) = |A| = \sum_{\sigma \in S_n} \text{sgn}(\sigma)\prod_{i=1}^n a_{i,\sigma(i)}$$
+
+**Casos simples:**
+
+$$\det\begin{pmatrix}a\end{pmatrix} = a$$
+
+$$\det\begin{pmatrix}a&b\\c&d\end{pmatrix} = ad - bc$$
+
+$$\det(A_{3\times 3}) = a_{11}(a_{22}a_{33}-a_{23}a_{32}) - a_{12}(a_{21}a_{33}-a_{23}a_{31}) + a_{13}(a_{21}a_{32}-a_{22}a_{31})$$
+
+## Propiedades del Determinante
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| D1 | Producto | $\det(AB) = \det(A)\det(B)$ |
+| D2 | Transpuesta | $\det(A^\top) = \det(A)$ |
+| D3 | Escalar | $\det(\alpha A) = \alpha^n \det(A)$ |
+| D4 | Inversa | $\det(A^{-1}) = 1/\det(A)$ |
+| D5 | Triangular / diagonal | $\det = \prod_i a_{ii}$ |
+| D6 | Autovalores | $\det(A) = \prod_{i=1}^n \lambda_i$ |
+| D7 | Singularidad | $A$ invertible $\iff \det(A) \neq 0$ |
+| D8 | Fila/columna nula | Si alguna fila o columna es nula, $\det = 0$ |
+
+---
+
+# Rango e Inversa
+
+## Rango
+
+El **rango** de $A_{m\times n}$, $\text{rk}(A)$, es la dimensión del espacio columna
+(equivalentemente, del espacio fila):
+
+$$\text{rk}(A) \leq \min(m, n)$$
+
+- **Rango completo por columnas:** $\text{rk}(A) = n$ (columnas linealmente independientes)
+- **Rango completo por filas:** $\text{rk}(A) = m$
+
+| Propiedad | Enunciado |
+|-----------|-----------|
+| $\text{rk}(A) = \text{rk}(A^\top)$ | Rango fila = rango columna |
+| $\text{rk}(AB) \leq \min(\text{rk}(A), \text{rk}(B))$ | El rango no aumenta con el producto |
+| $\text{rk}(A^\top A) = \text{rk}(A)$ | Clave para OLS |
+| $A$ invertible $\iff \text{rk}(A) = n$ | Para matrices cuadradas |
+
+::: {.callout-important}
+## Condición de rango en OLS
+El estimador OLS $\hat\beta = (X^\top X)^{-1} X^\top Y$ existe y es único
+**si y solo si** $\text{rk}(X) = k$ (rango completo por columnas).
+Si hay multicolinealidad perfecta, $X^\top X$ es singular y OLS no tiene solución única.
+:::
+
+## Inversa
+
+$A^{-1}$ existe (y $A$ se llama **invertible** o **no singular**) si y solo si:
+
+$$A A^{-1} = A^{-1} A = I_n$$
+
+Condición necesaria y suficiente: $\det(A) \neq 0$.
+
+**Fórmula para $2\times 2$:**
+
+$$\begin{pmatrix}a&b\\c&d\end{pmatrix}^{-1} = \frac{1}{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}$$
+
+**Fórmula general** mediante la matriz adjunta:
+
+$$A^{-1} = \frac{1}{\det(A)}\,\text{adj}(A), \qquad \text{adj}(A)_{ij} = (-1)^{i+j}M_{ji}$$
+
+donde $M_{ji}$ es el menor $(j,i)$ (determinante de la submatriz al eliminar fila $j$ y columna $i$).
+
+## Propiedades de la Inversa
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| I1 | Unicidad | Si existe, $A^{-1}$ es única |
+| I2 | Involución | $(A^{-1})^{-1} = A$ |
+| I3 | Transpuesta | $(A^\top)^{-1} = (A^{-1})^\top$ |
+| I4 | Producto (inversión de orden) | $(AB)^{-1} = B^{-1}A^{-1}$ |
+| I5 | Producto múltiple | $(A_1\cdots A_k)^{-1} = A_k^{-1}\cdots A_1^{-1}$ |
+| I6 | Escalar | $(\alpha A)^{-1} = \frac{1}{\alpha}A^{-1}$ |
+| I7 | Diagonal | $\text{diag}(d_1,\ldots,d_n)^{-1} = \text{diag}(1/d_1,\ldots,1/d_n)$ |
+| I8 | Determinante | $\det(A^{-1}) = 1/\det(A)$ |
+
+```{r}
+#| label: demo-inversa
+A <- matrix(c(4, 7, 2, 6), nrow = 2)
+cat("A:\n");        print(A)
+cat("\ndet(A):", det(A), "\n")
+cat("\nA^{-1}:\n"); print(solve(A))
+cat("\nA %*% A^{-1} (deberia ser I):\n")
+print(round(A %*% solve(A), 10))
+```
+
+## Inversa Generalizada (Moore–Penrose)
+
+Cuando $A$ no es cuadrada o es singular, se usa la **pseudoinversa** $A^+$:
+
+$$A^+ = (A^\top A)^{-1} A^\top \quad \text{(si } \text{rk}(A) = n \leq m\text{)}$$
+
+Esta es exactamente la expresión que aparece en la solución OLS:
+$\hat\beta = A^+ Y = (X^\top X)^{-1} X^\top Y$.
+
+---
+
+# Matrices Definidas Positivas y Semidefinidas
+
+## Definiciones
+
+Sea $A$ una matriz **cuadrada y simétrica** ($A = A^\top$):
+
+| Tipo | Condición | Notación |
+|------|-----------|----------|
+| Definida positiva (DP) | $\mathbf{x}^\top A \mathbf{x} > 0$ para todo $\mathbf{x} \neq \mathbf{0}$ | $A \succ 0$ |
+| Semidefinida positiva (SDP) | $\mathbf{x}^\top A \mathbf{x} \geq 0$ para todo $\mathbf{x}$ | $A \succeq 0$ |
+| Definida negativa (DN) | $\mathbf{x}^\top A \mathbf{x} < 0$ para todo $\mathbf{x} \neq \mathbf{0}$ | $A \prec 0$ |
+| Indefinida | Toma valores positivos y negativos | — |
+
+## Criterios Equivalentes para DP
+
+Para $A$ simétrica, las siguientes condiciones son equivalentes:
+
+| Criterio | Enunciado |
+|----------|-----------|
+| Forma cuadrática | $\mathbf{x}^\top A \mathbf{x} > 0,\;\forall \mathbf{x} \neq \mathbf{0}$ |
+| Autovalores | Todos los autovalores $\lambda_i > 0$ |
+| Menores principales | Todos los menores principales $> 0$ (criterio de Sylvester) |
+| Factorización Cholesky | Existe $L$ triangular inferior con $A = LL^\top$ |
+| Inversa | $A \succ 0 \Rightarrow A^{-1} \succ 0$ |
+
+**Criterio de Sylvester** — verificar los $n$ menores principales $\Delta_k$:
+
+$$\Delta_1 = a_{11} > 0, \quad
+\Delta_2 = \det\begin{pmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{pmatrix} > 0, \quad \ldots, \quad \Delta_n = \det(A) > 0$$
+
+## Propiedades de las Matrices DP/SDP
+
+| Propiedad | Enunciado |
+|-----------|-----------|
+| $A \succ 0 \Rightarrow A$ invertible | $\det(A) > 0$ |
+| $A \succ 0 \Rightarrow A^{-1} \succ 0$ | La inversa también es DP |
+| $A \succeq 0,\; B \succeq 0 \Rightarrow A+B \succeq 0$ | La suma de SDP es SDP |
+| $A \succ 0,\; B \succ 0 \Rightarrow A+B \succ 0$ | La suma de DP es DP |
+| $B^\top A B \succeq 0$ para cualquier $B$ | Siempre SDP |
+| $B^\top A B \succ 0$ si $A \succ 0$ y $B$ rango completo | DP bajo rango completo |
+| $X^\top X \succeq 0$ siempre | Clave en OLS |
+| $X^\top X \succ 0 \iff \text{rk}(X)=k$ | OLS identificado |
+
+::: {.callout-note}
+## Definiteness en OLS
+La matriz de varianzas-covarianzas de los estimadores OLS es:
+
+$$\text{Var}(\hat\beta) = \sigma^2(X^\top X)^{-1}$$
+
+Para que esta expresión sea válida como matriz de varianzas (SDP), se requiere
+que $X^\top X \succ 0$, lo que equivale a que $X$ tenga rango completo por columnas
+(ausencia de multicolinealidad perfecta).
+:::
+
+```{r}
+#| label: demo-definida-positiva
+
+# Construccion de una matriz DP garantizada: A = B'B con B de rango completo
+B <- matrix(c(2,1,0,
+              1,3,1,
+              0,1,2), nrow = 3, byrow = TRUE)
+A_dp <- t(B) %*% B
+cat("A = B'B con B de rango completo (garantiza DP):\n")
+print(A_dp)
+cat("\nAutovalores:", round(eigen(A_dp)$values, 4), "\n")
+cat("Todos > 0?", all(eigen(A_dp)$values > 1e-10), "\n")
+
+# Cholesky
+cat("\nFactorizacion Cholesky A = L L':\n")
+L_chol <- chol(A_dp)   # R devuelve la triangular superior U tal que U'U = A
+print(round(L_chol, 4))
+cat("Verificacion U'U == A:\n")
+print(round(t(L_chol) %*% L_chol - A_dp, 10))
+```
+
+---
+
+# Autovalores y Autovectores
+
+## Definición
+
+Para $A_{n\times n}$ cuadrada, el escalar $\lambda$ y el vector no nulo $\mathbf{v}$ satisfacen:
+
+$$A\mathbf{v} = \lambda\mathbf{v}, \qquad \mathbf{v} \neq \mathbf{0}$$
+
+$\lambda$ se llama **autovalor** y $\mathbf{v}$ **autovector** asociado.
+
+**Ecuación característica:**
+
+$$\det(A - \lambda I) = 0$$
+
+Esto genera un polinomio de grado $n$ en $\lambda$ con exactamente $n$ raíces
+(complejas, contadas con multiplicidad).
+
+## Propiedades
+
+| Propiedad | Enunciado |
+|-----------|-----------|
+| Traza | $\text{tr}(A) = \sum_i \lambda_i$ |
+| Determinante | $\det(A) = \prod_i \lambda_i$ |
+| Potencia | Autovalores de $A^k$ son $\lambda_i^k$ |
+| Inversa | Autovalores de $A^{-1}$ son $1/\lambda_i$ |
+| Simétrica | Todos los $\lambda_i \in \mathbb{R}$ |
+| Simétrica DP | Todos los $\lambda_i > 0$ |
+| Ortogonalidad | Autovectores de $A$ simétrica son ortogonales |
+
+## Descomposición Espectral
+
+Para $A$ **simétrica**, existe la descomposición:
+
+$$A = Q \Lambda Q^\top$$
+
+donde $Q = [\mathbf{q}_1 \mid \cdots \mid \mathbf{q}_n]$ es **ortogonal** ($Q^\top Q = I$)
+y $\Lambda = \text{diag}(\lambda_1,\ldots,\lambda_n)$.
+
+Esta descomposición es central en **Análisis de Componentes Principales (PCA)**
+y en el análisis de la geometría de la regresión.
+
+```{r}
+#| label: demo-autovalores
+A_sym <- matrix(c(4,2,2,3), nrow = 2)
+ev    <- eigen(A_sym)
+cat("Autovalores:", round(ev$values, 4), "\n")
+cat("\nAutovectores (columnas):\n"); print(round(ev$vectors, 4))
+# Verificar: A v = lambda v
+cat("\nA v1:", round(A_sym %*% ev$vectors[,1], 4), "\n")
+cat("lambda1 * v1:", round(ev$values[1] * ev$vectors[,1], 4), "\n")
+```
+
+---
+
+# Derivadas Matriciales
+
+Esta sección recoge las reglas de diferenciación vectorial/matricial más usadas
+en la derivación de estimadores OLS, máxima verosimilitud y regularización.
+
+## Convención de Denominador
+
+Adoptamos la convención **denominador** (numerator layout en inglés):
+el gradiente de un escalar $f$ respecto a $\mathbf{x} \in \mathbb{R}^n$
+es un **vector columna**:
+
+$$\frac{\partial f}{\partial \mathbf{x}} = \nabla_{\mathbf{x}} f =
+\begin{pmatrix}
+\partial f/\partial x_1 \\ \vdots \\ \partial f/\partial x_n
+\end{pmatrix} \in \mathbb{R}^n$$
+
+## Derivadas de Formas Lineales y Cuadráticas
+
+Sean $\mathbf{a}, \mathbf{x} \in \mathbb{R}^n$ y $A \in \mathbb{R}^{n\times n}$:
+
+| Expresión | Derivada respecto a $\mathbf{x}$ | Condición |
+|-----------|----------------------------------|-----------|
+| $\mathbf{a}^\top \mathbf{x}$ | $\mathbf{a}$ | — |
+| $\mathbf{x}^\top \mathbf{a}$ | $\mathbf{a}$ | — |
+| $\mathbf{x}^\top \mathbf{x}$ | $2\mathbf{x}$ | — |
+| $\mathbf{x}^\top A \mathbf{x}$ | $(A + A^\top)\mathbf{x}$ | general |
+| $\mathbf{x}^\top A \mathbf{x}$ | $2A\mathbf{x}$ | $A$ simétrica |
+| $(\mathbf{y} - A\mathbf{x})^\top(\mathbf{y} - A\mathbf{x})$ | $-2A^\top(\mathbf{y} - A\mathbf{x})$ | — |
+
+::: {.callout-important}
+## La regla más importante para OLS
+La función objetivo de OLS es:
+
+$$\text{SCR}(\boldsymbol\beta) = (\mathbf{Y} - X\boldsymbol\beta)^\top(\mathbf{Y} - X\boldsymbol\beta)$$
+
+Aplicando la última regla de la tabla con $\mathbf{y} = \mathbf{Y}$ y $A = X$:
+
+$$\frac{\partial\,\text{SCR}}{\partial\boldsymbol\beta} = -2X^\top(\mathbf{Y} - X\boldsymbol\beta)$$
+
+Igualando a $\mathbf{0}$:
+
+$$X^\top(\mathbf{Y} - X\hat{\boldsymbol\beta}) = \mathbf{0}
+\;\;\Longrightarrow\;\;
+X^\top X\,\hat{\boldsymbol\beta} = X^\top \mathbf{Y}
+\;\;\Longrightarrow\;\;
+\hat{\boldsymbol\beta} = (X^\top X)^{-1} X^\top \mathbf{Y}$$
+
+Estas son las **ecuaciones normales** de OLS.
+:::
+
+## Derivadas de Trazas y Determinantes
+
+Sean $A, X \in \mathbb{R}^{n\times n}$:
+
+| Expresión | Derivada respecto a $X$ |
+|-----------|------------------------|
+| $\text{tr}(AX)$ | $A^\top$ |
+| $\text{tr}(X^\top A)$ | $A$ |
+| $\text{tr}(AXB)$ | $A^\top B^\top$ |
+| $\text{tr}(X^\top AX)$ | $(A + A^\top)X$ |
+| $\text{tr}(X^\top AX)$ | $2AX$ si $A$ simétrica |
+| $\log\det(X)$ | $(X^{-1})^\top = (X^\top)^{-1}$ |
+| $\log\det(X)$ | $X^{-1}$ si $X$ simétrica |
+
+Estas aparecen en la derivación del EMV para el modelo Normal multivariante.
+
+## Segunda Derivada: Hessiano
+
+El **Hessiano** de $f: \mathbb{R}^n \to \mathbb{R}$ es:
+
+$$H = \frac{\partial^2 f}{\partial \mathbf{x}\,\partial \mathbf{x}^\top} =
+\begin{pmatrix}
+\frac{\partial^2 f}{\partial x_1^2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_n \partial x_1} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
+\end{pmatrix} \in \mathbb{R}^{n\times n}$$
+
+El Hessiano es **simétrico** si $f$ tiene derivadas continuas de segundo orden.
+
+| Expresión $f(\mathbf{x})$ | Gradiente | Hessiano |
+|---------------------------|-----------|---------|
+| $\mathbf{a}^\top\mathbf{x}$ | $\mathbf{a}$ | $0$ |
+| $\mathbf{x}^\top A\mathbf{x}$, $A$ simétrica | $2A\mathbf{x}$ | $2A$ |
+| $\text{SCR}(\boldsymbol\beta)$ | $-2X^\top(\mathbf{Y}-X\boldsymbol\beta)$ | $2X^\top X$ |
+
+Para la SCR, el Hessiano es $2X^\top X$. Como $X^\top X \succeq 0$, la función
+SCR es **convexa** — el punto donde el gradiente se anula es un **mínimo global**.
+
+---
+
+# El Modelo de Regresión Lineal Múltiple en Notación Matricial
+
+## Formulación
+
+$$\mathbf{Y} = X\boldsymbol\beta + \boldsymbol\varepsilon$$
+
+donde:
+
+$$\mathbf{Y} = \begin{pmatrix}Y_1\\\vdots\\Y_n\end{pmatrix}_{n\times 1}, \quad
+X = \begin{pmatrix}1 & X_{11} & \cdots & X_{1,k-1}\\
+\vdots & \vdots & \ddots & \vdots\\
+1 & X_{n1} & \cdots & X_{n,k-1}\end{pmatrix}_{n\times k}, \quad
+\boldsymbol\beta = \begin{pmatrix}\beta_0\\\beta_1\\\vdots\\\beta_{k-1}\end{pmatrix}_{k\times 1}, \quad
+\boldsymbol\varepsilon = \begin{pmatrix}\varepsilon_1\\\vdots\\\varepsilon_n\end{pmatrix}_{n\times 1}$$
+
+Los supuestos en forma matricial:
+
+| Supuesto | Notación matricial |
+|----------|--------------------|
+| Exogeneidad | $E[\boldsymbol\varepsilon \mid X] = \mathbf{0}$ |
+| Esfericalidad | $\text{Var}(\boldsymbol\varepsilon \mid X) = \sigma^2 I_n$ |
+| Normalidad | $\boldsymbol\varepsilon \mid X \sim \mathcal{N}(\mathbf{0},\, \sigma^2 I_n)$ |
+| Rango completo | $\text{rk}(X) = k$ |
+
+## Estimador OLS y Propiedades
+
+**Derivación:** minimizar $\text{SCR} = \boldsymbol\varepsilon^\top\boldsymbol\varepsilon = (\mathbf{Y}-X\boldsymbol\beta)^\top(\mathbf{Y}-X\boldsymbol\beta)$
+
+$$\frac{\partial\,\text{SCR}}{\partial\boldsymbol\beta} = -2X^\top(\mathbf{Y} - X\boldsymbol\beta) = \mathbf{0}
+\quad\Rightarrow\quad \hat{\boldsymbol\beta} = (X^\top X)^{-1} X^\top \mathbf{Y}$$
+
+**Propiedades:**
+
+$$E[\hat{\boldsymbol\beta} \mid X] = \boldsymbol\beta \qquad \text{(insesgado)}$$
+
+$$\text{Var}(\hat{\boldsymbol\beta} \mid X) = \sigma^2(X^\top X)^{-1} \qquad \text{(matriz } k\times k \text{, SDP)}$$
+
+$$\hat{\boldsymbol\beta} \mid X \sim \mathcal{N}\!\left(\boldsymbol\beta,\; \sigma^2(X^\top X)^{-1}\right) \quad \text{(bajo normalidad)}$$
+
+## Matrices de Proyección
+
+**Matriz sombrero** (hat matrix):
+
+$$H = X(X^\top X)^{-1}X^\top \in \mathbb{R}^{n\times n}$$
+
+$$\hat{\mathbf{Y}} = H\mathbf{Y}, \qquad \hat{\boldsymbol\varepsilon} = (I - H)\mathbf{Y} = M\mathbf{Y}$$
+
+donde $M = I_n - H$ es la **matriz aniquiladora**.
+
+### Propiedades de $H$ y $M$
+
+| Propiedad | $H$ | $M = I - H$ |
+|-----------|-----|-------------|
+| Simetría | $H^\top = H$ | $M^\top = M$ |
+| Idempotencia | $H^2 = H$ | $M^2 = M$ |
+| Ortogonalidad | $HM = MH = 0$ | |
+| Traza | $\text{tr}(H) = k$ | $\text{tr}(M) = n-k$ |
+| Autovalores | Solo $0$ y $1$ | Solo $0$ y $1$ |
+| Rango | $\text{rk}(H) = k$ | $\text{rk}(M) = n-k$ |
+| Residuos | $H\hat{\boldsymbol\varepsilon} = \mathbf{0}$ | $M\mathbf{Y} = \hat{\boldsymbol\varepsilon}$ |
+
+::: {.callout-note}
+## Interpretación geométrica
+$H$ proyecta $\mathbf{Y}$ sobre el **espacio columna** de $X$ (los valores ajustados $\hat{\mathbf{Y}}$).
+$M$ proyecta $\mathbf{Y}$ sobre el **complemento ortogonal** de ese espacio (los residuos $\hat{\boldsymbol\varepsilon}$).
+La descomposición $\mathbf{Y} = H\mathbf{Y} + M\mathbf{Y} = \hat{\mathbf{Y}} + \hat{\boldsymbol\varepsilon}$
+es ortogonal: $\hat{\mathbf{Y}}^\top\hat{\boldsymbol\varepsilon} = 0$.
+:::
+
+## Estimación de $\sigma^2$ y Descomposición SCT
+
+$$\hat\sigma^2 = \frac{\hat{\boldsymbol\varepsilon}^\top\hat{\boldsymbol\varepsilon}}{n-k}
+= \frac{\mathbf{Y}^\top M\mathbf{Y}}{n-k}, \qquad
+\frac{(n-k)\hat\sigma^2}{\sigma^2} \sim \chi^2_{n-k}$$
+
+**Descomposición de la varianza total** (en notación matricial):
+
+$$\mathbf{Y}^\top M_0 \mathbf{Y} = \boldsymbol\beta^\top X^\top M_0 X\boldsymbol\beta + \hat{\boldsymbol\varepsilon}^\top\hat{\boldsymbol\varepsilon}$$
+
+donde $M_0 = I - \frac{1}{n}J$ es la matriz que centra los datos.
+
+$$\underbrace{\text{SCT}}_{n-1\text{ g.l.}} = \underbrace{\text{SCR}_{\text{reg}}}_{k-1\text{ g.l.}} + \underbrace{\text{SCR}_{\text{res}}}_{n-k\text{ g.l.}}$$
+
+```{r}
+#| label: demo-ols-matricial
+
+set.seed(99)
+n <- 50; k <- 3
+X_raw <- matrix(rnorm(n * (k-1)), nrow = n)
+X     <- cbind(1, X_raw)          # agrega columna de unos (intercepto)
+beta  <- c(2, 1.5, -0.8)
+Y     <- X %*% beta + rnorm(n, 0, 2)
+
+# Estimador OLS manual
+XtX_inv <- solve(t(X) %*% X)
+beta_hat <- XtX_inv %*% t(X) %*% Y
+
+cat("beta verdadero: ", beta, "\n")
+cat("beta_hat (OLS):", round(beta_hat, 4), "\n\n")
+
+# Matriz sombrero y residuos
+H       <- X %*% XtX_inv %*% t(X)
+Y_hat   <- H %*% Y
+e_hat   <- Y - Y_hat
+sig2    <- as.numeric(t(e_hat) %*% e_hat / (n - k))
+Var_hat <- sig2 * XtX_inv
+
+cat("sigma^2 estimado:", round(sig2, 4), "\n")
+cat("Errores estandar beta_hat:", round(sqrt(diag(Var_hat)), 4), "\n\n")
+
+# Verificacion: H es idempotente?
+cat("max|H^2 - H|:", max(abs(H %*% H - H)), "  (debe ser ~0)\n")
+cat("tr(H) =", round(sum(diag(H)), 6), "  (debe ser k =", k, ")\n")
+cat("Y_hat' e_hat =", round(sum(Y_hat * e_hat), 10), "  (debe ser 0)\n")
+```
+
+---
+
+# Resumen de Fórmulas Clave
+
+```{r}
+#| label: tbl-resumen
+#| echo: false
+
+tibble::tribble(
+  ~"Tema",          ~"Objeto",                   ~"Propiedad / Fórmula",
+  "Transpuesta",    "$(AB)^\\top$",               "$B^\\top A^\\top$",
+  "Transpuesta",    "$A^\\top A$",                "Siempre cuadrada y simétrica",
+  "Inversa",        "$(AB)^{-1}$",                "$B^{-1}A^{-1}$",
+  "Inversa",        "$(A^\\top)^{-1}$",           "$(A^{-1})^\\top$",
+  "Determinante",   "$\\det(AB)$",                "$\\det(A)\\det(B)$",
+  "Determinante",   "$\\det(A^{-1})$",            "$1/\\det(A)$",
+  "Traza",          "$\\text{tr}(AB)$",           "$\\text{tr}(BA)$",
+  "Traza",          "$\\text{tr}(A)$",            "$\\sum_i \\lambda_i$",
+  "Definiteness",   "$A \\succ 0$",               "Todos $\\lambda_i > 0$",
+  "Definiteness",   "$X^\\top X$",                "$\\succeq 0$ siempre; $\\succ 0 \\iff \\text{rk}(X)=k$",
+  "Derivada",       "$\\partial(\\mathbf{a}^\\top\\mathbf{x})/\\partial\\mathbf{x}$", "$\\mathbf{a}$",
+  "Derivada",       "$\\partial(\\mathbf{x}^\\top A\\mathbf{x})/\\partial\\mathbf{x}$, $A$ sim.", "$2A\\mathbf{x}$",
+  "Derivada",       "$\\partial\\,\\text{SCR}/\\partial\\boldsymbol\\beta$", "$-2X^\\top(\\mathbf{Y}-X\\boldsymbol\\beta)$",
+  "OLS",            "$\\hat{\\boldsymbol\\beta}$", "$(X^\\top X)^{-1}X^\\top\\mathbf{Y}$",
+  "OLS",            "$\\text{Var}(\\hat{\\boldsymbol\\beta})$", "$\\sigma^2(X^\\top X)^{-1}$",
+  "Proyección",     "$H$",                        "$X(X^\\top X)^{-1}X^\\top$, idempotente, $\\text{tr}=k$",
+  "Proyección",     "$M = I-H$",                  "Idempotente, $\\text{tr}=n-k$, $M\\mathbf{Y}=\\hat{\\boldsymbol\\varepsilon}$"
+) |>
+  kable(escape = FALSE, align = "llc") |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed"),
+    full_width = FALSE
+  ) |>
+  pack_rows("Operaciones",            1,  7) |>
+  pack_rows("Autovalores / DP",       8, 10) |>
+  pack_rows("Derivadas Matriciales", 11, 13) |>
+  pack_rows("OLS Matricial",         14, 17) |>
+  column_spec(1, bold = TRUE, width = "3cm") |>
+  column_spec(3, width = "7cm")
+```
+
+---
+
+::: {.callout-tip}
+## Cadena lógica: del álgebra a OLS
+
+$$\text{rk}(X) = k
+\;\Rightarrow\; X^\top X \succ 0
+\;\Rightarrow\; (X^\top X)^{-1} \text{ existe}
+\;\Rightarrow\; \hat{\boldsymbol\beta} = (X^\top X)^{-1}X^\top\mathbf{Y}
+\;\Rightarrow\; \text{Var}(\hat{\boldsymbol\beta}) = \sigma^2(X^\top X)^{-1} \succeq 0$$
+:::
+
+::: {.callout-note}
+## Por qué la idempotencia de $H$ importa
+$H^2 = H$ implica que proyectar dos veces es lo mismo que proyectar una vez —
+$\hat{\mathbf{Y}}$ ya vive en el espacio columna de $X$, así que proyectarlo
+de nuevo no lo mueve. Esta propiedad garantiza que
+$\text{tr}(H) = \text{tr}(H^2) = \text{tr}(H^\top H) = \|H\|_F^2$,
+y también que los $n - k$ grados de libertad residuales son exactamente $\text{tr}(M)$.
+:::

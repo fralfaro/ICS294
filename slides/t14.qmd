@@ -1,6 +1,7 @@
 ---
 title: "Variables Independientes Binarias"
 lang: es
+logo: images/usm.png
 ---
 
 ## Variables binarias (dummies)
@@ -109,3 +110,37 @@ $$\log(\widehat{salary}) = 4.59 + 0.257 \log(sales) + 0.011 \, roe + 0.158 \, fi
 
 - **¿Diferencia consumo vs. finanzas?**
   $0.181 - 0.158 = 0.023$ → ~2.3% de diferencia.
+
+```{=html}
+<style>
+/* Ajusta el tamaño del título y subtítulo */
+.reveal .slides h1 {
+  font-size: 2em; /* Tamaño más pequeño para el título */
+}
+
+.reveal .slides h2 {
+  font-size: 1.5em; /* Tamaño más pequeño para el subtítulo */
+}
+
+/* Ajusta el tamaño del texto en los párrafos */
+.reveal .slides p {
+  font-size: 0.8em; /* Texto más pequeño */
+}
+
+/* Ajusta el tamaño de las tablas */
+.reveal .slides table {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en las tablas */
+  width: 90%; /* Ajusta el ancho de la tabla */
+  margin: 0 auto; /* Centra la tabla */
+}
+
+/* Ajusta el tamaño de los bullets */
+.reveal .slides ul {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en los bullets */
+}
+
+.reveal .slide-logo {
+   max-height: 2em !important;
+}
+</style>
+```

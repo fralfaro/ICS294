@@ -1,6 +1,7 @@
 ---
 title: "Raíces Unitarias y Tendencias"
 lang: es
+logo: images/usm.png
 ---
 
 ## Caminata aleatoria (Random Walk)
@@ -85,3 +86,37 @@ Al trabajar con series de tiempo, sigue este orden:
 3. **Si hay raíz unitaria ($I(1)$):** diferenciar las variables antes de correr la regresión.
 4. **Si hay tendencia determinística:** incluir la variable temporal $t$ en el modelo.
 5. **Interpretación:** verificar la estacionariedad de los residuos para confirmar que los resultados no son espurios.
+
+```{=html}
+<style>
+/* Ajusta el tamaño del título y subtítulo */
+.reveal .slides h1 {
+  font-size: 2em; /* Tamaño más pequeño para el título */
+}
+
+.reveal .slides h2 {
+  font-size: 1.5em; /* Tamaño más pequeño para el subtítulo */
+}
+
+/* Ajusta el tamaño del texto en los párrafos */
+.reveal .slides p {
+  font-size: 0.8em; /* Texto más pequeño */
+}
+
+/* Ajusta el tamaño de las tablas */
+.reveal .slides table {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en las tablas */
+  width: 90%; /* Ajusta el ancho de la tabla */
+  margin: 0 auto; /* Centra la tabla */
+}
+
+/* Ajusta el tamaño de los bullets */
+.reveal .slides ul {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en los bullets */
+}
+
+.reveal .slide-logo {
+   max-height: 2em !important;
+}
+</style>
+```

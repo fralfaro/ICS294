@@ -61,6 +61,7 @@ book:
         - material/anexos/estadistica_descriptiva_r.qmd
         - material/anexos/variables_aleatorias.qmd
         - material/anexos/inferencia_estadistica.qmd
+        - material/anexos/algebra_matricial.qmd
         - material/anexos/repaso_r.ipynb
 
   

@@ -1,6 +1,7 @@
 ---
 title: "Endogeneidad y Variables Instrumentales"
 lang: es
+logo: images/usm.png
 ---
 
 ## Introducción a la endogeneidad
@@ -98,3 +99,37 @@ Si $\hat{\beta}_{MCO} > \hat{\beta}_{IV}$: confirmamos que MCO sobreestimaba el 
 - Las **Variables Instrumentales** permiten obtener estimaciones consistentes.
 - **MC2E** es el procedimiento operativo más común para aplicar IV.
 - **Advertencia:** un instrumento débil ($Cov(Z,X) \approx 0$) puede ser peor que MCO, ya que dispara el error estándar y la imprecisión.
+
+```{=html}
+<style>
+/* Ajusta el tamaño del título y subtítulo */
+.reveal .slides h1 {
+  font-size: 2em; /* Tamaño más pequeño para el título */
+}
+
+.reveal .slides h2 {
+  font-size: 1.5em; /* Tamaño más pequeño para el subtítulo */
+}
+
+/* Ajusta el tamaño del texto en los párrafos */
+.reveal .slides p {
+  font-size: 0.8em; /* Texto más pequeño */
+}
+
+/* Ajusta el tamaño de las tablas */
+.reveal .slides table {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en las tablas */
+  width: 90%; /* Ajusta el ancho de la tabla */
+  margin: 0 auto; /* Centra la tabla */
+}
+
+/* Ajusta el tamaño de los bullets */
+.reveal .slides ul {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en los bullets */
+}
+
+.reveal .slide-logo {
+   max-height: 2em !important;
+}
+</style>
+```

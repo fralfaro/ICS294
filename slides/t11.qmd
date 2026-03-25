@@ -1,6 +1,7 @@
 ---
 title: "Inferencia sobre un Conjunto de Parámetros"
 lang: es
+logo: images/usm.png
 ---
 
 ## Más allá del test individual
@@ -82,3 +83,37 @@ $$t_e = \frac{42 - 2(5)}{7.72} = \frac{32}{7.72} = 4.15$$
 - La **matriz de varianza-covarianza** es esencial para testear relaciones entre variables.
 - No basta con mirar los errores estándar individuales: la **covarianza** entre estimadores afecta la precisión de nuestras conclusiones.
 - Estos tests permiten validar teorías económicas sobre la magnitud **relativa** de distintos factores.
+
+```{=html}
+<style>
+/* Ajusta el tamaño del título y subtítulo */
+.reveal .slides h1 {
+  font-size: 2em; /* Tamaño más pequeño para el título */
+}
+
+.reveal .slides h2 {
+  font-size: 1.5em; /* Tamaño más pequeño para el subtítulo */
+}
+
+/* Ajusta el tamaño del texto en los párrafos */
+.reveal .slides p {
+  font-size: 0.8em; /* Texto más pequeño */
+}
+
+/* Ajusta el tamaño de las tablas */
+.reveal .slides table {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en las tablas */
+  width: 90%; /* Ajusta el ancho de la tabla */
+  margin: 0 auto; /* Centra la tabla */
+}
+
+/* Ajusta el tamaño de los bullets */
+.reveal .slides ul {
+  font-size: 0.8em; /* Tamaño de fuente más pequeño en los bullets */
+}
+
+.reveal .slide-logo {
+   max-height: 2em !important;
+}
+</style>
+```
