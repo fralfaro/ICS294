@@ -1,0 +1,100 @@
+---
+title: "Varianza e Inferencia en MCO"
+lang: es
+---
+
+## Varianza del estimador MCO
+
+La matriz de varianzas-covarianzas viene dada por:
+
+$$Var(\hat{\beta} \mid X) = \sigma^2 (X^\top X)^{-1}$$
+
+- $(X^\top X)^{-1}$ es observable en los datos.
+- $\sigma^2$ es la varianza del error **poblacional** → **no es observable**.
+
+Necesitamos estimarla.
+
+## Estimador MCO de $\sigma^2$
+
+El estimador insesgado de $\sigma^2$ se define como:
+
+$$\hat{\sigma}^2 = \frac{\sum_{i=1}^n \hat{u}_i^2}{n - k - 1} = \frac{SSR}{n - k - 1}$$
+
+- $n - k - 1$: **grados de libertad** (observaciones menos parámetros estimados).
+- Con $k$ variables independientes y un intercepto hay $k+1$ parámetros.
+- Bajo los supuestos de Gauss-Markov: $E[\hat{\sigma}^2 \mid X] = \sigma^2$.
+
+## Grados de libertad en los residuales
+
+En la estimación MCO, a los residuos se les imponen $k+1$ restricciones.
+
+$$gl = n - (k + 1)$$
+
+- Dados $n - (k+1)$ residuales, los restantes $k+1$ se determinan.
+- Solo hay $n - (k+1)$ grados de libertad en los residuales.
+- Los errores $u_i$ tienen $n$ grados de libertad en la muestra.
+
+## Varianza estimada de cada $\hat{\beta}_j$
+
+$$\hat{Var}(\hat{\beta} \mid X) = \hat{\sigma}^2 (X^\top X)^{-1}$$
+
+Es una matriz $(k+1) \times (k+1)$:
+
+- Diagonal $a_{1,1}$: $\hat{Var}(\hat{\beta}_0)$
+- Diagonal $a_{2,2}$: $\hat{Var}(\hat{\beta}_1)$
+- Diagonal $a_{j+1,j+1}$: $\hat{Var}(\hat{\beta}_j)$
+
+## Ejemplo numérico
+
+De los datos:
+
+$$(X^\top X)^{-1} = \begin{bmatrix} 0.05987 & -0.00177 & -0.00035 \\ -0.00177 & 0.00030 & -0.00002 \\ -0.00035 & -0.00002 & 0.00001 \end{bmatrix}$$
+
+$$\hat{\sigma}^2 = \frac{SSR}{n - k - 1} = 141925$$
+
+## Ejemplo: cálculo de la varianza
+
+$$\hat{V}(\hat{\beta}) = \hat{\sigma}^2(X^\top X)^{-1} = \begin{bmatrix} 8497.57 & -250.80 & -49.04 \\ -250.80 & 42.90 & -3.22 \\ -49.04 & -3.22 & 0.91 \end{bmatrix}$$
+
+En la **diagonal principal** se encuentra la varianza de cada estimador.
+
+**Ejemplo:** $\hat{V}(\hat{\beta}_1) = 42.90$
+
+$$\hat{se}(\hat{\beta}_1) = \sqrt{42.90} = 6.55$$
+
+## Caso particular: regresión simple
+
+En el modelo $y = \beta_0 + \beta_1 x + u$:
+
+$$\hat{Var}(\hat{\beta}_1) = \frac{\hat{\sigma}^2}{\sum_{i=1}^n (x_i - \bar{x})^2}$$
+
+**Interpretaciones:**
+
+- Mayor variabilidad en $x$ → estimador más **preciso**.
+- Mayor varianza del residuo → estimador menos **preciso** (el modelo explica poco de $y$).
+
+# Varianza en el Modelo Múltiple
+
+## Intuición de la varianza
+
+$$\hat{Var}(\hat{\beta}_1 \mid X) = \frac{\hat{\sigma}^2}{SST_1 (1 - R^2_1)}$$
+
+| Componente | Significado | Efecto sobre la varianza |
+|---|---|---|
+| $\hat{\sigma}^2$ | Ruido no explicado | $\uparrow \hat{\sigma}^2$ → $\uparrow$ varianza |
+| $SST_1$ | Variación muestral de $x_1$ | $\uparrow SST_1$ → $\downarrow$ varianza |
+| $R^2_1$ | Cuánto de $x_1$ explican las demás $x$ | $\uparrow R^2_1$ → $\uparrow$ varianza |
+
+## Problema de multicolinealidad
+
+$$Var(\hat{\beta}_1 \mid X) = \frac{\sigma^2}{SST_1(1 - R^2_1)}$$
+
+Si las variables están muy correlacionadas entre sí, $R^2_1 \to 1$ y la varianza $\to \infty$.
+
+Si $R^2_1 = 1$: viola el **Supuesto 3** (no multicolinealidad perfecta) y $(X^\top X)$ no es invertible.
+
+**Trade-offs al agregar variables:**
+
+1. Incluir más variables reduce $SSR$ (baja $\hat{\sigma}^2$), pero **aumenta $R^2_1$$.
+2. El efecto sobre la varianza es **ambiguo**.
+3. A menudo se sacrifica varianza para evitar **sesgo** por variable omitida.

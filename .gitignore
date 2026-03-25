@@ -63,6 +63,11 @@ target/
 .idea
 .env
 
+# Quarto generated files
+material/**/*_files/
+material/**/*.html
+slides/*.html
+
 # others
 
 *.csh

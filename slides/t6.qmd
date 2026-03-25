@@ -1,0 +1,135 @@
+---
+title: "Regresión Lineal Múltiple"
+lang: es
+---
+
+## Motivación
+
+En el modelo de regresión lineal simple:
+
+$$y = \beta_0 + \beta_1 x + u$$
+
+El supuesto $E[u \mid x] = 0$ es muy fuerte: **todas las variables no incluidas van al error**.
+
+El modelo de regresión lineal múltiple (RLM) permite:
+
+- Controlar por múltiples variables.
+- Mejorar la predicción de $y$.
+- Reducir el sesgo por variables omitidas.
+
+## Modelo de Regresión Lineal Múltiple
+
+A nivel poblacional:
+
+$$y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k + u$$
+
+Supuesto: $E[u \mid x_1, x_2, \dots, x_k] = 0$.
+
+**Interpretación de $\beta_j$:** cuando $x_j$ cambia en una unidad, el valor esperado de $y$ cambia en $\beta_j$ unidades, **manteniendo todas las demás variables constantes**.
+
+$$\beta_1 = \frac{\Delta E[y \mid x_1, \dots, x_k]}{\Delta x_1}$$
+
+Es como una **derivada parcial**.
+
+## Estimación MCO: ejemplo
+
+Al estudiar el efecto de educación en salario, queremos dejar la inteligencia (IQ) constante.
+
+Al incluir IQ en la regresión, el coeficiente de educación **se hace más pequeño**:
+
+| Modelo | Ecuación estimada |
+|---|---|
+| **MCO Simple** | $\widehat{salario} = 0.09 + 0.54 \cdot educacion$ |
+| **MCO Múltiple** | $\widehat{salario} = 0.065 + 0.37 \cdot educacion + 0.20 \cdot IQ$ |
+
+Controlando por IQ, el efecto de la educación es menor → parte del coeficiente simple era sesgo.
+
+## Estimación: ecuación por individuo
+
+Para cada observación $i = 1, \dots, n$:
+
+$$y_i = \hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \hat{\beta}_2 x_{i2} + \dots + \hat{\beta}_k x_{ik} + \hat{u}_i$$
+
+Los **residuos** son:
+
+$$\hat{u}_i = y_i - \hat{y}_i = y_i - (\hat{\beta}_0 + \hat{\beta}_1 x_{i1} + \dots + \hat{\beta}_k x_{ik})$$
+
+## MCO para el modelo lineal múltiple
+
+$$\min_{\hat{\beta}_0, \hat{\beta}_1, \dots, \hat{\beta}_k} \sum_i \left(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - \dots - \hat{\beta}_k x_{ik}\right)^2$$
+
+**Condiciones de primer orden:**
+
+1. $\sum_i \left(y_i - \hat{\beta}_0 - \hat{\beta}_1 x_{i1} - \dots\right) = 0$
+2. $\sum_i x_{i1} \left(y_i - \hat{\beta}_0 - \dots - \hat{\beta}_k x_{ik}\right) = 0$
+3. $\vdots$
+4. $\sum_i x_{ik} \left(y_i - \hat{\beta}_0 - \dots - \hat{\beta}_k x_{ik}\right) = 0$
+
+# Notación Matricial
+
+## Modelo por individuo
+
+El modelo para cada individuo $i$:
+
+$$y_i = \mathbf{x}_i^\top \boldsymbol{\beta} + u_i$$
+
+con
+
+$$\mathbf{x}_i = \begin{pmatrix} 1 \\ x_{i1} \\ \vdots \\ x_{ik} \end{pmatrix}, \qquad \boldsymbol{\beta} = \begin{pmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_k \end{pmatrix}$$
+
+Son $n$ ecuaciones (una para cada individuo).
+
+## Notación general
+
+Para una muestra de $n$ observaciones: $y = X\beta + u$
+
+$$y = \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}, \quad X = \begin{pmatrix} 1 & x_{11} & \dots & x_{1k} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & x_{n1} & \dots & x_{nk} \end{pmatrix}, \quad u = \begin{pmatrix} u_1 \\ \vdots \\ u_n \end{pmatrix}$$
+
+- $y$, $u$: vectores $n \times 1$
+- $X$: matriz $n \times (k+1)$
+
+## Ejemplo: $n=5$, dos variables $x_1, x_2$
+
+$$\begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_5 \end{bmatrix} = \begin{bmatrix} 1 & x_{11} & x_{21} \\ 1 & x_{12} & x_{22} \\ \vdots & \vdots & \vdots \\ 1 & x_{15} & x_{25} \end{bmatrix} \begin{bmatrix} \beta_0 \\ \beta_1 \\ \beta_2 \end{bmatrix} + \begin{bmatrix} u_1 \\ \vdots \\ u_5 \end{bmatrix}$$
+
+$$y = X\beta + u$$
+
+## Derivación de $\hat{\beta}$
+
+$$\min_{\hat{\beta}} \hat{u}^\top \hat{u} = (y - X\hat{\beta})^\top(y - X\hat{\beta})$$
+
+$$= y^\top y - 2y^\top X\hat{\beta} + \hat{\beta}^\top X^\top X\hat{\beta}$$
+
+**CPO:**
+
+$$\frac{\partial \hat{u}^\top \hat{u}}{\partial \hat{\beta}} = -2X^\top y + 2X^\top X\hat{\beta} = 0$$
+
+$$\boxed{\hat{\beta} = (X^\top X)^{-1} X^\top y}$$
+
+*Requiere que $X$ tenga rango completo para que $X^\top X$ sea invertible.*
+
+## Propiedades algebraicas de MCO
+
+De las condiciones de primer orden ($X^\top \hat{u} = 0$):
+
+1. $\sum_i \hat{u}_i = 0$
+2. $\sum_i x_{ij} \hat{u}_i = 0$ para cada variable $j$
+3. $\bar{y} = \bar{\hat{y}}$
+4. La recta pasa por el centro de gravedad $(\bar{x}_1, \dots, \bar{x}_k, \bar{y})$
+
+## Bondad de ajuste: $R^2$
+
+$$SST = \sum(y_i - \bar{y})^2, \quad SSE = \sum(\hat{y}_i - \bar{y})^2, \quad SSR = \sum\hat{u}_i^2$$
+
+$$R^2 = \frac{SSE}{SST} = 1 - \frac{SSR}{SST}$$
+
+## $R^2$ ajustado
+
+El $R^2$ crece mecánicamente al agregar variables, aunque sean irrelevantes.
+
+**$R^2$ ajustado** penaliza la inclusión de variables que no aportan:
+
+$$\overline{R^2} = 1 - \frac{n-1}{n-k-1} \cdot \frac{SSR}{SST}$$
+
+- Puede disminuir si se agrega una variable poco informativa.
+- Más apropiado para comparar modelos con distinto número de variables.

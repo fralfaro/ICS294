@@ -1,0 +1,22 @@
+---
+title: "Aplicaciones Avanzadas"
+format:
+  html:
+    toc: false
+---
+
+## Objetivo
+
+Este módulo amplía el alcance de la econometría hacia contextos más complejos y aplicados. Se estudian los modelos con variables dependientes binarias (MPL), los problemas de heterocedasticidad y multicolinealidad, la endogeneidad y su corrección mediante variables instrumentales (IV/MC2E), y el análisis de series de tiempo, incluyendo la autocorrelación, estacionariedad, modelos AR y MA, y el test de raíz unitaria de Dickey-Fuller. Al finalizar el módulo, el estudiante será capaz de identificar y corregir violaciones a los supuestos clásicos de MCO, aplicar estimadores robustos adecuados al contexto y trabajar con datos de series de tiempo de forma rigurosa.
+
+## Contenidos
+
+| # | Tema | Presentación |
+|:--:|------|:------------:|
+| 15 | [Variables Dependientes Binarias](s15.qmd) | [slides](../../t15.html) |
+| 16 | [Heterocedasticidad](s16.qmd) | [slides](../../t16.html) |
+| 17 | [Endogeneidad y Variables Instrumentales](s17.qmd) | [slides](../../t17.html) |
+| 18 | [Multicolinealidad](s18.qmd) | [slides](../../t18.html) |
+| 19 | [Dependencia de Errores en Series de Tiempo](s19.qmd) | [slides](../../t19.html) |
+| 20 | [Series de Tiempo](s20.qmd) | [slides](../../t20.html) |
+| 21 | [Raíces Unitarias y Tendencias](s21.qmd) | [slides](../../t21.html) |

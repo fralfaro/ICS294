@@ -1,0 +1,716 @@
+---
+title: "Variables Aleatorias"
+subtitle: "Propiedades de Esperanza, Varianza, Covarianza y Distribuciones para Inferencia"
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(gridExtra)
+
+theme_repaso <- theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title       = element_text(face = "bold", size = 13),
+    plot.subtitle    = element_text(colour = "grey40"),
+    axis.title       = element_text(size = 11),
+    legend.position  = "top"
+  )
+theme_set(theme_repaso)
+```
+
+---
+
+# Variables Aleatorias
+
+## Definición
+
+Una **variable aleatoria** (v.a.) es una función medible que asigna un número real
+a cada resultado de un espacio muestral $\Omega$:
+
+$$X : \Omega \longrightarrow \mathbb{R}$$
+
+Se clasifican en:
+
+| Tipo | Descripción | Ejemplo |
+|------|-------------|---------|
+| **Discreta** | Toma valores en un conjunto numerable | Número de hijos, lanzamiento de dado |
+| **Continua** | Toma valores en un intervalo de $\mathbb{R}$ | Altura, temperatura, salario |
+
+## Función de Distribución Acumulada (FDA)
+
+Para cualquier v.a. $X$ (discreta o continua), la **FDA** se define como:
+
+$$F_X(x) = P(X \leq x), \qquad x \in \mathbb{R}$$
+
+### Propiedades de la FDA
+
+| Propiedad | Enunciado |
+|-----------|-----------|
+| Acotación | $0 \leq F_X(x) \leq 1$ para todo $x$ |
+| Monotonicidad | $F_X$ es no decreciente |
+| Límites | $\lim_{x \to -\infty} F_X(x) = 0 \;$ y $\; \lim_{x \to +\infty} F_X(x) = 1$ |
+| Continuidad por derecha | $\lim_{h \to 0^+} F_X(x+h) = F_X(x)$ |
+| Probabilidad de intervalo | $P(a < X \leq b) = F_X(b) - F_X(a)$ |
+
+## Función de Masa / Densidad de Probabilidad
+
+**Caso discreto** — función de masa de probabilidad (f.m.p.):
+
+$$p_X(x_k) = P(X = x_k) \geq 0, \qquad \sum_k p_X(x_k) = 1$$
+
+**Caso continuo** — función de densidad de probabilidad (f.d.p.):
+
+$$f_X(x) \geq 0, \qquad \int_{-\infty}^{+\infty} f_X(x)\,dx = 1$$
+
+$$P(a \leq X \leq b) = \int_a^b f_X(x)\,dx, \qquad F_X(x) = \int_{-\infty}^x f_X(t)\,dt$$
+
+> **Nota:** Para v.a. continuas, $P(X = x) = 0$ para cualquier valor puntual $x$.
+
+---
+
+# Esperanza (Valor Esperado)
+
+## Definición
+
+La **esperanza** $E[X]$ mide el valor promedio que tomaría $X$ en infinitas repeticiones:
+
+$$E[X] = \begin{cases}
+\displaystyle\sum_k x_k\, p_X(x_k) & \text{caso discreto} \\[10pt]
+\displaystyle\int_{-\infty}^{+\infty} x\, f_X(x)\,dx & \text{caso continuo}
+\end{cases}$$
+
+También se denota $\mu_X$ o simplemente $\mu$.
+
+## Esperanza de una Transformación
+
+**Ley del estadístico inconsciente (LOTUS):**
+
+$$E[g(X)] = \begin{cases}
+\displaystyle\sum_k g(x_k)\, p_X(x_k) & \text{discreto} \\[10pt]
+\displaystyle\int_{-\infty}^{+\infty} g(x)\, f_X(x)\,dx & \text{continuo}
+\end{cases}$$
+
+## Propiedades de la Esperanza
+
+Sea $X$, $Y$ v.a. y $a, b \in \mathbb{R}$ constantes:
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| P1 | **Constante** | $E[a] = a$ |
+| P2 | **Linealidad** | $E[aX + b] = a\,E[X] + b$ |
+| P3 | **Aditividad** | $E[X + Y] = E[X] + E[Y]$ |
+| P4 | **Homogeneidad** | $E[aX] = a\,E[X]$ |
+| P5 | **Independencia** | Si $X \perp Y$, entonces $E[XY] = E[X]\,E[Y]$ |
+| P6 | **No negatividad** | Si $X \geq 0$, entonces $E[X] \geq 0$ |
+| P7 | **Monotonía** | Si $X \leq Y$, entonces $E[X] \leq E[Y]$ |
+| P8 | **Potencias** | $E[X^n] = $ $n$-ésimo momento (ver §3) |
+
+::: {.callout-important}
+## La linealidad de la esperanza es siempre válida
+Las propiedades P2 y P3 valen **sin importar si $X$ e $Y$ son independientes o no**.
+Esto es una de las herramientas más poderosas del cálculo probabilístico.
+:::
+
+## Momentos
+
+El **$n$-ésimo momento** de $X$ respecto al origen es:
+
+$$\mu'_n = E[X^n]$$
+
+El **$n$-ésimo momento central** (respecto a la media) es:
+
+$$\mu_n = E\!\left[(X - \mu)^n\right]$$
+
+| Momento central | Nombre | Fórmula |
+|-----------------|--------|---------|
+| $\mu_1$ | — | $0$ (por definición) |
+| $\mu_2$ | Varianza | $\text{Var}(X)$ |
+| $\mu_3 / \sigma^3$ | Asimetría (skewness) | $\gamma_1$ |
+| $\mu_4 / \sigma^4 - 3$ | Curtosis excess | $\gamma_2$ |
+
+## Desigualdades Clásicas
+
+**Desigualdad de Markov** (requiere $X \geq 0$):
+
+$$P(X \geq a) \leq \frac{E[X]}{a}, \qquad a > 0$$
+
+**Desigualdad de Chebyshev** (requiere solo $\text{Var}(X) < \infty$):
+
+$$P\!\left(|X - \mu| \geq k\sigma\right) \leq \frac{1}{k^2}, \qquad k > 0$$
+
+Equivalentemente: al menos $1 - 1/k^2$ de la masa probabilística cae en $(\mu - k\sigma,\; \mu + k\sigma)$.
+
+---
+
+# Varianza y Desviación Estándar
+
+## Definición
+
+$$\text{Var}(X) = \sigma^2_X = E\!\left[(X - \mu)^2\right]$$
+
+### Fórmula computacional
+
+$$\text{Var}(X) = E[X^2] - \left(E[X]\right)^2$$
+
+**Demostración:**
+$$E[(X-\mu)^2] = E[X^2 - 2\mu X + \mu^2]
+= E[X^2] - 2\mu E[X] + \mu^2
+= E[X^2] - 2\mu^2 + \mu^2
+= E[X^2] - \mu^2$$
+
+## Propiedades de la Varianza
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| V1 | **No negatividad** | $\text{Var}(X) \geq 0$ |
+| V2 | **Nulidad** | $\text{Var}(X) = 0 \iff X = c$ (constante c.s.) |
+| V3 | **Constante** | $\text{Var}(c) = 0$ |
+| V4 | **Traslación** | $\text{Var}(X + b) = \text{Var}(X)$ |
+| V5 | **Escala** | $\text{Var}(aX) = a^2\,\text{Var}(X)$ |
+| V6 | **Lineal** | $\text{Var}(aX + b) = a^2\,\text{Var}(X)$ |
+| V7 | **Suma (independientes)** | Si $X \perp Y$: $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y)$ |
+| V8 | **Suma (general)** | $\text{Var}(X + Y) = \text{Var}(X) + \text{Var}(Y) + 2\,\text{Cov}(X,Y)$ |
+
+### Generalización a $n$ variables
+
+$$\text{Var}\!\left(\sum_{i=1}^n a_i X_i\right)
+= \sum_{i=1}^n a_i^2\,\text{Var}(X_i)
++ 2\sum_{i < j} a_i a_j\,\text{Cov}(X_i, X_j)$$
+
+Si todas son mutuamente independientes:
+
+$$\text{Var}\!\left(\sum_{i=1}^n a_i X_i\right) = \sum_{i=1}^n a_i^2\,\text{Var}(X_i)$$
+
+**Caso especial importante** — media muestral $\bar{X} = \frac{1}{n}\sum X_i$ con $X_i$ i.i.d.:
+
+$$\text{Var}(\bar{X}) = \frac{\sigma^2}{n}$$
+
+---
+
+# Covarianza y Correlación
+
+## Covarianza
+
+$$\text{Cov}(X, Y) = E\!\left[(X - \mu_X)(Y - \mu_Y)\right]$$
+
+### Fórmula computacional
+
+$$\text{Cov}(X, Y) = E[XY] - E[X]\,E[Y]$$
+
+### Propiedades de la Covarianza
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| C1 | **Simetría** | $\text{Cov}(X, Y) = \text{Cov}(Y, X)$ |
+| C2 | **Varianza propia** | $\text{Cov}(X, X) = \text{Var}(X)$ |
+| C3 | **Constante** | $\text{Cov}(X, c) = 0$ |
+| C4 | **Bilinealidad** | $\text{Cov}(aX + b, cY + d) = ac\,\text{Cov}(X,Y)$ |
+| C5 | **Aditividad** | $\text{Cov}(X+Z, Y) = \text{Cov}(X,Y) + \text{Cov}(Z,Y)$ |
+| C6 | **Independencia** | Si $X \perp Y \Rightarrow \text{Cov}(X,Y) = 0$ (recíproco falso en general) |
+| C7 | **Desigualdad de Cauchy-Schwarz** | $|\text{Cov}(X,Y)|^2 \leq \text{Var}(X)\,\text{Var}(Y)$ |
+
+::: {.callout-warning}
+## Covarianza cero $\not\Rightarrow$ independencia
+Si $X \sim U(-1,1)$ e $Y = X^2$, entonces $\text{Cov}(X,Y) = 0$ pero $Y$ depende funcionalmente de $X$.
+La independencia implica covarianza cero, pero no al revés.
+:::
+
+## Correlación de Pearson
+
+La covarianza depende de las unidades. La **correlación** estandariza:
+
+$$\rho_{XY} = \text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{\sigma_X\,\sigma_Y}$$
+
+### Propiedades
+
+| Propiedad | Enunciado |
+|-----------|-----------|
+| Acotación | $-1 \leq \rho_{XY} \leq 1$ |
+| Lineal perfecta | $|\rho_{XY}| = 1 \iff Y = aX + b$ c.s. |
+| Dirección | $\rho > 0$: relación directa; $\rho < 0$: relación inversa; $\rho = 0$: sin correlación lineal |
+| Invarianza a escala | $\text{Corr}(aX+b,\, cY+d) = \text{sign}(ac)\,\rho_{XY}$ |
+
+## Matriz de Covarianzas
+
+Para el vector aleatorio $\mathbf{X} = (X_1, \ldots, X_p)^\top$:
+
+$$\boldsymbol{\Sigma} = \text{Cov}(\mathbf{X}) = E\!\left[(\mathbf{X} - \boldsymbol{\mu})(\mathbf{X} - \boldsymbol{\mu})^\top\right]$$
+
+donde $\Sigma_{ij} = \text{Cov}(X_i, X_j)$ y $\Sigma_{ii} = \text{Var}(X_i)$.
+
+**Propiedades de $\boldsymbol{\Sigma}$:**
+
+- Simétrica: $\boldsymbol{\Sigma} = \boldsymbol{\Sigma}^\top$
+- Semidefinida positiva: $\mathbf{v}^\top \boldsymbol{\Sigma}\, \mathbf{v} \geq 0$ para todo $\mathbf{v}$
+- Para $\mathbf{Y} = A\mathbf{X} + \mathbf{b}$: $\;\text{Cov}(\mathbf{Y}) = A\,\boldsymbol{\Sigma}\,A^\top$
+
+---
+
+# Esperanza y Varianza Condicionada
+
+## Distribución Condicional
+
+**Caso discreto:**
+
+$$P(X = x \mid Y = y) = \frac{P(X=x,\; Y=y)}{P(Y=y)}$$
+
+**Caso continuo:**
+
+$$f_{X|Y}(x \mid y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}, \qquad f_Y(y) > 0$$
+
+## Esperanza Condicional
+
+$$E[X \mid Y = y] = \begin{cases}
+\displaystyle\sum_x x\,P(X=x \mid Y=y) & \text{discreto} \\[8pt]
+\displaystyle\int x\, f_{X|Y}(x \mid y)\,dx & \text{continuo}
+\end{cases}$$
+
+Nótese que $E[X \mid Y]$ es una **variable aleatoria** (función de $Y$).
+
+### Propiedades de la Esperanza Condicional
+
+| # | Propiedad | Enunciado |
+|---|-----------|-----------|
+| EC1 | **Linealidad** | $E[aX + bZ \mid Y] = a\,E[X\mid Y] + b\,E[Z\mid Y]$ |
+| EC2 | **Torre (LIE)** | $E[E[X \mid Y]] = E[X]$ |
+| EC3 | **Extracción** | $E[g(Y)\,X \mid Y] = g(Y)\,E[X \mid Y]$ |
+| EC4 | **Independencia** | Si $X \perp Y$: $E[X \mid Y] = E[X]$ |
+| EC5 | **Función de Y** | $E[g(Y) \mid Y] = g(Y)$ |
+
+::: {.callout-note}
+## Ley de la Esperanza Total (LET) / Ley de la Torre
+
+$$E[X] = E\!\left[E[X \mid Y]\right] = \sum_y E[X \mid Y=y]\,P(Y=y)$$
+
+Esta ley es central en econometría: permite descomponer $E[Y \mid X]$ en subpoblaciones.
+:::
+
+## Varianza Condicional
+
+$$\text{Var}(X \mid Y) = E\!\left[(X - E[X\mid Y])^2 \mid Y\right] = E[X^2 \mid Y] - \left(E[X \mid Y]\right)^2$$
+
+### Ley de la Varianza Total (Descomposición EVE)
+
+$$\text{Var}(X) = \underbrace{E[\text{Var}(X \mid Y)]}_{\text{varianza intra-grupo (inexplicada)}}
++ \underbrace{\text{Var}(E[X \mid Y])}_{\text{varianza inter-grupo (explicada por }Y\text{)}}$$
+
+Esta descomposición es el fundamento del **análisis de varianza (ANOVA)** y del $R^2$ en regresión lineal.
+
+---
+
+# Función Generatriz de Momentos
+
+## Definición
+
+La **función generatriz de momentos (fgm)** de $X$ es:
+
+$$M_X(t) = E\!\left[e^{tX}\right], \qquad t \in \mathbb{R}$$
+
+cuando existe en un entorno de $t = 0$.
+
+## Propiedades
+
+| Propiedad | Enunciado |
+|-----------|-----------|
+| Momentos | $E[X^n] = M_X^{(n)}(0) = \left.\dfrac{d^n}{dt^n}M_X(t)\right|_{t=0}$ |
+| Unicidad | Si $M_X(t) = M_Y(t)$ en un entorno de 0, entonces $F_X = F_Y$ |
+| Independencia | Si $X \perp Y$: $M_{X+Y}(t) = M_X(t)\cdot M_Y(t)$ |
+| Lineal | $M_{aX+b}(t) = e^{bt}\,M_X(at)$ |
+
+La fgm es especialmente útil para demostrar que la **suma de normales independientes es normal**,
+la **suma de Poisson independientes es Poisson**, etc.
+
+---
+
+# Distribuciones Fundamentales para Inferencia
+
+## Distribución Normal $\mathcal{N}(\mu, \sigma^2)$
+
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}\exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \qquad x \in \mathbb{R}$$
+
+| Parámetro / Momento | Valor |
+|---------------------|-------|
+| Soporte | $(-\infty, +\infty)$ |
+| $E[X]$ | $\mu$ |
+| $\text{Var}(X)$ | $\sigma^2$ |
+| $M_X(t)$ | $\exp\!\left(\mu t + \frac{\sigma^2 t^2}{2}\right)$ |
+| Skewness | $0$ |
+| Curtosis excess | $0$ |
+
+**Propiedades clave:**
+
+- Si $X \sim \mathcal{N}(\mu, \sigma^2)$, entonces $Z = \dfrac{X - \mu}{\sigma} \sim \mathcal{N}(0,1)$
+- Si $X_i \overset{\text{iid}}{\sim} \mathcal{N}(\mu_i, \sigma_i^2)$ independientes, entonces
+  $\sum_i a_i X_i \sim \mathcal{N}\!\left(\sum a_i\mu_i,\; \sum a_i^2\sigma_i^2\right)$
+- La normal es la única distribución simétrica y estable bajo suma (hasta escala)
+
+## Distribución Chi-Cuadrado $\chi^2_\nu$
+
+Si $Z_1, \ldots, Z_\nu \overset{\text{iid}}{\sim} \mathcal{N}(0,1)$, entonces:
+
+$$Q = \sum_{i=1}^\nu Z_i^2 \sim \chi^2_\nu$$
+
+$$f(x) = \frac{x^{\nu/2-1}\,e^{-x/2}}{2^{\nu/2}\,\Gamma(\nu/2)}, \qquad x > 0$$
+
+| Momento | Valor |
+|---------|-------|
+| $E[Q]$ | $\nu$ |
+| $\text{Var}(Q)$ | $2\nu$ |
+| Moda | $\max(\nu - 2,\; 0)$ |
+
+**Usos en inferencia:**
+
+- Distribución de $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$ bajo normalidad
+- Estadístico de pruebas de bondad de ajuste y tablas de contingencia
+- Suma: si $Q_1 \perp Q_2$, $Q_1 + Q_2 \sim \chi^2_{\nu_1 + \nu_2}$
+
+## Distribución $t$ de Student $t_\nu$
+
+Si $Z \sim \mathcal{N}(0,1)$ y $Q \sim \chi^2_\nu$ independientes:
+
+$$T = \frac{Z}{\sqrt{Q/\nu}} \sim t_\nu$$
+
+$$f(t) = \frac{\Gamma\!\left(\frac{\nu+1}{2}\right)}{\sqrt{\nu\pi}\;\Gamma\!\left(\frac{\nu}{2}\right)}
+\left(1 + \frac{t^2}{\nu}\right)^{-(\nu+1)/2}, \qquad t \in \mathbb{R}$$
+
+| Momento | Valor |
+|---------|-------|
+| $E[T]$ | $0$ (para $\nu > 1$) |
+| $\text{Var}(T)$ | $\dfrac{\nu}{\nu - 2}$ (para $\nu > 2$) |
+| Límite | $t_\nu \xrightarrow{\nu \to \infty} \mathcal{N}(0,1)$ |
+
+**Usos en inferencia:**
+
+- Estadístico de prueba para $\mu$ con $\sigma^2$ desconocido: $T = \dfrac{\bar{X}-\mu_0}{S/\sqrt{n}} \sim t_{n-1}$
+- Intervalos de confianza para la media muestral
+- Contraste de dos medias
+
+## Distribución $F$ de Fisher-Snedecor $F_{\nu_1,\nu_2}$
+
+Si $Q_1 \sim \chi^2_{\nu_1}$ y $Q_2 \sim \chi^2_{\nu_2}$ independientes:
+
+$$F = \frac{Q_1/\nu_1}{Q_2/\nu_2} \sim F_{\nu_1, \nu_2}$$
+
+$$f(x) = \frac{\sqrt{\dfrac{(\nu_1 x)^{\nu_1}\,\nu_2^{\nu_2}}{(\nu_1 x + \nu_2)^{\nu_1+\nu_2}}}}{x\,B\!\left(\frac{\nu_1}{2},\frac{\nu_2}{2}\right)}, \qquad x > 0$$
+
+| Momento | Valor |
+|---------|-------|
+| $E[F]$ | $\dfrac{\nu_2}{\nu_2-2}$ (para $\nu_2 > 2$) |
+| $\text{Var}(F)$ | $\dfrac{2\nu_2^2(\nu_1+\nu_2-2)}{\nu_1(\nu_2-2)^2(\nu_2-4)}$ (para $\nu_2 > 4$) |
+| Relación con $t$ | $T^2 \sim F_{1,\,\nu}$ si $T \sim t_\nu$ |
+| Inversa | $1/F_{\nu_1,\nu_2} \sim F_{\nu_2,\nu_1}$ |
+
+**Usos en inferencia:**
+
+- Contraste de igualdad de varianzas: $F = S_1^2/S_2^2 \sim F_{n_1-1,\,n_2-1}$
+- Estadístico global del modelo de regresión lineal (prueba $F$)
+- ANOVA de uno y dos factores
+
+## Distribución Normal Multivariante $\mathcal{N}_p(\boldsymbol{\mu}, \boldsymbol{\Sigma})$
+
+$$f(\mathbf{x}) = \frac{1}{(2\pi)^{p/2}|\boldsymbol{\Sigma}|^{1/2}}
+\exp\!\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right)$$
+
+| Propiedad | Enunciado |
+|-----------|-----------|
+| Marginales | $X_i \sim \mathcal{N}(\mu_i, \Sigma_{ii})$ |
+| Independencia | $X_i \perp X_j \iff \Sigma_{ij} = 0$ |
+| Condicional | $X_1 \mid X_2 = x_2 \sim \mathcal{N}(\mu_{1|2},\; \Sigma_{1|2})$ |
+| Combinación lineal | $A\mathbf{X} + \mathbf{b} \sim \mathcal{N}_q(A\boldsymbol{\mu}+\mathbf{b},\; A\boldsymbol{\Sigma}A^\top)$ |
+| Forma cuadrática | $(\mathbf{X}-\boldsymbol{\mu})^\top\boldsymbol{\Sigma}^{-1}(\mathbf{X}-\boldsymbol{\mu}) \sim \chi^2_p$ |
+
+donde la media y varianza condicionadas son:
+
+$$\mu_{1|2} = \mu_1 + \Sigma_{12}\Sigma_{22}^{-1}(x_2 - \mu_2)$$
+$$\Sigma_{1|2} = \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}$$
+
+---
+
+# Otras Distribuciones Relevantes
+
+## Distribución Uniforme Continua $U(a, b)$
+
+$$f(x) = \frac{1}{b-a}, \quad x \in [a,b]$$
+
+$E[X] = \dfrac{a+b}{2}$, $\quad \text{Var}(X) = \dfrac{(b-a)^2}{12}$
+
+Fundamental para simulación: si $U \sim U(0,1)$ y $F$ es una FDA invertible, entonces $F^{-1}(U) \sim F$.
+
+## Distribución Bernoulli $\text{Ber}(p)$
+
+$$P(X=1) = p, \quad P(X=0) = 1-p$$
+
+$E[X] = p$, $\quad \text{Var}(X) = p(1-p)$
+
+Bloque elemental de la v.a. discreta binaria.
+
+## Distribución Binomial $\text{Bin}(n, p)$
+
+$$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, \ldots, n$$
+
+$E[X] = np$, $\quad \text{Var}(X) = np(1-p)$
+
+## Distribución de Poisson $\text{Poi}(\lambda)$
+
+$$P(X=k) = \frac{e^{-\lambda}\lambda^k}{k!}, \quad k = 0, 1, 2, \ldots$$
+
+$E[X] = \lambda$, $\quad \text{Var}(X) = \lambda$ (media = varianza)
+
+## Distribución Exponencial $\text{Exp}(\lambda)$
+
+$$f(x) = \lambda e^{-\lambda x}, \quad x > 0$$
+
+$E[X] = 1/\lambda$, $\quad \text{Var}(X) = 1/\lambda^2$
+
+Propiedad de **falta de memoria**: $P(X > s+t \mid X > s) = P(X > t)$
+
+## Distribución Gamma $\Gamma(\alpha, \beta)$
+
+$$f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)}\,x^{\alpha-1}e^{-\beta x}, \quad x > 0$$
+
+$E[X] = \alpha/\beta$, $\quad \text{Var}(X) = \alpha/\beta^2$
+
+Casos especiales: $\chi^2_\nu = \Gamma(\nu/2,\, 1/2)$, $\;\text{Exp}(\lambda) = \Gamma(1, \lambda)$
+
+## Distribución Beta $\text{Beta}(\alpha, \beta)$
+
+$$f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \quad x \in (0,1)$$
+
+$E[X] = \dfrac{\alpha}{\alpha+\beta}$, $\quad \text{Var}(X) = \dfrac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$
+
+Usada como distribución a priori conjugada de la Binomial en estadística bayesiana.
+
+---
+
+# Visualización de las Distribuciones Clave
+
+```{r}
+#| label: fig-distribuciones
+#| fig-cap: "Distribuciones fundamentales para inferencia estadística"
+#| fig-width: 13
+#| fig-height: 14
+
+# ── Paleta ──────────────────────────────────────────────────────────────────
+pal <- c("#2E86AB", "#E84855", "#3BB273", "#F18F01",
+         "#7B2D8B", "#C75146", "#5C6BC0")
+
+# ── 1. Normal ────────────────────────────────────────────────────────────────
+x_n <- seq(-4, 4, length.out = 400)
+df_norm <- bind_rows(
+  data.frame(x = x_n, y = dnorm(x_n, 0, 1),   grupo = "N(0,1)"),
+  data.frame(x = x_n, y = dnorm(x_n, 0, 0.5), grupo = "N(0, 0.25)"),
+  data.frame(x = x_n, y = dnorm(x_n, 1, 1),   grupo = "N(1, 1)")
+)
+p1 <- ggplot(df_norm, aes(x, y, colour = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = pal[1:3], name = NULL) +
+  labs(title = "Normal  N(μ, σ²)", x = "x", y = "f(x)") +
+  theme(legend.position = "top")
+
+# ── 2. Chi-cuadrado ──────────────────────────────────────────────────────────
+x_c <- seq(0, 30, length.out = 400)
+df_chi <- bind_rows(
+  data.frame(x = x_c, y = dchisq(x_c, 1),  grupo = "χ²(1)"),
+  data.frame(x = x_c, y = dchisq(x_c, 3),  grupo = "χ²(3)"),
+  data.frame(x = x_c, y = dchisq(x_c, 5),  grupo = "χ²(5)"),
+  data.frame(x = x_c, y = dchisq(x_c, 10), grupo = "χ²(10)")
+)
+p2 <- ggplot(df_chi, aes(x, y, colour = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = pal[1:4], name = NULL) +
+  coord_cartesian(ylim = c(0, 0.5)) +
+  labs(title = "Chi-cuadrado  χ²(ν)", x = "x", y = "f(x)") +
+  theme(legend.position = "top")
+
+# ── 3. t de Student ──────────────────────────────────────────────────────────
+x_t <- seq(-5, 5, length.out = 400)
+df_t <- bind_rows(
+  data.frame(x = x_t, y = dt(x_t, 1),   grupo = "t(1)"),
+  data.frame(x = x_t, y = dt(x_t, 3),   grupo = "t(3)"),
+  data.frame(x = x_t, y = dt(x_t, 10),  grupo = "t(10)"),
+  data.frame(x = x_t, y = dnorm(x_t),   grupo = "N(0,1)")
+)
+p3 <- ggplot(df_t, aes(x, y, colour = grupo, linetype = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = c(pal[1:3], "black"), name = NULL) +
+  scale_linetype_manual(values = c("solid","solid","solid","dashed"), name = NULL) +
+  labs(title = "t de Student  t(ν)  vs  N(0,1)", x = "t", y = "f(t)") +
+  theme(legend.position = "top")
+
+# ── 4. F de Fisher ───────────────────────────────────────────────────────────
+x_f <- seq(0.001, 5, length.out = 500)
+df_f <- bind_rows(
+  data.frame(x = x_f, y = df(x_f, 1,  10), grupo = "F(1,10)"),
+  data.frame(x = x_f, y = df(x_f, 5,  10), grupo = "F(5,10)"),
+  data.frame(x = x_f, y = df(x_f, 10, 30), grupo = "F(10,30)"),
+  data.frame(x = x_f, y = df(x_f, 30, 50), grupo = "F(30,50)")
+)
+p4 <- ggplot(df_f, aes(x, y, colour = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = pal[1:4], name = NULL) +
+  coord_cartesian(ylim = c(0, 1.2)) +
+  labs(title = "F de Fisher-Snedecor  F(ν₁, ν₂)", x = "x", y = "f(x)") +
+  theme(legend.position = "top")
+
+# ── 5. Gamma ─────────────────────────────────────────────────────────────────
+x_g <- seq(0, 20, length.out = 400)
+df_gam <- bind_rows(
+  data.frame(x = x_g, y = dgamma(x_g, shape = 1, rate = 1), grupo = "Γ(1,1) = Exp(1)"),
+  data.frame(x = x_g, y = dgamma(x_g, shape = 2, rate = 1), grupo = "Γ(2,1)"),
+  data.frame(x = x_g, y = dgamma(x_g, shape = 5, rate = 1), grupo = "Γ(5,1)"),
+  data.frame(x = x_g, y = dgamma(x_g, shape = 9, rate = 2), grupo = "Γ(9,2)")
+)
+p5 <- ggplot(df_gam, aes(x, y, colour = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = pal[1:4], name = NULL) +
+  labs(title = "Gamma  Γ(α, β)", x = "x", y = "f(x)") +
+  theme(legend.position = "top")
+
+# ── 6. Beta ──────────────────────────────────────────────────────────────────
+x_b <- seq(0.001, 0.999, length.out = 400)
+df_beta <- bind_rows(
+  data.frame(x = x_b, y = dbeta(x_b, 0.5, 0.5), grupo = "Beta(0.5, 0.5)"),
+  data.frame(x = x_b, y = dbeta(x_b, 1,   1  ), grupo = "Beta(1, 1) = U(0,1)"),
+  data.frame(x = x_b, y = dbeta(x_b, 2,   5  ), grupo = "Beta(2, 5)"),
+  data.frame(x = x_b, y = dbeta(x_b, 5,   2  ), grupo = "Beta(5, 2)"),
+  data.frame(x = x_b, y = dbeta(x_b, 3,   3  ), grupo = "Beta(3, 3)")
+)
+p6 <- ggplot(df_beta, aes(x, y, colour = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = pal[1:5], name = NULL) +
+  coord_cartesian(ylim = c(0, 3.5)) +
+  labs(title = "Beta  Beta(α, β)", x = "x", y = "f(x)") +
+  theme(legend.position = "top")
+
+# ── Layout ───────────────────────────────────────────────────────────────────
+grid.arrange(p1, p2, p3, p4, p5, p6, ncol = 2)
+```
+
+---
+
+# Relaciones entre Distribuciones
+
+```{r}
+#| label: fig-relaciones
+#| fig-cap: "Convergencia de t(ν) y χ²(ν) a la Normal cuando ν → ∞"
+#| fig-width: 12
+#| fig-height: 5
+
+x_r <- seq(-4, 4, length.out = 500)
+
+# t → Normal
+df_conv_t <- bind_rows(
+  data.frame(x = x_r, y = dt(x_r, 2),    grupo = "t(2)"),
+  data.frame(x = x_r, y = dt(x_r, 5),    grupo = "t(5)"),
+  data.frame(x = x_r, y = dt(x_r, 30),   grupo = "t(30)"),
+  data.frame(x = x_r, y = dnorm(x_r),    grupo = "N(0,1)  [límite]")
+)
+p_t <- ggplot(df_conv_t, aes(x, y, colour = grupo, linetype = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(values = c("#E84855","#F18F01","#2E86AB","black"), name = NULL) +
+  scale_linetype_manual(values = c("solid","solid","solid","dashed"), name = NULL) +
+  labs(title = "t(ν)  →  N(0,1)  cuando  ν → ∞",
+       x = "x", y = "f(x)") +
+  theme(legend.position = "bottom")
+
+# χ²/ν → Normal (estandarizado)
+nu_vals <- c(2, 5, 20, 50)
+df_conv_chi <- lapply(nu_vals, function(nu) {
+  xs <- seq(max(0, nu - 4*sqrt(2*nu)), nu + 4*sqrt(2*nu), length.out = 400)
+  # Estandarizamos: Z = (Q - nu) / sqrt(2*nu)
+  zs <- (xs - nu) / sqrt(2 * nu)
+  ys <- dchisq(xs, nu) * sqrt(2 * nu)   # cambio de variable jacobiano
+  data.frame(z = zs, y = ys, grupo = paste0("χ²(", nu, ") estandarizada"))
+}) |> bind_rows()
+
+df_norm_ref <- data.frame(z = seq(-4, 4, length.out = 400),
+                          y = dnorm(seq(-4, 4, length.out = 400)),
+                          grupo = "N(0,1)  [límite]")
+
+p_chi <- ggplot(bind_rows(df_conv_chi, df_norm_ref),
+                aes(z, y, colour = grupo, linetype = grupo)) +
+  geom_line(linewidth = 1.1) +
+  scale_colour_manual(
+    values = c("#E84855","#F18F01","#2E86AB","#3BB273","black"), name = NULL) +
+  scale_linetype_manual(
+    values = c("solid","solid","solid","solid","dashed"), name = NULL) +
+  coord_cartesian(xlim = c(-4, 4), ylim = c(0, 0.55)) +
+  labs(title = "χ²(ν) estandarizada  →  N(0,1)  (TLC)",
+       x = "(Q − ν) / √(2ν)", y = "densidad") +
+  theme(legend.position = "bottom")
+
+grid.arrange(p_t, p_chi, ncol = 2)
+```
+
+---
+
+# Resumen: Propiedades de Esperanza, Varianza y Covarianza
+
+```{r}
+#| label: tbl-resumen
+#| echo: false
+
+library(kableExtra)
+
+tibble::tribble(
+  ~"Operador", ~"Propiedad",               ~"Fórmula",
+  "E",   "Constante",                "$E[c] = c$",
+  "E",   "Linealidad",               "$E[aX+b] = aE[X]+b$",
+  "E",   "Aditividad",               "$E[X+Y] = E[X]+E[Y]$",
+  "E",   "Independencia",            "$X\\perp Y \\Rightarrow E[XY]=E[X]E[Y]$",
+  "E",   "LOTUS",                    "$E[g(X)] = \\int g(x)f(x)\\,dx$",
+  "E",   "Ley de la Torre",          "$E[X] = E[E[X\\mid Y]]$",
+  "Var", "No negatividad",           "$\\text{Var}(X)\\geq 0$",
+  "Var", "Fórmula computacional",    "$\\text{Var}(X)=E[X^2]-(E[X])^2$",
+  "Var", "Traslación",               "$\\text{Var}(X+b)=\\text{Var}(X)$",
+  "Var", "Escala",                   "$\\text{Var}(aX)=a^2\\text{Var}(X)$",
+  "Var", "Suma (independientes)",    "$\\text{Var}(X+Y)=\\text{Var}(X)+\\text{Var}(Y)$",
+  "Var", "Suma (general)",           "$\\text{Var}(X+Y)=\\text{Var}(X)+\\text{Var}(Y)+2\\text{Cov}(X,Y)$",
+  "Var", "Media muestral i.i.d.",    "$\\text{Var}(\\bar{X})=\\sigma^2/n$",
+  "Var", "Ley total (EVE)",          "$\\text{Var}(X)=E[\\text{Var}(X|Y)]+\\text{Var}(E[X|Y])$",
+  "Cov", "Simetría",                 "$\\text{Cov}(X,Y)=\\text{Cov}(Y,X)$",
+  "Cov", "Varianza propia",          "$\\text{Cov}(X,X)=\\text{Var}(X)$",
+  "Cov", "Bilinealidad",             "$\\text{Cov}(aX+b,cY+d)=ac\\,\\text{Cov}(X,Y)$",
+  "Cov", "Independencia",            "$X\\perp Y \\Rightarrow \\text{Cov}(X,Y)=0$",
+  "Cov", "Cauchy-Schwarz",           "$|\\text{Cov}(X,Y)|^2\\leq\\text{Var}(X)\\text{Var}(Y)$",
+  "ρ",   "Correlación de Pearson",   "$\\rho = \\text{Cov}(X,Y)/(\\sigma_X\\sigma_Y)$",
+  "ρ",   "Acotación",                "$-1\\leq\\rho\\leq 1$"
+) |>
+  kableExtra::kable(escape = FALSE, align = "llc") |>
+  kableExtra::kable_styling(
+    bootstrap_options = c("striped","hover","condensed"),
+    full_width = FALSE
+  ) |>
+  kableExtra::pack_rows("Esperanza  E[·]",      1,  6) |>
+  kableExtra::pack_rows("Varianza  Var(·)",      7, 14) |>
+  kableExtra::pack_rows("Covarianza / Corr",    15, 21) |>
+  kableExtra::column_spec(1, bold = TRUE, width = "1.5cm") |>
+  kableExtra::column_spec(3, monospace = FALSE, width = "8cm")
+```
+
+---
+
+::: {.callout-tip}
+## Esquema de relaciones entre distribuciones
+- $Z \sim \mathcal{N}(0,1) \;\Rightarrow\; Z^2 \sim \chi^2_1$
+- $\sum_{i=1}^\nu Z_i^2 \sim \chi^2_\nu$
+- $Z / \sqrt{\chi^2_\nu / \nu} \sim t_\nu$
+- $(\chi^2_{\nu_1}/\nu_1) / (\chi^2_{\nu_2}/\nu_2) \sim F_{\nu_1,\nu_2}$
+- $T^2 \sim F_{1,\nu}$ si $T \sim t_\nu$
+- $t_\nu \xrightarrow{\nu\to\infty} \mathcal{N}(0,1)$
+- $\chi^2_\nu \approx \mathcal{N}(\nu, 2\nu)$ para $\nu$ grande (TLC)
+- $F_{\nu_1,\nu_2} \xrightarrow{\nu_1\to\infty} \chi^2_{\nu_2}/\nu_2$
+:::
+
+::: {.callout-note}
+## Supuesto de normalidad en inferencia clásica
+La cadena $\mathcal{N} \to \chi^2 \to t \to F$ es el pilar del **enfoque frecuentista clásico**:
+bajo muestras de una población normal, los estadísticos de prueba siguen exactamente estas distribuciones.
+Para muestras grandes, el **Teorema Central del Límite** garantiza la aproximación normal
+sin necesidad del supuesto de normalidad poblacional.
+:::

@@ -1,0 +1,100 @@
+---
+title: "Endogeneidad y Variables Instrumentales"
+lang: es
+---
+
+## Introducción a la endogeneidad
+
+Una variable $x_1$ es **endógena** cuando está correlacionada con el término de error:
+
+$$Cov(x_1, u) \neq 0$$
+
+Esto viola el supuesto de Gauss-Markov y hace que MCO sea:
+
+- **Sesgado:** el estimador no apunta al valor real.
+- **Inconsistente:** el error no desaparece ni con muestras grandes.
+
+**¿Cómo lo solucionamos?**
+
+1. Variables Instrumentales (**IV**)
+2. Mínimos Cuadrados en Dos Etapas (**MC2E**)
+
+## Causas de la endogeneidad
+
+| Causa | Descripción |
+|---|---|
+| **Variables omitidas** | Factores inobservables (ej. habilidad) que afectan tanto a $x$ como a $y$ |
+| **Simultaneidad** | $x$ causa $y$, pero $y$ también afecta a $x$ (ej. precio y cantidad en equilibrio) |
+| **Error de medición** | La variable explicativa se mide con imprecisión |
+
+# Variables Instrumentales
+
+## El instrumento válido ($Z$)
+
+Un instrumento es una variable externa que ayuda a "limpiar" la endogeneidad. Debe cumplir dos condiciones:
+
+1. **Relevancia:** el instrumento debe afectar a $x$:
+$$Cov(Z, X) \neq 0$$
+Esto es **testeable** estadísticamente.
+
+2. **Exogeneidad (exclusión):** el instrumento no debe afectar a $y$ directamente ni estar correlacionado con el error:
+$$Cov(Z, u) = 0$$
+Solo afecta a $y$ *a través de* $x$. **No es testeable** directamente.
+
+## Intuición de la variable instrumental
+
+Imagine que $X$ tiene dos componentes:
+
+- Una parte **"sucia"** (correlacionada con $u$).
+- Una parte **"limpia"** o exógena.
+
+El instrumento $Z$, al ser exógeno, **filtra** la variable $X$ y permite usar solo la variación "limpia" para identificar el efecto real sobre $Y$.
+
+## Estimación por variables instrumentales (IV)
+
+En el modelo simple $y = \beta_0 + \beta_1 x + u$, con instrumento $z$:
+
+$$\hat{\beta}_{IV} = \frac{Cov(y, z)}{Cov(x, z)} = \frac{\sum(y_i - \bar{y})(z_i - \bar{z})}{\sum(x_i - \bar{x})(z_i - \bar{z})}$$
+
+- Si los supuestos se cumplen: $\hat{\beta}_{IV} \xrightarrow{p} \beta$ (**consistente**).
+- **Precio a pagar:** la varianza de IV siempre es **mayor** que la de MCO → estimaciones menos precisas.
+
+# MC2E
+
+## Mínimos Cuadrados en Dos Etapas (MC2E)
+
+Método estándar cuando tenemos múltiples controles o instrumentos.
+
+**Etapa 1: limpieza de $X$**
+
+Regresar $x_1$ sobre $Z$ y el resto de variables exógenas:
+
+$$x_1 = \alpha_0 + \alpha_1 z + \alpha_2 x_2 + v$$
+
+Obtenemos $\hat{x}_1$ — "pura" porque depende solo de variables exógenas.
+
+**Etapa 2: estimación final**
+
+Reemplazar $x_1$ por $\hat{x}_1$ en la ecuación original y estimar por MCO:
+
+$$y = \beta_0 + \beta_1 \hat{x}_1 + \beta_2 x_2 + u$$
+
+## Comparación: MCO vs. IV
+
+Retornos de la educación (omitiendo "habilidad"):
+
+$$\log(\text{salario}) = \beta_0 + \beta_1 \, educ + u$$
+
+| Estimador | Resultado esperado | Razón |
+|---|---|---|
+| **MCO** | $\hat{\beta}_{MCO} > \beta$ | Captura también el efecto de la habilidad omitida |
+| **IV** | $\hat{\beta}_{IV} \approx \beta$ | Corrige el sesgo usando variación exógena |
+
+Si $\hat{\beta}_{MCO} > \hat{\beta}_{IV}$: confirmamos que MCO sobreestimaba el efecto.
+
+## Resumen y conclusiones
+
+- La endogeneidad hace que MCO sea **poco fiable** para análisis causal.
+- Las **Variables Instrumentales** permiten obtener estimaciones consistentes.
+- **MC2E** es el procedimiento operativo más común para aplicar IV.
+- **Advertencia:** un instrumento débil ($Cov(Z,X) \approx 0$) puede ser peor que MCO, ya que dispara el error estándar y la imprecisión.

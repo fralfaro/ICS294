@@ -1,0 +1,66 @@
+---
+title: "Variables Dependientes Binarias"
+lang: es
+---
+
+## Variables dependientes binarias
+
+En muchos problemas del mundo real, la variable que queremos explicar es cualitativa: $y \in \{0, 1\}$.
+
+**Ejemplos:**
+
+- ¿Qué explica que un alumno asista a un colegio público (0) o privado (1)?
+- ¿Qué factores determinan si una persona se jubila anticipadamente (1) o no (0)?
+- ¿Qué perfil de conductor tiene mayor probabilidad de sufrir un accidente (1)?
+- ¿Aceptará un cliente un crédito bancario (1) o lo rechazará (0)?
+
+## Modelo de Probabilidad Lineal (MPL)
+
+Cuando usamos MCO con una variable dependiente binaria, el modelo se denomina **Modelo de Probabilidad Lineal**:
+
+$$y = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k + u$$
+
+El valor predicho $\hat{y}$ se interpreta como la **probabilidad de éxito**:
+
+$$P(y=1 \mid X) = E[y \mid X] = \beta_0 + \beta_1 x_1 + \dots + \beta_k x_k$$
+
+## Problemas del MPL
+
+1. **Predicciones fuera de rango:** el modelo puede predecir probabilidades menores a 0 o mayores a 1.
+   - Si nos interesa el efecto promedio: no es tan grave.
+   - Si nos interesa la predicción en individuos extremos: se prefieren Logit o Probit.
+
+2. **Heterocedasticidad inherente:** la varianza del error depende de $X$:
+$$Var(y \mid X) = p(1-p)$$
+Esto invalida los errores estándar usuales si no se corrigen.
+
+## Ejemplo: probabilidad de accidentes
+
+Modelo estimado para accidentes de tránsito ($y = 1$ si tuvo accidente):
+
+$$\widehat{Accidente} = 0.30 - 0.05 \, educ - 0.0001 \, ingreso$$
+
+**Interpretación:**
+
+- $\hat{\beta}_0 = 0.30$: con 0 años de educación y 0 ingresos, probabilidad del 30% de accidente.
+- Coeficiente de $educ$ ($-0.05$): un año más de educación reduce la probabilidad de accidente en **5 puntos porcentuales** (*ceteris paribus*).
+
+## Aplicación: predicción fuera de rango
+
+Para una persona con ingreso = 2.000 USD y 20 años de educación:
+
+$$\hat{P} = 0.30 - 0.05(20) - 0.0001(2000)$$
+
+$$\hat{P} = 0.30 - 1.00 - 0.20 = -0.90$$
+
+**¡Probabilidad del $-90\%$!**
+
+Esto ilustra el problema de predicciones fuera de rango del MPL para valores extremos en las variables independientes.
+
+## Resumen del MPL
+
+| | MPL |
+|---|---|
+| **Ventaja** | Coeficientes de interpretación directa (cambio en probabilidad) |
+| **Desventaja** | Puede predecir probabilidades $< 0$ o $> 1$ |
+| **Uso práctico** | Excelente punto de partida antes de usar Logit o Probit |

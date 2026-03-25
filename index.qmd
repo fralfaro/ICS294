@@ -8,13 +8,30 @@ format:
 
 # Bienvenidos a ICS294!
 
-## Contenidos del Curso
+## Descripción 
+
+Asignatura teórico-práctica orientada a la aplicación de métodos estadísticos y econométricos para el análisis, modelamiento y evaluación de fenómenos económicos y sociales. El curso enfatiza el uso de modelos de regresión, análisis de datos reales y la correcta interpretación de resultados obtenidos mediante software especializado, incorporando criterios de inferencia, diagnóstico y validación de modelos.
+
+
+## Contenidos 
+
+- Muestreo y análisis exploratorio de datos  
+- Naturaleza de la econometría y tipos de datos económicos  
+- Modelo de regresión lineal simple  
+- Modelo de regresión lineal múltiple  
+- Variables dummy y variables cualitativas  
+- Heterocedasticidad  
+- Regresión con datos de series de tiempo  
+- Introducción a econometría espacial  
+- Introducción al análisis multivariado  
+
+## Secciones
 
 
 ```{=html}
 <div class="nt-cards nt-grid cols-3">
 
-  <a class="nt-card" href="material/modulo_01/s2.qmd">
+  <a class="nt-card" href="material/modulo_01/index.qmd">
     <div class="nt-card-image">
       <img src="images/regression.png" alt="Modelos de regresión">
     </div>
@@ -26,7 +43,7 @@ format:
     </div>
   </a>
 
-  <a class="nt-card" href="material/modulo_02/s9.qmd">
+  <a class="nt-card" href="material/modulo_02/index.qmd">
     <div class="nt-card-image">
       <img src="images/statistics.png" alt="Inferencia en regresión">
     </div>
@@ -38,7 +55,7 @@ format:
     </div>
   </a>
 
-  <a class="nt-card" href="material/modulo_03/s15.qmd">
+  <a class="nt-card" href="material/modulo_03/index.qmd">
     <div class="nt-card-image">
       <img src="images/advanced.png" alt="Inferencia estadística">
     </div>

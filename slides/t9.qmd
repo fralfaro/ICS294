@@ -1,0 +1,92 @@
+---
+title: "Interpretación de Coeficientes"
+lang: es
+---
+
+## Incorporación de no-linealidades
+
+La interpretación de $\beta_1$ depende de cómo se midan las variables:
+
+| Modelo | $y$ | $x$ | Interpretación de $\beta$ |
+|---|---|---|---|
+| **Nivel-Nivel** | $y$ | $x$ | $\Delta y = \beta \, \Delta x$ |
+| **Nivel-Log** | $y$ | $\log(x)$ | $\Delta y = (\beta/100)\, \Delta\% x$ |
+| **Log-Nivel** | $\log(y)$ | $x$ | $\Delta\% y = 100\beta \, \Delta x$ |
+| **Log-Log** | $\log(y)$ | $\log(x)$ | $\Delta\% y = \beta \, \Delta\% x$ |
+
+## Variables en logaritmo
+
+En este curso, $\log(X)$ siempre se refiere al **logaritmo natural** ($\ln$).
+
+**Diferencias logarítmicas:**
+
+$$\Delta \log(X) = \log(X_1) - \log(X_0) = \log\left(1 + \frac{\Delta X}{X_0}\right)$$
+
+**Aproximación:** para valores pequeños de $x$:
+
+$$\log(1 + x) \approx x$$
+
+Esto permite interpretar diferencias en logaritmos como **cambios porcentuales**.
+
+## Caso 1: Log-Nivel (semi-elasticidad)
+
+$$\log(salario) = 0.584 + 0.083 \cdot educ$$
+
+- Cada año adicional de educación se asocia con un incremento del **8.3%** del salario.
+- El cambio porcentual es **constante**, pero el cambio en dólares aumenta con el nivel de educación.
+
+## Caso 2: Log-Log (elasticidad)
+
+$$\log(\text{cantidad vino}) = 6 - 0.2 \, \log(\text{precio vino})$$
+
+- Un aumento del 1% en el precio del vino → caída del **0.2%** en la cantidad consumida.
+- Se interpreta directamente como una **elasticidad precio de la demanda**.
+- En este caso: elasticidad $= 0.2$ (en valor absoluto).
+
+## Formas cuadráticas
+
+Si el modelo es $y = \beta_0 + \beta_1 x + \beta_2 x^2 + u$, el efecto marginal **no es constante**:
+
+$$\frac{\Delta \hat{y}}{\Delta x} \approx \hat{\beta}_1 + 2\hat{\beta}_2 \, x$$
+
+- El efecto de $x$ sobre $y$ depende del **nivel inicial** de $x$.
+- $\hat{\beta}_1$ es la pendiente cuando $x = 0$.
+- Si $\beta_1 > 0$ y $\beta_2 < 0$: relación en "U invertida" (rendimientos decrecientes).
+
+## Ejemplo: experiencia y salario
+
+$$\hat{salario} = 3.73 + 0.298 \cdot exper - 0.0061 \cdot exper^2$$
+
+Efecto marginal:
+
+$$\frac{\Delta \hat{salario}}{\Delta exper} = 0.298 - 0.0122 \cdot exper$$
+
+- El salario aumenta con la experiencia, pero cada vez **menos**.
+- **Punto de inflexión:** $exper^* = \left|\dfrac{0.298}{2 \cdot (-0.0061)}\right| \approx 24.4$ años.
+
+## Términos de interacción
+
+Se usan cuando el efecto de $x$ **depende** del valor de otra variable $z$:
+
+$$\text{precio} = \beta_0 + \beta_1 \, msq + \beta_2 \, dorm + \beta_3 \, (msq \cdot dorm) + u$$
+
+**Efecto marginal de los dormitorios:**
+
+$$\frac{\Delta \text{precio}}{\Delta \, dorm} = \beta_2 + \beta_3 \, msq$$
+
+Si $\beta_3 > 0$: un dormitorio adicional añade más valor mientras más $msq$ tenga la casa.
+
+## Reescalando variables
+
+¿Qué ocurre si cambiamos las unidades (ej. de dólares a pesos)?
+
+**Reescalar $Y$** (multiplicar por $C$):
+
+- Todos los $\hat{\beta}_j$ y sus errores estándar se multiplican por $C$.
+- El $R^2$ y los estadísticos $t$ **no cambian**.
+
+**Reescalar $X_1$** (multiplicar por $C$):
+
+- El coeficiente $\hat{\beta}_1$ se **divide** por $C$.
+
+**Conclusión:** el reescalamiento no cambia la significancia estadística ni la interpretación económica de fondo.

@@ -1,0 +1,195 @@
+---
+title: "Causalidad"
+lang: es
+---
+
+## Esperanza condicional versus causalidad
+
+La regresión lineal nos entrega la **esperanza condicional** de una variable dada otra.
+
+Esto nos permite describir realidades empíricas:
+
+- ¿Las personas con más educación reciben sueldos mayores?
+- ¿Estudiar Economía está asociado con un mayor sueldo?
+
+. . .
+
+Sin embargo, surge la pregunta central: ¿las relaciones que estimamos son **causales**?
+
+- ¿Es la educación la que aumenta el salario, o las personas que se educan más tienen mayores salarios por **otros motivos**?
+
+## Contrafactual
+
+Para pensar en causalidad, necesitamos imaginar un **mundo contrafactual**.
+
+> ¿Qué pasaría si pudiéramos observar a las personas que fueron a la universidad en un mundo alternativo en el que **no** hubieran ido?
+
+**Problema fundamental de la inferencia causal:**
+
+No podemos calcular directamente el impacto causal para un individuo $i$, porque **no podemos observar al mismo individuo en los dos estados**.
+
+**Definición:** el resultado que los mismos participantes de un programa hubieran obtenido en el caso hipotético de **no** haber participado.
+
+# El Marco Teórico de Rubin
+
+## Tratamiento y grupos
+
+Nos interesa medir el impacto de un **tratamiento** (variable binaria) sobre una variable de resultado $y$.
+
+Ejemplos de tratamiento:
+
+- Un subsidio del gobierno
+- Participar en un programa específico
+- Recibir una beca universitaria
+- Recibir una vacuna
+
+Definimos dos grupos:
+
+- **Tratados (T)**
+- **No tratados o grupo de control (NT)**
+
+## Modelo de outcomes potenciales
+
+Queremos conocer el impacto causal del tratamiento $T$ sobre $Y$.
+
+| Símbolo | Definición |
+|---|---|
+| $Y_i$ | Outcome observado del individuo $i$ |
+| $T_i$ | 1 si tratado, 0 si no tratado |
+| $Y_i^T$ | Outcome potencial **con** tratamiento |
+| $Y_i^{NT}$ | Outcome potencial **sin** tratamiento |
+
+El impacto causal individual sería:
+
+$$Y_i^T - Y_i^{NT}$$
+
+. . .
+
+¿Podemos observar este efecto? **No**, porque nunca observamos ambos outcomes al mismo tiempo para un mismo individuo.
+
+## ATE y ATT
+
+**Average Treatment Effect (ATE):**
+
+$$ATE = E\left[Y_i^T - Y_i^{NT}\right]$$
+
+No observable: cada individuo solo se observa en uno de los dos estados.
+
+**Average Treatment Effect on the Treated (ATT):**
+
+$$ATT = E\left[Y_i^T - Y_i^{NT} \mid T_i = 1\right]$$
+
+Tampoco observable: $E\left[Y_i^{NT} \mid T_i = 1\right]$ no se puede observar directamente.
+
+## Observado y no observado
+
+| Persona | $T_i$ | $Y_i$ | $Y_i^{NT}$ | $Y_i^{T}$ |
+|---|---:|---:|---:|---:|
+| Sofía | 1 | 100 | ?? | 100 |
+| Paula | 0 | 40 | 40 | ?? |
+| Ezequiel | 1 | 80 | ?? | 80 |
+| Juan | 0 | 20 | 20 | ?? |
+| Caro | 1 | 60 | ?? | 60 |
+
+No podemos saber cuál habría sido $Y_i^{NT}$ para Caro si no hubiese recibido el tratamiento.
+
+$$ATE = E\left[Y_i^T - Y_i^{NT}\right] \quad \text{no observable}$$
+
+## Usar datos observacionales
+
+No podemos estimar directamente el ATE ni el ATT.
+
+Usamos los datos disponibles para aproximar el efecto del tratamiento bajo ciertos **supuestos**.
+
+La clave está en encontrar un **grupo de comparación** (contrafactual) que sea similar al grupo tratado en ausencia del tratamiento.
+
+# Sesgo de Selección
+
+## ATT y sesgo de selección
+
+Una idea natural para estimar el efecto de ir a la universidad ($T$) sobre el salario ($y$):
+
+$$\beta_1 = E\left[Y_i \mid T_i = 1\right] - E\left[Y_i \mid T_i = 0\right]$$
+
+¿Esto corresponde al ATE o al ATT?
+
+. . .
+
+En general, **no**.
+
+En contextos no experimentales, las personas eligen participar en el tratamiento y difieren sistemáticamente del grupo de control.
+
+## Ejemplo de sesgo de selección
+
+La decisión de asistir a la universidad es voluntaria y puede estar influenciada por:
+
+- Intereses personales
+- Recursos económicos
+- Oportunidades previas
+
+Quienes no cursaron estudios universitarios pueden diferir en muchas dimensiones de quienes sí lo hicieron.
+
+Compararlos directamente puede no ser adecuado: **no constituyen un buen contrafactual**.
+
+## Descomposición de $\beta_1$
+
+$$\beta_1 = E\left(Y_i \mid T_i = 1\right) - E\left(Y_i \mid T_i = 0\right)$$
+
+$$= E\left(Y_i^T \mid T_i = 1\right) - E\left(Y_i^{NT} \mid T_i = 0\right)$$
+
+Sumando y restando $E\left[Y_i^{NT} \mid T_i = 1\right]$:
+
+$$\beta_1 = \underbrace{E\left(Y_i^T - Y_i^{NT} \mid T_i = 1\right)}_{\text{ATT}} + \underbrace{E\left(Y_i^{NT} \mid T_i = 1\right) - E\left(Y_i^{NT} \mid T_i = 0\right)}_{\text{Sesgo de selección}}$$
+
+## Sesgo de selección
+
+El sesgo de selección surge porque el grupo tratado ya era distinto del grupo de control **antes del tratamiento**.
+
+Intuitivamente:
+
+- Incluso en un mundo sin tratamiento, el grupo tratado habría tenido un outcome distinto porque tenía características diferentes.
+
+Hay sesgo de selección cuando, aun sin intervención, los resultados promedio de tratados y no tratados son distintos.
+
+## Ejemplo: alarmas para casas
+
+Queremos saber si instalar una alarma reduce los robos.
+
+**Problemas:**
+
+- Cada familia decide voluntariamente si instalar una alarma.
+- Quienes instalan alarmas pueden vivir en zonas más peligrosas o tener mayor preocupación por la seguridad.
+
+Si comparamos robos entre casas con y sin alarmas:
+
+- ¿Obtendremos el efecto causal?
+- ¿O estaremos capturando **sesgo de selección**?
+
+# Aleatorización
+
+## La solución: aleatorización
+
+¿Qué supuesto elimina el sesgo de selección?
+
+Los **outcomes potenciales deben ser independientes del tratamiento**.
+
+La **aleatorización** (RCT – Randomized Controlled Trial) resuelve este problema:
+
+- Se asigna **aleatoriamente** quién recibe el tratamiento y quién no.
+- En promedio, ambos grupos son iguales en ausencia del tratamiento.
+
+$$E\left(Y_i^{NT} \mid T\right) = E\left(Y_i^{NT} \mid NT\right)$$
+
+## Resultado bajo aleatorización
+
+Cuando hay aleatorización:
+
+$$\beta = ATE = ATT$$
+
+Obtenemos el **efecto causal verdadero**.
+
+Este enfoque es ampliamente usado en:
+
+- Medicina (drogas y vacunas)
+- Ciencias sociales y políticas públicas
+- Ámbito empresarial

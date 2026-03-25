@@ -1,0 +1,611 @@
+---
+title: "Estadística Descriptiva"
+subtitle: "Repaso de Fórmulas y Propiedades Fundamentales"
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(e1071)   # skewness / kurtosis
+
+set.seed(42)
+
+theme_repaso <- theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor  = element_blank(),
+    plot.title        = element_text(face = "bold", size = 13),
+    plot.subtitle     = element_text(colour = "grey40"),
+    axis.title        = element_text(size = 11),
+    legend.position   = "top"
+  )
+theme_set(theme_repaso)
+```
+
+---
+
+# Introducción
+
+La **estadística descriptiva** resume y describe las características principales de un
+conjunto de datos sin extraer conclusiones hacia una población más amplia
+(eso corresponde a la estadística inferencial).
+
+Los **estadísticos** son funciones calculadas sobre los datos de una muestra:
+
+$$f(X_1, X_2, \ldots, X_n)$$
+
+Sus herramientas principales son:
+
+| Tipo     | Herramienta                                          |
+|----------|------------------------------------------------------|
+| Gráfica  | Histograma, boxplot, diagrama de dispersión          |
+| Tabular  | Tabla de frecuencias, tabla de contingencia          |
+| Numérica | Medidas de posición y dispersión                     |
+
+---
+
+# Medidas de Posición Central
+
+## Media Aritmética (Promedio)
+
+La **media muestral** es el promedio simple de los $n$ datos:
+
+$$\bar{X} = \frac{1}{n}\sum_{i=1}^{n} X_i$$
+
+En R: `mean(x)`
+
+### Propiedades
+
+| Propiedad | Fórmula | Descripción |
+|-----------|---------|-------------|
+| Linealidad | $\overline{aX+b} = a\bar{X}+b$ | Invariante a transformaciones lineales |
+| Suma de desviaciones | $\sum_{i=1}^n (X_i - \bar{X}) = 0$ | La media es el "centro de masa" |
+| Suma cuadrática mínima | $\operatorname{argmin}_c \sum(X_i-c)^2 = \bar{X}$ | Minimiza la suma de errores cuadráticos |
+| Ponderada | $\bar{X}_w = \frac{\sum w_i X_i}{\sum w_i}$ | Cada dato tiene un peso $w_i$ (`weighted.mean`) |
+
+```{r}
+#| label: demo-media
+x <- c(4, 7, 13, 2, 1)
+cat("Media:", mean(x), "\n")
+cat("Suma desviaciones:", round(sum(x - mean(x)), 10), "\n")   # ≈ 0
+
+# Propiedad de linealidad: mean(a*x + b) = a*mean(x) + b
+a <- 3; b <- 5
+cat("mean(3x+5):", mean(a * x + b), "== 3*mean(x)+5:", a * mean(x) + b, "\n")
+```
+
+> **Sensibilidad a outliers:** La media se ve muy afectada por valores extremos.
+> En distribuciones asimétricas es preferible usar la mediana.
+
+## Mediana
+
+Dado el vector ordenado $X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}$:
+
+$$\text{Med} = \begin{cases}
+X_{\left(\frac{n+1}{2}\right)} & \text{si } n \text{ es impar} \\[6pt]
+\dfrac{X_{(n/2)} + X_{(n/2+1)}}{2} & \text{si } n \text{ es par}
+\end{cases}$$
+
+En R: `median(x)`
+
+**Ejemplo (n = 13, impar):**
+
+$$X_{(1)}, \ldots, \underbrace{X_{(7)}}_{\text{mediana}}, \ldots, X_{(13)}$$
+
+**Ejemplo (n = 12, par):**
+
+$$X_{(1)}, \ldots, \underbrace{X_{(6)}, X_{(7)}}_{\text{mediana} = \frac{X_{(6)}+X_{(7)}}{2}}, \ldots, X_{(12)}$$
+
+### Propiedades
+
+| Propiedad | Descripción |
+|-----------|-------------|
+| Robustez | No se afecta por outliers |
+| Suma de desviaciones absolutas mínima | $\operatorname{argmin}_c \sum |X_i - c| = \text{Med}$ |
+| Linealidad | $\text{Med}(aX+b) = a\cdot\text{Med}(X)+b$ |
+
+## Moda
+
+El valor que aparece con mayor frecuencia. Un conjunto puede ser
+**unimodal**, **bimodal** o **multimodal**.
+R base no tiene función `mode()` para estadística (usa `table()` + `which.max()`).
+
+```{r}
+#| label: demo-moda
+moda <- function(x) as.numeric(names(which.max(table(x))))
+x2 <- c(1, 2, 2, 3, 3, 3, 4)
+cat("Moda:", moda(x2), "\n")
+```
+
+## Comparación Media vs. Mediana
+
+```{r}
+#| label: fig-media-mediana
+#| fig-cap: "Efecto de la asimetría sobre media y mediana"
+#| fig-width: 12
+#| fig-height: 4
+
+simetrica   <- rnorm(500, 50, 10)
+asim_pos    <- c(rnorm(450, 30, 5), runif(50, 60, 100))
+asim_neg    <- c(runif(50, 0, 40),  rnorm(450, 70, 5))
+
+df_asim <- bind_rows(
+  data.frame(valor = simetrica, tipo = "Distribución simétrica"),
+  data.frame(valor = asim_pos,  tipo = "Asimetría positiva (cola derecha)"),
+  data.frame(valor = asim_neg,  tipo = "Asimetría negativa (cola izquierda)")
+) |>
+  group_by(tipo) |>
+  mutate(
+    media   = mean(valor),
+    mediana = median(valor)
+  ) |>
+  ungroup() |>
+  mutate(tipo = factor(tipo, levels = c(
+    "Distribución simétrica",
+    "Asimetría positiva (cola derecha)",
+    "Asimetría negativa (cola izquierda)"
+  )))
+
+ggplot(df_asim, aes(x = valor)) +
+  geom_histogram(bins = 30, fill = "#4C72B0", colour = "white", alpha = 0.8) +
+  geom_vline(aes(xintercept = media,   colour = "Media"),   linewidth = 1.2, linetype = "dashed") +
+  geom_vline(aes(xintercept = mediana, colour = "Mediana"), linewidth = 1.2) +
+  scale_colour_manual(
+    name   = "",
+    values = c("Media" = "#DD4444", "Mediana" = "#228B22")
+  ) +
+  facet_wrap(~tipo, scales = "free") +
+  labs(x = "Valor", y = "Frecuencia") +
+  theme(legend.position = "bottom")
+```
+
+---
+
+# Percentiles y Cuartiles
+
+## Percentiles
+
+El **percentil $p$** ($P_p$) es el valor tal que el $p\%$ de los datos es menor o igual a él.
+
+$$P_p = X_{\left(\lceil np/100 \rceil\right)}$$
+
+En R: `quantile(x, probs = p/100)` — R implementa 9 métodos distintos de interpolación
+(argumento `type`); el predeterminado es `type = 7`.
+
+## Cuartiles
+
+Los cuartiles dividen los datos en **4 partes iguales**:
+
+| Cuartil | Equivalente | Función R | Descripción |
+|---------|-------------|-----------|-------------|
+| $q_1$ | $P_{25}$ | `quantile(x, 0.25)` | 25% de datos por debajo |
+| $q_2$ | $P_{50}$ = Mediana | `median(x)` | 50% de datos por debajo |
+| $q_3$ | $P_{75}$ | `quantile(x, 0.75)` | 75% de datos por debajo |
+
+Análogamente existen los **quintiles** ($P_{20}, P_{40}, \ldots$) y **deciles** ($P_{10}, P_{20}, \ldots$).
+
+```{r}
+#| label: demo-cuartiles
+x_ej <- rnorm(200, 50, 10)
+quantile(x_ej, probs = c(0.25, 0.50, 0.75))
+```
+
+---
+
+# Medidas de Dispersión
+
+## Rango
+
+$$\text{Rango} = X_{(n)} - X_{(1)} = \max - \min$$
+
+En R: `diff(range(x))` o `max(x) - min(x)`
+
+> Muy simple pero extremadamente sensible a outliers.
+
+## Rango Intercuartílico (RIQ)
+
+$$\text{RIQ} = q_3 - q_1$$
+
+En R: `IQR(x)`
+
+Representa la dispersión del 50% central de los datos. Es **robusto** ante outliers.
+
+## Varianza Muestral
+
+$$S^2 = \frac{\sum_{i=1}^{n}(X_i - \bar{X})^2}{n-1}$$
+
+En R: `var(x)` (usa divisor $n-1$ por defecto).
+
+El denominador $n-1$ corresponde a los **grados de libertad** y hace que $S^2$ sea un
+estimador **insesgado** de la varianza poblacional $\sigma^2$.
+
+### Fórmula computacional equivalente
+
+$$S^2 = \frac{\sum_{i=1}^n X_i^2 - n\bar{X}^2}{n-1}
+     = \frac{1}{n-1}\left(\sum X_i^2 - \frac{(\sum X_i)^2}{n}\right)$$
+
+### Propiedades
+
+| Propiedad | Fórmula |
+|-----------|---------|
+| No negatividad | $S^2 \geq 0$ |
+| Traslación | $\text{Var}(X+b) = \text{Var}(X)$ |
+| Escala | $\text{Var}(aX) = a^2\,\text{Var}(X)$ |
+| Transformación lineal | $\text{Var}(aX+b) = a^2\,\text{Var}(X)$ |
+
+```{r}
+#| label: demo-varianza
+x_v <- rnorm(100, 50, 10)
+a <- 3; b <- 5
+cat("Var(x)     :", round(var(x_v), 4), "\n")
+cat("Var(x + 5) :", round(var(x_v + b), 4), "  (igual, traslación)\n")
+cat("Var(3x)    :", round(var(a * x_v), 4), "== 9*Var(x):", round(a^2 * var(x_v), 4), "\n")
+```
+
+## Desviación Estándar Muestral
+
+$$S = \sqrt{S^2} = \sqrt{\frac{\sum_{i=1}^{n}(X_i - \bar{X})^2}{n-1}}$$
+
+En R: `sd(x)`
+
+Tiene las **mismas unidades** que los datos originales, a diferencia de la varianza.
+
+## Coeficiente de Variación (CV)
+
+Permite comparar dispersiones de variables con distintas escalas:
+
+$$CV = \frac{S}{|\bar{X}|} \times 100\%$$
+
+> Un CV < 15% sugiere baja variabilidad; CV > 30% indica alta variabilidad.
+
+```{r}
+#| label: demo-cv
+cv <- function(x) sd(x) / abs(mean(x)) * 100
+cat("CV(x_ej) =", round(cv(x_ej), 2), "%\n")
+```
+
+## Resumen de medidas de dispersión
+
+```{r}
+#| label: tbl-dispersion
+#| tbl-cap: "Comparación de medidas de dispersión"
+
+data_ej <- rnorm(200, 50, 10)
+q1v <- quantile(data_ej, 0.25)
+q3v <- quantile(data_ej, 0.75)
+
+tibble(
+  Medida     = c("Rango", "RIQ", "Varianza muestral", "Desv. estándar", "CV (%)"),
+  `Función R` = c("diff(range(x))", "IQR(x)", "var(x)", "sd(x)", "sd/mean × 100"),
+  Valor      = c(
+    round(diff(range(data_ej)), 2),
+    round(IQR(data_ej), 2),
+    round(var(data_ej), 2),
+    round(sd(data_ej), 2),
+    round(cv(data_ej), 2)
+  ),
+  Robustez   = c("Baja", "Alta", "Baja", "Baja", "Moderada"),
+  Unidades   = c("mismas que X", "mismas que X", "X²", "mismas que X", "adimensional")
+) |>
+  kable(align = "lllcc") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |>
+  column_spec(1, bold = TRUE)
+```
+
+---
+
+# Medidas de Forma
+
+## Asimetría (Skewness)
+
+Mide la desviación de la distribución respecto a la simetría:
+
+$$\text{Asimetría} = \frac{1}{n}\sum_{i=1}^n \left(\frac{X_i - \bar{X}}{S}\right)^3$$
+
+En R: `e1071::skewness(x)` o `moments::skewness(x)`.
+
+| Valor | Interpretación |
+|-------|----------------|
+| $= 0$ | Distribución simétrica |
+| $> 0$ | Asimetría positiva (cola derecha) → $\bar{X} > \text{Med}$ |
+| $< 0$ | Asimetría negativa (cola izquierda) → $\bar{X} < \text{Med}$ |
+
+## Curtosis (Kurtosis)
+
+Mide qué tan "puntiaguda" o "plana" es la distribución respecto a la normal:
+
+$$\text{Curtosis} = \frac{1}{n}\sum_{i=1}^n \left(\frac{X_i - \bar{X}}{S}\right)^4 - 3$$
+
+En R: `e1071::kurtosis(x)` (excess kurtosis, ya resta 3).
+
+| Valor | Tipo | Descripción |
+|-------|------|-------------|
+| $= 0$ | Mesocúrtica | Similar a la normal |
+| $> 0$ | Leptocúrtica | Más puntiaguda, colas pesadas |
+| $< 0$ | Platicúrtica | Más plana, colas ligeras |
+
+```{r}
+#| label: demo-forma
+cat("Asimetría :", round(skewness(data_ej), 4), "\n")
+cat("Curtosis  :", round(kurtosis(data_ej), 4), "\n")
+```
+
+---
+
+# Función `summary()` en R
+
+R provee un resumen de 6 estadísticos clave con una sola llamada:
+
+```{r}
+#| label: demo-summary
+summary(data_ej)
+```
+
+Estos 6 números — mínimo, $q_1$, mediana, media, $q_3$ y máximo — son exactamente
+los que definen el **boxplot** (más los outliers).
+
+---
+
+# Visualizaciones Principales
+
+## Histograma
+
+Divide el rango en $k$ intervalos y cuenta las observaciones en cada uno.
+
+**Regla de Sturges** para elegir el número de intervalos:
+$$k = 1 + \log_2(n) \approx 1 + 3.322\,\log_{10}(n)$$
+
+```{r}
+#| label: fig-histograma
+#| fig-cap: "Histograma con media y mediana"
+#| fig-width: 8
+#| fig-height: 4
+
+educ <- c(sample(11:12, 220, replace = TRUE),
+          sample(13:17, 80,  replace = TRUE))
+
+ggplot(data.frame(educ), aes(x = educ)) +
+  geom_histogram(bins = 15, fill = "#4C72B0", colour = "white", alpha = 0.85) +
+  geom_vline(aes(xintercept = mean(educ),   colour = "Media"),
+             linewidth = 1.3, linetype = "dashed") +
+  geom_vline(aes(xintercept = median(educ), colour = "Mediana"),
+             linewidth = 1.3) +
+  scale_colour_manual(
+    name   = "",
+    values = c("Media" = "#DD4444", "Mediana" = "#228B22")
+  ) +
+  labs(
+    title = "Distribución de los Años de Educación",
+    x     = "Años de educación",
+    y     = "Frecuencia"
+  )
+```
+
+## Boxplot (Gráfico de Caja)
+
+El boxplot resume visualmente 5 estadísticos clave:
+
+$$\text{Bigote superior} = \min\!\left(q_3 + 1.5\,\text{RIQ},\; X_{(n)}\right)$$
+$$\text{Bigote inferior} = \max\!\left(q_1 - 1.5\,\text{RIQ},\; X_{(1)}\right)$$
+
+Los puntos **fuera de los bigotes** son considerados **outliers**.
+
+```{r}
+#| label: fig-boxplot
+#| fig-cap: "Anatomía del boxplot — variable wage"
+#| fig-width: 5
+#| fig-height: 7
+
+wage <- c(rnorm(400, 5, 2), runif(26, 15, 26))
+wage <- wage[wage > 0]
+
+q1w  <- quantile(wage, 0.25)
+q3w  <- quantile(wage, 0.75)
+medw <- median(wage)
+riqw <- IQR(wage)
+
+ggplot(data.frame(wage), aes(x = "", y = wage)) +
+  geom_boxplot(
+    fill       = "#AED6F1",
+    colour     = "#2980B9",
+    outlier.colour = "red",
+    outlier.alpha  = 0.6,
+    linewidth  = 0.9,
+    width      = 0.4
+  ) +
+  # Anotaciones
+  annotate("text", x = 1.32, y = medw, label = "Mediana (q₂)",
+           hjust = 0, size = 3.5, colour = "#154360") +
+  annotate("text", x = 1.32, y = q3w,  label = "q₃ (tercer cuartil)",
+           hjust = 0, size = 3.5, colour = "#2980B9") +
+  annotate("text", x = 1.32, y = q1w,  label = "q₁ (primer cuartil)",
+           hjust = 0, size = 3.5, colour = "#2980B9") +
+  annotate("label", x = 0.68, y = (q1w + q3w) / 2,
+           label  = paste0("RIQ = ", round(riqw, 1)),
+           size   = 3.5, colour = "#117A65",
+           fill   = "#D5F5E3", label.size = 0.4) +
+  annotate("text", x = 1.32, y = 22, label = "Outliers",
+           hjust = 0, size = 3.5, colour = "red") +
+  scale_x_discrete(labels = NULL) +
+  labs(
+    title = "Box Plot de la variable wage",
+    x     = NULL,
+    y     = "wage (salario por hora)"
+  )
+```
+
+### Anatomía del Boxplot
+
+| Elemento | Definición |
+|----------|-----------|
+| Línea central | Mediana ($q_2$) |
+| Borde superior de la caja | $q_3$ |
+| Borde inferior de la caja | $q_1$ |
+| Largo de la caja | RIQ $= q_3 - q_1$ |
+| Bigote superior | $\min(q_3 + 1.5\,\text{RIQ},\; X_{(n)})$ |
+| Bigote inferior | $\max(q_1 - 1.5\,\text{RIQ},\; X_{(1)})$ |
+| Puntos aislados | Outliers |
+
+## Diagrama de Dispersión
+
+Útil para explorar la relación entre dos variables numéricas $X$ e $Y$.
+
+```{r}
+#| label: fig-scatter
+#| fig-cap: "Diagrama de dispersión: educación vs. salario"
+#| fig-width: 7
+#| fig-height: 4
+
+df_sc <- data.frame(
+  educ2 = sample(8:17, 300, replace = TRUE)
+) |>
+  mutate(wage2 = 1.5 * educ2 + rnorm(300, 0, 3))
+
+ggplot(df_sc, aes(x = educ2, y = wage2)) +
+  geom_point(colour = "#4C72B0", alpha = 0.5, size = 2) +
+  geom_smooth(method = "lm", se = FALSE, colour = "#DD4444", linewidth = 1.2) +
+  labs(
+    title = "Educación vs. Salario",
+    x     = "Años de educación",
+    y     = "Salario por hora"
+  )
+```
+
+---
+
+# Tabla de Frecuencias
+
+Para una variable continua agrupada en intervalos:
+
+| Intervalo | $f_i$ (frec. absoluta) | $h_i$ (frec. relativa) | $F_i$ (frec. acumulada) | $H_i$ (frec. rel. acum.) |
+|-----------|------------------------|------------------------|--------------------------|---------------------------|
+| $[a_1, a_2)$ | $f_1$ | $f_1/n$ | $f_1$ | $h_1$ |
+| $[a_2, a_3)$ | $f_2$ | $f_2/n$ | $f_1+f_2$ | $h_1+h_2$ |
+| $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ | $\vdots$ |
+| **Total** | $n$ | $1$ | — | — |
+
+```{r}
+#| label: tbl-frecuencias
+#| tbl-cap: "Tabla de frecuencias para años de educación"
+
+breaks  <- c(6, 9, 11, 13, 15, 18)
+etiq    <- c("[6, 9)", "[9, 11)", "[11, 13)", "[13, 15)", "[15, 18)")
+fi      <- as.integer(table(cut(educ, breaks = breaks, right = FALSE,
+                                labels = etiq)))
+n_total <- length(educ)
+
+tibble(
+  Intervalo = etiq,
+  `$f_i$`   = fi,
+  `$h_i$`   = round(fi / n_total, 3),
+  `$F_i$`   = cumsum(fi),
+  `$H_i$`   = round(cumsum(fi / n_total), 3)
+) |>
+  kable(align = "lrrrr") |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) |>
+  row_spec(nrow(tibble(Intervalo = etiq)), bold = TRUE)
+```
+
+---
+
+# Regla Empírica (Distribución Normal)
+
+Para datos con distribución aproximadamente **normal**:
+
+$$\bar{X} \pm S \quad \Rightarrow \quad \approx 68\%\ \text{de los datos}$$
+$$\bar{X} \pm 2S \quad \Rightarrow \quad \approx 95\%\ \text{de los datos}$$
+$$\bar{X} \pm 3S \quad \Rightarrow \quad \approx 99.7\%\ \text{de los datos}$$
+
+```{r}
+#| label: fig-regla-empirica
+#| fig-cap: "Regla empírica 68-95-99.7"
+#| fig-width: 9
+#| fig-height: 4
+
+x_norm <- seq(-4, 4, length.out = 500)
+df_norm <- data.frame(x = x_norm, y = dnorm(x_norm))
+
+bandas <- data.frame(
+  xmin  = c(-3, -2, -1),
+  xmax  = c( 3,  2,  1),
+  fill  = c("#EBF5FB", "#D6EAF8", "#AED6F1"),
+  label = c("99.7% (±3S)", "95% (±2S)", "68% (±1S)")
+)
+
+p_reg <- ggplot(df_norm, aes(x, y)) +
+  geom_line(linewidth = 1.2)
+
+for (i in seq_len(nrow(bandas))) {
+  sub <- df_norm |> filter(x >= bandas$xmin[i], x <= bandas$xmax[i])
+  p_reg <- p_reg +
+    geom_area(data = sub, aes(x = x, y = y),
+              fill = bandas$fill[i], alpha = 0.9, inherit.aes = FALSE)
+}
+
+p_reg +
+  geom_vline(xintercept = c(-3, -2, -1, 1, 2, 3),
+             linetype = "dotted", colour = "grey50", linewidth = 0.6) +
+  annotate("text", x = 0,    y = 0.20, label = "68%",   size = 3.8, colour = "#1A5276") +
+  annotate("text", x = 1.55, y = 0.07, label = "95%",   size = 3.8, colour = "#1A5276") +
+  annotate("text", x = 2.55, y = 0.02, label = "99.7%", size = 3.2, colour = "#1A5276") +
+  scale_x_continuous(
+    breaks = -3:3,
+    labels = c("-3S", "-2S", "-1S", "0", "+1S", "+2S", "+3S")
+  ) +
+  labs(
+    title = "Regla Empírica 68 – 95 – 99.7",
+    x     = "Desviaciones estándar respecto a la media",
+    y     = NULL
+  ) +
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
+```
+
+---
+
+# Resumen General de Fórmulas
+
+| Medida | Fórmula | Función R | Robustez |
+|--------|---------|-----------|----------|
+| Media | $\bar{X} = \frac{1}{n}\sum X_i$ | `mean(x)` | Baja |
+| Mediana | $X_{((n+1)/2)}$ o promedio central | `median(x)` | Alta |
+| Rango | $X_{(n)} - X_{(1)}$ | `diff(range(x))` | Muy baja |
+| RIQ | $q_3 - q_1$ | `IQR(x)` | Alta |
+| Varianza | $S^2 = \frac{\sum(X_i-\bar{X})^2}{n-1}$ | `var(x)` | Baja |
+| Desv. estándar | $S = \sqrt{S^2}$ | `sd(x)` | Baja |
+| CV | $S/|\bar{X}| \times 100\%$ | `sd(x)/mean(x)*100` | Moderada |
+| Asimetría | $\frac{1}{n}\sum\left(\frac{X_i-\bar{X}}{S}\right)^3$ | `e1071::skewness(x)` | — |
+| Curtosis | $\frac{1}{n}\sum\left(\frac{X_i-\bar{X}}{S}\right)^4 - 3$ | `e1071::kurtosis(x)` | — |
+| Bigote sup. | $\min(q_3 + 1.5\,\text{RIQ},\; X_{(n)})$ | (automático en boxplot) | — |
+| Bigote inf. | $\max(q_1 - 1.5\,\text{RIQ},\; X_{(1)})$ | (automático en boxplot) | — |
+
+---
+
+::: {.callout-tip}
+## Criterio para elegir media vs. mediana
+- **Distribución simétrica sin outliers** → usar **media**
+- **Distribución asimétrica o con outliers** → usar **mediana**
+- El signo de $\bar{X} - \text{Med}$ indica la dirección de la asimetría
+:::
+
+::: {.callout-note}
+## Diferencia clave: varianza poblacional vs. muestral
+$$\sigma^2 = \frac{\sum(X_i-\mu)^2}{N} \quad \text{(poblacional, divisor } N\text{)}$$
+$$S^2 = \frac{\sum(X_i-\bar{X})^2}{n-1} \quad \text{(muestral, divisor } n-1\text{)}$$
+El divisor $n-1$ corrige el **sesgo de estimación**: como $\bar{X}$ se estima de los mismos datos,
+se "pierde" un grado de libertad.  
+En R, `var(x)` y `sd(x)` usan $n-1$ por defecto. La varianza poblacional sería `var(x) * (n-1)/n`.
+:::
+
+::: {.callout-warning}
+## Paquetes necesarios
+```r
+install.packages(c("ggplot2", "dplyr", "tidyr",
+                   "knitr", "kableExtra", "scales", "e1071"))
+```
+:::

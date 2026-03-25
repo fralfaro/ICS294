@@ -1,0 +1,24 @@
+---
+title: "Fundamentos Estadísticos"
+format:
+  html:
+    toc: false
+---
+
+## Objetivo
+
+Este módulo introduce los conceptos esenciales de la econometría y los fundamentos estadísticos necesarios para estimar e interpretar modelos de regresión. Se estudia el modelo de regresión lineal simple, los supuestos de Gauss-Markov, los principios de causalidad e inferencia causal, y los principales problemas que afectan a la estimación por Mínimos Cuadrados Ordinarios (MCO), como las variables omitidas y los errores de medición. Al finalizar el módulo, el estudiante será capaz de formular un modelo de regresión, estimar sus parámetros y evaluar críticamente las condiciones bajo las cuales la estimación es válida.
+
+## Contenidos
+
+| # | Tema | Presentación |
+|:--:|------|:------------:|
+| 1 | [Introducción a la Econometría](s1.qmd) | [slides](../../t1.html) |
+| 2 | [Regresión Lineal Simple](s2.qmd) | [slides](../../t2.html) |
+| 3 | [Causalidad](s3.qmd) | [slides](../../t3.html) |
+| 4 | [Variables Omitidas](s4.qmd) | [slides](../../t4.html) |
+| 5 | [Error de Medición](s5.qmd) | [slides](../../t5.html) |
+| 6 | [Regresión Lineal Múltiple](s6.qmd) | [slides](../../t6.html) |
+| 7 | [Propiedades Estadísticas MCO (I)](s7.qmd) | [slides](../../t7.html) |
+| 8 | [Propiedades Estadísticas MCO (II)](s8.qmd) | [slides](../../t8.html) |
+

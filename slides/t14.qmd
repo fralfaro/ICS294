@@ -1,0 +1,111 @@
+---
+title: "Variables Independientes Binarias"
+lang: es
+---
+
+## Variables binarias (dummies)
+
+Las variables binarias permiten incorporar información **cualitativa** en nuestros modelos:
+
+- **Región** (Norte, Centro, Sur)
+- **Género** (Hombre, Mujer)
+- **Estado civil** (Casado, Soltero)
+- **Situación laboral** (Empleado, Desempleado)
+- **Educación** (Universitaria, Técnica, Escolar)
+
+Toman solo dos valores: **1** si posee la cualidad, **0** si no.
+
+## Efecto aditivo (diferencia de interceptos)
+
+Modelo de salarios según género:
+
+$$\text{salario} = \beta_0 + \delta_0 \, \text{mujer} + \beta_1 \, \text{educ} + u$$
+
+donde `mujer = 1` si es mujer y `0` si es hombre.
+
+| Grupo | Esperanza condicional |
+|---|---|
+| **Hombres** (mujer = 0) | $\beta_0 + \beta_1 \, educ$ |
+| **Mujeres** (mujer = 1) | $(\beta_0 + \delta_0) + \beta_1 \, educ$ |
+
+$\delta_0$: diferencia salarial **constante** entre mujeres y hombres para cualquier nivel de educación.
+
+## Regla de oro y categoría base
+
+Si una variable cualitativa tiene $q$ categorías, se deben incluir **$q - 1$** dummies en el modelo.
+
+**¿Por qué?**
+
+- Si incluimos las $q$ dummies más la constante → **trampa de la variable dummy** (multicolinealidad perfecta).
+- La categoría omitida se llama **categoría base**.
+- La constante ($\beta_0$) representa el promedio de la categoría base.
+- Los coeficientes de las otras dummies representan la **diferencia** respecto a esa base.
+
+## Ejemplo: salario por carrera
+
+4 categorías: Economía, Medicina, Ingeniería y "Sin Universidad" (base).
+
+$$\widehat{sal} = 100 + 500 \, \text{Econ} + 300 \, \text{Med} + 600 \, \text{Ing}$$
+
+| Grupo | Salario promedio |
+|---|---|
+| Sin Universidad (base) | 100 |
+| Economía | $100 + 500 = 600$ |
+| Medicina | $100 + 300 = 400$ |
+| Ingeniería | $100 + 600 = 700$ |
+
+Un ingeniero gana 300 más que un médico ($600 - 300$).
+
+## Interacción entre variables dummy
+
+¿Depende el "premio por matrimonio" del género?
+
+$$\text{wage} = \beta_0 + \beta_1 \, \text{mujer} + \beta_2 \, \text{casado} + \beta_3 \, (\text{mujer} \times \text{casado}) + u$$
+
+| Grupo | Salario esperado |
+|---|---|
+| Hombre soltero | $\beta_0$ |
+| Mujer soltera | $\beta_0 + \beta_1$ |
+| Hombre casado | $\beta_0 + \beta_2$ |
+| Mujer casada | $\beta_0 + \beta_1 + \beta_2 + \beta_3$ |
+
+$\beta_3$: diferencia extra en el efecto del matrimonio entre mujeres y hombres.
+
+## Interacción con variables cuantitativas
+
+Permite que la **pendiente** cambie según el grupo (diferentes retornos a la educación):
+
+$$\text{salario} = \beta_0 + \delta_0 \, \text{mujer} + \beta_1 \, \text{educ} + \delta_1 \, (\text{mujer} \times \text{educ}) + u$$
+
+| Grupo | Retorno por año de educación |
+|---|---|
+| Hombres | $\beta_1$ |
+| Mujeres | $\beta_1 + \delta_1$ |
+
+Si $\delta_1 \neq 0$, la educación tiene un impacto **diferente** según el género.
+
+## Test de Chow (cambio estructural)
+
+Testea si los coeficientes del modelo son iguales para dos o más grupos.
+
+**Pasos:**
+
+1. Estimar el modelo para cada grupo por separado → sumar sus SSR: $SSR_{ur} = \sum SSR_g$
+2. Estimar el modelo para toda la muestra conjunta → $SSR_r$
+3. Calcular el estadístico F:
+
+$$F = \frac{(SSR_r - SSR_{ur}) / (k+1)}{SSR_{ur} / (n - 2(k+1))}$$
+
+Si rechazamos $H_0$: los grupos son **estructuralmente distintos** y no deben modelarse con los mismos parámetros.
+
+## Ejercicio: salarios de CEOs
+
+$$\log(\widehat{salary}) = 4.59 + 0.257 \log(sales) + 0.011 \, roe + 0.158 \, fin + 0.181 \, cons - 0.283 \, util$$
+
+**Categoría base:** Transporte.
+
+- **¿Diferencia *utility* vs. transporte?**
+  El coeficiente de *utility* es $-0.283$ → los CEOs de servicios básicos ganan ~28.3% menos que los de transporte.
+
+- **¿Diferencia consumo vs. finanzas?**
+  $0.181 - 0.158 = 0.023$ → ~2.3% de diferencia.

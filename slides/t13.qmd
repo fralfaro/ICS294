@@ -1,0 +1,88 @@
+---
+title: "Propiedades Asintóticas de MCO"
+lang: es
+---
+
+## Introducción
+
+**Pregunta clave:** ¿cómo se comporta el estimador MCO cuando el tamaño de la muestra crece indefinidamente ($n \to \infty$)?
+
+- El análisis asintótico estudia el comportamiento del estimador en **muestras grandes**.
+- Permite justificar tests $t$ y $F$ incluso cuando los errores **no son normales**.
+- Propiedades en muestras finitas (ej. insesgadez) valen para cualquier $n$; las asintóticas solo cuando $n$ es grande.
+
+# Consistencia
+
+## ¿Qué es la consistencia?
+
+Un estimador es **consistente** si, al aumentar el tamaño de la muestra, el valor estimado se aproxima al valor verdadero del parámetro:
+
+$$\hat{\beta}_j^n \xrightarrow{p} \beta_j$$
+
+En términos de probabilidad:
+
+$$\Pr\!\left(|\hat{\beta}_j^n - \beta_j| > \varepsilon\right) \to 0 \quad \text{cuando } n \to \infty$$
+
+Notación: **plim** (límite en probabilidad): $\text{plim}\; \hat{\beta}_j^n = \beta_j$
+
+## Supuestos para la consistencia
+
+Para que MCO sea consistente:
+
+1. **Linealidad** en los parámetros.
+2. **Muestreo aleatorio**.
+3. **No multicolinealidad perfecta**.
+4. **Exogeneidad (Supuesto 4'):** $Cov(x_j, u) = 0$
+
+*Nota importante:* para la consistencia **no es necesario** suponer que los errores $u$ siguen una distribución normal.
+
+# Normalidad Asintótica
+
+## Normalidad asintótica
+
+Gracias al **Teorema Central del Límite**, aunque los errores no sean normales, la distribución de los estimadores se aproxima a una normal cuando la muestra es grande:
+
+$$\hat{\beta} \xrightarrow{d} N\!\left(\beta,\; \sigma^2 (X^\top X)^{-1}\right)$$
+
+**Implicaciones:**
+
+- Justifica el uso de intervalos de confianza en muestras grandes.
+- Permite realizar tests $t$ y $F$ **sin** el supuesto de normalidad exacta de $u$.
+
+## Eficiencia asintótica
+
+Un estimador es **asintóticamente eficiente** si tiene la varianza mínima dentro de la clase de estimadores consistentes y normales.
+
+| Escenario | MCO consistente | MCO eficiente |
+|---|:---:|:---:|
+| Homocedasticidad | Sí | Sí |
+| Heterocedasticidad | Sí | No |
+
+Bajo heterocedasticidad, MCO sigue siendo consistente, pero deja de ser eficiente. Esto **no se soluciona** aumentando la muestra.
+
+## Importancia práctica
+
+En palabras del Nobel Clive Granger:
+
+> *"Si usted no puede obtener un resultado correcto a medida que $n$ tiende a infinito, es mejor que se dedique a otra cosa."*
+
+- La consistencia es el **requisito mínimo** para cualquier estimador.
+- Si un estimador es **inconsistente**, tener más datos no ayuda: seguiremos estimando el valor erróneo.
+
+## Verificación en R
+
+A medida que aumentamos el tamaño de la muestra en una simulación, el histograma de los $\hat{\beta}$ se vuelve más estrecho y se centra exactamente en el valor real.
+
+```r
+# Simulación: n = 10, 100, 1000
+for (n in c(10, 100, 1000)) {
+  betas <- replicate(1000, {
+    x <- rnorm(n); u <- rnorm(n)
+    y <- 2 + 3*x + u
+    coef(lm(y ~ x))[2]
+  })
+  hist(betas, main = paste("n =", n))
+}
+```
+
+Con $n$ grande: la varianza disminuye y la precisión aumenta drásticamente.

@@ -1,0 +1,89 @@
+---
+title: "Series de Tiempo"
+lang: es
+---
+
+## ¿Qué es una serie de tiempo?
+
+Una **serie de tiempo** es un conjunto de observaciones cuantitativas ordenadas cronológicamente:
+
+$$Y_1, Y_2, \dots, Y_T$$
+
+donde $Y_t$ es el valor observado en el instante $t$.
+
+A diferencia del corte transversal, el **orden de los datos es fundamental** porque existe una dependencia temporal.
+
+## Componentes clásicos de una serie
+
+Toda serie de tiempo puede descomponerse en cuatro elementos:
+
+| Componente | Símbolo | Descripción |
+|---|:---:|---|
+| **Tendencia** | $T$ | Movimiento suave de largo plazo |
+| **Ciclo** | $C$ | Oscilaciones de largo plazo alrededor de la tendencia |
+| **Estacionalidad** | $E$ | Patrones que se repiten en periodos fijos |
+| **Aleatoriedad** | $A$ | Movimientos erráticos o "ruido" impredecible |
+
+**Formas de combinación:**
+- **Aditivo:** $Y_t = T_t + C_t + E_t + A_t$
+- **Multiplicativo:** $Y_t = T_t \cdot C_t \cdot E_t \cdot A_t$
+
+## Procesos estocásticos
+
+Una serie de tiempo observada es solo una **realización** particular de un proceso estocástico $\{Y_t\}$.
+
+- **Proceso estocástico:** colección de variables aleatorias indexadas por el tiempo.
+- **Espacio muestral ($\Omega$):** conjunto de todas las trayectorias posibles.
+- **Realización:** el camino que efectivamente ocurrió y que medimos en los datos.
+
+# Estacionariedad
+
+## Concepto de estacionariedad
+
+Para realizar inferencia estadística en el tiempo, necesitamos que el proceso sea **estacionario** (débilmente):
+
+1. **Media constante:** $E[Y_t] = \mu$ (sin tendencia)
+2. **Varianza constante:** $Var(Y_t) = \sigma^2$ (sin cambios en la volatilidad)
+3. **Covarianza estacionaria:** $Cov(Y_t, Y_{t+h})$ depende solo del rezago $h$, no del momento $t$
+
+## Ruido blanco ($\varepsilon_t$)
+
+El bloque de construcción básico de los modelos de series de tiempo.
+
+Un proceso es **Ruido Blanco** si:
+
+$$E[\varepsilon_t] = 0, \qquad Var(\varepsilon_t) = \sigma^2, \qquad Cov(\varepsilon_t, \varepsilon_{t+h}) = 0 \text{ para } h \neq 0$$
+
+Representa la parte de la serie que es puramente azar y **no contiene información útil** para predecir el futuro.
+
+# Modelos
+
+## Modelos autorregresivos: AR(p)
+
+El valor actual de la serie depende linealmente de sus **propios valores pasados** más un error.
+
+**Modelo AR(1):**
+
+$$Y_t = \phi Y_{t-1} + \varepsilon_t$$
+
+| Condición | Resultado |
+|---|---|
+| $|\phi| < 1$ | Proceso **estacionario** |
+| $\phi = 1$ | **Paseo aleatorio** (no estacionario) |
+
+## Modelos de media móvil: MA(q)
+
+El valor actual depende de los **errores (choques) pasados**.
+
+**Modelo MA(1):**
+
+$$Y_t = \varepsilon_t + \theta \varepsilon_{t-1}$$
+
+A diferencia del AR, un modelo MA siempre es **estacionario**, ya que es una combinación lineal de términos de ruido blanco con varianza finita.
+
+## Herramienta de diagnóstico: el correlograma
+
+La **Función de Autocorrelación (ACF)** mide la correlación entre $Y_t$ y sus rezagos $Y_{t-h}$.
+
+- Permite identificar el tipo de modelo (AR o MA).
+- En un proceso estacionario, las correlaciones deben **caer rápidamente** hacia cero a medida que aumenta el rezago.

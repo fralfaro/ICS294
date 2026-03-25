@@ -1,0 +1,21 @@
+---
+title: "Modelos de Regresión"
+format:
+  html:
+    toc: false
+---
+
+## Objetivo
+
+Este módulo desarrolla las herramientas necesarias para la interpretación, inferencia y evaluación de modelos de regresión lineal múltiple. Se estudia la interpretación de coeficientes bajo distintas especificaciones funcionales (logarítmica, cuadrática, interacciones), la realización de tests de hipótesis individuales y conjuntos, las propiedades asintóticas del estimador MCO y la incorporación de variables cualitativas mediante variables binarias. Al finalizar el módulo, el estudiante será capaz de especificar, estimar e interpretar modelos de regresión múltiple, realizar inferencia estadística rigurosa y aplicar el Test F para evaluar la significancia conjunta de grupos de variables.
+
+## Contenidos
+
+| # | Tema | Presentación |
+|:--:|------|:------------:|
+| 9  | [Interpretación de Coeficientes](s9.qmd) | [slides](../../t9.html) |
+| 10 | [Inferencia sobre un Parámetro](s10.qmd) | [slides](../../t10.html) |
+| 11 | [Inferencia sobre Diferencias entre Parámetros](s11.qmd) | [slides](../../t11.html) |
+| 12 | [Test F: Significancia Conjunta](s12.qmd) | [slides](../../t12.html) |
+| 13 | [Propiedades Asintóticas](s13.qmd) | [slides](../../t13.html) |
+| 14 | [Variables Independientes Binarias](s14.qmd) | [slides](../../t14.html) |

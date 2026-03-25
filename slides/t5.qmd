@@ -1,0 +1,131 @@
+---
+title: "Error de Medición"
+lang: es
+---
+
+# Error de Medición
+
+## El mundo real
+
+Hasta ahora, hemos hablado de las variables $y$ e $x$ como dadas en nuestro modelo.
+
+Pero una vez que tratamos de estimar la relación entre estas variables, hay que usar lo que está disponible en los datos reales.
+
+A menudo, **no se cuenta con datos sobre la variable económica que realmente nos interesa**.
+
+**Ejemplos:**
+
+- Ingreso verdadero vs. ingreso declarado
+- Calorías consumidas vs. calorías compradas
+
+## Error de medición: definición
+
+La variable que nos interesa es $W^*$, pero solo tenemos una versión imprecisa $W$:
+
+$$W = W^* + u$$
+
+El **error de medida** es $u = W - W^*$: la diferencia entre lo observado y lo verdadero.
+
+**Error clásico:** el escenario menos grave cuando:
+
+$$E(u) = 0 \quad \text{y} \quad Cov(u, W^*) = 0$$
+
+Analizaremos el impacto de este error según si ocurre en la variable **dependiente** o **independiente**.
+
+# Error en la Variable Dependiente
+
+## Formulación del modelo
+
+Considere el modelo verdadero (sin sesgo por variable omitida):
+
+$$Y^* = \beta_0 + \beta_1 X + \varepsilon, \qquad E[\varepsilon \mid X] = 0$$
+
+Pero solo observamos $Y = Y^* + u$, con error clásico: $Cov(Y^*, u) = 0$ y $V(u) = \sigma_u^2$.
+
+Sustituyendo $Y^* = Y - u$:
+
+$$Y = \beta_0 + \beta_1 X + v$$
+
+donde $v = \varepsilon + u$.
+
+## ¿Será $\hat{\beta}_1$ insesgado?
+
+Como el error de medición de $Y$ **no** está correlacionado con $X$, no causará sesgo.
+
+**Demostración:**
+
+$$E(\hat{\beta}_1) = \frac{Cov(X, Y)}{Var(X)} = \frac{Cov(X, Y^* + u)}{Var(X)}$$
+
+$$= \frac{Cov(X, Y^*)}{Var(X)} + \frac{Cov(X, u)}{Var(X)} = \beta_1 + 0 = \beta_1$$
+
+**Intuición:** Si el error de medida en $Y$ no está sistemáticamente relacionado con $X$, el estimador MCO sigue siendo insesgado.
+
+## Impacto sobre la precisión
+
+Aunque el estimador es insesgado, tendrá **mayor varianza**.
+
+Con errores de medición en la variable dependiente, el error total es $v = \varepsilon + u$.
+
+$$Var(v) = Var(\varepsilon) + Var(u) > Var(\varepsilon)$$
+
+Esto significa que será **más difícil** obtener resultados estadísticamente significativos.
+
+# Error en la Variable Independiente
+
+## Ejemplo: relación entre salario e IQ
+
+Cuando la variable independiente está mal medida, el problema es **más grave**.
+
+- Las pruebas de IQ son una medición imprecisa de la inteligencia real.
+- Usar el puntaje observado en lugar del IQ verdadero introduce error de medición en el regresor.
+
+## Impacto sobre MCO
+
+Tenemos $X = X^* + u$, con error clásico: $Cov(X^*, u) = 0$.
+
+| | Modelo |
+|---|---|
+| **Verdadero** | $Y = \beta_0 + \beta_1 X^* + \epsilon$ |
+| **Estimado** | $Y = b_0 + b_1 X + v$ |
+
+El nuevo error es $v = \epsilon - \beta_1 u$.
+
+Como $Cov(X, v) = Cov(X^* + u,\, \epsilon - \beta_1 u) = -\beta_1 Var(u) \neq 0$, el estimador $\hat{b}_1$ será **sesgado**.
+
+## Sesgo de atenuación
+
+Derivando el valor esperado:
+
+$$E[\hat{b}_1] = \frac{Cov(X^* + u, Y)}{Var(X^* + u)} = \frac{Cov(X^*, Y)}{Var(X^*) + Var(u)}$$
+
+Sustituyendo $Y = \beta_0 + \beta_1 X^* + \epsilon$:
+
+$$E[\hat{b}_1] = \beta_1 \frac{Var(X^*)}{Var(X^*) + Var(u)} = a \cdot \beta_1$$
+
+donde $a = \dfrac{Var(X^*)}{Var(X^*) + Var(u)} < 1$.
+
+## Análisis del sesgo de atenuación
+
+$$E(\hat{b}_1) = a \cdot \beta_1, \qquad a < 1$$
+
+- El coeficiente MCO será **más pequeño en valor absoluto**: subestimamos el efecto real.
+- Si $\beta_1 > 0$ → el estimador será **menor** al parámetro.
+- Si $\beta_1 < 0$ → el estimador será **menos negativo** (mayor) al parámetro.
+
+La magnitud del sesgo depende del **signal-to-noise ratio**:
+
+$$a = \frac{Var(X^*)}{Var(X^*) + Var(u)}$$
+
+Cuanto mayor el ruido $Var(u)$ relativo a la señal $Var(X^*)$, mayor el sesgo.
+
+## Conclusiones
+
+| | Variable dependiente | Variable independiente |
+|---|---|---|
+| **Sesgo** | No | Sí (atenuación) |
+| **Varianza** | Aumenta | Aumenta |
+| **Dirección** | — | Subestima $|\beta_1|$ |
+
+- **Variable dependiente:** errores de medición no generan sesgo, pero aumentan la varianza.
+- **Variable independiente:** genera **sesgo de atenuación**. Siempre subestimamos la magnitud de la relación.
+- En el mundo real, los datos imprecisos dificultan reconocer las verdaderas relaciones económicas.

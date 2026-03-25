@@ -1,7 +1,17 @@
 project:
   type: book
   output-dir: docs
-  
+  render:
+    - "index.qmd"
+    - "material/modulo_01/index.qmd"
+    - "material/modulo_01/s*.qmd"
+    - "material/modulo_02/index.qmd"
+    - "material/modulo_02/s*.qmd"
+    - "material/modulo_03/index.qmd"
+    - "material/modulo_03/s*.qmd"
+    - "material/anexos/*.qmd"
+    - "material/anexos/*.ipynb"
+
 book:
   title: "ICS294 - Econometría"
   author: 
@@ -16,9 +26,9 @@ book:
 
   chapters:
     - index.qmd
-    - material/modulo_01/s1.qmd
-    - part:  Fundamentos Estadísticos
+    - part: material/modulo_01/index.qmd  # <-- archivo, no texto
       chapters:
+        - material/modulo_01/s1.qmd
         - material/modulo_01/s2.qmd
         - material/modulo_01/s3.qmd
         - material/modulo_01/s4.qmd
@@ -27,7 +37,7 @@ book:
         - material/modulo_01/s7.qmd 
         - material/modulo_01/s8.qmd 
 
-    - part:  Modelos de Regresión
+    - part: material/modulo_02/index.qmd  # <-- archivo, no texto
       chapters:
         - material/modulo_02/s9.qmd
         - material/modulo_02/s10.qmd
@@ -36,7 +46,7 @@ book:
         - material/modulo_02/s13.qmd
         - material/modulo_02/s14.qmd
 
-    - part: Aplicaciones Avanzadas
+    - part: material/modulo_03/index.qmd  # <-- archivo, no texto
       chapters:
         - material/modulo_03/s15.qmd
         - material/modulo_03/s16.qmd
@@ -45,6 +55,14 @@ book:
         - material/modulo_03/s19.qmd
         - material/modulo_03/s20.qmd
         - material/modulo_03/s21.qmd
+
+    - part: Anexos
+      chapters:
+        - material/anexos/estadistica_descriptiva_r.qmd
+        - material/anexos/variables_aleatorias.qmd
+        - material/anexos/inferencia_estadistica.qmd
+        - material/anexos/repaso_r.ipynb
+
   
 index:
   qmd:

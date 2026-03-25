@@ -1,0 +1,12 @@
+project:
+  type: default
+  output-dir: ../docs
+
+format:
+  revealjs:
+    logo: ../images/usm.png
+    theme: default
+    slide-number: true
+    footer: "ICS294 – Econometría"
+
+lang: es

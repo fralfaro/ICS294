@@ -1,0 +1,95 @@
+---
+title: "Test F: Significancia Conjunta"
+lang: es
+---
+
+## Test conjunto
+
+A menudo queremos testear si **varios parámetros son cero al mismo tiempo**:
+
+$$H_0: \beta_1 = \beta_2 = 0 \qquad H_1: \text{al menos uno} \neq 0$$
+
+Si rechazamos $H_0$, decimos que $x_1$ y $x_2$ son **conjuntamente significativas**.
+
+*Nota:* el test no indica cuál variable es relevante, solo que el grupo aporta información al modelo. Para esto usamos el **Estadístico F**.
+
+## Repaso: bondad de ajuste
+
+A partir de $y = \hat{y} + \hat{u}$:
+
+| Sigla | Nombre | Descripción |
+|---|---|---|
+| SST | Total | Variabilidad total de $y$ |
+| SSE | Explicada | Lo que el modelo logra explicar |
+| SSR | Residual | Lo que el modelo no explica |
+| $R^2$ | — | $1 - SSR/SST$ |
+
+**Regla clave:** si agrego variables relevantes, el **SSR disminuye** y el **$R^2$ aumenta**.
+
+## Modelo restringido vs. no restringido
+
+| Modelo | Variables | SSR |
+|---|---|---|
+| **No restringido (UR)** | Todas las $k$ variables | $SSR_{ur}$ |
+| **Restringido (R)** | Sin las variables en duda | $SSR_r$ |
+
+El modelo restringido siempre tiene más SSR:
+
+$$SSR_r \geq SSR_{ur}$$
+
+Si la diferencia es muy grande, las variables excluidas eran **realmente importantes**.
+
+## El Estadístico F
+
+Mide la disminución **relativa** del SSR al pasar del modelo restringido al no restringido:
+
+$$F = \frac{(SSR_r - SSR_{ur}) / j}{SSR_{ur} / (n - k - 1)}$$
+
+- $j$: número de restricciones (coeficientes igualados a 0).
+- $n - k - 1$: grados de libertad del modelo no restringido.
+
+**Versión con $R^2$:**
+
+$$F = \frac{(R^2_{ur} - R^2_r) / j}{(1 - R^2_{ur}) / (n - k - 1)}$$
+
+## Zona de rechazo
+
+Rechazamos $H_0$ si:
+
+$$F_{calc} > F_{\alpha;\; j;\; n-k-1}$$
+
+Cuanto mayor es el valor de $F$, más evidencia hay de que las variables excluidas son **conjuntamente significativas**.
+
+## Ejemplo: salarios en el béisbol
+
+¿El rendimiento (**hrunsyr**, **rbisyr**) influye en el salario, controlando por años en la liga y juegos por año?
+
+- **UR:** $\log(sal) = \beta_0 + \beta_1 \, years + \beta_2 \, gamesyr + \beta_3 \, hrunsyr + \beta_4 \, rbisyr + u$
+- **R:** $\log(sal) = \gamma_0 + \gamma_1 \, years + \gamma_2 \, gamesyr + e$
+
+$$F = \frac{(198.31 - 183.60) / 2}{183.60 / (353 - 4 - 1)} = 13.94$$
+
+Como $13.94 > 3.02$ (valor crítico al 5%) → **rechazamos $H_0$**. El rendimiento sí importa.
+
+## Test F y multicolinealidad
+
+¿Por qué usar el Test F si ya tenemos el Test $t$?
+
+1. En el ejemplo anterior, los tests $t$ individuales pueden no ser significativos.
+2. Esto ocurre por la **multicolinealidad**: variables muy correlacionadas entre sí (ej. home runs y carreras impulsadas).
+3. La multicolinealidad infla las varianzas de los $\hat{\beta}$ individuales, "escondiendo" su importancia en el test $t$.
+4. El **Test F** supera este problema al evaluar el aporte del **grupo completo** de variables.
+
+## Caso especial: significancia global
+
+El test más común reportado en softwares estadísticos. Evalúa si **el modelo completo** sirve:
+
+$$H_0: \beta_1 = \beta_2 = \dots = \beta_k = 0$$
+
+Modelo R: $y = \beta_0 + u$ → $R^2_r = 0$
+
+El estadístico se simplifica a:
+
+$$F = \frac{R^2 / k}{(1 - R^2) / (n - k - 1)}$$
+
+Si este test no se rechaza, **ninguna** de las variables explicativas tiene relación con $y$.

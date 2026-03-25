@@ -1,0 +1,125 @@
+---
+title: "Inferencia sobre un Parámetro"
+lang: es
+---
+
+## Teorema de Gauss-Markov
+
+Bajo los supuestos 1 a 5, el estimador MCO de $\beta$ es de **mínima varianza** entre los estimadores lineales insesgados.
+
+El estimador MCO es el **MELI** (Mejor Estimador Lineal Insesgado) — o **BLUE** en inglés.
+
+# Distribución de los Estimadores
+
+## Supuesto 6: normalidad de $u$
+
+$$u \sim N(0, \sigma^2)$$
+
+Este supuesto es fundamental para la **inferencia**: para construir intervalos de confianza y tests de hipótesis necesitamos conocer la distribución de $\hat{\beta}$.
+
+**Justificación:** el Teorema del Límite Central — $u$ es la suma de muchos factores no observados independientes.
+
+## Supuestos del Modelo Lineal Clásico (MLC)
+
+Gauss-Markov + normalidad:
+
+- Los estimadores MCO son insesgados de **varianza mínima** (no solo dentro de los lineales).
+- La distribución condicional es:
+
+$$y \mid X \sim N(\beta_0 + \beta_1 x_1 + \dots + \beta_k x_k,\; \sigma^2)$$
+
+## Distribución del estimador MCO
+
+Bajo los supuestos 1 a 6:
+
+$$\hat{\beta}_j \mid X \sim N\!\left(\beta_j,\; Var(\hat{\beta}_j \mid X)\right)$$
+
+Como $\sigma^2$ es desconocido, usamos $\hat{\sigma}^2$ → la distribución normal se convierte en **t-Student**:
+
+$$\frac{\hat{\beta}_j - \beta_j}{s.e.(\hat{\beta}_j)} \sim t_{n-k-1}$$
+
+donde $s.e.(\hat{\beta}_j) = \sqrt{\hat{Var}(\hat{\beta}_j \mid X)}$.
+
+# Tests de Hipótesis
+
+## Test de hipótesis individual
+
+Para testear si un coeficiente es igual a un valor $a_j$:
+
+$$H_0: \beta_j = a_j \qquad H_1: \beta_j \neq a_j$$
+
+**Caso particular ($a_j = 0$):** test de significancia.
+
+Si rechazamos $H_0$, la variable $x_j$ es estadísticamente **significativa** para explicar $y$.
+
+**Estadístico t:**
+
+$$t_{\hat{\beta}_j} = \frac{\hat{\beta}_j - a_j}{s.e.(\hat{\beta}_j)}$$
+
+## Errores Tipo I y Tipo II
+
+| | No rechazar $H_0$ | Rechazar $H_0$ |
+|---|---|---|
+| **$H_0$ verdadera** | Correcto | **Error Tipo I** ($\alpha$) |
+| **$H_0$ falsa** | **Error Tipo II** ($\beta$) | Correcto |
+
+- **Error Tipo I:** rechazar lo que es cierto (falso positivo).
+- **Error Tipo II:** no detectar un efecto real (falso negativo).
+
+## Regla de decisión (test de dos colas)
+
+Fijamos un nivel de significancia $\alpha$ (usualmente 5%).
+
+Se rechaza $H_0$ si:
+
+$$|t_{\hat{\beta}_j}| \geq t_{\alpha/2,\; n-k-1}$$
+
+Si el valor absoluto del estadístico calculado supera el valor crítico de la tabla → la variable es **significativa**.
+
+## Valor-p (p-value)
+
+Es el menor nivel de significancia al que se habría rechazado $H_0$.
+
+**Interpretación:** probabilidad de observar un estadístico tan extremo como el obtenido **si $H_0$ fuera cierta**.
+
+**Regla de oro:**
+
+$$p\text{-valor} < \alpha \quad \Rightarrow \quad \text{rechazamos } H_0$$
+
+## Intervalos de confianza
+
+El intervalo al $(1-\alpha)100\%$ para $\beta_j$:
+
+$$\hat{\beta}_j \pm t_{\alpha/2} \cdot s.e.(\hat{\beta}_j)$$
+
+- Si el valor bajo $H_0$ (ej. 0) **no** está en el intervalo → el coeficiente es estadísticamente significativo.
+- **Ejemplo:** con 95% de confianza, el verdadero $\beta_j$ se encuentra entre los límites calculados.
+
+## Ejemplo: educación e ingresos
+
+Modelo: $y_i = \beta_0 + \beta_1 \, educ_i + \beta_2 \, IQ_i + u_i$
+
+- $\hat{\beta}_1 = 42.0576$, $\quad s.e.(\hat{\beta}_1) = 6.5498$
+- $n = 935 \Rightarrow gl = 932$
+
+**Test $H_0: \beta_1 = 0$:**
+
+$$t = \frac{42.0576}{6.5498} = 6.42$$
+
+Como $|6.42| > 1.96$ (valor crítico al 5%), **rechazamos $H_0$**. La educación es significativa.
+
+## Tests de una cola
+
+Se usan cuando la teoría económica sugiere una dirección específica:
+
+$$H_0: \beta_j = 0 \qquad H_1: \beta_j > 0 \text{ (o } \beta_j < 0\text{)}$$
+
+Toda la probabilidad $\alpha$ se concentra en una sola cola.
+
+El valor crítico es **menor** (ej. 1.645 para 5% con distribución normal).
+
+## Conclusiones
+
+- La inferencia permite pasar de datos muestrales a conclusiones poblacionales.
+- El **error estándar** mide la precisión de nuestra estimación.
+- El **estadístico t** y el **p-valor** son las herramientas estándar para decidir si una variable debe permanecer en el modelo.

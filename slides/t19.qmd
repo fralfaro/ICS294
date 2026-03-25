@@ -1,0 +1,81 @@
+---
+title: "Dependencia de los Errores en Series de Tiempo"
+lang: es
+---
+
+## Series de tiempo vs. corte transversal
+
+A diferencia de los datos de corte transversal, las **series de tiempo** presentan datos ordenados cronológicamente.
+
+Particularidades críticas:
+
+- Las observaciones **no son independientes** entre sí.
+- El pasado suele influir en el presente.
+- Se deben tener cuidados especiales al aplicar MCO e interpretar causalidad.
+
+## El supuesto de independencia
+
+El teorema de Gauss-Markov requiere **muestreo aleatorio** (observaciones i.i.d.).
+
+En series de tiempo, este supuesto suele fallar:
+
+- ¿Qué ocurre si el error de hoy ($u_t$) está relacionado con el error de ayer ($u_{t-1}$)?
+- Las observaciones son **dependientes**.
+- **Consecuencia:** los errores están correlacionados serialmente.
+
+## Tipos de dependencia de los errores
+
+| Tipo | Descripción | Ejemplo |
+|---|---|---|
+| **Autocorrelación serial** | Error en $t$ correlaciona con $t-1$ | Choque económico en 2023 afecta residuos de 2024 |
+| **Correlación espacial** | Error de una unidad afecta a su vecina | Alumnos en una misma sala con el mismo profesor |
+| **Datos de panel** | Ocurren ambas | Errores de un individuo correlacionados a través del tiempo |
+
+## La matriz de varianzas-covarianzas ($\Sigma$)
+
+La dependencia "llena" los elementos fuera de la diagonal principal:
+
+| Escenario | Diagonal | Fuera de diagonal |
+|---|---|---|
+| **MCO clásico** | $\sigma^2$ (constante) | 0 (independencia) |
+| **Heterocedasticidad** | $\sigma^2_t$ (varía) | 0 |
+| **Autocorrelación** | $\sigma^2$ | $\sigma^2 \rho_{t,s} \neq 0$ |
+
+## ¿Qué problemas trae la autocorrelación?
+
+Si ignoramos la dependencia y usamos MCO estándar:
+
+| Propiedad | ¿Se mantiene? |
+|---|---|
+| **Insesgadez** | Sí — $\hat{\beta}$ sigue apuntando al valor real |
+| **Eficiencia** | No — MCO pierde eficiencia (ya no es MELI) |
+| **Estadísticos $t$ y $F$** | No válidos — errores estándar generalmente **subestimados** |
+
+El resultado: encontrar **significancia donde no la hay**.
+
+# Corrección
+
+## Errores robustos HAC
+
+Para corregir la inferencia sin abandonar MCO, usamos errores **HAC** (*Heteroskedasticity and Autocorrelation Consistent*).
+
+**Errores de Newey-West:**
+
+- Extensión del estimador "Sandwich".
+- Válidos incluso si hay heterocedasticidad **y** autocorrelación de orden $q$.
+- Aplican pesos que **disminuyen con el tiempo**: los rezagos más lejanos pesan menos.
+
+## Implementación práctica
+
+Pasos para inferencia correcta en series de tiempo:
+
+1. Estimar el modelo por MCO.
+2. Testear la presencia de autocorrelación (Test de Durbin-Watson o Breusch-Godfrey).
+3. Si existe dependencia: reportar resultados con la matriz de **Newey-West**.
+4. En **R:**
+
+```r
+library(sandwich)
+library(lmtest)
+coeftest(modelo, vcov = NeweyWest(modelo))
+```
